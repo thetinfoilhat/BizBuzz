@@ -106,21 +106,24 @@ const StatsSection = () => {
     <section className="w-full bg-gray-50 py-20 border-t border-gray-100">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col items-center mb-24">
-          <div className="max-w-5xl w-full flex justify-start">
-            <h2 className="flex text-4xl md:text-5xl font-bold">
+          <div className="max-w-5xl w-full">
+            <h2 className="text-4xl md:text-5xl font-bold flex items-center">
               <span className="text-[#1e293b]">We help students</span>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="ml-3 bg-gradient-to-r from-[#6366F1] to-[#38b6ff] text-transparent bg-clip-text whitespace-nowrap"
-                >
-                  {phrases[index]}
-                </motion.span>
-              </AnimatePresence>
+              <div className="relative ml-3 flex items-baseline" style={{ minWidth: "300px", height: "1.2em" }}>
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute left-0 bg-gradient-to-r from-[#6366F1] to-[#38b6ff] text-transparent bg-clip-text whitespace-nowrap"
+                    style={{ bottom: '0.05em' }}
+                  >
+                    {phrases[index]}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
             </h2>
           </div>
         </div>
