@@ -17,14 +17,14 @@ const Header = () => {
           </div>
           <nav className="flex items-center space-x-8">
             <Link 
-              href="/bootcamps" 
+              href="/camps" 
               className={`text-sm transition-colors ${
-                pathname === "/bootcamps" 
+                pathname.includes("/camps") 
                   ? "text-[#6366F1] font-medium" 
                   : "text-[#000000] hover:text-[#6366F1]"
               }`}
             >
-              Bootcamps
+              Camps
             </Link>
             <Link 
               href="/practice" 
