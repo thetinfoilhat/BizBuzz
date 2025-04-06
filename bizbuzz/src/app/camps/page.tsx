@@ -269,9 +269,9 @@ const ImageGrid = ({ images, title }: { images: string[], title: string }) => {
   }
   
   return (
-    <div className="grid grid-cols-7 gap-2 h-full">
+    <div className="grid grid-cols-6 gap-2 h-full">
       {/* Main large image */}
-      <div className="col-span-4 row-span-2 relative rounded-xl overflow-hidden h-[320px]">
+      <div className="col-span-3 row-span-2 relative rounded-xl overflow-hidden h-[320px]">
         <Image
           src={allImages[0]}
           alt={`${title} main image`}
@@ -283,7 +283,7 @@ const ImageGrid = ({ images, title }: { images: string[], title: string }) => {
       {/* Small images grid */}
       <div className="col-span-3 grid grid-rows-2 gap-2 h-[320px]">
         <div className="grid grid-cols-2 gap-2">
-          <div className="relative rounded-xl overflow-hidden">
+          <div className="relative rounded-xl overflow-hidden h-[156px]">
             <Image
               src={allImages[1]}
               alt={`${title} secondary image`}
@@ -291,7 +291,7 @@ const ImageGrid = ({ images, title }: { images: string[], title: string }) => {
               className="object-cover"
             />
           </div>
-          <div className="relative rounded-xl overflow-hidden">
+          <div className="relative rounded-xl overflow-hidden h-[156px]">
             <Image
               src={allImages[2]}
               alt={`${title} tertiary image`}
@@ -301,7 +301,7 @@ const ImageGrid = ({ images, title }: { images: string[], title: string }) => {
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2">
-          <div className="relative rounded-xl overflow-hidden">
+          <div className="relative rounded-xl overflow-hidden h-[156px]">
             <Image
               src={allImages[3]}
               alt={`${title} fourth image`}
@@ -309,7 +309,7 @@ const ImageGrid = ({ images, title }: { images: string[], title: string }) => {
               className="object-cover"
             />
           </div>
-          <div className="relative rounded-xl overflow-hidden">
+          <div className="relative rounded-xl overflow-hidden h-[156px]">
             <Image
               src={allImages[4]}
               alt={`${title} fifth image`}
@@ -386,16 +386,8 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
       <div className="pt-5 pb-6 px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Left Column - Description and Images */}
-          <motion.div variants={fadeIn} className="md:col-span-7">
-            <div className="flex items-center mb-3">
-              <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: session.color }}>
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-              <h4 className="font-bold text-lg text-gray-800">SESSION OVERVIEW</h4>
-            </div>
-            <p className="text-gray-700 mb-8 text-lg leading-relaxed">
+          <motion.div variants={fadeIn} className="md:col-span-8">
+            <p className="text-gray-700 mb-6 text-lg leading-relaxed">
               {session.description}
             </p>
             
@@ -405,47 +397,37 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
           </motion.div>
           
           {/* Right Column - Speaker Card */}
-          <motion.div variants={fadeIn} className="md:col-span-5">
+          <motion.div variants={fadeIn} className="md:col-span-4 flex">
             <div 
-              className="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 h-full flex flex-col"
+              className="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col w-full"
             >
-              <div className="text-center py-4" style={{ backgroundColor: `${session.color}10` }}>
+              <div className="text-center py-3" style={{ backgroundColor: `${session.color}10` }}>
                 <h4 className="font-bold text-gray-800 text-lg">FEATURED SPEAKER</h4>
               </div>
               
-              <div className="p-6 flex flex-col items-center text-center flex-grow">
-                <div className="relative w-28 h-28 rounded-full overflow-hidden border-4 mb-4" 
-                  style={{ borderColor: session.color }}>
-                  <Image 
-                    src={session.speaker.image} 
-                    alt={session.speaker.name}
-                    fill
-                    className="object-cover"
-                  />
+              <div className="p-5 flex flex-col items-center text-center flex-grow justify-between">
+                <div className="flex flex-col items-center w-full">
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 mb-3 mx-auto" 
+                    style={{ borderColor: session.color }}>
+                    <Image 
+                      src={session.speaker.image} 
+                      alt={session.speaker.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <h5 className="text-xl font-semibold text-gray-800 mb-1">{session.speaker.name}</h5>
+                  <p className="text-gray-600 text-sm mb-2">{session.speaker.role}</p>
+                  <div 
+                    className="inline-block px-3 py-1 rounded-full text-sm mb-3"
+                    style={{ backgroundColor: `${session.color}20`, color: session.color }}
+                  >
+                    &ldquo;{session.speaker.topic}&rdquo;
+                  </div>
+                  <p className="text-gray-700 italic text-sm">
+                    {session.speaker.bio}
+                  </p>
                 </div>
-                <h5 className="text-2xl font-semibold text-gray-800 mb-1">{session.speaker.name}</h5>
-                <p className="text-gray-600 text-base mb-3">{session.speaker.role}</p>
-                <div 
-                  className="inline-block px-4 py-2 rounded-full text-sm mb-4"
-                  style={{ backgroundColor: `${session.color}20`, color: session.color }}
-                >
-                  &ldquo;{session.speaker.topic}&rdquo;
-                </div>
-                <p className="text-gray-700 italic text-base flex-grow">
-                  {session.speaker.bio}
-                </p>
-
-                <a 
-                  href="#" 
-                  className="mt-4 inline-flex items-center text-sm font-medium"
-                  style={{ color: session.color }}
-                >
-                  View speaker profile
-                  <svg className="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
               </div>
             </div>
           </motion.div>
