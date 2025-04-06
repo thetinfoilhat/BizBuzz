@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Link from 'next/link';
 
 // Session data
 const sessions = [
@@ -307,49 +308,66 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
           }
         }
       }}
-      className="mb-8 rounded-2xl overflow-hidden bg-white shadow-sm"
+      className="mb-12 rounded-2xl overflow-hidden bg-white shadow-md"
       style={{ borderLeft: `6px solid ${session.color}` }}
     >
       {/* Session Header */}
-      <div className="py-4 pl-6 pr-8 flex items-center" style={{ background: `linear-gradient(90deg, ${session.color}10, white)` }}>
-        <div className="w-10 h-10 rounded-full flex items-center justify-center mr-4 text-white font-bold text-lg shadow-sm" 
+      <div className="py-6 pl-6 pr-8 flex items-center" style={{ background: `linear-gradient(90deg, ${session.color}15, white)` }}>
+        <div className="w-14 h-14 rounded-full flex items-center justify-center mr-5 text-white font-bold text-xl shadow-sm" 
           style={{ backgroundColor: session.color }}>
           {index + 1}
         </div>
         <div>
           <h3 className="text-2xl font-bold text-gray-800">{session.title}</h3>
           <div className="flex text-base text-gray-500 mt-1">
-            <span className="mr-4">{session.date}</span>
-            <span>{session.location}</span>
+            <span className="mr-4 flex items-center">
+              <svg className="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              {session.date}
+            </span>
+            <span className="flex items-center">
+              <svg className="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              {session.location}
+            </span>
           </div>
         </div>
       </div>
       
       {/* Session Content */}
-      <div className="pt-3 pb-4 px-3">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="pt-5 pb-6 px-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Left Column - Description and Images */}
-          <motion.div variants={fadeIn}>
-            <p className="text-gray-700 mb-4 text-base leading-relaxed">
+          <motion.div variants={fadeIn} className="md:col-span-7">
+            <p className="text-gray-700 mb-6 text-lg leading-relaxed">
               {session.description}
             </p>
             
-            <div>
+            <div className="space-y-4">
               <ImageGrid images={session.images} title={session.title} />
+              <h4 className="font-semibold text-base text-gray-700 pt-2" style={{ color: session.color }}>
+                Hands-on learning experiences designed to build real-world entrepreneurial skills
+              </h4>
             </div>
           </motion.div>
           
           {/* Right Column - Speaker Card */}
-          <motion.div variants={fadeIn}>
+          <motion.div variants={fadeIn} className="md:col-span-5">
             <div 
-              className="rounded-xl overflow-hidden shadow-sm bg-white border border-gray-100 h-full"
+              className="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100"
             >
-              <div className="text-center py-3 border-b border-gray-100">
-                <h4 className="font-bold text-gray-800 text-lg uppercase tracking-wide">Featured Speaker</h4>
+              <div className="text-center py-4" style={{ backgroundColor: `${session.color}10` }}>
+                <h4 className="font-bold text-gray-800 text-lg">FEATURED SPEAKER</h4>
               </div>
               
-              <div className="p-4 flex flex-col items-center text-center">
-                <div className="relative w-24 h-24 rounded-full overflow-hidden border-3 mb-3" 
+              <div className="p-6 flex flex-col items-center text-center">
+                <div className="relative w-28 h-28 rounded-full overflow-hidden border-4 mb-4" 
                   style={{ borderColor: session.color }}>
                   <Image 
                     src={session.speaker.image} 
@@ -358,17 +376,29 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
                     className="object-cover"
                   />
                 </div>
-                <h5 className="text-xl font-semibold text-gray-800 mb-1">{session.speaker.name}</h5>
-                <p className="text-gray-600 text-base mb-2">{session.speaker.role}</p>
+                <h5 className="text-2xl font-semibold text-gray-800 mb-1">{session.speaker.name}</h5>
+                <p className="text-gray-600 text-base mb-3">{session.speaker.role}</p>
                 <div 
-                  className="inline-block px-4 py-1.5 rounded-full text-sm mb-3"
+                  className="inline-block px-4 py-2 rounded-full text-sm mb-4"
                   style={{ backgroundColor: `${session.color}20`, color: session.color }}
                 >
                   &ldquo;{session.speaker.topic}&rdquo;
                 </div>
-                <p className="text-gray-700 italic text-sm">
+                <p className="text-gray-700 italic text-base">
                   {session.speaker.bio}
                 </p>
+
+                <a 
+                  href="#" 
+                  className="mt-6 inline-flex items-center text-sm font-medium"
+                  style={{ color: session.color }}
+                >
+                  View speaker profile
+                  <svg className="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
               </div>
             </div>
           </motion.div>
@@ -383,87 +413,162 @@ export default function CampPage() {
   
   return (
     <div className="min-h-screen bg-gray-50 pt-16">
-      {/* Hero Section - 1vh */}
-      <div className="relative py-6 bg-white border-b border-gray-100">
+      {/* Hero Section */}
+      <div className="relative py-20 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 border-b border-gray-100 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-full h-full bg-gradient-to-r from-indigo-600/5 to-blue-500/5"></div>
+          <div className="absolute right-0 top-0 w-72 h-72 bg-indigo-100 rounded-full blur-3xl opacity-30 -mr-20 -mt-20"></div>
+          <div className="absolute left-0 bottom-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 -ml-40 -mb-40"></div>
         </div>
         
-        <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold mb-2 text-gray-800"
-          >
-            BizCamp Sessions
-          </motion.h1>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl mx-auto text-gray-600 text-base mb-4"
-          >
-            Our six-part entrepreneurial journey takes students from idea generation
-            to market-ready concepts through hands-on workshops and expert mentorship.
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-2"
-          >
-            <a 
-              href="#"
-              onClick={(e) => { e.preventDefault(); setActiveTab("all"); }}
-              className={`px-4 py-2 rounded-full font-medium transition-all ${
-                activeTab === "all" 
-                  ? "bg-gray-800 text-white" 
-                  : "bg-gray-100 text-gray-800 hover:bg-gray-200"
-              }`}
+        <div className="relative z-10 max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              All Sessions
-            </a>
-            {sessions.map((session, index) => (
+              <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-600 mb-4">
+                Summer 2024
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-800">
+                BizCamp <span className="text-indigo-600">Sessions</span>
+              </h1>
+              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+                Our six-part entrepreneurial journey takes students from idea generation
+                to market-ready concepts through hands-on workshops and expert mentorship.
+              </p>
+              <div className="flex gap-4">
+                <a 
+                  href="#session1" 
+                  className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:bg-indigo-700 transition-colors"
+                >
+                  Explore Sessions
+                  <svg className="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+                <a 
+                  href="mailto:info@bizbuzznfp.org" 
+                  className="inline-flex items-center px-6 py-3 bg-white text-indigo-600 font-medium rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors"
+                >
+                  Register Now
+                </a>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative hidden md:block"
+            >
+              <div className="w-full h-96 relative">
+                <div className="absolute top-0 left-0 w-64 h-64 rounded-lg overflow-hidden shadow-lg transform -rotate-6">
+                  <Image
+                    src="/hero_imgs/1.jpg"
+                    alt="Students collaborating"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="absolute bottom-0 right-0 w-72 h-72 rounded-lg overflow-hidden shadow-lg transform rotate-6">
+                  <Image
+                    src="/hero_imgs/2.jpg"
+                    alt="Workshop session"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="absolute top-1/2 right-1/2 transform translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src="/hero_imgs/3.jpg"
+                    alt="Student presentation"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Navigation */}
+      <div className="bg-white shadow-sm">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="py-4 overflow-x-auto hide-scrollbar">
+            <div className="flex space-x-3">
               <a 
-                key={session.id} 
-                href={`#${session.id}`}
-                className={`px-4 py-2 rounded-full font-medium transition-all text-white hover:opacity-90`}
-                style={{ backgroundColor: session.color }}
+                href="#"
+                onClick={(e) => { e.preventDefault(); setActiveTab("all"); }}
+                className={`px-4 py-2 rounded-full font-medium transition-all whitespace-nowrap ${
+                  activeTab === "all" 
+                    ? "bg-gray-800 text-white" 
+                    : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                }`}
               >
-                Session {index + 1}
+                All Sessions
               </a>
-            ))}
-          </motion.div>
+              {sessions.map((session, index) => (
+                <a 
+                  key={session.id} 
+                  href={`#${session.id}`}
+                  className={`px-4 py-2 rounded-full font-medium transition-all text-white hover:opacity-90 whitespace-nowrap`}
+                  style={{ backgroundColor: session.color }}
+                >
+                  Session {index + 1}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       
       {/* Sessions Content */}
-      <div className="max-w-8xl mx-auto px-40 py-4">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Our Program</h2>
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">Our Program</h2>
+        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Each session builds upon the previous one, creating a comprehensive learning journey from idea to execution.</p>
         
         <div>
           {sessions.map((session, index) => (
             <SessionCard key={session.id} session={session} index={index} />
           ))}
         </div>
-        
-        <div className="mt-8 text-center">
-          <h3 className="text-xl font-bold text-gray-800 mb-2">Ready to Join Our Next Camp?</h3>
-          <p className="text-gray-600 mb-4 max-w-2xl mx-auto text-sm">
-            Contact us to learn more about upcoming sessions and registration details.
-          </p>
-          
-          <a 
-            href="mailto:info@bizbuzznfp.org" 
-            className="inline-block bg-indigo-600 text-white py-2 px-6 rounded-lg font-medium shadow-md hover:bg-indigo-700 transition-colors text-sm"
+      </div>
+
+      {/* CTA Section */}
+      <div className="bg-indigo-600 py-16">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            Contact Us
-          </a>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Start Your Entrepreneurial Journey?</h2>
+            <p className="text-indigo-100 mb-8 max-w-2xl mx-auto">
+              Join our next BizCamp session and learn how to transform your ideas into reality with expert guidance and hands-on experience.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="mailto:info@bizbuzznfp.org" 
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-indigo-600 font-medium rounded-lg shadow-lg hover:bg-gray-50 transition-colors"
+              >
+                Register Now
+              </a>
+              <Link 
+                href="/sessions" 
+                className="inline-flex items-center justify-center px-6 py-3 bg-transparent text-white font-medium rounded-lg border border-white hover:bg-white/10 transition-colors"
+              >
+                Explore 1:1 Sessions
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </div>
+
     </div>
   );
 } 
