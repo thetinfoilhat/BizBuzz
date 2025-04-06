@@ -21,7 +21,7 @@ const Header = () => {
               className={`text-sm transition-colors ${
                 pathname === "/bootcamps" 
                   ? "text-[#6366F1] font-medium" 
-                  : "text-gray-600 hover:text-[#6366F1]"
+                  : "text-[#000000] hover:text-[#6366F1]"
               }`}
             >
               Bootcamps
@@ -31,7 +31,7 @@ const Header = () => {
               className={`text-sm transition-colors ${
                 pathname === "/practice" 
                   ? "text-[#6366F1] font-medium" 
-                  : "text-gray-600 hover:text-[#6366F1]"
+                  : "text-[#000000] hover:text-[#6366F1]"
               }`}
             >
               Fish Tank
@@ -41,17 +41,27 @@ const Header = () => {
               className={`text-sm transition-colors ${
                 pathname === "/contact" 
                   ? "text-[#6366F1] font-medium" 
-                  : "text-gray-600 hover:text-[#6366F1]"
+                  : "text-[#000000] hover:text-[#6366F1]"
               }`}
             >
               Workshops
+            </Link>
+            <Link 
+              href="/sessions" 
+              className={`text-sm transition-colors ${
+                pathname === "/sessions" 
+                  ? "text-[#6366F1] font-medium" 
+                  : "text-[#000000] hover:text-[#6366F1]"
+              }`}
+            >
+              1:1 Sessions
             </Link>
             <Link 
               href="/about" 
               className={`text-sm transition-colors ${
                 pathname === "/about" 
                   ? "text-[#6366F1] font-medium" 
-                  : "text-gray-600 hover:text-[#6366F1]"
+                  : "text-[#000000] hover:text-[#6366F1]"
               }`}
             >
               About Us
