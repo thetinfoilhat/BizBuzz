@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import Link from 'next/link';
 
 // Session data
@@ -44,6 +43,8 @@ const sessions = [
       "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800",
       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800",
       "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800",
+      "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800",
+      "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?q=80&w=800",
     ],
     color: "#6366F1"
   },
@@ -84,6 +85,8 @@ const sessions = [
       "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?q=80&w=800",
       "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800",
       "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800",
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800",
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800",
     ],
     color: "#38b6ff"
   },
@@ -124,6 +127,8 @@ const sessions = [
       "https://images.unsplash.com/photo-1559523161-0fc0d8b38a77?q=80&w=800",
       "https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=800",
       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800",
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=800",
+      "https://images.unsplash.com/photo-1596720426673-e4e14290f0cc?q=80&w=800",
     ],
     color: "#ffbf00"
   },
@@ -164,6 +169,8 @@ const sessions = [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800",
       "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=800",
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800",
+      "https://images.unsplash.com/photo-1565514501944-3aa96e9fbd2a?q=80&w=800",
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800",
     ],
     color: "#10b981"
   },
@@ -204,6 +211,8 @@ const sessions = [
       "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800",
       "https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=800",
       "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800",
+      "https://images.unsplash.com/photo-1533228876829-65c94e7b5025?q=80&w=800",
+      "https://images.unsplash.com/photo-1557804347-405233cb8835?q=80&w=800",
     ],
     color: "#f43f5e"
   },
@@ -244,6 +253,8 @@ const sessions = [
       "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800",
       "https://images.unsplash.com/photo-1552664688-cf412ec27db2?q=80&w=800",
       "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800",
+      "https://images.unsplash.com/photo-1527525443983-6e60c75fff46?q=80&w=800",
+      "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=800",
     ],
     color: "#8b5cf6"
   }
@@ -251,31 +262,62 @@ const sessions = [
 
 // Image grid component
 const ImageGrid = ({ images, title }: { images: string[], title: string }) => {
+  // Make sure we have 5 images by duplicating if necessary
+  const allImages = [...images];
+  while (allImages.length < 5) {
+    allImages.push(images[allImages.length % images.length]);
+  }
+  
   return (
-    <div className="grid grid-cols-12 grid-rows-2 gap-2 h-[220px]">
-      <div className="col-span-7 row-span-2 relative rounded-xl overflow-hidden">
+    <div className="grid grid-cols-7 gap-2 h-full">
+      {/* Main large image */}
+      <div className="col-span-4 row-span-2 relative rounded-xl overflow-hidden h-[320px]">
         <Image
-          src={images[0]}
+          src={allImages[0]}
           alt={`${title} main image`}
           fill
           className="object-cover"
         />
       </div>
-      <div className="col-span-5 row-span-1 relative rounded-xl overflow-hidden">
-        <Image
-          src={images[1]}
-          alt={`${title} secondary image`}
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="col-span-5 row-span-1 relative rounded-xl overflow-hidden">
-        <Image
-          src={images[2]}
-          alt={`${title} tertiary image`}
-          fill
-          className="object-cover"
-        />
+      
+      {/* Small images grid */}
+      <div className="col-span-3 grid grid-rows-2 gap-2 h-[320px]">
+        <div className="grid grid-cols-2 gap-2">
+          <div className="relative rounded-xl overflow-hidden">
+            <Image
+              src={allImages[1]}
+              alt={`${title} secondary image`}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="relative rounded-xl overflow-hidden">
+            <Image
+              src={allImages[2]}
+              alt={`${title} tertiary image`}
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="relative rounded-xl overflow-hidden">
+            <Image
+              src={allImages[3]}
+              alt={`${title} fourth image`}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="relative rounded-xl overflow-hidden">
+            <Image
+              src={allImages[4]}
+              alt={`${title} fifth image`}
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -345,28 +387,33 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Left Column - Description and Images */}
           <motion.div variants={fadeIn} className="md:col-span-7">
-            <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+            <div className="flex items-center mb-3">
+              <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: session.color }}>
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <h4 className="font-bold text-lg text-gray-800">SESSION OVERVIEW</h4>
+            </div>
+            <p className="text-gray-700 mb-8 text-lg leading-relaxed">
               {session.description}
             </p>
             
-            <div className="space-y-4">
+            <div className="h-[320px]">
               <ImageGrid images={session.images} title={session.title} />
-              <h4 className="font-semibold text-base text-gray-700 pt-2" style={{ color: session.color }}>
-                Hands-on learning experiences designed to build real-world entrepreneurial skills
-              </h4>
             </div>
           </motion.div>
           
           {/* Right Column - Speaker Card */}
           <motion.div variants={fadeIn} className="md:col-span-5">
             <div 
-              className="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100"
+              className="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 h-full flex flex-col"
             >
               <div className="text-center py-4" style={{ backgroundColor: `${session.color}10` }}>
                 <h4 className="font-bold text-gray-800 text-lg">FEATURED SPEAKER</h4>
               </div>
               
-              <div className="p-6 flex flex-col items-center text-center">
+              <div className="p-6 flex flex-col items-center text-center flex-grow">
                 <div className="relative w-28 h-28 rounded-full overflow-hidden border-4 mb-4" 
                   style={{ borderColor: session.color }}>
                   <Image 
@@ -384,13 +431,13 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
                 >
                   &ldquo;{session.speaker.topic}&rdquo;
                 </div>
-                <p className="text-gray-700 italic text-base">
+                <p className="text-gray-700 italic text-base flex-grow">
                   {session.speaker.bio}
                 </p>
 
                 <a 
                   href="#" 
-                  className="mt-6 inline-flex items-center text-sm font-medium"
+                  className="mt-4 inline-flex items-center text-sm font-medium"
                   style={{ color: session.color }}
                 >
                   View speaker profile
@@ -409,48 +456,46 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
 };
 
 export default function CampPage() {
-  const [activeTab, setActiveTab] = useState("all");
-  
   return (
-    <div className="min-h-screen bg-gray-50 pt-16">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative py-20 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 border-b border-gray-100 overflow-hidden">
+      <div className="relative flex items-center bg-gradient-to-r from-indigo-500/10 to-blue-500/10 border-b border-gray-100 overflow-hidden min-h-screen">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute right-0 top-0 w-72 h-72 bg-indigo-100 rounded-full blur-3xl opacity-30 -mr-20 -mt-20"></div>
-          <div className="absolute left-0 bottom-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 -ml-40 -mb-40"></div>
+          <div className="absolute right-0 top-0 w-[40rem] h-[40rem] bg-indigo-100 rounded-full blur-3xl opacity-30 -mr-40 -mt-40"></div>
+          <div className="absolute left-0 bottom-0 w-[40rem] h-[40rem] bg-blue-100 rounded-full blur-3xl opacity-30 -ml-40 -mb-40"></div>
         </div>
         
-        <div className="relative z-10 max-w-6xl mx-auto px-4">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full py-20 md:py-0">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-600 mb-4">
+              <div className="inline-block px-5 py-2 rounded-full text-base font-medium bg-indigo-100 text-indigo-600 mb-6">
                 Summer 2024
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-800">
+              <h1 className="text-6xl md:text-7xl font-bold mb-8 text-gray-800 leading-tight">
                 BizCamp <span className="text-indigo-600">Sessions</span>
               </h1>
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+              <p className="text-2xl text-gray-700 mb-12 leading-relaxed max-w-xl">
                 Our six-part entrepreneurial journey takes students from idea generation
                 to market-ready concepts through hands-on workshops and expert mentorship.
               </p>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 <a 
                   href="#session1" 
-                  className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:bg-indigo-700 transition-colors"
+                  className="inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-lg font-medium rounded-xl shadow-md hover:bg-indigo-700 transition-colors"
                 >
                   Explore Sessions
-                  <svg className="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
                 </a>
                 <a 
                   href="mailto:info@bizbuzznfp.org" 
-                  className="inline-flex items-center px-6 py-3 bg-white text-indigo-600 font-medium rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors"
+                  className="inline-flex items-center px-8 py-4 bg-white text-indigo-600 text-lg font-medium rounded-xl shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors"
                 >
                   Register Now
                 </a>
@@ -463,29 +508,32 @@ export default function CampPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative hidden md:block"
             >
-              <div className="w-full h-96 relative">
-                <div className="absolute top-0 left-0 w-64 h-64 rounded-lg overflow-hidden shadow-lg transform -rotate-6">
+              <div className="w-full h-[550px] relative">
+                <div className="absolute top-0 left-0 w-[350px] h-[350px] rounded-xl overflow-hidden shadow-lg transform -rotate-6">
                   <Image
                     src="/hero_imgs/1.jpg"
                     alt="Students collaborating"
                     fill
                     className="object-cover"
+                    priority
                   />
                 </div>
-                <div className="absolute bottom-0 right-0 w-72 h-72 rounded-lg overflow-hidden shadow-lg transform rotate-6">
+                <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-xl overflow-hidden shadow-lg transform rotate-6">
                   <Image
                     src="/hero_imgs/2.jpg"
                     alt="Workshop session"
                     fill
                     className="object-cover"
+                    priority
                   />
                 </div>
-                <div className="absolute top-1/2 right-1/2 transform translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-lg overflow-hidden shadow-lg">
+                <div className="absolute top-1/2 right-1/2 transform translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-xl overflow-hidden shadow-lg">
                   <Image
                     src="/hero_imgs/3.jpg"
                     alt="Student presentation"
                     fill
                     className="object-cover"
+                    priority
                   />
                 </div>
               </div>
@@ -494,39 +542,8 @@ export default function CampPage() {
         </div>
       </div>
       
-      {/* Navigation */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="py-4 overflow-x-auto hide-scrollbar">
-            <div className="flex space-x-3">
-              <a 
-                href="#"
-                onClick={(e) => { e.preventDefault(); setActiveTab("all"); }}
-                className={`px-4 py-2 rounded-full font-medium transition-all whitespace-nowrap ${
-                  activeTab === "all" 
-                    ? "bg-gray-800 text-white" 
-                    : "bg-gray-100 text-gray-800 hover:bg-gray-200"
-                }`}
-              >
-                All Sessions
-              </a>
-              {sessions.map((session, index) => (
-                <a 
-                  key={session.id} 
-                  href={`#${session.id}`}
-                  className={`px-4 py-2 rounded-full font-medium transition-all text-white hover:opacity-90 whitespace-nowrap`}
-                  style={{ backgroundColor: session.color }}
-                >
-                  Session {index + 1}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      
       {/* Sessions Content */}
-      <div className="max-w-6xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-12">
         <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">Our Program</h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Each session builds upon the previous one, creating a comprehensive learning journey from idea to execution.</p>
         
