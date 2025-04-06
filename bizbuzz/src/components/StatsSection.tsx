@@ -18,12 +18,17 @@ interface StatItemProps {
   prefix?: string;
   suffix?: string;
   imageSrc: string;
+  color?: "blue" | "yellow";
 }
 
-const StatItem = ({ value, label, prefix = "", suffix = "", imageSrc }: StatItemProps) => {
+const StatItem = ({ value, label, prefix = "", suffix = "", imageSrc, color = "blue" }: StatItemProps) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  const colorClass = color === "blue" 
+    ? "text-[#38b6ff]" 
+    : "text-[#ffbf00]";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -79,7 +84,7 @@ const StatItem = ({ value, label, prefix = "", suffix = "", imageSrc }: StatItem
           sizes="(max-width: 768px) 100vw, 25vw"
         />
       </div>
-      <div className="text-5xl md:text-6xl font-bold text-[#6366F1] mb-2">
+      <div className={`text-5xl md:text-6xl font-bold ${colorClass} mb-2`}>
         {prefix}{count.toLocaleString()}{suffix}
       </div>
       <div className="text-gray-600 font-medium text-xl md:text-2xl">{label}</div>
@@ -125,22 +130,26 @@ const StatsSection = () => {
             value={634} 
             label="Students"
             imageSrc="/stats/students.jpg"
+            color="blue"
           />
           <StatItem 
             value={63} 
             label="Schools"
             imageSrc="/stats/schools.png"
+            color="yellow"
           />
           <StatItem 
             value={6267} 
             label="Dollars Raised"
             prefix="$"
             imageSrc="/stats/money.jpg"
+            color="blue"
           />
           <StatItem 
             value={504} 
             label="Hours Taught"
             imageSrc="/stats/hours.jpg"
+            color="yellow"
           />
         </div>
       </div>
