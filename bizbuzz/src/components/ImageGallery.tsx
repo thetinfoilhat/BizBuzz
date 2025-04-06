@@ -80,17 +80,16 @@ const ImageGallery = () => {
           
           {/* Text Content */}
           <div className="w-full md:w-[30%] mt-8 md:mt-0">
-            <h2 className="text-3xl md:text-3xl font-bold text-[#0f172a] mb-6">
-              Build Biz. Bring Buzz.
+            <h2 className="text-3xl md:text-3xl font-bold mb-6">
+              <span className="text-[#38b6ff]">Build Biz.</span> <span className="text-[#ffbf00]">Bring Buzz.</span>
             </h2>
             <div className="text-base md:text-lg text-gray-600 space-y-4">
               <p>
                 BizBuzz NFP is a 501(c)(3) nonprofit organization based in Naperville, Illinois. Built on the belief that every student deserves access to entrepreneurial education that helps them find their ideas—and the confidence to share them—we offer a completely free platform designed by students, for students. In a city where 90% of K-8 schools offer no business education, we set out in April 2024 to change that.
-
               </p>
       
-              <p>
-              Let’s turn imagination into innovation.
+              <p className="font-bold">
+                Let&apos;s turn imagination into innovation.
               </p>
             </div>
           </div>

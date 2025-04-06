@@ -24,7 +24,7 @@ const programs = [
     link: "/contact"
   },
   {
-    title: "Mentorship",
+    title: "Tutoring",
     description: "One-on-one 1.5-hour sessions with students for business incubation, catching up on camp or workshop material, and personalized mentorship in both finance and innovation.",
     image: "/program_cards/mentorship.jpg",
     link: "/mentorship"
