@@ -23,15 +23,30 @@ const OneOnOneSessions = () => {
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[#6366F1]/5 -z-10 rounded-bl-[100px]"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-16">
-            <div className="inline-block bg-[#6366F1]/10 px-4 py-2 rounded-full mb-6">
-              <span className="text-[#6366F1] font-semibold">Exclusive Mentorship Program</span>
-            </div>
             <h1 className="text-7xl md:text-8xl font-bold text-[#0f172a] mb-8 leading-tight">
               1:1 <span className="text-[#6366F1]">Sessions</span>
             </h1>
             <p className="text-2xl text-[#000000] mb-10 max-w-3xl">
               Connect with experienced mentors in personalized 1.5-hour sessions designed to accelerate your entrepreneurial journey and bring your business ideas to life.
             </p>
+            
+            {/* Locations Section */}
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+              <p className="text-[#6366F1] font-medium mr-2 self-center">Available at:</p>
+              {[
+                "95th Library", 
+                "Nichols Library", 
+                "Naper Blvd Library", 
+                "Aurora Library", 
+                "Lisle Library"
+              ].map((location, index) => (
+                <div key={index} className="inline-flex items-center">
+                  <span className="inline-block w-3 h-3 rounded-full bg-[#6366F1] mr-2"></span>
+                  <span className="text-sm font-medium text-[#0f172a]">{location}</span>
+                </div>
+              ))}
+            </div>
+            
             <div className="flex flex-col sm:flex-row gap-5 justify-center">
               <a 
                 href="#booking" 
@@ -311,22 +326,80 @@ const OneOnOneSessions = () => {
               )}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials - Now placed before booking section */}
+      <section className="py-28 bg-white relative overflow-hidden">
+        <div className="absolute top-40 right-0 w-80 h-80 bg-[#6366F1]/5 rounded-full -z-10"></div>
+        <div className="absolute bottom-40 left-0 w-80 h-80 bg-[#6366F1]/5 rounded-full -z-10"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 relative">
+          <div className="flex flex-col items-center text-center mb-16">
+            <div className="inline-block bg-[#6366F1]/10 px-4 py-2 rounded-full mb-4">
+              <span className="text-[#6366F1] font-semibold">Success Stories</span>
+            </div>
+            <h2 className="text-5xl font-bold text-[#0f172a] mb-5">
+              What Our Students Say
+            </h2>
+            <p className="text-xl text-[#000000] max-w-3xl">
+              Here&apos;s what students who have participated in our 1:1 sessions have to say about their experience
+            </p>
+          </div>
           
-          <div className="flex justify-center">
-            <a 
-              href="#booking" 
-              className="inline-flex items-center bg-[#6366F1]/10 text-[#6366F1] font-semibold py-4 px-8 rounded-full text-lg transition-all hover:bg-[#6366F1]/20"
-            >
-              Book Your Preferred Session
-              <svg className="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </a>
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                name: "Sophia Chen",
+                grade: "8th Grade",
+                quote: "The 1:1 sessions helped me refine my app idea and create a solid business plan. My mentor's guidance was invaluable in helping me prepare for the Fish Tank competition!",
+                avatar: "/hero_imgs/11.jpg"
+              },
+              {
+                name: "Jayden Williams",
+                grade: "6th Grade",
+                quote: "I missed a few bootcamp sessions and was falling behind. The catch-up sessions helped me understand the material and gave me confidence to continue with my business project.",
+                avatar: "/hero_imgs/13.jpg"
+              },
+              {
+                name: "Maya Patel",
+                grade: "7th Grade",
+                quote: "Working one-on-one with my mentor helped me understand financial concepts in a way that made sense for my specific business idea. I'm now much more confident about my startup!",
+                avatar: "/hero_imgs/14.jpg"
+              }
+            ].map((testimonial, i) => (
+              <div 
+                key={i} 
+                className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 relative h-full"
+              >
+                <div className="absolute top-0 right-0 h-20 w-20 bg-[#6366F1]/5 rounded-bl-3xl -mt-2 -mr-2 z-0"></div>
+                <div className="relative z-10">
+                  <svg className="h-10 w-10 text-[#6366F1]/20 mb-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <p className="text-[#000000] italic text-lg mb-8">&ldquo;{testimonial.quote}&rdquo;</p>
+                  <div className="flex items-center">
+                    <div className="relative h-14 w-14 rounded-full overflow-hidden mr-4 border-2 border-[#6366F1]/20">
+                      <Image 
+                        src={testimonial.avatar} 
+                        alt={testimonial.name} 
+                        fill 
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-[#0f172a]">{testimonial.name}</h3>
+                      <p className="text-[#6366F1]">{testimonial.grade}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Booking Section */}
+      {/* Booking Section - Now after testimonials */}
       <section id="booking" className="py-28 bg-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-gray-50 to-white"></div>
         <div className="absolute -left-32 top-40 w-64 h-64 bg-[#6366F1]/10 rounded-full"></div>
@@ -496,76 +569,6 @@ const OneOnOneSessions = () => {
                 </div>
               </div>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-28 bg-white relative overflow-hidden">
-        <div className="absolute top-40 right-0 w-80 h-80 bg-[#6366F1]/5 rounded-full -z-10"></div>
-        <div className="absolute bottom-40 left-0 w-80 h-80 bg-[#6366F1]/5 rounded-full -z-10"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 relative">
-          <div className="flex flex-col items-center text-center mb-16">
-            <div className="inline-block bg-[#6366F1]/10 px-4 py-2 rounded-full mb-4">
-              <span className="text-[#6366F1] font-semibold">Success Stories</span>
-            </div>
-            <h2 className="text-5xl font-bold text-[#0f172a] mb-5">
-              What Our Students Say
-            </h2>
-            <p className="text-xl text-[#000000] max-w-3xl">
-              Here&apos;s what students who have participated in our 1:1 sessions have to say about their experience
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-10">
-            {[
-              {
-                name: "Sophia Chen",
-                grade: "8th Grade",
-                quote: "The 1:1 sessions helped me refine my app idea and create a solid business plan. My mentor's guidance was invaluable in helping me prepare for the Fish Tank competition!",
-                avatar: "/hero_imgs/11.jpg"
-              },
-              {
-                name: "Jayden Williams",
-                grade: "6th Grade",
-                quote: "I missed a few bootcamp sessions and was falling behind. The catch-up sessions helped me understand the material and gave me confidence to continue with my business project.",
-                avatar: "/hero_imgs/13.jpg"
-              },
-              {
-                name: "Maya Patel",
-                grade: "7th Grade",
-                quote: "Working one-on-one with my mentor helped me understand financial concepts in a way that made sense for my specific business idea. I'm now much more confident about my startup!",
-                avatar: "/hero_imgs/14.jpg"
-              }
-            ].map((testimonial, i) => (
-              <div 
-                key={i} 
-                className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 relative h-full"
-              >
-                <div className="absolute top-0 right-0 h-20 w-20 bg-[#6366F1]/5 rounded-bl-3xl -mt-2 -mr-2 z-0"></div>
-                <div className="relative z-10">
-                  <svg className="h-10 w-10 text-[#6366F1]/20 mb-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
-                  <p className="text-[#000000] italic text-lg mb-8">&ldquo;{testimonial.quote}&rdquo;</p>
-                  <div className="flex items-center">
-                    <div className="relative h-14 w-14 rounded-full overflow-hidden mr-4 border-2 border-[#6366F1]/20">
-                      <Image 
-                        src={testimonial.avatar} 
-                        alt={testimonial.name} 
-                        fill 
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-[#0f172a]">{testimonial.name}</h3>
-                      <p className="text-[#6366F1]">{testimonial.grade}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
