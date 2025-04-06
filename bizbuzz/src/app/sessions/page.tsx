@@ -31,18 +31,18 @@ const OneOnOneSessions = () => {
             </p>
             
             {/* Locations Section */}
-            <div className="flex flex-wrap justify-center gap-3 mb-10">
-              <p className="text-[#6366F1] font-medium mr-2 self-center">Available at:</p>
+            <div className="flex flex-wrap justify-center items-center gap-4 mb-10">
+              <p className="text-[#6366F1] font-semibold mr-2">Available at:</p>
               {[
-                "95th Library", 
-                "Nichols Library", 
-                "Naper Blvd Library", 
-                "Aurora Library", 
-                "Lisle Library"
+                { name: "95th Library", color: "#10b981" },
+                { name: "Nichols Library", color: "#f59e0b" },
+                { name: "Naper Blvd Library", color: "#0ea5e9" },
+                { name: "Aurora Library", color: "#8b5cf6" },
+                { name: "Lisle Library", color: "#ec4899" }
               ].map((location, index) => (
-                <div key={index} className="inline-flex items-center">
-                  <span className="inline-block w-3 h-3 rounded-full bg-[#6366F1] mr-2"></span>
-                  <span className="text-sm font-medium text-[#0f172a]">{location}</span>
+                <div key={index} className="inline-flex items-center px-3 py-1 bg-white rounded-full shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                  <span className={`inline-block w-3 h-3 rounded-full mr-2`} style={{ backgroundColor: location.color }}></span>
+                  <span className="text-sm font-medium text-[#0f172a]">{location.name}</span>
                 </div>
               ))}
             </div>
@@ -88,9 +88,6 @@ const OneOnOneSessions = () => {
       <section id="how-it-works" className="py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col items-center text-center mb-20">
-            <div className="inline-block bg-[#6366F1]/10 px-4 py-2 rounded-full mb-4">
-              <span className="text-[#6366F1] font-semibold">Why Join Our Sessions</span>
-            </div>
             <h2 className="text-5xl font-bold text-[#0f172a] mb-5">
               Benefits That Set Us Apart
             </h2>
@@ -101,48 +98,56 @@ const OneOnOneSessions = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              {
-                title: "Personalized Attention",
-                description: "Get undivided attention from experienced mentors who tailor their guidance to your specific needs and goals.",
-                icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                )
-              },
-              {
-                title: "Business Incubation",
-                description: "Transform your idea into a viable business model with structured guidance and practical development steps.",
-                icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                )
-              },
-              {
-                title: "Catch Up on Material",
-                description: "Missed a workshop or bootcamp session? Our 1:1 sessions help you catch up and ensure you don't fall behind.",
-                icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                )
-              }
-            ].map((benefit, i) => (
-              <div 
-                key={i} 
-                className="bg-gradient-to-br from-[#6366F1] to-[#4F46E5] p-10 rounded-3xl shadow-xl transition-transform hover:scale-105 h-full relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-5 rounded-full -ml-10 -mb-10"></div>
-                <div className="mb-8 bg-white/20 p-4 rounded-2xl inline-block">
-                  {benefit.icon}
-                </div>
-                <h3 className="text-2xl font-bold mb-5 text-white">{benefit.title}</h3>
-                <p className="text-white text-lg opacity-90">{benefit.description}</p>
+            {/* Financial Guidance Box */}
+            <div 
+              className="bg-gradient-to-br from-[#10b981] to-[#059669] p-10 rounded-3xl shadow-xl transition-transform hover:scale-105 h-full relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-5 rounded-full -ml-10 -mb-10"></div>
+              <div className="mb-8 bg-white/20 p-4 rounded-2xl inline-block">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
-            ))}
+              <h3 className="text-2xl font-bold mb-5 text-white">Financial Knowledge</h3>
+              <p className="text-white text-lg opacity-90">
+                Gain essential financial literacy skills specific to startups. Learn about budgeting, funding options, revenue models, and building sustainable business finances with mentors who specialize in startup economics.
+              </p>
+            </div>
+            
+            {/* Innovation & Creativity Box */}
+            <div 
+              className="bg-gradient-to-br from-[#f59e0b] to-[#d97706] p-10 rounded-3xl shadow-xl transition-transform hover:scale-105 h-full relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-5 rounded-full -ml-10 -mb-10"></div>
+              <div className="mb-8 bg-white/20 p-4 rounded-2xl inline-block">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-5 text-white">Innovation & Creativity</h3>
+              <p className="text-white text-lg opacity-90">
+                Unlock your innovative potential with techniques that foster creative thinking. Our mentors help you develop unique value propositions, overcome common obstacles, and approach problems from fresh perspectives.
+              </p>
+            </div>
+            
+            {/* Personalized Roadmap Box */}
+            <div 
+              className="bg-gradient-to-br from-[#0ea5e9] to-[#0284c7] p-10 rounded-3xl shadow-xl transition-transform hover:scale-105 h-full relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-5 rounded-full -ml-10 -mb-10"></div>
+              <div className="mb-8 bg-white/20 p-4 rounded-2xl inline-block">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-5 text-white">Personalized Roadmap</h3>
+              <p className="text-white text-lg opacity-90">
+                Receive a customized action plan designed specifically for your business idea. Our mentors will help you identify your strengths, address challenges, and create a step-by-step path toward achieving your entrepreneurial goals.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -151,9 +156,6 @@ const OneOnOneSessions = () => {
       <section className="py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col items-center text-center mb-16">
-            <div className="inline-block bg-[#6366F1]/10 px-4 py-2 rounded-full mb-4">
-              <span className="text-[#6366F1] font-semibold">Find Your Perfect Fit</span>
-            </div>
             <h2 className="text-5xl font-bold text-[#0f172a] mb-5">
               Session Formats
             </h2>
@@ -407,8 +409,8 @@ const OneOnOneSessions = () => {
         
         <div className="max-w-7xl mx-auto px-4 relative">
           <div className="flex flex-col items-center text-center mb-16">
-            <div className="inline-block bg-[#6366F1]/10 px-4 py-2 rounded-full mb-4">
-              <span className="text-[#6366F1] font-semibold">Start Your Journey</span>
+            <div className="inline-block border-b-2 border-[#0ea5e9] px-4 py-2 mb-4">
+              <span className="text-[#0ea5e9] font-semibold">Start Your Journey</span>
             </div>
             <h2 className="text-5xl font-bold text-[#0f172a] mb-5">
               Book Your Session
