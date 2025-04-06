@@ -1,7 +1,6 @@
 import ShuffleHero from "@/components/ShuffleHero";
 import LogoScroller from "@/components/LogoScroller";
 import StatsSection from "@/components/StatsSection";
-import TextAnimation from "@/components/TextAnimation";
 import ImageGallery from "@/components/ImageGallery";
 import ProgramCards from "@/components/ProgramCards";
 import Footer from "@/components/Footer";
@@ -19,10 +18,6 @@ export default function Home() {
       
       <div id="stats-section" className="pt-4">
         <StatsSection />
-      </div>
-      
-      <div id="text-animation-section">
-        <TextAnimation />
       </div>
       
       <div id="image-gallery-section">

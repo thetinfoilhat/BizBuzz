@@ -1,15 +1,26 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+
+const phrases = [
+  "build tomorrow's businesses",
+  "solve real-world problems",
+  "develop entrepreneurial skills",
+  "create social impact",
+  "innovate for the future"
+];
 
 interface StatItemProps {
   value: number;
   label: string;
   prefix?: string;
   suffix?: string;
+  imageSrc: string;
 }
 
-const StatItem = ({ value, label, prefix = "", suffix = "" }: StatItemProps) => {
+const StatItem = ({ value, label, prefix = "", suffix = "", imageSrc }: StatItemProps) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -37,16 +48,13 @@ const StatItem = ({ value, label, prefix = "", suffix = "" }: StatItemProps) => 
   useEffect(() => {
     if (!isVisible) return;
 
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const startTime = performance.now();
     
     const animateCount = (timestamp: number) => {
       const runtime = timestamp - startTime;
       const progress = Math.min(runtime / duration, 1);
-      
-      // Ease out cubic formula for smoother animation at the end
       const easedProgress = 1 - Math.pow(1 - progress, 3);
-      
       const currentCount = Math.floor(easedProgress * value);
       setCount(currentCount);
       
@@ -58,47 +66,81 @@ const StatItem = ({ value, label, prefix = "", suffix = "" }: StatItemProps) => 
     };
     
     requestAnimationFrame(animateCount);
-    
-    return () => {
-      // Cleanup
-    };
   }, [isVisible, value]);
 
   return (
     <div ref={ref} className="text-center px-4">
-      <div className="text-4xl md:text-5xl font-bold text-indigo-600 mb-2">
+      <div className="relative w-full h-52 mb-6 rounded-lg overflow-hidden">
+        <Image
+          src={imageSrc}
+          alt={label}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 25vw"
+        />
+      </div>
+      <div className="text-5xl md:text-6xl font-bold text-[#6366F1] mb-2">
         {prefix}{count.toLocaleString()}{suffix}
       </div>
-      <div className="text-gray-600 font-medium text-lg md:text-xl">{label}</div>
+      <div className="text-gray-600 font-medium text-xl md:text-2xl">{label}</div>
     </div>
   );
 };
 
 const StatsSection = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % phrases.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="w-full bg-gray-50 py-20 border-t border-gray-100">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
-          Our Impact
-        </h2>
+        <div className="flex flex-col items-center mb-24">
+          <div className="max-w-5xl w-full flex justify-start">
+            <h2 className="flex text-4xl md:text-5xl font-bold">
+              <span className="text-[#1e293b]">We help students</span>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="ml-3 bg-gradient-to-r from-[#6366F1] to-[#38b6ff] text-transparent bg-clip-text whitespace-nowrap"
+                >
+                  {phrases[index]}
+                </motion.span>
+              </AnimatePresence>
+            </h2>
+          </div>
+        </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           <StatItem 
             value={634} 
-            label="Students" 
+            label="Students"
+            imageSrc="/stats/students.jpg"
           />
           <StatItem 
             value={63} 
-            label="Schools" 
+            label="Schools"
+            imageSrc="/stats/schools.png"
           />
           <StatItem 
             value={6267} 
             label="Dollars Raised"
-            prefix="$" 
+            prefix="$"
+            imageSrc="/stats/money.jpg"
           />
           <StatItem 
             value={504} 
-            label="Hours of Instruction" 
+            label="Hours Taught"
+            imageSrc="/stats/hours.jpg"
           />
         </div>
       </div>

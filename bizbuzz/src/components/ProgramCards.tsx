@@ -1,116 +1,85 @@
 "use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
-interface ProgramCardProps {
-  title: string;
-  imageSrc: string;
-  description: string;
-  year: string;
-  link: string;
-}
+const programs = [
+  {
+    title: "Camps",
+    description: "Free six-week entrepreneurship camps for third to eighth graders, teaching social innovation, finance, and marketing through hands-on activities, prize-filled challenges, guest speakers, and business building.",
+    image: "/program_cards/camps.jpg",
+    link: "/bootcamps"
+  },
+  {
+    title: "Fish Tank",
+    description: "Pitch competitions for student innovators of all ages to present business ideas to a panel of professional judges and earn feedback, hundreds of dollars in awards, and real-world experience.",
+    image: "/program_cards/fishtank.jpg",
+    link: "/practice"
+  },
+  {
+    title: "Workshops",
+    description: "Mini three- to four-session business bootcamps offering a condensed version of the BizBuzz curriculum at elementary and middle schools, local business fairs like NCBF and DCBF, and online webinars worldwide.",
+    image: "/program_cards/workshops.jpg",
+    link: "/contact"
+  },
+  {
+    title: "Mentorship",
+    description: "One-on-one 1.5-hour sessions with students for business incubation, catching up on camp or workshop material, and personalized mentorship in both finance and innovation.",
+    image: "/program_cards/mentorship.jpg",
+    link: "/mentorship"
+  }
+];
 
-const ProgramCard = ({ title, imageSrc, description, year, link }: ProgramCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div 
-      className="relative aspect-square rounded-lg overflow-hidden group cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src={imageSrc}
-          alt={title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
-          unoptimized
-        />
-        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300"></div>
-      </div>
-
-      {/* Main Title Centered */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-10">
-        <div 
-          className={`transition-all duration-500 ${isHovered ? 'opacity-0 translate-y-[-20px]' : 'opacity-100'}`}
-        >
-          <h3 className="text-white text-3xl md:text-4xl font-bold tracking-wider uppercase mb-2">{title}</h3>
-          <p className="text-white text-2xl md:text-3xl font-medium">{year}</p>
-        </div>
-      </div>
-
-      {/* Hover Content */}
-      <div 
-        className={`absolute inset-0 flex flex-col items-center justify-center p-6 transition-all duration-500 z-20 ${
-          isHovered ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        <h3 className="text-white text-3xl md:text-4xl font-bold tracking-wider uppercase mb-4">{title}</h3>
-        <p className="text-white text-base md:text-lg mb-6 max-w-xs text-center">
-          {description}
-        </p>
-        <Link 
-          href={link}
-          className="px-6 py-2 bg-white text-gray-900 font-medium rounded-full hover:bg-gray-100 transition-colors"
-        >
-          Learn More
-        </Link>
-      </div>
-    </div>
-  );
-};
-
-const ProgramCards = () => {
-  const programs = [
-    {
-      title: "Summer Camp",
-      year: "2024",
-      imageSrc: "https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1c1?q=80&w=1200&auto=format&fit=crop",
-      description: "Immersive summer entrepreneurship program for 3rd-8th graders. Students develop business ideas, build MVPs, and pitch to investors.",
-      link: "/summer-camp"
-    },
-    {
-      title: "Fish Tank",
-      year: "Contest",
-      imageSrc: "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?q=80&w=1200&auto=format&fit=crop",
-      description: "Our version of Shark Tank! Students compete by pitching their business ideas to real entrepreneurs and receive feedback and funding.",
-      link: "/fish-tank"
-    },
-    {
-      title: "CBF Workshop",
-      year: "2024",
-      imageSrc: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop", 
-      description: "Community-Based Entrepreneurship workshops focusing on social impact. Students learn to identify and solve local community challenges.",
-      link: "/workshops"
-    }
-  ];
+export default function ProgramCards() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="w-full py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#0f172a]">
+    <section className="py-20 bg-white" id="programs">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-[#1e293b]">
           Our Programs
         </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {programs.map((program, index) => (
-            <ProgramCard
-              key={index}
-              title={program.title}
-              year={program.year}
-              imageSrc={program.imageSrc}
-              description={program.description}
-              link={program.link}
-            />
+            <Link 
+              href={program.link}
+              key={program.title}
+              className="block group relative"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="relative h-[500px] rounded-xl overflow-hidden">
+                <Image
+                  src={program.image}
+                  alt={program.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Default state with title */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-transparent">
+                  <div className="p-8">
+                    <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white whitespace-pre-line">
+                      {program.title}
+                    </h3>
+                  </div>
+                </div>
+                
+                {/* Hover state with description */}
+                <div className={`absolute inset-0 bg-black/80 flex items-center transition-opacity duration-300 ${
+                  hoveredIndex === index ? 'opacity-100' : 'opacity-0'
+                }`}>
+                  <div className="p-8">
+                    <p className="text-white text-lg md:text-xl leading-relaxed">
+                      {program.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default ProgramCards; 
+} 

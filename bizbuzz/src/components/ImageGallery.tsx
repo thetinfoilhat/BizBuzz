@@ -4,10 +4,11 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 const images = [
-  "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=1200&auto=format&fit=crop",
+  "/image_gallery/1.jpg",
+  "/image_gallery/2.jpg",
+  "/image_gallery/3.jpg",
+  "/image_gallery/4.jpg",
+  "/image_gallery/5.jpg"
 ];
 
 const ImageGallery = () => {
@@ -27,36 +28,36 @@ const ImageGallery = () => {
 
   return (
     <section className="w-full py-24 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-12">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex flex-col md:flex-row items-center gap-16">
           {/* Image Gallery */}
-          <div className="w-full md:w-1/2 relative">
-            <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-lg">
+          <div className="w-full md:w-[70%] relative">
+            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src={images[currentImageIndex]}
                 alt={`BizBuzz gallery image ${currentImageIndex + 1}`}
                 fill
                 className="object-cover"
-                unoptimized
+                priority
               />
               
               {/* Navigation arrows */}
               <button 
                 onClick={goToPrevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 flex items-center justify-center shadow-md hover:bg-white transition-colors"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 flex items-center justify-center shadow-md hover:bg-white transition-colors"
                 aria-label="Previous image"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-gray-800">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                 </svg>
               </button>
               
               <button 
                 onClick={goToNextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 flex items-center justify-center shadow-md hover:bg-white transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 flex items-center justify-center shadow-md hover:bg-white transition-colors"
                 aria-label="Next image"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-gray-800">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                 </svg>
               </button>
@@ -67,7 +68,7 @@ const ImageGallery = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`w-2.5 h-2.5 rounded-full ${
+                    className={`w-3 h-3 rounded-full ${
                       currentImageIndex === index ? 'bg-white' : 'bg-white/50'
                     }`}
                     aria-label={`Go to image ${index + 1}`}
@@ -78,19 +79,18 @@ const ImageGallery = () => {
           </div>
           
           {/* Text Content */}
-          <div className="w-full md:w-1/2 mt-8 md:mt-0">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-6">
-              Say Hi To Biz Buzz
+          <div className="w-full md:w-[30%] mt-8 md:mt-0">
+            <h2 className="text-3xl md:text-3xl font-bold text-[#0f172a] mb-6">
+              Build Biz. Bring Buzz.
             </h2>
             <div className="text-base md:text-lg text-gray-600 space-y-4">
               <p>
-                BizBuzz is a nonprofit organization dedicated to teaching entrepreneurship and business skills to 3rd-8th grade students. Our interactive programs foster creativity, critical thinking, and financial literacy.
+                BizBuzz NFP is a 501(c)(3) nonprofit organization based in Naperville, Illinois. Built on the belief that every student deserves access to entrepreneurial education that helps them find their ideas—and the confidence to share them—we offer a completely free platform designed by students, for students. In a city where 90% of K-8 schools offer no business education, we set out in April 2024 to change that.
+
               </p>
+      
               <p>
-                Through hands-on projects and real-world business challenges, students learn to identify problems, create solutions, and build confidence in their abilities. We believe that entrepreneurial thinking is a valuable skill that prepares children for success in any future path.
-              </p>
-              <p>
-                Our team of educators and business professionals is passionate about inspiring the next generation of innovators and leaders.
+              Let’s turn imagination into innovation.
               </p>
             </div>
           </div>

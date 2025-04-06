@@ -2,80 +2,28 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
-interface SquareData {
-  id: number;
-  src: string;
-}
-
-const squareData: SquareData[] = [
-  {
-    id: 1,
-    src: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-  },
-  {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1510925758641-869d353cecc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-  },
-  {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1629901925121-8a141c2a42f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-  },
-  {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1580238053495-b9720401fd45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-  },
-  {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1569074187119-c87815b476da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1325&q=80",
-  },
-  {
-    id: 6,
-    src: "https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-  },
-  {
-    id: 7,
-    src: "https://images.unsplash.com/photo-1599586120429-48281b6f0ece?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-  },
-  {
-    id: 8,
-    src: "https://plus.unsplash.com/premium_photo-1671436824833-91c0741e89c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-  },
-  {
-    id: 9,
-    src: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-  },
-  {
-    id: 10,
-    src: "https://images.unsplash.com/photo-1610768764270-790fbec18178?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-  },
-  {
-    id: 11,
-    src: "https://images.unsplash.com/photo-1507034589631-9433cc6bc453?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=684&q=80",
-  },
-  {
-    id: 12,
-    src: "https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=882&q=80",
-  },
-  {
-    id: 13,
-    src: "https://images.unsplash.com/photo-1560089000-7433a4ebbd64?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-  },
-  {
-    id: 14,
-    src: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
-  },
-  {
-    id: 15,
-    src: "https://images.unsplash.com/photo-1606244864456-8bee63fce472?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80",
-  },
-  {
-    id: 16,
-    src: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1820&q=80",
-  },
+const squareData = [
+  { id: 1, src: "/hero_imgs/1.jpg" },
+  { id: 2, src: "/hero_imgs/2.jpg" },
+  { id: 3, src: "/hero_imgs/3.jpg" },
+  { id: 4, src: "/hero_imgs/4.jpg" },
+  { id: 5, src: "/hero_imgs/5.jpg" },
+  { id: 6, src: "/hero_imgs/6.jpg" },
+  { id: 7, src: "/hero_imgs/7.jpg" },
+  { id: 8, src: "/hero_imgs/8.jpg" },
+  { id: 9, src: "/hero_imgs/9.jpg" },
+  { id: 10, src: "/hero_imgs/10.jpg" },
+  { id: 11, src: "/hero_imgs/11.jpg" },
+  { id: 12, src: "/hero_imgs/12.jpg" },
+  { id: 13, src: "/hero_imgs/13.jpg" },
+  { id: 14, src: "/hero_imgs/14.jpg" },
+  { id: 15, src: "/hero_imgs/15.jpg" },
+  { id: 16, src: "/hero_imgs/16.jpg" },
 ];
 
-const shuffle = (array: SquareData[]): SquareData[] => {
+const shuffle = (array: typeof squareData) => {
   const newArray = [...array];
   let currentIndex = newArray.length,
     randomIndex;
@@ -83,7 +31,6 @@ const shuffle = (array: SquareData[]): SquareData[] => {
   while (currentIndex != 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
-
     [newArray[currentIndex], newArray[randomIndex]] = [
       newArray[randomIndex],
       newArray[currentIndex],
@@ -94,8 +41,8 @@ const shuffle = (array: SquareData[]): SquareData[] => {
 };
 
 const ShuffleGrid = () => {
-  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
-  const [squares, setSquares] = useState<SquareData[]>(squareData);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [squares, setSquares] = useState(squareData);
 
   useEffect(() => {
     const shuffleSquares = () => {
@@ -119,12 +66,17 @@ const ShuffleGrid = () => {
           key={sq.id}
           layout
           transition={{ duration: 1.5, type: "spring" }}
-          className="w-full h-full"
-          style={{
-            backgroundImage: `url(${sq.src})`,
-            backgroundSize: "cover",
-          }}
-        />
+          className="w-full h-full relative overflow-hidden"
+        >
+          <Image
+            src={sq.src}
+            alt={`Grid image ${sq.id}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 25vw, 20vw"
+            priority={sq.id <= 4}
+          />
+        </motion.div>
       ))}
     </div>
   );
@@ -132,22 +84,35 @@ const ShuffleGrid = () => {
 
 const ShuffleHero = () => {
   return (
-    <section className="w-full px-8 py-32 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
+    <section className="w-full px-4 md:px-8 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 items-center gap-12 max-w-7xl mx-auto">
       <div>
-        <span className="block mb-4 text-sm md:text-base text-[#6366F1] font-medium">
+        <span className="inline-block mb-6 px-4 py-2 bg-indigo-100 text-[#6366F1] font-medium rounded-full text-sm md:text-base">
           501(c)(3) Non-Profit Organization
         </span>
-        <h3 className="text-5xl md:text-7xl font-semibold text-black tracking-tight leading-[1.1]">
-          BizBuzz NFP
-        </h3>
-        <p className="text-base md:text-lg text-[#4B5563] my-6 md:my-8">
-          Turning <span className="text-[#38b6ff] font-bold">imagination</span> into <span className="text-[#ffbf00] font-bold">innovation</span> <span>via social entrepreneurship</span>.
+        <h1 className="text-6xl md:text-8xl font-bold text-[#2D3748] tracking-tight leading-[1] mb-6">
+          BizBuzz
+          <span className="text-[#6366F1]">NFP</span>
+        </h1>
+        <p className="text-xl md:text-2xl text-[#4B5563] font-light mb-8 leading-relaxed">
+          Turning <span className="text-[#38b6ff] font-bold">imagination</span> into{" "}
+          <span className="text-[#ffbf00] font-bold">innovation</span>{" "}
+          via social entrepreneurship
         </p>
-        <button className="bg-[#6366F1] text-white font-medium py-3 px-6 rounded-lg text-lg transition-all hover:bg-[#4F46E5] active:scale-95">
-          Learn More
-        </button>
+        <div className="flex gap-4 items-center">
+          <button className="bg-[#6366F1] text-white font-semibold py-4 px-8 rounded-2xl text-lg transition-all hover:bg-[#4F46E5] hover:scale-105 active:scale-95 shadow-lg hover:shadow-indigo-200">
+            Learn More
+          </button>
+          <a href="#programs" className="text-[#4B5563] hover:text-[#6366F1] font-medium text-lg transition-colors">
+            View Programs →
+          </a>
+        </div>
       </div>
-      <ShuffleGrid />
+      <div className="relative">
+        <div className="absolute -inset-4 bg-gradient-to-r from-[#6366F1]/20 to-[#38b6ff]/20 rounded-3xl blur-2xl" />
+        <div className="relative">
+          <ShuffleGrid />
+        </div>
+      </div>
     </section>
   );
 };
