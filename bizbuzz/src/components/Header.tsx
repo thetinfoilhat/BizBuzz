@@ -27,6 +27,16 @@ const Header = () => {
               Bootcamps
             </Link>
             <Link 
+              href="/workshops" 
+              className={`text-sm transition-colors ${
+                pathname === "/workshops" 
+                  ? "text-[#6366F1] font-medium" 
+                  : "text-[#000000] hover:text-[#6366F1]"
+              }`}
+            >
+              Workshops
+            </Link>
+            <Link 
               href="/practice" 
               className={`text-sm transition-colors ${
                 pathname === "/practice" 
@@ -35,16 +45,6 @@ const Header = () => {
               }`}
             >
               Fish Tank
-            </Link>
-            <Link 
-              href="/contact" 
-              className={`text-sm transition-colors ${
-                pathname === "/contact" 
-                  ? "text-[#6366F1] font-medium" 
-                  : "text-[#000000] hover:text-[#6366F1]"
-              }`}
-            >
-              Workshops
             </Link>
             <Link 
               href="/sessions" 

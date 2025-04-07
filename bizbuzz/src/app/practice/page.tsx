@@ -18,42 +18,42 @@ const prelimJudges = {
   judges: [
     {
       name: "Athena Chen",
-      photo: "/hero_imgs/11.jpg",
+      photo: "/fish_tank/p_judges/athena.png",
       title: "Founder @ Naperville Children's Business Fair",
       company: "",
       bio: "Athena is an incoming freshman at the Haas School of Business at the University of California-Berkeley. In 2020, she founded the Naperville Children's Business Fair, an entrepreneurship event incubating 200+ businesses run by over 350 kidpreneurs (ages 5-14) selling to 3,500 visitors over the past three years. She is so excited that the Fair is partnering with BizBuzz this year!"
     },
     {
       name: "Olivia Fisz",
-      photo: "/hero_imgs/13.jpg",
+      photo: "/fish_tank/p_judges/olivia.png",
       title: "State President @ Illinois DECA",
       company: "",
       bio: "Olivia is an incoming freshman at the Wharton School of the University of Pennsylvania, where she will study finance. She currently serves as the Illinois DECA State President, leading over 5,000 members in the world's largest high school business organization. She hopes to show young students how they can use their voices, ideas, and courage to create meaningful change."
     },
     {
       name: "Soohyun Cho",
-      photo: "/hero_imgs/14.jpg",
+      photo: "/fish_tank/p_judges/soohyun.jpg",
       title: "Student Representative @ City of Naperville",
       company: "",
       bio: "Soohyun is an incoming freshman at Rice University majoring in Finance. From working at a sales company to being involved in business organizations at school, he has taken his talents far and wide. This past year, he placed nationally in personal finance and investing competitions, eventually becoming a state champion in DECA."
     },
     {
       name: "Isabel Yu",
-      photo: "/hero_imgs/11.jpg",
+      photo: "/fish_tank/p_judges/isabel.png",
       title: "Founder @ Suki Jewels",
       company: "",
       bio: "Isabel is a rising freshman at UIUC's Gies College of Business, studying marketing and finance. As an upcoming D203 Business Incubator mentor, she is excited to help students further their passion for entrepreneurship. She is also the co-owner of Suki Jewels, a handmade jewelry business that has generated $3,000+ in revenue and 8,000+ supporters to date."
     },
     {
       name: "Ria Pande",
-      photo: "/hero_imgs/13.jpg",
+      photo: "/fish_tank/p_judges/ria.png",
       title: "DECA International Finalist",
       company: "",
       bio: "Ria is a freshman at the University of California, Santa Barbara, studying business and entrepreneurship. As a finalist at DECA's International Career Development Conference, she has developed strong experience in turning ideas into impact. Ria is passionate about helping students find their voices and couldn't be more excited to support this year's Fish Tank participants as they prepare to pitch and pursue their own entrepreneurial visions!"
     },
     {
       name: "Nathan Mendoza",
-      photo: "/hero_imgs/14.jpg",
+      photo: "/fish_tank/p_judges/nathan.png",
       title: "Founder @ Stall Secure LLC",
       company: "",
       bio: "Nathan is a rising senior at Naperville North, aspiring to become an entrepreneur while uplifting others. He is the current CEO and Co-Founder of Stall-Secure, which has won first place in three major pitch competitions. To date, he has secured over $9,000 in funding for his company and is looking forward to seeing BizBuzz participants' creativity!"
@@ -114,7 +114,7 @@ const finalJudges = {
 // Winner
 const winner = {
   name: "Aanya Patel",
-  photo: "/hero_imgs/11.jpg",
+  photo: "/fish_tank/ranking/first.jpg",
   productName: "EcoLearn",
   school: "Jefferson Middle School",
   description: "A gamified learning platform that teaches environmental sustainability through interactive challenges. Students earn points by completing real-world eco-friendly actions and competing with friends."
@@ -124,28 +124,28 @@ const winner = {
 const runnerUps = [
   {
     name: "Tyler Johnson",
-    photo: "/hero_imgs/13.jpg", 
+    photo: "/fish_tank/ranking/second.jpg", 
     productName: "HomeworkHelper",
     school: "Lincoln Elementary",
     description: "An AI-powered study assistant that helps students organize assignments and create personalized study plans. It analyzes learning patterns to suggest effective study methods."
   },
   {
     name: "Maya Rodriguez",
-    photo: "/hero_imgs/14.jpg",
+    photo: "/fish_tank/ranking/third.jpg",
     productName: "SafeWalk",
     school: "Washington High School",
     description: "A mobile app that connects students walking the same route home for increased safety. Parents receive real-time notifications with emergency features for peace of mind."
   },
   {
     name: "Ethan Chen",
-    photo: "/hero_imgs/11.jpg",
+    photo: "/fish_tank/ranking/fourth.jpg",
     productName: "ScienceSpark",
     school: "Edison Academy",
     description: "An affordable kit that turns smartphones into powerful microscopes for science education. The accompanying app guides students through experiments and lets them share discoveries."
   },
   {
     name: "Zoe Williams",
-    photo: "/hero_imgs/13.jpg",
+    photo: "/fish_tank/ranking/fifth.jpg",
     productName: "TeenFinance",
     school: "Roosevelt High School",
     description: "A financial literacy app designed specifically for teenagers. It teaches budgeting, saving, and investing through real-world simulations and challenges with virtual currency."
@@ -538,12 +538,12 @@ export default function FishTankPage() {
                   variants={fadeIn}
                   className="bg-white rounded-xl overflow-hidden shadow-lg border border-[#38b6ff]/30 hover:shadow-xl transition-all"
                 >
-                  <div className="relative h-[220px]">
+                  <div className="relative h-[280px]">
                     <Image
                       src={judge.photo}
                       alt={judge.name}
                       fill
-                      className="object-cover"
+                      className="object-cover object-top"
                     />
                     <div className="absolute top-0 right-0 bg-[#38b6ff] text-white px-3 py-1 text-xs font-bold uppercase rounded-bl-lg">
                       Prelim Judge
@@ -572,12 +572,12 @@ export default function FishTankPage() {
                   variants={fadeIn}
                   className="bg-white rounded-xl overflow-hidden shadow-lg border border-[#38b6ff]/30 hover:shadow-xl transition-all"
                 >
-                  <div className="relative h-[220px]">
+                  <div className="relative h-[280px]">
                     <Image
                       src={judge.photo}
                       alt={judge.name}
                       fill
-                      className="object-cover"
+                      className="object-cover object-top"
                     />
                     <div className="absolute top-0 right-0 bg-[#38b6ff] text-white px-3 py-1 text-xs font-bold uppercase rounded-bl-lg">
                       Prelim Judge
@@ -595,37 +595,7 @@ export default function FishTankPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-[#38b6ff]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-5xl font-bold text-white mb-4">Ready to Make a Splash?</h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Join our next Fish Tank competition and transform your ideas into reality with expert guidance and hands-on experience.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="mailto:info@bizbuzznfp.org" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-[#38b6ff] font-semibold rounded-xl shadow-lg hover:bg-gray-50 transition-colors"
-              >
-                Apply Now
-              </a>
-              <a 
-                href="#what-is-fish-tank" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-transparent text-white font-semibold rounded-xl border-2 border-white hover:bg-white/10 transition-colors"
-              >
-                Learn More
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+
     </div>
   );
 } 
