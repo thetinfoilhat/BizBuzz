@@ -5,11 +5,11 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const phrases = [
-  "build tomorrow's businesses",
-  "solve real-world problems",
-  "develop entrepreneurial skills",
-  "create social impact",
-  "innovate for the future"
+  "build today's ideas for tomorrow's problems.",
+  "lead lasting change in their communities.",
+  "discover their unique voices, and use them.",
+  "create confidence through collaboration.",
+  "transform their imagination into innovation."
 ];
 
 interface StatItemProps {
@@ -18,17 +18,13 @@ interface StatItemProps {
   prefix?: string;
   suffix?: string;
   imageSrc: string;
-  color?: "blue" | "yellow";
+  color: string;
 }
 
-const StatItem = ({ value, label, prefix = "", suffix = "", imageSrc, color = "blue" }: StatItemProps) => {
+const StatItem = ({ value, label, prefix = "", suffix = "", imageSrc, color }: StatItemProps) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
-  const colorClass = color === "blue" 
-    ? "text-[#38b6ff]" 
-    : "text-[#ffbf00]";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -74,8 +70,8 @@ const StatItem = ({ value, label, prefix = "", suffix = "", imageSrc, color = "b
   }, [isVisible, value]);
 
   return (
-    <div ref={ref} className="text-center px-4">
-      <div className="relative w-full h-52 mb-6 rounded-lg overflow-hidden">
+    <div ref={ref} className="text-center px-4 transform hover:scale-105 transition-transform duration-300">
+      <div className="relative w-full h-64 mb-8 rounded-xl overflow-hidden shadow-xl">
         <Image
           src={imageSrc}
           alt={label}
@@ -83,76 +79,83 @@ const StatItem = ({ value, label, prefix = "", suffix = "", imageSrc, color = "b
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 25vw"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
       </div>
-      <div className={`text-5xl md:text-6xl font-bold ${colorClass} mb-2`}>
+      <div className={`text-6xl md:text-7xl font-bold mb-3`} style={{ color }}>
         {prefix}{count.toLocaleString()}{suffix}
       </div>
-      <div className="text-gray-600 font-medium text-xl md:text-2xl">{label}</div>
+      <div className="text-black font-medium text-2xl md:text-3xl">{label}</div>
     </div>
   );
 };
 
 const StatsSection = () => {
   const [index, setIndex] = useState(0);
+  const [verbElement, setVerbElement] = useState("");
 
   useEffect(() => {
+    const verbs = ["build", "lead", "discover", "create", "transform"];
+    setVerbElement(verbs[index]);
+    
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % phrases.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [index]);
 
   return (
-    <section className="w-full bg-gray-50 py-20 border-t border-gray-100">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col items-center mb-24">
-          <div className="max-w-5xl w-full">
-            <h2 className="text-4xl md:text-5xl font-bold flex items-center">
-              <span className="text-[#1e293b]">We help students</span>
-              <div className="relative ml-3 flex items-baseline" style={{ minWidth: "300px", height: "1.2em" }}>
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute left-0 bg-gradient-to-r from-[#6366F1] to-[#38b6ff] text-transparent bg-clip-text whitespace-nowrap"
-                    style={{ bottom: '0.05em' }}
-                  >
-                    {phrases[index]}
-                  </motion.span>
-                </AnimatePresence>
+    <section className="w-full bg-gradient-to-b from-gray-50 to-white py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="mb-24">
+          <div className="text-center" style={{ marginLeft: "-22%" }}>
+            <div className="inline-block relative">
+              <div className="text-[2.5rem] whitespace-nowrap">
+                <span className="text-[#003166] font-bold">We help students</span>
+                <span className="inline-block ml-2 w-[600px] text-left">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="inline-block whitespace-nowrap"
+                    >
+                      <span className="text-[#38b6ff] font-bold">{verbElement}</span>
+                      <span className="text-[#003166] font-normal">{phrases[index].substring(verbElement.length)}</span>
+                    </motion.div>
+                  </AnimatePresence>
+                </span>
               </div>
-            </h2>
+            </div>
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           <StatItem 
             value={634} 
             label="Students"
             imageSrc="/stats/students.jpg"
-            color="blue"
+            color="#FFBF00"
           />
           <StatItem 
             value={63} 
             label="Schools"
             imageSrc="/stats/schools.png"
-            color="yellow"
+            color="#E69F16"
           />
           <StatItem 
             value={6267} 
             label="Dollars Raised"
             prefix="$"
             imageSrc="/stats/money.jpg"
-            color="blue"
+            color="#CD8F20"
           />
           <StatItem 
             value={504} 
             label="Hours Taught"
             imageSrc="/stats/hours.jpg"
-            color="yellow"
+            color="#BD7825"
           />
         </div>
       </div>

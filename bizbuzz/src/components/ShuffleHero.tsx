@@ -86,12 +86,11 @@ const ShuffleHero = () => {
   return (
     <section className="w-full px-4 md:px-8 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 items-center gap-12 max-w-7xl mx-auto">
       <div>
-        <span className="inline-block mb-6 px-4 py-2 bg-indigo-100 text-[#6366F1] font-medium rounded-full text-sm md:text-base">
+        <span className="inline-block mb-6 px-4 py-2 bg-indigo-100 text-[#040037] font-medium rounded-full text-sm md:text-base">
           501(c)(3) Non-Profit Organization
         </span>
-        <h1 className="text-6xl md:text-8xl font-bold text-[#2D3748] tracking-tight leading-[1] mb-6">
-          BizBuzz
-          <span className="text-[#6366F1]">NFP</span>
+        <h1 className="text-6xl md:text-8xl font-bold text-[#040037] tracking-tight leading-[1] mb-6">
+          BizBuzz <span className="text-[#38b6ff]">NFP</span>
         </h1>
         <p className="text-xl md:text-2xl text-[#4B5563] font-light mb-8 leading-relaxed">
           Turning <span className="text-[#38b6ff] font-bold">imagination</span> into{" "}
@@ -99,16 +98,16 @@ const ShuffleHero = () => {
           via social entrepreneurship
         </p>
         <div className="flex gap-4 items-center">
-          <button className="bg-[#6366F1] text-white font-semibold py-4 px-8 rounded-2xl text-lg transition-all hover:bg-[#4F46E5] hover:scale-105 active:scale-95 shadow-lg hover:shadow-indigo-200">
+          <button className="bg-[#003166] text-white font-semibold py-4 px-8 rounded-2xl text-lg transition-all hover:bg-[#00254d] hover:scale-105 active:scale-95 shadow-lg hover:shadow-blue-200">
             Learn More
           </button>
-          <a href="#programs" className="text-[#4B5563] hover:text-[#6366F1] font-medium text-lg transition-colors">
+          <a href="#programs" className="text-[#4B5563] hover:text-[#38b6ff] font-medium text-lg transition-colors">
             View Programs →
           </a>
         </div>
       </div>
       <div className="relative">
-        <div className="absolute -inset-4 bg-gradient-to-r from-[#6366F1]/20 to-[#38b6ff]/20 rounded-3xl blur-2xl" />
+        <div className="absolute -inset-4 bg-gradient-to-r from-[#003166]/20 to-[#38b6ff]/20 rounded-3xl blur-2xl" />
         <div className="relative">
           <ShuffleGrid />
         </div>
