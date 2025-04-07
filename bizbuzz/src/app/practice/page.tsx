@@ -67,46 +67,39 @@ const finalJudges = {
   description: "Our distinguished panel of final judges consists of successful entrepreneurs, investors, and community leaders who evaluate the finalists' pitches with professional rigor. They assess each idea based on innovation, market potential, feasibility, and presentation quality. These judges not only select the winners but also provide mentorship opportunities and connections to help turn the most promising ideas into reality.",
   judges: [
     {
-      name: "Michael Torres",
-      photo: "/hero_imgs/11.jpg",
-      title: "Venture Capitalist",
-      company: "Elevation Partners",
-      bio: "Investor who has funded over 20 successful startups and specializes in identifying promising innovations with high growth potential."
+      name: "Phil Ramos",
+      photo: "/fish_tank/f_judges/phil.jpg",
+      title: "Owner & President",
+      company: "Office Furniture Solutions",
+      bio: "Phil Ramos is the owner and president of Office Furniture Solutions in Naperville, where he has built a respected business providing new and refurbished office furniture. Known for his commitment to community involvement and mentorship, he actively supports local initiatives and youth programs."
     },
     {
-      name: "Dr. Angela Williams",
-      photo: "/hero_imgs/13.jpg",
-      title: "Innovation Director",
-      company: "National Science Foundation",
-      bio: "Leads initiatives to accelerate science innovation in educational settings with a focus on technological advancement and accessibility."
+      name: "Raymond Munch",
+      photo: "/fish_tank/f_judges/raymond.jpg",
+      title: "Director of Finance",
+      company: "City of Naperville",
+      bio: "Raymond Munch serves as the Director of Finance for the City of Naperville, overseeing financial operations and managing the city's substantial budget. His career includes over a decade in law enforcement with the Village of Glen Ellyn, followed by leadership roles in city management in DeKalb, Illinois."
     },
     {
-      name: "Robert Chang",
-      photo: "/hero_imgs/14.jpg",
-      title: "CEO",
-      company: "Global Innovations Inc.",
-      bio: "Tech industry leader who built a billion-dollar company from the ground up and actively mentors young entrepreneurs in the digital space."
+      name: "Janet Yang Rohr",
+      photo: "/fish_tank/f_judges/janet.jpg",
+      title: "State Representative",
+      company: "Illinois' 41st District",
+      bio: "Janet Yang Rohr is a state representative for Illinois' 41st District, serving since 2021 and focusing on education, healthcare, and economic issues. Before entering politics, she held leadership roles in finance and served on the Naperville District 203 school board."
     },
     {
-      name: "Sophia Washington",
-      photo: "/hero_imgs/11.jpg",
-      title: "Community Leader",
-      company: "Business Futures Alliance",
-      bio: "Directs a nonprofit focused on economic development through entrepreneurship in underserved communities across the Midwest."
+      name: "Brad Wilson",
+      photo: "/fish_tank/f_judges/brad.jpg",
+      title: "Executive Director",
+      company: "Naperville Park District",
+      bio: "Brad Wilson has been the Executive Director of the Naperville Park District since February 2022, after a distinguished 23-year tenure with the organization. He has been with the district for over two decades, beginning as an intern and working his way up through various leadership positions."
     },
     {
-      name: "Thomas Rivera",
-      photo: "/hero_imgs/13.jpg",
-      title: "Retail Expert",
-      company: "Consumer Trends Group",
-      bio: "Former executive at major retail corporations who now consults on consumer product development and go-to-market strategies."
-    },
-    {
-      name: "Dr. Emily Chen",
-      photo: "/hero_imgs/14.jpg",
-      title: "Technology Pioneer",
-      company: "FutureTech Institute",
-      bio: "Award-winning researcher and entrepreneur who specializes in emerging technologies and their commercial applications for social impact ventures."
+      name: "Isha Elandassery",
+      photo: "/fish_tank/f_judges/isha.jpg",
+      title: "Founder",
+      company: "Naperville Rising Women in Business",
+      bio: "Isha Elandassery is the founder of Naperville Rising Women in Business (NRWIB), an organization dedicated to empowering young girls to become future leaders. She also created Salus Security, a startup focused on developing discreet emergency wristbands for students."
     }
   ]
 };
