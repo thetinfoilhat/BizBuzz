@@ -8,255 +8,137 @@ import Link from 'next/link';
 const sessions = [
   {
     id: "session1",
-    title: "Entrepreneurial Foundations",
+    title: "Ideation & Innovation",
     date: "June 12-13, 2024",
-    location: "Innovation Hub, Naperville",
-    description: "In Session 1, students explored the fundamentals of entrepreneurship, learning how to identify and solve real-world problems. They were introduced to key concepts like value creation and market fit, and began brainstorming business ideas through our Mini Fish Tank activity with over $200 in prizes.",
+    location: "95th Street Library, Naperville",
+    description: "In Session 1, students kicked off our free 2024 Summer Entrepreneurship Camp by exploring the basics of business-minded thinking, learning how to identify and solve real-world problems. After being introduced to concepts like value creation and market fit with 10 instructors, students dove into our Mini Fish Tank activity with $200+ in prizes.",
     speaker: {
       name: "Kandice Henning",
       role: "CEO of the Alive Center",
       topic: "How to Become a Fearless Entrepreneur",
       bio: "Sharing her journey of creating one of Naperville's largest nonprofit organizations, she inspired students to embrace risk, pursue their passions, and lead through social innovation.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400"
+      image: "/camp_imgs/speakers/kandice_henning.png"
     },
-    activities: [
-      {
-        title: "Problem Identification Workshop",
-        description: "Students learned techniques to identify real-world problems worth solving through observation and empathy."
-      },
-      {
-        title: "Mini Fish Tank Competition",
-        description: "Teams pitched initial business concepts to win cash prizes and valuable feedback from expert judges."
-      },
-      {
-        title: "Business Model Canvas Introduction",
-        description: "Introduction to the core components of a sustainable business model and value proposition."
-      }
-    ],
-    keyTakeaways: [
-      "Understanding the entrepreneurial mindset",
-      "Identifying problems and opportunities",
-      "Basic business model concepts",
-      "Effective brainstorming techniques"
-    ],
     images: [
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800",
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800",
-      "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800",
-      "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800",
-      "https://images.unsplash.com/photo-1525130413817-d45c1d127c42?q=80&w=800",
+      "/camp_imgs/cards/session1/1.png",
+      "/camp_imgs/cards/session1/2.png",
+      "/camp_imgs/cards/session1/3.png",
+      "/camp_imgs/cards/session1/4.png",
+      "/camp_imgs/cards/session1/5.png",
     ],
-    color: "#6366F1"
+    color: "#B8e2f4"
   },
   {
     id: "session2",
-    title: "Business Model Development",
+    title: "Unique Value Proposition & Networking",
     date: "July 8-9, 2024",
-    location: "Downtown Center, Chicago",
-    description: "Building on the foundation from Session 1, students dove deeper into developing their business models, conducting market research, and understanding their target audiences. They learned practical strategies for validating their ideas and received mentorship from experienced entrepreneurs.",
+    location: "95th Street Library, Naperville",
+    description: "In Session 2, students learned how to craft a unique value proposition for their businesses and practiced their networking skills with 9 instructors. They put their skills to the test in a coffee shop simulation contest, responding to situations & prompts (and some surprises too!) to maximize profits and win $100 in awards.",
     speaker: {
-      name: "Michael Chen",
-      role: "Founder of TechStart Ventures",
-      topic: "From Idea to Market: Validation Strategies",
-      bio: "With experience launching five successful tech startups, Michael shared practical approaches to testing ideas quickly and cost-effectively to ensure product-market fit.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400"
+      name: "Isha Elandassery",
+      role: "Founder of Naperville Rising Women in Business",
+      topic: "Finding Your Competitive Advantage",
+      bio: "Inspired by an activity she did at Indiana University, she taught students to discover their identity through a self-portrait exercise and apply their newfound skills to networking.",
+      image: "/camp_imgs/speakers/isha_elandassery.jpg"
     },
-    activities: [
-      {
-        title: "Customer Discovery Interviews",
-        description: "Students conducted real interviews with potential customers to validate their assumptions."
-      },
-      {
-        title: "Minimum Viable Product Workshop",
-        description: "Teams developed quick prototypes and mockups to visualize their solutions."
-      },
-      {
-        title: "Financial Modeling Basics",
-        description: "Introduction to revenue models, pricing strategies, and basic business financials."
-      }
-    ],
-    keyTakeaways: [
-      "Market research techniques",
-      "Product validation methods",
-      "Understanding customer needs",
-      "Basics of financial planning"
-    ],
     images: [
-      "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?q=80&w=800",
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800",
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800",
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800",
+      "/camp_imgs/cards/session2/1.png",
+      "/camp_imgs/cards/session2/2.jpg",
+      "/camp_imgs/cards/session2/3.jpg",
+      "/camp_imgs/cards/session2/4.png",
+      "/camp_imgs/cards/session2/5.jpg",
+    ],
+    color: "#8dcfec"
+  },
+  {
+    id: "session3",
+    title: "Marketing",
+    date: "August 15-16, 2024",
+    location: "95th Street Library, Naperville",
+    description: "In Session 3, students explored marketing, branding, and advertising through activities like the 'Guess the Brand' game and a flyer design challenge with $140 in prizes. With the Fish Tank competition just weeks away, students refined their business identities with 11 instructors and prepared to share them with the world.",
+    speaker: {
+      name: "Mary Gibson",
+      role: "Naperville Park District President",
+      topic: "Pitch, Polish, Promote: Branding Lessons from the Ballot",
+      bio: "After building a personal brand during her Park District election campaign, she taught students how to apply those strategies to their own businesses and innovations.",
+      image: "/camp_imgs/speakers/mary_gibson.jpg"
+    },
+    images: [
+      "/camp_imgs/cards/session3/1.jpg",
+      "/camp_imgs/cards/session3/2.jpg",
+      "/camp_imgs/cards/session3/3.jpg",
+      "/camp_imgs/cards/session3/4.jpg",
+      "/camp_imgs/cards/session3/5.jpg",
     ],
     color: "#38b6ff"
   },
   {
-    id: "session3",
-    title: "Pitch Perfect",
-    date: "August 15-16, 2024",
-    location: "Tech Incubator, Aurora",
-    description: "The final session focused on helping students refine their business concepts and master the art of the pitch. They received professional presentation coaching and prepared for the final showcase event where they presented to a panel of investors and community leaders.",
-    speaker: {
-      name: "Jasmine Rodriguez",
-      role: "Partner at Impact Ventures",
-      topic: "Pitching with Purpose and Passion",
-      bio: "As an investor who has evaluated thousands of pitches, Jasmine provided insights into what makes a compelling business presentation that resonates with both investors and customers.",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400"
-    },
-    activities: [
-      {
-        title: "Storytelling Workshop",
-        description: "Learning how to craft a compelling narrative around their business concept."
-      },
-      {
-        title: "Slide Deck Design",
-        description: "Creating professional presentation materials with effective visual communication."
-      },
-      {
-        title: "Pitch Practice & Feedback",
-        description: "Multiple rounds of practice presentations with detailed feedback from mentors."
-      }
-    ],
-    keyTakeaways: [
-      "Effective presentation skills",
-      "Visual storytelling techniques",
-      "Responding to investor questions",
-      "Public speaking confidence"
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1559523161-0fc0d8b38a77?q=80&w=800",
-      "https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=800",
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800",
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=800",
-      "https://images.unsplash.com/photo-1596720426673-e4e14290f0cc?q=80&w=800",
-    ],
-    color: "#ffbf00"
-  },
-  {
     id: "session4",
-    title: "Financial Foundations",
+    title: "Public Speaking",
     date: "September 5-6, 2024",
-    location: "Business Center, Naperville",
-    description: "In this session, students gained essential knowledge about financial management for startups. From basic accounting principles to funding strategies, they learned how to build a sustainable financial foundation for their businesses.",
+    location: "95th Street Library, Naperville",
+    description: "In Session 4, students explored the art of sales and pitching. Guided by 14 instructors, they practiced their public speaking skills and competed in an interactive, hands-on pitch contest with over $170 in prizes. With this new knowledge, students began developing their presentations and pitches in preparation for Fish Tank.",
     speaker: {
-      name: "David Park",
-      role: "CFO at GrowthCap Ventures",
-      topic: "Financial Literacy for Young Entrepreneurs",
-      bio: "With over 15 years of experience in startup finances, David simplifies complex financial concepts for young entrepreneurs and teaches practical money management skills.",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400"
+      name: "Athena Chen",
+      role: "Founder of the Naperville Children's Business Fair",
+      topic: "Confident Kidpreneurs: Believe, Build, and Be Bold",
+      bio: "As someone who ran an Etsy shop with over $11K in revenue and helped hundreds of local students pitch their own businesses, she spoke to students about taking risks despite doubt and embracing the confidence of a kidpreneur who knows they can do it all.",
+      image: "/camp_imgs/speakers/athena_chen.png"
     },
-    activities: [
-      {
-        title: "Budget Planning Workshop",
-        description: "Students created detailed startup budgets and learned about financial forecasting."
-      },
-      {
-        title: "Funding Options Overview",
-        description: "Exploration of various funding sources from bootstrapping to venture capital."
-      },
-      {
-        title: "Basic Accounting Practices",
-        description: "Introduction to essential accounting principles every founder should know."
-      }
-    ],
-    keyTakeaways: [
-      "Financial planning fundamentals",
-      "Startup funding strategies",
-      "Basic accounting principles",
-      "Risk management skills"
-    ],
     images: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800",
-      "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=800",
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800",
-      "https://images.unsplash.com/photo-1565514501944-3aa96e9fbd2a?q=80&w=800",
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800",
+      "/camp_imgs/cards/session4/1.jpg",
+      "/camp_imgs/cards/session4/2.jpg",
+      "/camp_imgs/cards/session4/3.png",
+      "/camp_imgs/cards/session4/4.jpg",
+      "/camp_imgs/cards/session4/5.jpg",
     ],
-    color: "#10b981"
+    color: "#235284"
   },
   {
     id: "session5",
-    title: "Marketing Essentials",
+    title: "Finance",
     date: "October 10-11, 2024",
-    location: "Creative Hub, Chicago",
-    description: "This session focused on teaching effective marketing strategies for startups. Students learned how to build a brand, create engaging content, and use digital platforms to reach their target audience effectively and affordably.",
+    location: "Nichols Library, Naperville",
+    description: "In Session 5, students learned the basics of personal and business finance from 16 instructors. They then put their skills to the test in a dream vacation budgeting game, planning their ideal trip and pitching it for a chance to win over $330 in prizes. Students also continued refining their Fish Tank pitches, now incorporating key financial details into their business plans.",
     speaker: {
-      name: "Sofia Ramirez",
-      role: "Director of Marketing at LaunchBox",
-      topic: "Building a Brand That Resonates",
-      bio: "Sofia has helped over 50 startups develop successful marketing strategies. She specializes in helping young entrepreneurs find their unique voice in crowded marketplaces.",
-      image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=400"
+      name: "Scott Wehrli",
+      role: "Mayor of Naperville",
+      topic: "From Ideas to Impact: How Innovation Builds Better Communities",
+      bio: "Mayor Wehrli shared how local entrepreneurs are innovating to solve real community problems in Naperville and beyond, encouraging students to use business as a tool for civic impact and leadership development.",
+      image: "/camp_imgs/speakers/scott_wehrli.png"
     },
-    activities: [
-      {
-        title: "Brand Identity Workshop",
-        description: "Students developed key brand elements including mission statements, visual identity, and voice."
-      },
-      {
-        title: "Digital Marketing Fundamentals",
-        description: "Introduction to social media, content marketing, and email campaign strategies."
-      },
-      {
-        title: "Customer Acquisition Planning",
-        description: "Creating practical plans to attract and retain customers on a startup budget."
-      }
-    ],
-    keyTakeaways: [
-      "Brand development basics",
-      "Digital marketing strategies",
-      "Content creation skills",
-      "Customer engagement techniques"
-    ],
     images: [
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800",
-      "https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=800",
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800",
-      "https://images.unsplash.com/photo-1533228876829-65c94e7b5025?q=80&w=800",
-      "https://images.unsplash.com/photo-1557804347-405233cb8835?q=80&w=800",
+      "/camp_imgs/cards/session5/1.jpg",
+      "/camp_imgs/cards/session5/2.jpg",
+      "/camp_imgs/cards/session5/3.jpg",
+      "/camp_imgs/cards/session5/4.jpg",
+      "/camp_imgs/cards/session5/5.jpg",
+      "/camp_imgs/cards/session5/6.jpg",
+      "/camp_imgs/cards/session5/7.jpg",
     ],
-    color: "#f43f5e"
+    color: "#003166"
   },
   {
     id: "session6",
-    title: "Scaling & Growth",
+    title: "Pitching",
     date: "November 14-15, 2024",
-    location: "Innovation Center, Evanston",
-    description: "The final session prepared students for taking their businesses to the next level. Focusing on sustainable growth strategies, team building, and operational scaling, students learned how successful startups evolve into established companies.",
+    location: "Nichols Library, Naperville",
+    description: "In Session 6, the final session before Fish Tank, students participated in a business building workshop to finalize their pitch decks and practice rehearsing their scripts. Joining them for a special surprise were our preliminary judges—Athena Chen, Soohyun Cho, Isabel Yu, Nathan Mendoza, and Olivia Fisz—who offered exciting feedback.",
     speaker: {
-      name: "Marcus Johnson",
-      role: "CEO of ScaleUp Ventures",
-      topic: "From Startup to Established Business",
-      bio: "After scaling three startups to acquisition, Marcus now mentors young entrepreneurs on building sustainable growth models and navigating the challenges of business expansion.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400"
+      name: "Sean Riley",
+      role: "CEO of Dude Wipes",
+      topic: "Dude, Start Now: Why Entrepreneurship Can't Wait",
+      bio: "Sean spoke about the power of starting early in entrepreneurship and embracing the journey. He reminded students that by taking the leap now, they are already on the right path in one of the world's most fun and rewarding career choices.",
+      image: "/camp_imgs/speakers/sean_riley.png"
     },
-    activities: [
-      {
-        title: "Growth Strategy Planning",
-        description: "Students developed roadmaps for sustainable business growth and market expansion."
-      },
-      {
-        title: "Team Building Workshop",
-        description: "Learning how to build effective teams and develop leadership skills."
-      },
-      {
-        title: "Operations Scaling Simulation",
-        description: "Interactive exercise on managing increased operational complexity as businesses grow."
-      }
-    ],
-    keyTakeaways: [
-      "Sustainable growth models",
-      "Team development techniques",
-      "Operational efficiency skills",
-      "Strategic planning methods"
-    ],
     images: [
-      "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800",
-      "https://images.unsplash.com/photo-1552664688-cf412ec27db2?q=80&w=800",
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800",
-      "https://images.unsplash.com/photo-1527525443983-6e60c75fff46?q=80&w=800",
-      "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=800",
+      "/camp_imgs/cards/session6/1.jpg",
+      "/camp_imgs/cards/session6/2.png",
+      "/camp_imgs/cards/session6/3.png",
+      "/camp_imgs/cards/session6/4.png",
+      "/camp_imgs/cards/session6/5.png",
     ],
-    color: "#8b5cf6"
+    color: "#040037"
   }
 ];
 
@@ -350,17 +232,17 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
           }
         }
       }}
-      className="mb-12 rounded-2xl overflow-hidden bg-white shadow-md"
+      className="mb-16 rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100"
       style={{ borderLeft: `6px solid ${session.color}` }}
     >
       {/* Session Header */}
       <div className="py-6 pl-6 pr-8 flex items-center" style={{ background: `linear-gradient(90deg, ${session.color}15, white)` }}>
-        <div className="w-14 h-14 rounded-full flex items-center justify-center mr-5 text-white font-bold text-xl shadow-sm" 
+        <div className="w-14 h-14 rounded-full flex items-center justify-center mr-5 text-white font-bold text-xl shadow-md" 
           style={{ backgroundColor: session.color }}>
           {index + 1}
         </div>
         <div>
-          <h3 className="text-2xl font-bold text-gray-800">{session.title}</h3>
+          <h3 className="text-2xl font-bold text-[#2D3748]">{session.title}</h3>
           <div className="flex text-base text-gray-500 mt-1">
             <span className="mr-4 flex items-center">
               <svg className="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -383,53 +265,156 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
       </div>
       
       {/* Session Content */}
-      <div className="pt-5 pb-6 px-6">
+      <div className="pt-6 pb-8 px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Left Column - Description and Images */}
           <motion.div variants={fadeIn} className="md:col-span-8">
-            <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+            <p className="text-[#4B5563] mb-8 text-lg leading-relaxed">
               {session.description}
             </p>
             
-            <div className="h-[320px]">
-              <ImageGrid images={session.images} title={session.title} />
-            </div>
-          </motion.div>
-          
-          {/* Right Column - Speaker Card */}
-          <motion.div variants={fadeIn} className="md:col-span-4 flex">
-            <div 
-              className="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col w-full"
-            >
-              <div className="text-center py-3" style={{ backgroundColor: `${session.color}10` }}>
-                <h4 className="font-bold text-gray-800 text-lg">FEATURED SPEAKER</h4>
+            <div className="relative">
+              <div className="absolute -inset-2 bg-gradient-to-r rounded-2xl blur-xl opacity-50" 
+                style={{ 
+                  backgroundImage: `linear-gradient(to right, ${session.color}10, #38b6ff10)` 
+                }} 
+              />
+              <div className="relative h-[320px]">
+                <ImageGrid images={session.images.slice(0, 5)} title={session.title} />
               </div>
-              
-              <div className="p-5 flex flex-col items-center text-center flex-grow justify-between">
-                <div className="flex flex-col items-center w-full">
-                  <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 mb-3 mx-auto" 
-                    style={{ borderColor: session.color }}>
-                    <Image 
-                      src={session.speaker.image} 
-                      alt={session.speaker.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <h5 className="text-xl font-semibold text-gray-800 mb-1">{session.speaker.name}</h5>
-                  <p className="text-gray-600 text-sm mb-2">{session.speaker.role}</p>
-                  <div 
-                    className="inline-block px-3 py-1 rounded-full text-sm mb-3"
-                    style={{ backgroundColor: `${session.color}20`, color: session.color }}
-                  >
-                    &ldquo;{session.speaker.topic}&rdquo;
-                  </div>
-                  <p className="text-gray-700 italic text-sm">
-                    {session.speaker.bio}
-                  </p>
+            </div>
+            
+            {/* Additional Images for Session 5 - Only show for session 5 */}
+            {session.id === "session5" && (
+              <div className="grid grid-cols-2 gap-4 mt-6">
+                <div className="relative h-[320px] rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/camp_imgs/cards/session5/6.jpg"
+                    alt="Additional session image"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative h-[320px] rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/camp_imgs/cards/session5/7.jpg"
+                    alt="Additional session image"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
-            </div>
+            )}
+          </motion.div>
+          
+          {/* Right Column - Speaker Cards for Session 5 */}
+          <motion.div variants={fadeIn} className="md:col-span-4 flex flex-col gap-6">
+            {session.id === "session5" ? (
+              <>
+                <div className="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col w-full relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r rounded-xl blur-xl opacity-30 -z-10" 
+                    style={{ backgroundImage: `linear-gradient(to right, ${session.color}20, #38b6ff10)` }} 
+                  />
+                  <div className="text-center py-3 relative z-10" style={{ backgroundColor: `${session.color}10` }}>
+                    <h4 className="font-bold text-[#2D3748] text-lg">FEATURED SPEAKER</h4>
+                  </div>
+                  
+                  <div className="p-5 flex flex-col items-center text-center flex-grow justify-between relative z-10">
+                    <div className="flex flex-col items-center w-full">
+                      <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 mb-3 mx-auto" 
+                        style={{ borderColor: session.color }}>
+                        <Image 
+                          src={session.speaker.image} 
+                          alt={session.speaker.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <h5 className="text-xl font-semibold text-[#2D3748] mb-1">{session.speaker.name}</h5>
+                      <p className="text-gray-600 text-sm mb-2">{session.speaker.role}</p>
+                      <div 
+                        className="inline-block px-3 py-1 rounded-full text-sm mb-3"
+                        style={{ backgroundColor: `${session.color}20`, color: session.color }}
+                      >
+                        &ldquo;{session.speaker.topic}&rdquo;
+                      </div>
+                      <p className="text-[#4B5563] italic text-sm">
+                        {session.speaker.bio}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col w-full relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r rounded-xl blur-xl opacity-30 -z-10" 
+                    style={{ backgroundImage: `linear-gradient(to right, ${session.color}20, #38b6ff10)` }} 
+                  />
+                  <div className="text-center py-3 relative z-10" style={{ backgroundColor: `${session.color}10` }}>
+                    <h4 className="font-bold text-[#2D3748] text-lg">GUEST SPEAKER</h4>
+                  </div>
+                  
+                  <div className="p-5 flex flex-col items-center text-center flex-grow justify-between relative z-10">
+                    <div className="flex flex-col items-center w-full">
+                      <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 mb-3 mx-auto" 
+                        style={{ borderColor: session.color }}>
+                        <Image 
+                          src="/camp_imgs/speakers/eddie_yoon.jpg"
+                          alt="Additional Speaker"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <h5 className="text-xl font-semibold text-[#2D3748] mb-1">Eddie Yoon</h5>
+                      <p className="text-gray-600 text-sm mb-2">Co-Creator of Category Pirates</p>
+                      <div 
+                        className="inline-block px-3 py-1 rounded-full text-sm mb-3"
+                        style={{ backgroundColor: `${session.color}20`, color: session.color }}
+                      >
+                        &ldquo;Finance is Freedom&rdquo;
+                      </div>
+                      <p className="text-[#4B5563] italic text-sm">
+                        He challenged students to rethink their relationship with money, describing it as powerful dynamite that must be used wisely. He urged them to create rather than compete, emphasizing that entrepreneurship—not just education—is the path to true freedom.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              // Default speaker card for other sessions
+              <div className="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 flex flex-col w-full relative">
+                <div className="absolute -inset-1 bg-gradient-to-r rounded-xl blur-xl opacity-30 -z-10" 
+                  style={{ backgroundImage: `linear-gradient(to right, ${session.color}20, #38b6ff10)` }} 
+                />
+                <div className="text-center py-3 relative z-10" style={{ backgroundColor: `${session.color}10` }}>
+                  <h4 className="font-bold text-[#2D3748] text-lg">FEATURED SPEAKER</h4>
+                </div>
+                
+                <div className="p-5 flex flex-col items-center text-center flex-grow justify-between relative z-10">
+                  <div className="flex flex-col items-center w-full">
+                    <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 mb-3 mx-auto" 
+                      style={{ borderColor: session.color }}>
+                      <Image 
+                        src={session.speaker.image} 
+                        alt={session.speaker.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <h5 className="text-xl font-semibold text-[#2D3748] mb-1">{session.speaker.name}</h5>
+                    <p className="text-gray-600 text-sm mb-2">{session.speaker.role}</p>
+                    <div 
+                      className="inline-block px-3 py-1 rounded-full text-sm mb-3"
+                      style={{ backgroundColor: `${session.color}20`, color: session.color }}
+                    >
+                      &ldquo;{session.speaker.topic}&rdquo;
+                    </div>
+                    <p className="text-[#4B5563] italic text-sm">
+                      {session.speaker.bio}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </motion.div>
         </div>
       </div>
@@ -439,35 +424,30 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
 
 export default function CampPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative flex items-center bg-gradient-to-r from-indigo-500/10 to-blue-500/10 border-b border-gray-100 overflow-hidden min-h-screen">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute right-0 top-0 w-[40rem] h-[40rem] bg-indigo-100 rounded-full blur-3xl opacity-30 -mr-40 -mt-40"></div>
-          <div className="absolute left-0 bottom-0 w-[40rem] h-[40rem] bg-blue-100 rounded-full blur-3xl opacity-30 -ml-40 -mb-40"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full py-20 md:py-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="relative flex items-center bg-white overflow-hidden min-h-screen">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full py-24 md:py-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-block px-5 py-2 rounded-full text-base font-medium bg-indigo-100 text-indigo-600 mb-6">
+              <span className="inline-block mb-6 px-4 py-2 bg-indigo-100 text-[#6366F1] font-medium rounded-full text-base md:text-lg">
                 Summer 2024
-              </div>
-              <h1 className="text-6xl md:text-7xl font-bold mb-8 text-gray-800 leading-tight">
-                BizCamp <span className="text-indigo-600">Sessions</span>
+              </span>
+              <h1 className="text-6xl md:text-7xl font-bold mb-8 text-[#2D3748] tracking-tight leading-tight">
+                BizCamp <span className="text-[#6366F1]">Sessions</span>
               </h1>
-              <p className="text-2xl text-gray-700 mb-12 leading-relaxed max-w-xl">
+              <p className="text-xl md:text-2xl text-[#4B5563] font-light mb-12 leading-relaxed max-w-xl">
                 Our six-part entrepreneurial journey takes students from idea generation
                 to market-ready concepts through hands-on workshops and expert mentorship.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a 
                   href="#session1" 
-                  className="inline-flex items-center px-8 py-4 bg-indigo-600 text-white text-lg font-medium rounded-xl shadow-md hover:bg-indigo-700 transition-colors"
+                  className="bg-[#6366F1] text-white font-semibold py-4 px-8 rounded-2xl text-lg transition-all hover:bg-[#4F46E5] hover:scale-105 active:scale-95 shadow-lg hover:shadow-indigo-200 inline-flex items-center"
                 >
                   Explore Sessions
                   <svg className="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -477,9 +457,9 @@ export default function CampPage() {
                 </a>
                 <a 
                   href="mailto:info@bizbuzznfp.org" 
-                  className="inline-flex items-center px-8 py-4 bg-white text-indigo-600 text-lg font-medium rounded-xl shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors"
+                  className="text-[#4B5563] hover:text-[#6366F1] font-medium text-lg transition-colors inline-flex items-center"
                 >
-                  Register Now
+                  Register Now →
                 </a>
               </div>
             </motion.div>
@@ -488,30 +468,31 @@ export default function CampPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative hidden md:block"
+              className="relative"
             >
-              <div className="w-full h-[550px] relative">
-                <div className="absolute top-0 left-0 w-[350px] h-[350px] rounded-xl overflow-hidden shadow-lg transform -rotate-6">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#6366F1]/20 to-[#38b6ff]/20 rounded-3xl blur-2xl" />
+              <div className="relative w-full h-[650px]">
+                <div className="absolute top-8 left-4 w-[320px] h-[320px] rounded-xl overflow-hidden shadow-lg transform -rotate-4">
                   <Image
-                    src="/hero_imgs/1.jpg"
+                    src="/camp_imgs/landing/left.jpg"
                     alt="Students collaborating"
                     fill
                     className="object-cover"
                     priority
                   />
                 </div>
-                <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-xl overflow-hidden shadow-lg transform rotate-6">
+                <div className="absolute bottom-4 right-0 translate-x-1/3 w-[340px] h-[340px] rounded-xl overflow-hidden shadow-lg transform rotate-3">
                   <Image
-                    src="/hero_imgs/2.jpg"
+                    src="/camp_imgs/landing/right.jpg"
                     alt="Workshop session"
                     fill
                     className="object-cover"
                     priority
                   />
                 </div>
-                <div className="absolute top-1/2 right-1/2 transform translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-xl overflow-hidden shadow-lg">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/3 -translate-y-1/2 w-[260px] h-[260px] rounded-xl overflow-hidden shadow-lg rotate-2">
                   <Image
-                    src="/hero_imgs/3.jpg"
+                    src="/camp_imgs/landing/center.jpg"
                     alt="Student presentation"
                     fill
                     className="object-cover"
@@ -525,9 +506,9 @@ export default function CampPage() {
       </div>
       
       {/* Sessions Content */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">Our Program</h2>
-        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Each session builds upon the previous one, creating a comprehensive learning journey from idea to execution.</p>
+      <div className="max-w-7xl mx-auto px-4 py-20 border-t border-gray-100">
+        <h2 className="text-5xl font-bold text-[#2D3748] mb-4 text-center">2024 Program</h2>
+        <p className="text-[#4B5563] text-center mb-16 text-xl max-w-2xl mx-auto">Each session builds upon the previous one, creating a comprehensive learning journey from idea to execution.</p>
         
         <div>
           {sessions.map((session, index) => (
@@ -537,7 +518,7 @@ export default function CampPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-indigo-600 py-16">
+      <div className="bg-[#6366F1] py-16">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -553,7 +534,7 @@ export default function CampPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="mailto:info@bizbuzznfp.org" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-indigo-600 font-medium rounded-lg shadow-lg hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-[#6366F1] font-medium rounded-lg shadow-lg hover:bg-gray-50 transition-colors"
               >
                 Register Now
               </a>
