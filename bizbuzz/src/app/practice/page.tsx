@@ -450,14 +450,14 @@ export default function FishTankPage() {
                   variants={fadeIn}
                   className="bg-white rounded-xl overflow-hidden shadow-xl border border-[#ffbf00]/30 hover:shadow-2xl transition-all group"
                 >
-                  <div className="relative h-[280px]">
+                  <div className="relative h-[280px] overflow-hidden">
                     <Image
                       src={judge.photo}
                       alt={judge.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#ffbf00] to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bottom-0 bg-gradient-to-t from-[#ffbf00]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute top-0 right-0 bg-[#ffbf00] text-white px-3 py-1 text-sm font-bold uppercase rounded-bl-lg">
                       Final Judge
                     </div>
@@ -488,14 +488,14 @@ export default function FishTankPage() {
                   variants={fadeIn}
                   className="bg-white rounded-xl overflow-hidden shadow-xl border border-[#ffbf00]/30 hover:shadow-2xl transition-all group"
                 >
-                  <div className="relative h-[280px]">
+                  <div className="relative h-[280px] overflow-hidden">
                     <Image
                       src={judge.photo}
                       alt={judge.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#ffbf00] to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bottom-0 bg-gradient-to-t from-[#ffbf00]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute top-0 right-0 bg-[#ffbf00] text-white px-3 py-1 text-sm font-bold uppercase rounded-bl-lg">
                       Final Judge
                     </div>
