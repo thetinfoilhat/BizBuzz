@@ -17,46 +17,46 @@ const prelimJudges = {
   description: "Our preliminary round judges evaluate all initial pitches and select the top ideas to advance to the final round. These experienced entrepreneurs and business leaders provide valuable feedback to help students refine their concepts and presentations. Each preliminary judge brings unique industry expertise and a passion for nurturing young entrepreneurial talent.",
   judges: [
     {
-      name: "Dr. Sarah Chen",
+      name: "Athena Chen",
       photo: "/hero_imgs/11.jpg",
-      title: "Tech Entrepreneur",
-      company: "InnovateTech Ventures",
-      bio: "Serial entrepreneur with three successful tech startups and a passion for mentoring young innovators in STEM fields."
+      title: "Founder @ Naperville Children's Business Fair",
+      company: "",
+      bio: "Athena is an incoming freshman at the Haas School of Business at the University of California-Berkeley. In 2020, she founded the Naperville Children's Business Fair, an entrepreneurship event incubating 200+ businesses run by over 350 kidpreneurs (ages 5-14) selling to 3,500 visitors over the past three years. She is so excited that the Fair is partnering with BizBuzz this year!"
     },
     {
-      name: "Marcus Johnson",
+      name: "Olivia Fisz",
       photo: "/hero_imgs/13.jpg",
-      title: "Finance Expert",
-      company: "Future Capital",
-      bio: "Investment advisor specializing in early-stage startups with 15+ years of experience evaluating business models and market potential."
+      title: "State President @ Illinois DECA",
+      company: "",
+      bio: "Olivia is an incoming freshman at the Wharton School of the University of Pennsylvania, where she will study finance. She currently serves as the Illinois DECA State President, leading over 5,000 members in the world's largest high school business organization. She hopes to show young students how they can use their voices, ideas, and courage to create meaningful change."
     },
     {
-      name: "Priya Patel",
+      name: "Soohyun Cho",
       photo: "/hero_imgs/14.jpg",
-      title: "Marketing Strategist",
-      company: "Brand Forward",
-      bio: "Digital marketing expert who has helped over 50 small businesses develop effective branding and customer acquisition strategies."
+      title: "Student Representative @ City of Naperville",
+      company: "",
+      bio: "Soohyun is an incoming freshman at Rice University majoring in Finance. From working at a sales company to being involved in business organizations at school, he has taken his talents far and wide. This past year, he placed nationally in personal finance and investing competitions, eventually becoming a state champion in DECA."
     },
     {
-      name: "James Wilson",
+      name: "Isabel Yu",
       photo: "/hero_imgs/11.jpg",
-      title: "Product Developer",
-      company: "CreateX Labs",
-      bio: "Former product lead at Google with expertise in user experience design and bringing innovative products from concept to market."
+      title: "Founder @ Suki Jewels",
+      company: "",
+      bio: "Isabel is a rising freshman at UIUC's Gies College of Business, studying marketing and finance. As an upcoming D203 Business Incubator mentor, she is excited to help students further their passion for entrepreneurship. She is also the co-owner of Suki Jewels, a handmade jewelry business that has generated $3,000+ in revenue and 8,000+ supporters to date."
     },
     {
-      name: "Lisa Rodriguez",
+      name: "Ria Pande",
       photo: "/hero_imgs/13.jpg",
-      title: "Social Entrepreneur",
-      company: "ImpactWorks",
-      bio: "Founder of two social enterprises focused on environmental sustainability who mentors student-led initiatives across the country."
+      title: "DECA Inc. International Finalist",
+      company: "",
+      bio: "Ria is passionate about helping young entrepreneurs develop their business skills and innovative thinking. With experience in competitive business environments, she brings valuable insights to help participants refine their pitches and business concepts."
     },
     {
-      name: "David Park",
+      name: "Nathan Mendoza",
       photo: "/hero_imgs/14.jpg",
-      title: "Education Innovator",
-      company: "LearnSpark Institute",
-      bio: "Education technology specialist with a background in curriculum development and a focus on entrepreneurial education for K-12 students."
+      title: "Founder @ Stall Secure LLC",
+      company: "",
+      bio: "Nathan is a rising senior at Naperville North, aspiring to become an entrepreneur while uplifting others. He is the current CEO and Co-Founder of Stall-Secure, which has won first place in three major pitch competitions. To date, he has secured over $9,000 in funding for his company and is looking forward to seeing BizBuzz participants' creativity!"
     }
   ]
 };
@@ -536,21 +536,17 @@ export default function FishTankPage() {
                 <motion.div
                   key={index}
                   variants={fadeIn}
-                  className="bg-white rounded-xl overflow-hidden shadow-lg border border-[#38b6ff]/30 hover:shadow-xl transition-all group"
+                  className="bg-white rounded-xl overflow-hidden shadow-lg border border-[#38b6ff]/30 hover:shadow-xl transition-all"
                 >
                   <div className="relative h-[220px]">
                     <Image
                       src={judge.photo}
                       alt={judge.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#38b6ff] to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
                     <div className="absolute top-0 right-0 bg-[#38b6ff] text-white px-3 py-1 text-xs font-bold uppercase rounded-bl-lg">
                       Prelim Judge
-                    </div>
-                    <div className="absolute bottom-0 w-full p-4 text-white transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                      <p className="font-medium">{judge.company}</p>
                     </div>
                   </div>
                   <div className="p-6 border-t-4 border-[#38b6ff]">
@@ -574,21 +570,17 @@ export default function FishTankPage() {
                 <motion.div
                   key={index}
                   variants={fadeIn}
-                  className="bg-white rounded-xl overflow-hidden shadow-lg border border-[#38b6ff]/30 hover:shadow-xl transition-all group"
+                  className="bg-white rounded-xl overflow-hidden shadow-lg border border-[#38b6ff]/30 hover:shadow-xl transition-all"
                 >
                   <div className="relative h-[220px]">
                     <Image
                       src={judge.photo}
                       alt={judge.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#38b6ff] to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
                     <div className="absolute top-0 right-0 bg-[#38b6ff] text-white px-3 py-1 text-xs font-bold uppercase rounded-bl-lg">
                       Prelim Judge
-                    </div>
-                    <div className="absolute bottom-0 w-full p-4 text-white transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                      <p className="font-medium">{judge.company}</p>
                     </div>
                   </div>
                   <div className="p-6 border-t-4 border-[#38b6ff]">
