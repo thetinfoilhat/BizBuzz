@@ -47,9 +47,9 @@ const prelimJudges = {
     {
       name: "Ria Pande",
       photo: "/hero_imgs/13.jpg",
-      title: "DECA Inc. International Finalist",
+      title: "DECA International Finalist",
       company: "",
-      bio: "Ria is passionate about helping young entrepreneurs develop their business skills and innovative thinking. With experience in competitive business environments, she brings valuable insights to help participants refine their pitches and business concepts."
+      bio: "Ria is a freshman at the University of California, Santa Barbara, studying business and entrepreneurship. As a finalist at DECA's International Career Development Conference, she has developed strong experience in turning ideas into impact. Ria is passionate about helping students find their voices and couldn't be more excited to support this year's Fish Tank participants as they prepare to pitch and pursue their own entrepreneurial visions!"
     },
     {
       name: "Nathan Mendoza",
