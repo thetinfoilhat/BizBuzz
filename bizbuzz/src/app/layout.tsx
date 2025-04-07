@@ -11,6 +11,14 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "BizBuzz",
   description: "Turning imagination into innovation via social entrepreneurship",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/logo.png', type: 'image/png' },
+    ],
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 };
 
 export default function RootLayout({

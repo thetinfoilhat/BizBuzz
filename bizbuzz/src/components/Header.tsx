@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Header = () => {
   const pathname = usePathname();
@@ -12,6 +13,14 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
+              <div className="relative w-6 h-6">
+                <Image 
+                  src="/logo.png" 
+                  alt="BizBuzz Logo" 
+                  fill 
+                  className="object-contain"
+                />
+              </div>
               <span className="text-xl font-semibold text-[#6366F1]">BizBuzz</span>
             </Link>
           </div>
