@@ -115,42 +115,42 @@ const finalJudges = {
 
 // Winner
 const winner = {
-    name: "Aanya Patel",
-  photo: "/fish_tank/ranking/first.jpg",
-    productName: "EcoLearn",
-    school: "Jefferson Middle School",
-    description: "A gamified learning platform that teaches environmental sustainability through interactive challenges. Students earn points by completing real-world eco-friendly actions and competing with friends."
+    name: "Garrett Hauk",
+    photo: "/fish_tank/ranking/first.jpg",
+    productName: "Garrett's Gourmet Dog Treats",
+    school: "",
+    description: "Garrett's Gourmet Dog Treats offers organic, natural, and delicious snacks made with fewer than five ingredients. As a healthier, modern alternative to conventional options, they ensure man's best friend enjoys treats that are both simple and satisfying."
 };
 
 // Runner-ups
 const runnerUps = [
   {
-    name: "Tyler Johnson",
+    name: "Taksh Taware & Rohan Patwardhan",
     photo: "/fish_tank/ranking/second.jpg", 
-    productName: "HomeworkHelper",
-    school: "Lincoln Elementary",
-    description: "An AI-powered study assistant that helps students organize assignments and create personalized study plans. It analyzes learning patterns to suggest effective study methods."
+    productName: "ChitChat Lingo",
+    school: "",
+    description: "ChitChat Lingo empowers immigrants, tourists, and global professionals to speak confidently and fluently in new languages. By focusing on real-life, emotion-filled scenarios, it makes meaningful conversations more natural and accessible than ever."
   },
   {
-    name: "Maya Rodriguez",
+    name: "Sara Jayaseelan",
     photo: "/fish_tank/ranking/third.jpg",
-    productName: "SafeWalk",
-    school: "Washington High School",
-    description: "A mobile app that connects students walking the same route home for increased safety. Parents receive real-time notifications with emergency features for peace of mind."
+    productName: "Cuisinify",
+    school: "",
+    description: "Cuisinify makes cooking accessible for everyone by tackling ingredient substitutions, leftover use, and nutritious meal prep. With AR technology that identifies recipe substitutes in real time, it empowers anyone to cook anytime with what they have on hand."
   },
   {
-    name: "Ethan Chen",
+    name: "Mirav Patel & Mishi Patel",
     photo: "/fish_tank/ranking/fourth.jpg",
-    productName: "ScienceSpark",
-    school: "Edison Academy",
-    description: "An affordable kit that turns smartphones into powerful microscopes for science education. The accompanying app guides students through experiments and lets them share discoveries."
+    productName: "ECOVision",
+    school: "",
+    description: "ECOVision sees something different with corn waste. Instead of leaving it to rot, burn, or decompose, it uses a complex process that extracts leftover compounds in the waste to create yarn, foam, and paper, revolutionizing food waste management."
   },
   {
-    name: "Zoe Williams",
+    name: "Claire Shen & Catherine Shen",
     photo: "/fish_tank/ranking/fifth.jpg",
-    productName: "TeenFinance",
-    school: "Roosevelt High School",
-    description: "A financial literacy app designed specifically for teenagers. It teaches budgeting, saving, and investing through real-world simulations and challenges with virtual currency."
+    productName: "Pathway",
+    school: "",
+    description: "Pathway streamlines the process of finding communities, activities, and interests for high schoolers, removing the need for expensive college counselors and wasted time on web searches. Pathway creates a pathway for those finding their journey."
   }
 ];
 
@@ -165,7 +165,7 @@ export default function FishTankPage() {
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: { 
-      opacity: 1,
+      opacity: 1, 
       transition: { 
         staggerChildren: 0.1
       }
@@ -177,8 +177,8 @@ export default function FishTankPage() {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
   };
 
-  // For image slideshow effects
-  const [activeIndex, setActiveIndex] = useState(0);
+  // For image carousel
+  const [activeSlide, setActiveSlide] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   const resetTimeout = () => {
@@ -190,7 +190,7 @@ export default function FishTankPage() {
   useEffect(() => {
     resetTimeout();
     timeoutRef.current = setTimeout(() => {
-      setActiveIndex((prevIndex) => 
+      setActiveSlide((prevIndex) => 
         prevIndex === 2 ? 0 : prevIndex + 1
       );
     }, 5000);
@@ -198,169 +198,194 @@ export default function FishTankPage() {
     return () => {
       resetTimeout();
     };
-  }, [activeIndex]);
+  }, [activeSlide]);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative min-h-[95vh] bg-gradient-to-b from-[#004080] to-[#0088cc] overflow-hidden flex items-center">
-        {/* Animated Background Elements */}
+      {/* Hero Section - Redesigned with Better Image Organization */}
+      <section className="relative overflow-hidden">
+        {/* Trophy background with blue overlay */}
         <div className="absolute inset-0 z-0">
-          {/* Water Surface Effect */}
-          <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-[#003166]/20 to-transparent"></div>
-          
-          {/* Water Wave Patterns */}
-          <div className="absolute bottom-0 left-0 right-0">
-            <svg className="w-full h-32 text-white/5 transform translate-y-1/2" viewBox="0 0 1440 320" preserveAspectRatio="none">
-              <path fill="currentColor" fillOpacity="1" d="M0,224L48,202.7C96,181,192,139,288,138.7C384,139,480,181,576,197.3C672,213,768,203,864,170.7C960,139,1056,85,1152,80C1248,75,1344,117,1392,138.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            </svg>
-          </div>
-          
-          {/* Dynamic Bubbles */}
-          {[...Array(15)].map((_, i) => (
-            <div 
-              key={i} 
-              className="bubble"
-              style={{
-                width: `${Math.random() * 60 + 20}px`,
-                height: `${Math.random() * 60 + 20}px`,
-                left: `${Math.random() * 100}%`,
-                animationDuration: `${Math.random() * 15 + 5}s`,
-                animationDelay: `${Math.random() * 5}s`,
-              }}
-            ></div>
-          ))}
+          <Image 
+            src={fishTankPhotos[0]} 
+            alt="Fish Tank trophy background"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#040037]/95 via-[#003166]/90 to-[#003166]/80"></div>
         </div>
         
-        {/* Content Container */}
-        <div className="container mx-auto px-4 z-10 relative">
-          <div className="flex flex-col items-center">
-            {/* Badge */}
-            <motion.div
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              className="mb-8"
-            >
-              <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#004080" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
-                </svg>
-                <span className="text-[#004080] font-medium">Student Entrepreneurship Competition</span>
-              </div>
-            </motion.div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-              {/* Left Side Content */}
-              <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-white space-y-6 order-2 lg:order-1"
-              >
-                {/* Heading */}
-                <h1 className="text-left">
-                  <span className="block text-8xl font-extrabold tracking-tight drop-shadow-md mb-4">FISH</span>
-                  <span className="block text-8xl font-extrabold tracking-tight text-[#FFD700] drop-shadow-md">TANK</span>
-                </h1>
-                
-                {/* Description */}
-                <div className="bg-[#003166]/30 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-white/95 shadow-lg max-w-2xl">
-                  <p className="text-xl leading-relaxed">
-                    Where young entrepreneurs pitch innovative ideas, receive expert feedback, and compete for resources to turn their business concepts into reality
-                  </p>
-                </div>
-                
-                {/* CTA Buttons */}
-                <div className="flex flex-wrap gap-4 pt-4">
-                  <a 
-                    href="#what-is-fish-tank" 
-                    className="inline-flex items-center px-8 py-4 bg-white text-[#004080] text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl hover:bg-gray-50 transition duration-300 transform hover:-translate-y-1 hover:scale-105"
-                  >
-                    Learn More
-                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </a>
-                  
-                  <a 
-                    href="mailto:info@bizbuzznfp.org" 
-                    className="inline-flex items-center px-8 py-4 bg-[#FFD700] text-[#004080] text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl hover:bg-[#FFDE2E] transition duration-300 transform hover:-translate-y-1 hover:scale-105"
-                  >
-                    Apply Now
-                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-                </div>
-              </motion.div>
-              
-              {/* Right Side - Featured Images Grid */}
-              <motion.div 
+        {/* Large transparent bubble decorations */}
+        <div className="absolute top-60 right-40 w-80 h-80 rounded-full bg-[#0066cc]/10 blur-2xl"></div>
+        <div className="absolute bottom-20 left-40 w-96 h-96 rounded-full bg-[#0066cc]/10 blur-2xl"></div>
+        <div className="absolute top-40 left-1/4 w-64 h-64 rounded-full bg-[#0074cc]/10 blur-2xl"></div>
+        
+        {/* Wave at the bottom */}
+        <div className="absolute -bottom-1 left-0 right-0 z-10">
+          <svg className="w-full fill-white" viewBox="0 0 1440 150" preserveAspectRatio="none">
+            <path d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,101.3C960,117,1056,139,1152,138.7C1248,139,1344,117,1392,106.7L1440,96L1440,150L1392,150C1344,150,1248,150,1152,150C1056,150,960,150,864,150C768,150,672,150,576,150C480,150,384,150,288,150C192,150,96,150,48,150L0,150Z"></path>
+          </svg>
+        </div>
+        
+        {/* Main content container */}
+        <div className="container mx-auto px-4 relative z-20 pt-24 pb-32">
+          {/* Main content grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            {/* Left column - Title and description */}
+            <div className="flex flex-col justify-center">
+              {/* Main heading */}
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="order-1 lg:order-2 w-full overflow-hidden"
+                transition={{ duration: 0.7, delay: 0.1 }}
               >
-                <div className="grid grid-cols-6 grid-rows-4 gap-2 h-[500px]">
-                  {/* First 3 featured images - larger sizes */}
-                  <div className="col-span-3 row-span-2 relative rounded-lg overflow-hidden shadow-2xl transform transition-transform duration-700 hover:scale-[1.02] group">
-                    <Image 
-                      src={fishTankPhotos[0]} 
-                      alt="Fish Tank trophies"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                  <div className="col-span-3 row-span-2 relative rounded-lg overflow-hidden shadow-2xl transform transition-transform duration-700 hover:scale-[1.02] group">
-                    <Image 
-                      src={fishTankPhotos[1]} 
-                      alt="Fish Tank participants"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                  
-                  {/* Grid of smaller images - 9 remaining images */}
-                  {fishTankPhotos.slice(2, 11).map((photo, index) => (
-                    <div 
-                      key={index} 
-                      className="col-span-2 row-span-1 relative rounded-lg overflow-hidden shadow-lg transform transition-transform duration-700 hover:scale-[1.02] group"
-                    >
-                      <Image 
-                        src={photo} 
-                        alt={`Fish Tank event photo ${index + 3}`}
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                  ))}
-                  
-                  {/* Last image - slightly larger */}
-                  <div className="col-span-2 row-span-1 relative rounded-lg overflow-hidden shadow-lg transform transition-transform duration-700 hover:scale-[1.02] group">
-                    <Image 
-                      src={fishTankPhotos[11]} 
-                      alt="Fish Tank event photo 12"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                </div>
+                <h1 className="text-left mb-10">
+                  <span className="block text-8xl font-extrabold tracking-tight text-white leading-none">FISH</span>
+                  <span className="block text-8xl font-extrabold tracking-tight text-[#FFD700] leading-none">TANK</span>
+                </h1>
+              </motion.div>
+              
+              {/* Description box */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="bg-[#003166]/40 backdrop-blur-sm rounded-xl p-7 border border-white/10 shadow-lg mb-12"
+              >
+                <p className="text-xl leading-relaxed text-white">
+                  Where young entrepreneurs pitch innovative ideas, receive expert feedback, and compete for resources to turn their business concepts into reality
+                </p>
+              </motion.div>
+              
+              {/* Stats row */}
+              <motion.div 
+                initial="hidden"
+                animate="visible"
+                variants={staggerContainer}
+                className="grid grid-cols-3 gap-6 mb-12"
+              >
+                <motion.div variants={fadeIn} className="bg-[#003166]/40 backdrop-blur-sm rounded-xl py-6 px-3 text-center border border-white/10">
+                  <div className="text-4xl font-bold text-[#FFD700]">50+</div>
+                  <div className="text-sm text-white">Teams</div>
+                </motion.div>
+                
+                <motion.div variants={fadeIn} className="bg-[#003166]/40 backdrop-blur-sm rounded-xl py-6 px-3 text-center border border-white/10">
+                  <div className="text-4xl font-bold text-[#FFD700]">2</div>
+                  <div className="text-sm text-white">Days</div>
+                </motion.div>
+                
+                <motion.div variants={fadeIn} className="bg-[#003166]/40 backdrop-blur-sm rounded-xl py-6 px-3 text-center border border-white/10">
+                  <div className="text-4xl font-bold text-[#FFD700]">11</div>
+                  <div className="text-sm text-white">Judges</div>
+                </motion.div>
+              </motion.div>
+              
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5 }}
+                className="flex flex-wrap gap-4"
+              >
+                <a 
+                  href="#what-is-fish-tank" 
+                  className="inline-flex items-center px-8 py-4 bg-white text-[#004080] text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition duration-300"
+                >
+                  Learn More
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </a>
+                
+                <a 
+                  href="mailto:info@bizbuzznfp.org" 
+                  className="inline-flex items-center px-8 py-4 bg-[#FFD700] text-[#004080] text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition duration-300"
+                >
+                  Apply Now
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
               </motion.div>
             </div>
+            
+            {/* Right column - One large featured image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[560px] border border-white/10">
+                {/* Main hero image */}
+                {fishTankPhotos.slice(6, 9).map((photo, index) => (
+                  <div 
+                    key={index} 
+                    className={`absolute inset-0 transition-opacity duration-1000 ${activeSlide === index ? 'opacity-100' : 'opacity-0'}`}
+                  >
+                    <Image 
+                      src={photo}
+                      alt={`Fish Tank slide ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      priority={index === 0}
+                    />
+                  </div>
+                ))}
+                
+                {/* Decorative elements */}
+                <div className="absolute top-4 right-4 bg-[#FFD700] text-[#004080] px-3 py-1.5 rounded-lg font-bold text-sm">
+                  2024 EDITION
+                </div>
+                
+                {/* Image content overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/70 via-black/40 to-transparent text-white">
+                  <h3 className="text-2xl font-bold mb-1">July 24-25, 2024</h3>
+                  <p className="text-lg">College of DuPage, Glen Ellyn</p>
+                </div>
+                
+                {/* Dot navigation */}
+                <div className="absolute bottom-6 right-6 flex space-x-3 z-10">
+                  {[0, 1, 2].map((idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveSlide(idx)}
+                      className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                        activeSlide === idx ? 'bg-white' : 'bg-white/40'
+                      }`}
+                      aria-label={`View slide ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
+        
+        {/* Animated bubbles */}
+        {[...Array(10)].map((_, i) => (
+          <div 
+            key={i} 
+            className="bubble"
+            style={{
+              width: `${Math.random() * 50 + 20}px`,
+              height: `${Math.random() * 50 + 20}px`,
+              left: `${Math.random() * 100}%`,
+              animationDuration: `${Math.random() * 15 + 8}s`,
+              animationDelay: `${Math.random() * 5}s`,
+            }}
+          />
+        ))}
         
         {/* CSS for animations */}
         <style jsx>{`
           .bubble {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.4);
+            z-index: 1;
             animation: bubble-rise linear infinite;
           }
           
@@ -369,8 +394,11 @@ export default function FishTankPage() {
               bottom: -100px;
               opacity: 0;
             }
-            25% {
-              opacity: 0.8;
+            20% {
+              opacity: 0.6;
+            }
+            80% {
+              opacity: 0.6;
             }
             100% {
               bottom: 100vh;
@@ -380,10 +408,10 @@ export default function FishTankPage() {
         `}</style>
       </section>
 
-      {/* What is Fish Tank Section - Redesigned */}
+      {/* What is Fish Tank Section - Consolidated with info & images */}
       <section id="what-is-fish-tank" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
+          <div className="text-center mb-12">
             <span className="inline-block px-4 py-1 bg-blue-100 text-[#004080] rounded-full text-sm font-medium mb-4">
               The Competition
             </span>
@@ -392,120 +420,253 @@ export default function FishTankPage() {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-12">
-            {/* Content Side */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="space-y-6"
-            >
-              <p className="text-xl text-[#334155] leading-relaxed">
-                Welcome to the tank! We&apos;re thrilled to have you here. Inspired by the world-renowned series, Shark Tank, the Fish Tank competition invites 3rd-9th grade students in the Chicagoland area to identify a market opportunity and introduce a new business, product, or service.
-              </p>
-              
-              <p className="text-xl text-[#334155] leading-relaxed">
-                Hosted at the College of DuPage on July 24th & 25th with some of Naperville&apos;s biggest business owners and leaders, participants will take their big innovations to an even bigger stage.
-              </p>
-              
-              {/* Stats Cards */}
-              <div className="grid grid-cols-3 gap-4 mt-8">
-                <div className="bg-gradient-to-br from-[#004080] to-[#0074cc] rounded-xl p-6 text-white text-center transform transition-transform hover:scale-105 duration-300 shadow-lg">
-                  <div className="text-4xl font-bold text-[#FFD700] mb-2">50+</div>
-                  <div className="text-sm font-medium">Teams</div>
-                </div>
-                
-                <div className="bg-gradient-to-br from-[#004080] to-[#0074cc] rounded-xl p-6 text-white text-center transform transition-transform hover:scale-105 duration-300 shadow-lg">
-                  <div className="text-4xl font-bold text-[#FFD700] mb-2">2</div>
-                  <div className="text-sm font-medium">Competition Days</div>
-                </div>
-                
-                <div className="bg-gradient-to-br from-[#004080] to-[#0074cc] rounded-xl p-6 text-white text-center transform transition-transform hover:scale-105 duration-300 shadow-lg">
-                  <div className="text-4xl font-bold text-[#FFD700] mb-2">11</div>
-                  <div className="text-sm font-medium">Expert Judges</div>
-                </div>
+          {/* Large featured image with text overlay */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={scaleUp}
+            className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl mb-16"
+          >
+            <Image
+              src={fishTankPhotos[1]} 
+              alt="Fish Tank event"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#000000]/60 via-[#000000]/75 to-[#000000]/90"></div>
+            <div className="absolute inset-0 flex flex-col justify-end p-12">
+              <div className="flex items-center mb-4">
+                <div className="w-1.5 h-12 bg-[#FFD700] mr-5 rounded-full"></div>
+                <h3 className="text-5xl font-bold text-white">Welcome to the Tank!</h3>
               </div>
-              
-              {/* Call to Action Box */}
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 mt-8 relative overflow-hidden">
-                <div className="absolute -right-12 -top-12 w-36 h-36 bg-blue-100 rounded-full opacity-50"></div>
-                <div className="relative z-10">
-                  <h3 className="text-xl font-bold text-[#004080] mb-3 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-2 text-[#FFD700]">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />
+              <div className="max-w-3xl">
+                <p className="text-xl leading-relaxed text-white mb-4">
+                  Inspired by the world-renowned series, Shark Tank, the Fish Tank competition invites 3rd-9th grade students in the Chicagoland area to identify a market opportunity and introduce a new business, product, or service.
+                </p>
+                <p className="text-xl leading-relaxed text-white mb-6">
+                  Hosted at the College of DuPage on July 24th & 25th with some of Naperville&apos;s biggest business owners and leaders, participants will take their big innovations to an even bigger stage.
+                </p>
+              </div>
+              <div className="flex items-center gap-3 mt-2">
+                <div className="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#004080]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <span className="text-white font-medium">July 24-25, 2024</span>
+                <span className="text-white opacity-60 mx-2">•</span>
+                <div className="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#004080]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <span className="text-white font-medium">College of DuPage, Glen Ellyn</span>
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* Program Highlights - Improved Card Layout */}
+          <div className="mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-gradient-to-br from-[#004080] to-[#0074cc] rounded-xl overflow-hidden shadow-xl relative group transform transition-transform hover:scale-105 duration-300"
+              >
+                <div className="absolute -right-8 -top-8 w-24 h-24 bg-white/10 rounded-full"></div>
+                <div className="p-8 relative z-10">
+                  <div className="bg-[#FFD700]/20 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#FFD700]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
-                    Join 50+ teams for a chance at success!
-                  </h3>
-                  <p className="text-lg text-[#334155]">
-                    Compete for hundreds in funding, mentorship under a business professional, and valuable business exposure for your innovative ideas.
+                  </div>
+                  <h4 className="text-2xl font-bold text-white mb-4">Entrepreneurial Experience</h4>
+                  <p className="text-white/90">
+                    Students gain real-world entrepreneurial experience by developing a business concept from ideation to pitch, learning critical skills in market research, product development, and financial planning.
                   </p>
                 </div>
-              </div>
-            </motion.div>
-            
-            {/* Image Side - Slideshow */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={scaleUp}
-              className="relative h-[480px] rounded-2xl overflow-hidden shadow-2xl"
-            >
-              <div className="absolute inset-0 flex transition-transform ease-in-out duration-1000" 
-                   style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-                <div className="min-w-full h-full relative">
-                  <Image 
-                    src={fishTankPhotos[0]} 
-                    alt="Fish Tank trophies"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 p-8 text-white">
-                    <h3 className="text-3xl font-bold mb-2">Gold Trophy Awaits</h3>
-                    <p className="text-lg">Top innovations receive recognition and resources</p>
-                  </div>
-                </div>
-                <div className="min-w-full h-full relative">
-                  <Image 
-                    src={fishTankPhotos[1]} 
-                    alt="Fish Tank participants"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 p-8 text-white">
-                    <h3 className="text-3xl font-bold mb-2">Passionate Participants</h3>
-                    <p className="text-lg">Students present their business ideas with confidence</p>
-                  </div>
-                </div>
-                <div className="min-w-full h-full relative">
-                  <Image 
-                    src={fishTankPhotos[2]} 
-                    alt="Fish Tank judges panel"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 p-8 text-white">
-                    <h3 className="text-3xl font-bold mb-2">Expert Feedback</h3>
-                    <p className="text-lg">Seasoned business leaders provide valuable guidance</p>
-                  </div>
-                </div>
-              </div>
+                <div className="absolute bottom-0 right-0 left-0 h-1.5 bg-[#FFD700]"></div>
+              </motion.div>
               
-              {/* Slideshow Controls */}
-              <div className="absolute bottom-4 right-4 flex space-x-2">
-                {[0, 1, 2].map((index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                      activeIndex === index ? 'bg-white' : 'bg-white/40'
-                    }`}
-                  ></button>
-                ))}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-gradient-to-br from-[#004080] to-[#0074cc] rounded-xl overflow-hidden shadow-xl relative group transform transition-transform hover:scale-105 duration-300"
+              >
+                <div className="absolute -right-8 -top-8 w-24 h-24 bg-white/10 rounded-full"></div>
+                <div className="p-8 relative z-10">
+                  <div className="bg-[#FFD700]/20 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#FFD700]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-2xl font-bold text-white mb-4">Expert Mentorship</h4>
+                  <p className="text-white/90">
+                    Participants receive invaluable feedback and guidance from successful entrepreneurs, business professionals, and community leaders who serve as judges and mentors throughout the competition.
+                  </p>
+                </div>
+                <div className="absolute bottom-0 right-0 left-0 h-1.5 bg-[#FFD700]"></div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="bg-gradient-to-br from-[#004080] to-[#0074cc] rounded-xl overflow-hidden shadow-xl relative group transform transition-transform hover:scale-105 duration-300"
+              >
+                <div className="absolute -right-8 -top-8 w-24 h-24 bg-white/10 rounded-full"></div>
+                <div className="p-8 relative z-10">
+                  <div className="bg-[#FFD700]/20 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#FFD700]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-2xl font-bold text-white mb-4">Funding Opportunities</h4>
+                  <p className="text-white/90">
+                    Winners receive funding to help launch their businesses, along with ongoing support, networking connections, and resources to turn their entrepreneurial vision into reality.
+                  </p>
+                </div>
+                <div className="absolute bottom-0 right-0 left-0 h-1.5 bg-[#FFD700]"></div>
+              </motion.div>
+            </div>
+          </div>
+          
+          {/* Event Journey & Photos - Improved Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+            {/* Left side - Event journey */}
+            <div className="lg:col-span-5 space-y-6">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h3 className="text-3xl font-bold text-[#0f172a] mb-6">Your Fish Tank Journey</h3>
+                
+                <div className="space-y-8">
+                  <div className="flex">
+                    <div className="flex-shrink-0 mr-4">
+                      <div className="w-10 h-10 rounded-full bg-[#38b6ff] flex items-center justify-center text-white font-bold">1</div>
+                      <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-2"></div>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Application & Team Formation</h4>
+                      <p className="text-[#334155] mb-2">Submit your application and form a team of 2-4 students. Define your business concept and begin initial research.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex">
+                    <div className="flex-shrink-0 mr-4">
+                      <div className="w-10 h-10 rounded-full bg-[#38b6ff] flex items-center justify-center text-white font-bold">2</div>
+                      <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-2"></div>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Preliminary Round</h4>
+                      <p className="text-[#334155] mb-2">Present your initial business concept to our preliminary judges. Top teams advance to the next round and receive feedback.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex">
+                    <div className="flex-shrink-0 mr-4">
+                      <div className="w-10 h-10 rounded-full bg-[#38b6ff] flex items-center justify-center text-white font-bold">3</div>
+                      <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-2"></div>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Refinement & Mentorship</h4>
+                      <p className="text-[#334155] mb-2">Work with business mentors to refine your business plan, marketing strategy, and pitch presentation.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex">
+                    <div className="flex-shrink-0 mr-4">
+                      <div className="w-10 h-10 rounded-full bg-[#38b6ff] flex items-center justify-center text-white font-bold">4</div>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Final Pitch & Awards</h4>
+                      <p className="text-[#334155] mb-2">Present your polished business concept to our panel of final judges. Winners receive funding and ongoing support.</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+            
+            {/* Right side - Improved Image Grid */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-7 grid grid-cols-12 grid-rows-12 gap-3 h-[600px]"
+            >
+              {/* Main large image */}
+              <div className="col-span-8 row-span-8 relative rounded-xl overflow-hidden shadow-xl">
+                <Image 
+                  src={fishTankPhotos[7]} 
+                  alt="Fish Tank group event"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="absolute bottom-3 left-3 text-white font-bold text-lg">
+                  2023 Participants
+                </div>
+              </div>
+
+              {/* Top right image */}
+              <div className="col-span-4 row-span-4 relative rounded-xl overflow-hidden shadow-lg">
+                <Image 
+                  src={fishTankPhotos[4]} 
+                  alt="Judges panel"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Middle right image */}
+              <div className="col-span-4 row-span-4 relative rounded-xl overflow-hidden shadow-lg">
+                <Image 
+                  src={fishTankPhotos[3]} 
+                  alt="Student presenting"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Bottom left image */}
+              <div className="col-span-4 row-span-4 relative rounded-xl overflow-hidden shadow-lg">
+                <Image 
+                  src={fishTankPhotos[5]} 
+                  alt="Award ceremony"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Bottom middle image */}
+              <div className="col-span-4 row-span-4 relative rounded-xl overflow-hidden shadow-lg">
+                <Image 
+                  src={fishTankPhotos[8]} 
+                  alt="Audience at Fish Tank"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Bottom right image */}
+              <div className="col-span-4 row-span-4 relative rounded-xl overflow-hidden shadow-lg">
+                <Image 
+                  src={fishTankPhotos[9]} 
+                  alt="Student team collaborating"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </motion.div>
           </div>
@@ -645,7 +806,7 @@ export default function FishTankPage() {
                   className="bg-white rounded-xl overflow-hidden shadow-xl border border-[#ffbf00]/30 hover:shadow-2xl transition-all group"
                 >
                   <div className="relative h-[280px] overflow-hidden">
-                <Image 
+                    <Image 
                       src={judge.photo}
                       alt={judge.name}
                       fill
@@ -657,13 +818,13 @@ export default function FishTankPage() {
                     </div>
                     <div className="absolute bottom-0 w-full p-4 text-white transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                       <p className="font-medium text-lg">{judge.company}</p>
-                </div>
-              </div>
+                    </div>
+                  </div>
                   <div className="p-6 border-t-4 border-[#ffbf00]">
                     <h4 className="text-xl font-bold text-[#0f172a] mb-2">{judge.name}</h4>
                     <p className="text-lg font-semibold text-[#ffbf00] mb-3">{judge.title}</p>
                     <p className="text-base text-[#334155]">{judge.bio}</p>
-              </div>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -701,12 +862,12 @@ export default function FishTankPage() {
                     <h4 className="text-xl font-bold text-[#0f172a] mb-2">{judge.name}</h4>
                     <p className="text-lg font-semibold text-[#ffbf00] mb-3">{judge.title}</p>
                     <p className="text-base text-[#334155]">{judge.bio}</p>
-              </div>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
           </div>
-
+            
           {/* Preliminary Judges */}
           <div>
             <div className="text-center mb-8">
@@ -716,13 +877,13 @@ export default function FishTankPage() {
               <p className="text-xl text-[#334155] max-w-4xl mx-auto mt-3">
                 Six high school judges experienced in business competitions and running their own companies excited to help students like themselves grow in both entrepreneurial thinking and public speaking.
               </p>
-      </div>
-      
+            </div>
+            
             {/* First row - 3 judges */}
-          <motion.div
+            <motion.div
               initial="hidden"
               whileInView="visible"
-            viewport={{ once: true }}
+              viewport={{ once: true }}
               variants={staggerContainer}
               className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6"
             >
@@ -781,14 +942,13 @@ export default function FishTankPage() {
                     <h4 className="text-xl font-bold text-[#0f172a] mb-2">{judge.name}</h4>
                     <p className="text-lg font-semibold text-[#38b6ff] mb-3">{judge.title}</p>
                     <p className="text-base text-[#334155]">{judge.bio}</p>
-            </div>
-          </motion.div>
+                  </div>
+                </motion.div>
               ))}
             </motion.div>
           </div>
         </div>
       </section>
-
 
     </div>
   );
