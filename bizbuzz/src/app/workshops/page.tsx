@@ -3,139 +3,138 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-// Workshop data
+// Workshop data with updated information
 const workshops = [
   {
-    id: "brookdale",
-    title: "Brookdale Elementary",
-    date: "March 15-19, 2023",
-    location: "Naperville, IL",
-    description: "Our week-long workshop at Brookdale Elementary introduced 35 students to entrepreneurship fundamentals through interactive activities and mini-pitch competitions. Students created product prototypes and learned customer discovery techniques through hands-on market research exercises, culminating in a showcase for parents and teachers.",
-    sessionCount: 4,
-    sessions: [
-      {
-        title: "Session 1",
-        points: ["Business model canvas fundamentals", "Problem identification"]
-      },
-      {
-        title: "Session 2",
-        points: ["Market research techniques", "Customer interviews"]
-      },
-      {
-        title: "Session 3",
-        points: ["Basic financial literacy", "Pricing strategies"]
-      },
-      {
-        title: "Session 4",
-        points: ["Public speaking skills", "Final showcase preparation"]
-      }
-    ],
-    images: [
-      "/workshops/be/1.png",
-      "/workshops/be/2.png",
-      "/workshops/be/3.png",
-      "/workshops/be/4.png",
-      "/workshops/be/5.png",
-      "/workshops/be/6.png",
-      "/workshops/be/7.png",
-    ],
-    color: "#B8e2f4"
-  },
-  {
     id: "dupage",
-    title: "Dupage Children's Business Fair",
-    date: "July 22, 2023",
-    location: "Wheaton, IL",
-    description: "We partnered with the Dupage Children's Business Fair to deliver a pre-fair workshop series helping young entrepreneurs prepare their business concepts, marketing materials, and sales strategies. Over 40 participants received targeted coaching on pricing, customer engagement, and booth presentation to maximize their success at the fair.",
-    sessionCount: 4,
+    title: "Dupage Children's Business Fair Workshops",
+    date: "March 16th, 2025 to April 26th, 2025",
+    location: "Dupage County, IL",
+    description: "Three workshops preparing 30 entrepreneurs for the upcoming Dupage Children&apos;s Business Fair, guiding them through ideation, marketing, and finance.",
     sessions: [
-      {
-        title: "Session 1",
-        points: ["Booth setup and design", "Visual merchandising"]
-      },
-      {
-        title: "Session 2",
-        points: ["Pricing strategy", "Understanding profit margins"]
-      },
-      {
-        title: "Session 3",
-        points: ["Customer engagement", "Sales techniques"]
-      },
-      {
-        title: "Session 4",
-        points: ["Marketing materials", "Pitch refinement"]
-      }
+      "DCBF Workshop 1 | March 16th, 2025",
+      "DCBF Workshop 2 | March 23rd, 2025",
+      "DCBF Workshop 3 | April 6th, 2025",
+      "Dupage Children&apos;s Business Fair | April 26th, 2025"
     ],
     images: [
       "/workshops/dcbf/1.jpg",
       "/workshops/dcbf/2.jpg",
       "/workshops/dcbf/3.jpg",
-      "/workshops/dcbf/4.png",
-      "/workshops/dcbf/5.png",
-      "/workshops/dcbf/6.png",
-      "/workshops/dcbf/7.png",
     ],
-    color: "#8dcfec"
+    color: "#0074cc"
+  },
+  {
+    id: "madison",
+    title: "Madison Junior High mxINCedu Mentorship Program",
+    date: "August 15th, 2024 to December 20th, 2024",
+    location: "Naperville, IL",
+    description: "A mentorship program enhancing the mxINCedu curriculum with new worksheets, slides, and activities for 75 students.",
+    sessions: [
+      "Madison Mentorship Program | August 15th, 2024 to December 20th, 2024"
+    ],
+    images: [
+      "/workshops/be/1.png",
+      "/workshops/be/2.png",
+      "/workshops/be/3.png",
+    ],
+    color: "#00a5e0"
+  },
+  {
+    id: "brookdale",
+    title: "Brookdale Elementary School Workshops",
+    date: "October 30th, 2024 to November 20th, 2024",
+    location: "Naperville, IL",
+    description: "Four workshops teaching 20 young entrepreneurs fundamental business skills, culminating in a school Pitch Night for parents and high school guest judges.",
+    sessions: [
+      "Brookdale Workshop 1 | October 30th, 2024",
+      "Brookdale Workshop 2 | November 3rd, 2024",
+      "Brookdale Workshop 3 | November 10th, 2024",
+      "Brookdale Workshop 4 | November 20th, 2024"
+    ],
+    images: [
+      "/workshops/be/4.png",
+      "/workshops/be/5.png",
+      "/workshops/be/6.png",
+    ],
+    color: "#38b6ff"
+  },
+  {
+    id: "bestbrains",
+    title: "Best Brains Learning Center Workshops",
+    date: "August 6th, 2024 to August 7th, 2024",
+    location: "Naperville, IL",
+    description: "Two workshops introducing 20 students to entrepreneurship and the process of turning imagination into innovation.",
+    sessions: [
+      "Best Brains Workshop 1 | August 6th, 2024",
+      "Best Brains Workshop 2 | August 7th, 2024"
+    ],
+    images: [
+      "/workshops/be/7.png",
+      "/workshops/se/1.png",
+      "/workshops/se/2.png",
+    ],
+    color: "#0066a6"
   },
   {
     id: "naperville",
-    title: "Naperville Children's Business Fair",
-    date: "September 9, 2023",
+    title: "Naperville Children's Business Fair Workshops",
+    date: "July 6th, 2024 to August 3rd, 2024",
     location: "Naperville, IL",
-    description: "Our comprehensive pre-fair workshop for the Naperville Children's Business Fair guided 55 young entrepreneurs through business development, from concept refinement to marketing strategy. The program included one-on-one mentoring sessions with local business owners and culminated in a pitch practice day to prepare participants for fair day success.",
-    sessionCount: 4,
+    description: "Three workshops helping 50 students use creative problem-solving, marketing, and finance to launch products sold alongside 150 young entrepreneurs at the Naperville Children&apos;s Business Fair.",
     sessions: [
-      {
-        title: "Session 1",
-        points: ["Value proposition development", "Target customer identification"]
-      },
-      {
-        title: "Session 2",
-        points: ["Visual branding", "Product presentation"]
-      },
-      {
-        title: "Session 3",
-        points: ["Cost analysis", "Pricing strategy"]
-      },
-      {
-        title: "Session 4",
-        points: ["Customer interactions", "Sales role-playing"]
-      }
+      "NCBF Workshop 1 | July 6th, 2024",
+      "NCBF Workshop 2 | July 13th, 2024",
+      "NCBF Workshop 3 | July 20th, 2024",
+      "Naperville Children&apos;s Business Fair | August 3rd, 2024"
     ],
     images: [
       "/workshops/ncbf/1.jpeg",
       "/workshops/ncbf/2.jpeg",
       "/workshops/ncbf/3.jpeg",
-      "/workshops/ncbf/4.png",
-      "/workshops/ncbf/5.png",
-      "/workshops/ncbf/6.png",
-      "/workshops/ncbf/7.png",
     ],
-    color: "#38b6ff"
+    color: "#003166"
   },
   {
-    id: "scott",
-    title: "Scott Elementary",
-    date: "November 7-11, 2023",
+    id: "crone",
+    title: "Crone Middle School Talk",
+    date: "May 31st, 2024",
     location: "Naperville, IL",
-    description: "At Scott Elementary, we conducted a specialized entrepreneurship program focusing on social innovation for 28 fifth-grade students. The curriculum emphasized identifying community challenges and developing business solutions with positive social impact. Students worked in teams to create mission-driven business concepts addressing real local needs.",
-    sessionCount: 0,
-    sessions: [],
+    description: "A school talk encouraging 60 students to see themselves as problem-solvers and future business creators.",
+    sessions: [
+      "Crone Middle School Talk | May 31st, 2024"
+    ],
     images: [
       "/workshops/se/1.png",
       "/workshops/se/2.png",
       "/workshops/se/3.png",
     ],
-    color: "#235284"
+    color: "#004080"
+  },
+  {
+    id: "scott",
+    title: "Scott Elementary School Talk",
+    date: "May 21st, 2024",
+    location: "Naperville, IL",
+    description: "A school talk inspiring 135 students to explore entrepreneurship by showing how creative ideas can turn into real businesses—even as kids.",
+    sessions: [
+      "Scott Elementary School Talk | May 21st, 2024"
+    ],
+    images: [
+      "/workshops/se/1.png",
+      "/workshops/se/2.png",
+      "/workshops/se/3.png",
+    ],
+    color: "#0091c9"
   }
 ];
 
 // Image grid component
 const ImageGrid = ({ images, title }: { images: string[], title: string }) => {
   return (
-    <div className="grid grid-cols-7 gap-2 h-full">
+    <div className="grid grid-cols-3 gap-4 h-full">
       {/* Main large image */}
-      <div className="col-span-3 row-span-2 relative rounded-xl overflow-hidden h-[320px]">
+      <div className="col-span-1 row-span-1 relative rounded-xl overflow-hidden h-[280px]">
         <Image
           src={images[0]}
           alt={`${title} main image`}
@@ -144,63 +143,19 @@ const ImageGrid = ({ images, title }: { images: string[], title: string }) => {
         />
       </div>
       
-      {/* Small images grid */}
-      <div className="col-span-2 grid grid-rows-2 gap-2 h-[320px]">
-        <div className="relative rounded-xl overflow-hidden h-[156px]">
-          <Image
-            src={images[1]}
-            alt={`${title} secondary image`}
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative rounded-xl overflow-hidden h-[156px]">
-          <Image
-            src={images[2]}
-            alt={`${title} tertiary image`}
-            fill
-            className="object-cover"
-          />
-        </div>
-      </div>
-      <div className="col-span-2 grid grid-rows-2 gap-2 h-[320px]">
-        <div className="relative rounded-xl overflow-hidden h-[156px]">
-          <Image
-            src={images[3]}
-            alt={`${title} fourth image`}
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative rounded-xl overflow-hidden h-[156px]">
-          <Image
-            src={images[4]}
-            alt={`${title} fifth image`}
-            fill
-            className="object-cover"
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Additional images component
-const AdditionalImages = ({ images }: { images: string[] }) => {
-  return (
-    <div className="grid grid-cols-2 gap-4 mt-6">
-      <div className="relative h-[180px] rounded-xl overflow-hidden shadow-lg">
+      {/* Secondary images */}
+      <div className="col-span-1 relative rounded-xl overflow-hidden h-[280px]">
         <Image
-          src={images[5]}
-          alt="Additional workshop image"
+          src={images[1]}
+          alt={`${title} secondary image`}
           fill
           className="object-cover"
         />
       </div>
-      <div className="relative h-[180px] rounded-xl overflow-hidden shadow-lg">
+      <div className="col-span-1 relative rounded-xl overflow-hidden h-[280px]">
         <Image
-          src={images[6]}
-          alt="Additional workshop image"
+          src={images[2]}
+          alt={`${title} tertiary image`}
           fill
           className="object-cover"
         />
@@ -210,107 +165,31 @@ const AdditionalImages = ({ images }: { images: string[] }) => {
 };
 
 // Session Cards component
-const SessionCards = ({ sessions, color }: { sessions: {title: string, points: string[]}[], color: string }) => {
-  if (sessions.length === 0) {
-    return (
-      <div className="rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 w-full relative h-full">
-        <div className="absolute -inset-1 bg-gradient-to-r rounded-xl blur-xl opacity-30 -z-10" 
-          style={{ backgroundImage: `linear-gradient(to right, ${color}20, #38b6ff10)` }} 
-        />
-        <div className="py-4 relative z-10" style={{ backgroundColor: `${color}10` }}>
-          <h4 className="font-bold text-[#2D3748] text-lg text-center">SESSIONS</h4>
-        </div>
-        
-        <div className="p-8 flex flex-col items-center justify-center relative z-10 h-full">
-          <div className="text-gray-400 text-center">
-            <svg className="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-            <p className="text-lg font-medium">No sessions scheduled yet</p>
-            <p className="mt-2">Coming soon! Contact us for updates.</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
+const SessionCards = ({ sessions, color }: { sessions: string[], color: string }) => {
   return (
-    <div className="rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 w-full relative">
+    <div className="rounded-2xl overflow-hidden shadow-md bg-white border border-gray-100 w-full relative h-full">
       <div className="absolute -inset-1 bg-gradient-to-r rounded-xl blur-xl opacity-30 -z-10" 
-        style={{ backgroundImage: `linear-gradient(to right, ${color}20, #38b6ff10)` }} 
+        style={{ backgroundImage: `linear-gradient(to right, ${color}20, ${color}10)` }} 
       />
-      <div className="py-4 relative z-10" style={{ backgroundColor: `${color}10` }}>
-        <h4 className="font-bold text-[#2D3748] text-lg text-center">SESSIONS</h4>
+      <div className="py-4 relative z-10" style={{ backgroundColor: `${color}` }}>
+        <h4 className="font-bold text-white text-lg text-center">SESSIONS</h4>
       </div>
       
-      <div className="p-4 grid grid-cols-1 gap-3 relative z-10">
-        {sessions.map((session, index) => (
-          <div 
-            key={index} 
-            className="p-3 rounded-xl border border-gray-100 hover:shadow-md transition-shadow"
-            style={{ backgroundColor: `${color}05` }}
-          >
-            <h5 className="font-semibold text-[#2D3748] mb-2">{session.title}</h5>
-            <ul className="space-y-2">
-              {session.points.map((point, i) => (
-                <li key={i} className="flex items-start">
-                  <div className="flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center mr-2 mt-0.5" style={{ backgroundColor: `${color}20` }}>
-                    <svg className="h-3 w-3" style={{ color }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="text-[#4B5563] text-sm">{point}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div className="p-6 relative z-10 h-full">
+        <ul className="space-y-4">
+          {sessions.map((session, i) => (
+            <li key={i} className="flex items-start">
+              <div className="flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center mr-3 mt-0.5" style={{ backgroundColor: color }}>
+                <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span className="text-[#0f172a] text-base font-medium">{session}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
-  );
-};
-
-// Workshop Content for Scott Elementary
-const ScottElementaryContent = ({ workshop }: { workshop: typeof workshops[0] }) => {
-  return (
-    <motion.div 
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-      }}
-      className="w-full"
-    >
-      <p className="text-[#4B5563] mb-8 text-lg leading-relaxed">
-        {workshop.description}
-      </p>
-      
-      <div className="grid grid-cols-3 gap-6">
-        <div className="relative h-[280px] rounded-xl overflow-hidden shadow-lg">
-          <Image
-            src={workshop.images[0]}
-            alt={`${workshop.title} featured image`}
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative h-[280px] rounded-xl overflow-hidden shadow-lg">
-          <Image
-            src={workshop.images[1]}
-            alt={`${workshop.title} featured image`}
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative h-[280px] rounded-xl overflow-hidden shadow-lg">
-          <Image
-            src={workshop.images[2]}
-            alt={`${workshop.title} featured image`}
-            fill
-            className="object-cover"
-          />
-        </div>
-      </div>
-    </motion.div>
   );
 };
 
@@ -353,8 +232,8 @@ const WorkshopCard = ({ workshop, index }: { workshop: typeof workshops[0], inde
           {index + 1}
         </div>
         <div className="flex-grow">
-          <h3 className="text-2xl font-bold text-[#2D3748]">{workshop.title}</h3>
-          <div className="flex flex-wrap text-base text-gray-500 mt-2 gap-4">
+          <h3 className="text-2xl font-bold text-[#0f172a]">{workshop.title}</h3>
+          <div className="flex flex-wrap text-base text-gray-600 mt-2 gap-4">
             <span className="flex items-center">
               <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -377,39 +256,30 @@ const WorkshopCard = ({ workshop, index }: { workshop: typeof workshops[0], inde
       
       {/* Workshop Content */}
       <div className="pt-8 pb-10 px-8">
-        {workshop.id === "scott" ? (
-          // Special layout for Scott Elementary with full-width paragraph and 3 photos
-          <ScottElementaryContent workshop={workshop} />
-        ) : (
-          // Standard layout for other workshops
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-            {/* Left Column - Description and Images */}
-            <motion.div variants={fadeIn} className="md:col-span-8">
-              <p className="text-[#4B5563] mb-8 text-lg leading-relaxed">
-                {workshop.description}
-              </p>
-              
-              <div className="relative">
-                <div className="absolute -inset-2 bg-gradient-to-r rounded-2xl blur-xl opacity-50" 
-                  style={{ 
-                    backgroundImage: `linear-gradient(to right, ${workshop.color}10, #38b6ff10)` 
-                  }} 
-                />
-                <div className="relative h-[320px]">
-                  <ImageGrid images={workshop.images.slice(0, 5)} title={workshop.title} />
-                </div>
-              </div>
-              
-              {/* Additional Images */}
-              <AdditionalImages images={workshop.images} />
-            </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+          {/* Left Column - Description and Images */}
+          <motion.div variants={fadeIn} className="md:col-span-8">
+            <p className="text-[#334155] mb-8 text-lg leading-relaxed">
+              {workshop.description}
+            </p>
             
-            {/* Right Column - Session Cards */}
-            <motion.div variants={fadeIn} className="md:col-span-4">
-              <SessionCards sessions={workshop.sessions} color={workshop.color} />
-            </motion.div>
-          </div>
-        )}
+            <div className="relative">
+              <div className="absolute -inset-2 bg-gradient-to-r rounded-2xl blur-xl opacity-50" 
+                style={{ 
+                  backgroundImage: `linear-gradient(to right, ${workshop.color}10, ${workshop.color}10)` 
+                }} 
+              />
+              <div className="relative">
+                <ImageGrid images={workshop.images} title={workshop.title} />
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* Right Column - Session Cards */}
+          <motion.div variants={fadeIn} className="md:col-span-4">
+            <SessionCards sessions={workshop.sessions} color={workshop.color} />
+          </motion.div>
+        </div>
       </div>
     </motion.div>
   );
@@ -419,7 +289,19 @@ export default function WorkshopsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative flex items-center bg-white overflow-hidden min-h-screen">
+      <div className="relative flex items-center bg-gradient-to-r from-[#003166] via-[#004080] to-[#0074cc] overflow-hidden min-h-screen">
+        {/* Background elements */}
+        <div className="absolute top-60 right-40 w-80 h-80 rounded-full bg-[#0066cc]/10 blur-2xl"></div>
+        <div className="absolute bottom-20 left-40 w-96 h-96 rounded-full bg-[#0066cc]/10 blur-2xl"></div>
+        <div className="absolute top-40 left-1/4 w-64 h-64 rounded-full bg-[#0074cc]/10 blur-2xl"></div>
+        
+        {/* Wave at the bottom */}
+        <div className="absolute -bottom-1 left-0 right-0 z-10">
+          <svg className="w-full fill-white" viewBox="0 0 1440 150" preserveAspectRatio="none">
+            <path d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,101.3C960,117,1056,139,1152,138.7C1248,139,1344,117,1392,106.7L1440,96L1440,150L1392,150C1344,150,1248,150,1152,150C1056,150,960,150,864,150C768,150,672,150,576,150C480,150,384,150,288,150C192,150,96,150,48,150L0,150Z"></path>
+          </svg>
+        </div>
+        
         <div className="relative z-10 max-w-7xl mx-auto px-4 w-full py-24 md:py-32">
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
             <motion.div 
@@ -427,32 +309,25 @@ export default function WorkshopsPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="inline-block mb-6 px-4 py-2 bg-indigo-100 text-[#6366F1] font-medium rounded-full text-base md:text-lg">
+              <span className="inline-block mb-6 px-4 py-2 bg-[#0091c9]/20 text-white font-medium rounded-full text-base md:text-lg border border-white/20">
                 Year-Round Programs
               </span>
-              <h1 className="text-6xl md:text-7xl font-bold mb-8 text-[#2D3748] tracking-tight leading-tight">
-                BizBuzz <span className="text-[#6366F1]">Workshops</span>
+              <h1 className="text-6xl md:text-7xl font-bold mb-8 text-white tracking-tight leading-tight">
+                BizBuzz <span className="text-[#FFD700]">Workshops</span>
               </h1>
-              <p className="text-xl md:text-2xl text-[#4B5563] font-light mb-12 leading-relaxed max-w-xl">
-                Condensed, high-impact entrepreneurship training delivered at schools, 
-                business fairs, and through online webinars to reach students worldwide.
+              <p className="text-xl md:text-2xl text-white font-light mb-12 leading-relaxed max-w-xl">
+                A series of interactive workshops for local schools, business fairs, and online webinars based on a condensed BizBuzz curriculum that introduces young students to core entrepreneurial concepts.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="#brookdale" 
-                  className="bg-[#6366F1] text-white font-semibold py-4 px-8 rounded-2xl text-lg transition-all hover:bg-[#4F46E5] hover:scale-105 active:scale-95 shadow-lg hover:shadow-indigo-200 inline-flex items-center"
+                  href="#dupage" 
+                  className="bg-[#FFD700] text-[#003166] font-semibold py-4 px-8 rounded-2xl text-lg transition-all hover:bg-white hover:scale-105 active:scale-95 shadow-lg hover:shadow-white/20 inline-flex items-center"
                 >
                   Browse Workshops
                   <svg className="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                </a>
-                <a 
-                  href="mailto:workshops@bizbuzznfp.org" 
-                  className="text-[#4B5563] hover:text-[#6366F1] font-medium text-lg transition-colors inline-flex items-center"
-                >
-                  Request a Workshop →
                 </a>
               </div>
             </motion.div>
@@ -463,11 +338,11 @@ export default function WorkshopsPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="absolute -inset-4 bg-gradient-to-r from-[#6366F1]/20 to-[#38b6ff]/20 rounded-3xl blur-2xl" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#0066cc]/20 to-[#0074cc]/20 rounded-3xl blur-2xl" />
               <div className="relative w-full h-[650px]">
                 <div className="absolute top-8 left-4 w-[300px] h-[300px] rounded-xl overflow-hidden shadow-lg transform -rotate-4">
                   <Image
-                    src="/placeholder/workshop_hero1.jpg"
+                    src="/workshops/be/1.png"
                     alt="Workshop collaboration"
                     fill
                     className="object-cover"
@@ -476,7 +351,7 @@ export default function WorkshopsPage() {
                 </div>
                 <div className="absolute bottom-4 right-8 w-[340px] h-[340px] rounded-xl overflow-hidden shadow-lg transform rotate-3">
                   <Image
-                    src="/placeholder/workshop_hero2.jpg"
+                    src="/workshops/dcbf/2.jpg"
                     alt="Students working"
                     fill
                     className="object-cover"
@@ -485,7 +360,7 @@ export default function WorkshopsPage() {
                 </div>
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/2 w-[260px] h-[260px] rounded-xl overflow-hidden shadow-lg rotate-2">
                   <Image
-                    src="/placeholder/workshop_hero3.jpg"
+                    src="/workshops/ncbf/3.jpeg"
                     alt="Business fair booth"
                     fill
                     className="object-cover"
@@ -499,11 +374,10 @@ export default function WorkshopsPage() {
       </div>
       
       {/* Workshops Content */}
-      <div className="max-w-7xl mx-auto px-4 py-20 border-t border-gray-100">
-        <h2 className="text-5xl font-bold text-[#2D3748] mb-4 text-center">Featured Workshops</h2>
-        <p className="text-[#4B5563] text-center mb-16 text-xl max-w-2xl mx-auto">
-          Our tailored workshops bring entrepreneurial education to students in their schools, 
-          at business fairs, and through online platforms.
+      <div className="max-w-7xl mx-auto px-4 py-20">
+        <h2 className="text-5xl font-bold text-[#0f172a] mb-4 text-center">7 Workshops. 17 Sessions.</h2>
+        <p className="text-[#334155] text-center mb-16 text-xl max-w-3xl mx-auto">
+          Hosted at schools like Brookdale Elementary & Madison Junior High, fairs such as the Naperville & Dupage Children&apos;s Business Fairs, and learning centers like Best Brains.
         </p>
         
         <div>
