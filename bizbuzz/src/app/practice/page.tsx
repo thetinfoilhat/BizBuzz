@@ -77,35 +77,35 @@ const finalJudges = {
   judges: [
     {
       name: "Phil Ramos",
-      photo: "/fish_tank/f_judges/phil.jpg",
+      photo: "/fish_tank/f_judges/phil.png",
       title: "Owner & President",
       company: "Office Furniture Solutions",
       bio: "Phil Ramos is the owner and president of Office Furniture Solutions in Naperville, where he has built a respected business providing new and refurbished office furniture. Known for his commitment to community involvement and mentorship, he actively supports local initiatives and youth programs."
     },
     {
       name: "Raymond Munch",
-      photo: "/fish_tank/f_judges/raymond.jpg",
+      photo: "/fish_tank/f_judges/ray.png",
       title: "Director of Finance",
       company: "City of Naperville",
       bio: "Raymond Munch serves as the Director of Finance for the City of Naperville, overseeing financial operations and managing the city's substantial budget. His career includes over a decade in law enforcement with the Village of Glen Ellyn, followed by leadership roles in city management in DeKalb, Illinois."
     },
     {
       name: "Janet Yang Rohr",
-      photo: "/fish_tank/f_judges/janet.jpg",
+      photo: "/fish_tank/f_judges/janet.png",
       title: "State Representative",
       company: "Illinois' 41st District",
       bio: "Janet Yang Rohr is a state representative for Illinois' 41st District, serving since 2021 and focusing on education, healthcare, and economic issues. Before entering politics, she held leadership roles in finance and served on the Naperville District 203 school board."
     },
     {
       name: "Brad Wilson",
-      photo: "/fish_tank/f_judges/brad.jpg",
+      photo: "/fish_tank/f_judges/brad.png",
       title: "Executive Director",
       company: "Naperville Park District",
       bio: "Brad Wilson has been the Executive Director of the Naperville Park District since February 2022, after a distinguished 23-year tenure with the organization. He has been with the district for over two decades, beginning as an intern and working his way up through various leadership positions."
     },
     {
       name: "Isha Elandassery",
-      photo: "/fish_tank/f_judges/isha.jpg",
+      photo: "/fish_tank/f_judges/isha_elandassery.jpg",
       title: "Founder",
       company: "Naperville Rising Women in Business",
       bio: "Isha Elandassery is the founder of Naperville Rising Women in Business (NRWIB), an organization dedicated to empowering young girls to become future leaders. She also created Salus Security, a startup focused on developing discreet emergency wristbands for students."
@@ -180,6 +180,7 @@ export default function FishTankPage() {
   // For image carousel
   const [activeSlide, setActiveSlide] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const bubbleContainerRef = useRef<HTMLDivElement>(null);
   
   const resetTimeout = () => {
     if (timeoutRef.current) {
@@ -200,10 +201,90 @@ export default function FishTankPage() {
     };
   }, [activeSlide]);
 
+  // Bubble animation
+  useEffect(() => {
+    const bubbleContainer = bubbleContainerRef.current;
+    if (!bubbleContainer) return;
+    
+    const createBubble = () => {
+      const bubble = document.createElement("div");
+      
+      // Set bubble properties
+      const size = Math.random() * 30 + 10; // Size between 10px and 40px
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.position = "absolute";
+      bubble.style.borderRadius = "50%";
+      bubble.style.background = "linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))";
+      bubble.style.boxShadow = "inset 0 0 5px rgba(255, 255, 255, 0.2)";
+      bubble.style.pointerEvents = "none";
+      
+      // Random starting position
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.bottom = `-${size}px`;
+      
+      // Random animation properties
+      const duration = Math.random() * 15 + 8;
+      const delay = Math.random() * 2;
+      
+      // Animation
+      bubble.style.animation = `bubbleRise ${duration}s linear ${delay}s`;
+      
+      // Append to container and remove when animation completes
+      bubbleContainer.appendChild(bubble);
+      
+      setTimeout(() => {
+        if (bubble && bubble.parentNode === bubbleContainer) {
+          bubbleContainer.removeChild(bubble);
+        }
+      }, (duration + delay) * 1000);
+    };
+    
+    // Create initial set of bubbles
+    for (let i = 0; i < 15; i++) {
+      createBubble();
+    }
+    
+    // Continue creating bubbles periodically
+    const intervalId = setInterval(createBubble, 800);
+    
+    // Add the keyframes for the animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes bubbleRise {
+        0% {
+          transform: translateY(0) translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        80% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(-100vh) translateX(${Math.random() > 0.5 ? '+' : '-'}${Math.random() * 100}px);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return () => {
+      clearInterval(intervalId);
+      if (style.parentNode) {
+        document.head.removeChild(style);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Redesigned with Better Image Organization */}
       <section className="relative overflow-hidden">
+        {/* Bubble container - positioned behind everything */}
+        <div ref={bubbleContainerRef} className="absolute inset-0 z-15"></div>
+        
         {/* Trophy background with blue overlay */}
         <div className="absolute inset-0 z-0">
           <Image 
@@ -362,50 +443,6 @@ export default function FishTankPage() {
             </motion.div>
           </div>
         </div>
-        
-        {/* Animated bubbles */}
-        {[...Array(10)].map((_, i) => (
-          <div 
-            key={i} 
-            className="bubble"
-            style={{
-              width: `${Math.random() * 50 + 20}px`,
-              height: `${Math.random() * 50 + 20}px`,
-              left: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 15 + 8}s`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          />
-        ))}
-        
-        {/* CSS for animations */}
-        <style jsx>{`
-          .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.4);
-            z-index: 1;
-            animation: bubble-rise linear infinite;
-          }
-          
-          @keyframes bubble-rise {
-            0% {
-              bottom: -100px;
-              opacity: 0;
-            }
-            20% {
-              opacity: 0.6;
-            }
-            80% {
-              opacity: 0.6;
-            }
-            100% {
-              bottom: 100vh;
-              opacity: 0;
-            }
-          }
-        `}</style>
       </section>
 
       {/* What is Fish Tank Section - Consolidated with info & images */}
@@ -810,7 +847,7 @@ export default function FishTankPage() {
                       src={judge.photo}
                       alt={judge.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-top"
                     />
                     <div className="absolute inset-0 bottom-0 bg-gradient-to-t from-[#ffbf00]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute top-0 right-0 bg-[#ffbf00] text-white px-3 py-1 text-sm font-bold uppercase rounded-bl-lg">
@@ -848,7 +885,7 @@ export default function FishTankPage() {
                       src={judge.photo}
                       alt={judge.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-top"
                     />
                     <div className="absolute inset-0 bottom-0 bg-gradient-to-t from-[#ffbf00]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute top-0 right-0 bg-[#ffbf00] text-white px-3 py-1 text-sm font-bold uppercase rounded-bl-lg">
