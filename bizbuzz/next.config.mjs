@@ -8,6 +8,10 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    turbo: false,
+    optimizeCss: false
+  }
 };
 
 export default nextConfig; 
