@@ -280,9 +280,6 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
       {/* Session Main Content Card */}
       <div className="rounded-2xl overflow-hidden bg-white shadow-lg border border-[#B8e2f4]/30">
         <div className={`py-6 px-8 bg-gradient-to-r ${headerColorClass}`}>
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#38b6ff]/20 text-[#003166] text-sm font-medium">
-            Week {index + 1}
-        </div>
       </div>
       
       {/* Session Content */}
