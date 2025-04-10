@@ -291,19 +291,19 @@ export default function WorkshopsPage() {
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-[#C5A32E] via-[#D4AF37] to-[#B8973F] overflow-hidden">
         {/* Fixed gear designs in background */}
-        <div className="absolute top-20 right-20 w-96 h-96 opacity-10">
+        <div className="absolute top-40 right-40 w-64 h-64 opacity-5">
           <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M464 192l-33.5-5.5c-1.4-4.9-2.9-9.6-4.7-14.3l19.8-27.8-32-32-27.8 19.8c-4.7-1.8-9.4-3.3-14.3-4.7L366 96h-44l-5.5 33.5c-4.9 1.4-9.6 2.9-14.3 4.7l-27.8-19.8-32 32 19.8 27.8c-1.8 4.7-3.3 9.4-4.7 14.3L224 192v44l33.5 5.5c1.4 4.9 2.9 9.6 4.7 14.3l-19.8 27.8 32 32 27.8-19.8c4.7 1.8 9.4 3.3 14.3 4.7L322 336h44l5.5-33.5c4.9-1.4 9.6-2.9 14.3-4.7l27.8 19.8 32-32-19.8-27.8c1.8-4.7 3.3-9.4 4.7-14.3L464 236v-44zM288 256c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z" />
           </svg>
         </div>
         
-        <div className="absolute top-40 right-40 w-56 h-56 opacity-8 animate-spin-slow">
+        <div className="absolute top-60 right-60 w-40 h-40 opacity-5 animate-spin-slow">
           <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M288 256c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm-144 36v44l33.5 5.5c1.4 4.9 2.9 9.6 4.7 14.3l-19.8 27.8 32 32 27.8-19.8c4.7 1.8 9.4 3.3 14.3 4.7L252 432h44l5.5-33.5c4.9-1.4 9.6-2.9 14.3-4.7l27.8 19.8 32-32-19.8-27.8c1.8-4.7 3.3-9.4 4.7-14.3L394 334v-44l-33.5-5.5c-1.4-4.9-2.9-9.6-4.7-14.3l19.8-27.8-32-32-27.8 19.8c-4.7-1.8-9.4-3.3-14.3-4.7L296 192h-44l-5.5 33.5c-4.9 1.4-9.6 2.9-14.3 4.7l-27.8-19.8-32 32 19.8 27.8c-1.8 4.7-3.3 9.4-4.7 14.3L144 292z" />
           </svg>
         </div>
         
-        <div className="absolute bottom-40 left-20 w-96 h-96 opacity-12">
+        <div className="absolute bottom-60 left-40 w-48 h-48 opacity-5">
           <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M501.1 395.7L384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.6c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.7zM331.7 225c28.3 0 54.9 11 74.9 31l19.4 19.4c15.8-6.9 30.8-16.5 43.8-29.5 37.1-37.1 49.7-89.3 37.9-136.7-2.2-9-13.5-12.1-20.1-5.5l-74.4 74.4-67.9-11.3L334 98.9l74.4-74.4c6.6-6.6 3.4-17.9-5.7-20.2-47.4-11.7-99.6.9-136.6 37.9-28.5 28.5-41.9 66.1-41.2 103.6l82.1 82.1c8.1-1.9 16.5-2.9 24.7-2.9z" />
           </svg>
@@ -311,12 +311,12 @@ export default function WorkshopsPage() {
         
         {/* Solid background elements */}
         <div className="absolute inset-0 overflow-hidden z-0">
-          <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-amber-400/10 to-transparent"></div>
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-300/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-amber-400/5 to-transparent"></div>
+          <div className="absolute -top-20 -right-20 w-72 h-72 bg-amber-400/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-amber-300/5 rounded-full blur-3xl"></div>
           
           {/* Grid pattern overlay */}
-          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-5"></div>
+          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-3"></div>
           
           {/* Wave decoration at bottom */}
           <svg className="absolute bottom-0 w-full text-amber-50" preserveAspectRatio="none" viewBox="0 0 1440 74" fill="currentColor">
@@ -365,7 +365,7 @@ export default function WorkshopsPage() {
               
               {/* Better positioned floating icon beside text */}
               <div className="relative mt-20">
-                <div className="absolute -top-8 -left-5 w-32 h-32 opacity-15">
+                <div className="absolute -top-8 -left-5 w-20 h-20 opacity-10">
                   <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M352 320c-22.6 0-43.8 6.9-61.2 18.8l-49.3-30.8c5.2-14.4 8.5-29.9 8.5-46 0-16.2-3.3-31.7-8.5-46l49.3-30.8C307.4 197.1 328.4 204 352 204c57.3 0 104-46.7 104-104S409.3-4 352-4s-104 46.7-104 104c0 16.2 3.3 31.7 8.5 46l-49.3 30.8c-5.2 14.4-8.5 29.9-8.5 46 0 57.3 46.7 104 104 104s104-46.7 104-104S409.3 320 352 320zm0-312c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM144 330c-39.8 0-72-32.2-72-72s32.2-72 72-72 72 32.2 72 72-32.2 72-72 72zm208 114c-39.8 0-72-32.2-72-72s32.2-72 72-72 72 32.2 72 72-32.2 72-72 72z" />
                   </svg>
@@ -373,37 +373,23 @@ export default function WorkshopsPage() {
               </div>
             </motion.div>
             
-            {/* Right content - Images */}
+            {/* Right content - Dynamic diagonal layout */}
             <motion.div
-              className="lg:col-span-6 relative pl-28"
+              className="lg:col-span-6 relative"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <div className="relative h-[750px] w-full overflow-visible">
-                {/* Main center image */}
-                <motion.div 
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[380px] h-[400px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(217,119,6,0.3)] z-30 border-4 border-white"
-                  initial={{ scale: 0.9, y: 20 }}
-                  animate={{ scale: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                  <Image
-                    src="/workshops/be/4.png"
-                    alt="Workshop participants"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-amber-700/30 to-transparent"></div>
-                </motion.div>
+              <div className="relative h-[580px] w-full overflow-visible">
+                {/* Three images with improved spread */}
                 
-                {/* Top left floating image - moved further out */}
+                {/* Left image - positioned to match camps layout */}
                 <motion.div 
-                  className="absolute top-0 -left-10 w-[250px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-10 border-4 border-white"
-                  initial={{ x: -30, y: -30, rotate: -12 }}
-                  animate={{ x: 0, y: 0, rotate: -12 }}
+                  className="absolute top-[160px] left-[10px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
+                  initial={{ x: -30, y: 0, rotate: -8 }}
+                  animate={{ x: 0, y: 0, rotate: -8 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
+                  whileHover={{ scale: 1.03, rotate: -6, transition: { duration: 0.3 } }}
                 >
                   <Image
                     src="/workshops/dcbf/1.jpg"
@@ -412,15 +398,34 @@ export default function WorkshopsPage() {
                     className="object-cover"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-amber-700/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-700/25 to-transparent"></div>
                 </motion.div>
                 
-                {/* Bottom right floating image - moved further out and down */}
+                {/* Top right image - positioned at extreme top-right */}
                 <motion.div 
-                  className="absolute bottom-0 -right-20 w-[250px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white"
-                  initial={{ x: 30, y: 30, rotate: 12 }}
-                  animate={{ x: 0, y: 0, rotate: 12 }}
+                  className="absolute top-[-20px] right-[-20px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-[0_15px_50px_rgba(217,119,6,0.25)] z-30 border-[3px] border-white"
+                  initial={{ scale: 0.92, y: 10 }}
+                  animate={{ scale: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
+                >
+                  <Image
+                    src="/workshops/be/4.png"
+                    alt="Workshop participants"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-700/25 to-transparent"></div>
+                </motion.div>
+                
+                {/* Bottom right image - spread further down and right */}
+                <motion.div 
+                  className="absolute bottom-[10px] right-[60px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
+                  initial={{ x: 30, y: 0, rotate: 8 }}
+                  animate={{ x: 0, y: 0, rotate: 8 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
+                  whileHover={{ scale: 1.03, rotate: 6, transition: { duration: 0.3 } }}
                 >
                   <Image
                     src="/workshops/ncbf/2.jpeg"
@@ -429,14 +434,12 @@ export default function WorkshopsPage() {
                     className="object-cover"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-amber-700/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-700/25 to-transparent"></div>
                 </motion.div>
                 
-                {/* Decorative elements */}
-                <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-amber-300/20 to-amber-400/20 blur-2xl"></div>
-                <div className="absolute bottom-1/3 left-1/3 w-56 h-56 rounded-full bg-gradient-to-r from-amber-200/20 to-amber-300/20 blur-xl"></div>
-                <div className="absolute top-1/2 -left-1/4 w-72 h-72 rounded-full bg-gradient-to-r from-amber-300/15 to-amber-400/15 blur-3xl"></div>
-                <div className="absolute bottom-1/4 -right-1/4 w-80 h-80 rounded-full bg-gradient-to-r from-amber-300/10 to-amber-400/10 blur-3xl"></div>
+                {/* Enhanced decorative elements */}
+                <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-amber-300/10 to-amber-400/10 blur-3xl"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-56 h-56 rounded-full bg-gradient-to-r from-amber-200/10 to-amber-300/10 blur-2xl"></div>
               </div>
             </motion.div>
           </div>

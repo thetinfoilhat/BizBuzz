@@ -520,13 +520,13 @@ export default function CampPage() {
               <div className="relative h-[580px] w-full overflow-visible">
                 {/* Dynamic diagonal image arrangement */}
                 
-                {/* Top left image */}
+                {/* Left image - larger size */}
                 <motion.div 
-                  className="absolute top-0 left-0 w-[280px] h-[320px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
-                  initial={{ x: -30, y: -30, rotate: -12 }}
-                  animate={{ x: 0, y: 0, rotate: -12 }}
+                  className="absolute top-[160px] left-[10px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
+                  initial={{ x: -30, y: 0, rotate: -8 }}
+                  animate={{ x: 0, y: 0, rotate: -8 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  whileHover={{ scale: 1.03, rotate: -10, transition: { duration: 0.3 } }}
+                  whileHover={{ scale: 1.03, rotate: -6, transition: { duration: 0.3 } }}
                 >
                   <Image
                     src="/camp_imgs/landing/left.jpg"
@@ -538,13 +538,13 @@ export default function CampPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#040037]/25 to-transparent"></div>
                 </motion.div>
                 
-                {/* Center image - larger and prominent */}
+                {/* Top right image - larger size */}
                 <motion.div 
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[320px] h-[380px] rounded-2xl overflow-hidden shadow-[0_15px_50px_rgba(8,112,184,0.25)] z-30 border-[3px] border-white"
+                  className="absolute top-[-20px] right-[-20px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-[0_15px_50px_rgba(8,112,184,0.25)] z-30 border-[3px] border-white"
                   initial={{ scale: 0.92, y: 10 }}
                   animate={{ scale: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                  whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
                 >
                   <Image
                     src="/camp_imgs/landing/center.jpg"
@@ -556,13 +556,13 @@ export default function CampPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#040037]/25 to-transparent"></div>
                 </motion.div>
                 
-                {/* Bottom right image */}
+                {/* Bottom right image - larger size */}
                 <motion.div 
-                  className="absolute bottom-0 right-0 w-[280px] h-[320px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
-                  initial={{ x: 30, y: 30, rotate: 12 }}
-                  animate={{ x: 0, y: 0, rotate: 12 }}
+                  className="absolute bottom-[10px] right-[60px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
+                  initial={{ x: 30, y: 0, rotate: 8 }}
+                  animate={{ x: 0, y: 0, rotate: 8 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
-                  whileHover={{ scale: 1.03, rotate: 10, transition: { duration: 0.3 } }}
+                  whileHover={{ scale: 1.03, rotate: 6, transition: { duration: 0.3 } }}
                 >
                   <Image
                     src="/camp_imgs/landing/right.jpg"
