@@ -34,9 +34,9 @@ const workshops = [
       "Madison Mentorship Program | August 15th, 2024 to December 20th, 2024"
     ],
     images: [
-      "/workshops/be/1.png",
-      "/workshops/be/2.png",
-      "/workshops/be/3.png",
+      "/workshops/mm/1.png",
+      "/workshops/mm/2.jpg",
+      "/workshops/mm/3.png",
     ],
     color: "#E69F16"
   },
@@ -70,9 +70,9 @@ const workshops = [
       "Best Brains Workshop 2 | August 7th, 2024"
     ],
     images: [
-      "/workshops/be/7.png",
-      "/workshops/se/1.png",
-      "/workshops/se/2.png",
+      "/workshops/bb/1.jpg",
+      "/workshops/bb/2.jpg",
+      "/workshops/bb/3.png",
     ],
     color: "#CD8F20"
   },
@@ -105,9 +105,9 @@ const workshops = [
       "Crone Middle School Talk | May 31st, 2024"
     ],
     images: [
-      "/workshops/se/1.png",
-      "/workshops/se/2.png",
-      "/workshops/se/3.png",
+      "/workshops/cm/1.jpg",
+      "/workshops/cm/2.jpg",
+      "/workshops/cm/3.jpg",
     ],
     color: "#A26227"
   },
