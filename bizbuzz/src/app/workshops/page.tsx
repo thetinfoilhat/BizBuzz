@@ -22,7 +22,7 @@ const workshops = [
       "/workshops/dcbf/2.jpg",
       "/workshops/dcbf/3.jpg",
     ],
-    color: "#2563EB"
+    color: "#FFBF00"
   },
   {
     id: "madison",
@@ -38,7 +38,7 @@ const workshops = [
       "/workshops/be/2.png",
       "/workshops/be/3.png",
     ],
-    color: "#4F46E5"
+    color: "#E69F16"
   },
   {
     id: "brookdale",
@@ -57,7 +57,7 @@ const workshops = [
       "/workshops/be/5.png",
       "/workshops/be/6.png",
     ],
-    color: "#0EA5E9"
+    color: "#DA951B"
   },
   {
     id: "bestbrains",
@@ -74,7 +74,7 @@ const workshops = [
       "/workshops/se/1.png",
       "/workshops/se/2.png",
     ],
-    color: "#06B6D4"
+    color: "#CD8F20"
   },
   {
     id: "naperville",
@@ -93,7 +93,7 @@ const workshops = [
       "/workshops/ncbf/2.jpeg",
       "/workshops/ncbf/3.jpeg",
     ],
-    color: "#3B82F6"
+    color: "#BD7825"
   },
   {
     id: "crone",
@@ -109,7 +109,7 @@ const workshops = [
       "/workshops/se/2.png",
       "/workshops/se/3.png",
     ],
-    color: "#6366F1"
+    color: "#A26227"
   },
   {
     id: "scott",
@@ -125,7 +125,7 @@ const workshops = [
       "/workshops/se/2.png",
       "/workshops/se/3.png",
     ],
-    color: "#8B5CF6"
+    color: "#8E682E"
   }
 ];
 
@@ -145,36 +145,10 @@ const FeatureImage = ({ src, alt, priority = false }: { src: string, alt: string
   );
 };
 
-// Session Cards component
-const SessionCards = ({ sessions, color }: { sessions: string[], color: string }) => {
-  return (
-    <div className="h-full">
-      <div className="bg-white rounded-2xl shadow-md h-full overflow-hidden border border-gray-100">
-        <div className="py-4 px-6" style={{ backgroundColor: color }}>
-          <h4 className="font-bold text-white text-xl">Sessions</h4>
-        </div>
-        
-        <div className="p-6">
-          <ul className="space-y-4">
-            {sessions.map((session, i) => (
-              <li key={i} className="flex items-start">
-                <span className="flex-shrink-0 h-6 w-6 rounded-full flex items-center justify-center mt-0.5 text-white mr-3" style={{ backgroundColor: color }}>
-                  {i + 1}
-                </span>
-                <span className="text-gray-800 text-base">{session}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 // Workshop Images Grid
 const ImagesGrid = ({ images, title }: { images: string[], title: string }) => {
   return (
-    <div className="grid grid-cols-5 gap-4 h-[240px]">
+    <div className="grid grid-cols-5 gap-4 h-[280px]">
       <div className="col-span-3 h-full">
         <FeatureImage src={images[0]} alt={`${title} - primary image`} />
       </div>
@@ -192,63 +166,121 @@ const ImagesGrid = ({ images, title }: { images: string[], title: string }) => {
 
 // Workshop card component
 const WorkshopCard = ({ workshop, index }: { workshop: typeof workshops[0], index: number }) => {
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
     <motion.div
       id={workshop.id}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
-      className="mb-20"
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { 
+          opacity: 1,
+          transition: { 
+            staggerChildren: 0.1,
+            delayChildren: 0.05
+          }
+        }
+      }}
+      className="mb-24 overflow-hidden"
     >
-      {/* Header Section */}
-      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-5 mb-6">
-        <div className="w-14 h-14 flex-shrink-0 rounded-lg text-white font-bold text-2xl flex items-center justify-center shadow-lg" 
-          style={{ backgroundColor: workshop.color }}>
-          {index + 1}
+      {/* Session Header */}
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-5 mb-6">
+        <div 
+          className="w-16 h-16 rounded-full flex items-center justify-center mr-5 text-white font-bold text-xl shadow-lg relative overflow-hidden"
+          style={{ backgroundColor: workshop.color }}
+        >
+          <span className="relative z-10">{index + 1}</span>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
         </div>
         
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-1">{workshop.title}</h2>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-gray-600">
-            <div className="flex items-center">
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{workshop.title}</h3>
+          <div className="flex flex-wrap gap-5 text-base text-amber-900 mt-2">
+            <span className="flex items-center">
+              <svg className="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                 <line x1="16" y1="2" x2="16" y2="6"></line>
                 <line x1="8" y1="2" x2="8" y2="6"></line>
                 <line x1="3" y1="10" x2="21" y2="10"></line>
               </svg>
               {workshop.date}
-            </div>
-            <div className="flex items-center">
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            </span>
+            <span className="flex items-center">
+              <svg className="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
               {workshop.location}
-            </div>
+            </span>
           </div>
         </div>
       </div>
-
-      {/* Main Content */}
-      <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-        <div className="p-6 lg:p-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Left Column - Content */}
-            <div className="lg:col-span-8">
-              <p className="text-gray-700 text-lg mb-8 leading-relaxed">
+      
+      {/* Session Main Content Card */}
+      <div className="rounded-2xl overflow-hidden bg-white shadow-lg border border-amber-100/30">
+        <div className={`py-6 px-8 bg-gradient-to-r from-amber-50 to-white`}>
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-amber-500/20 text-amber-800 text-sm font-medium">
+            Workshop {index + 1}
+          </div>
+        </div>
+        
+        {/* Session Content */}
+        <div className="p-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+            {/* Left Column - Description and Images */}
+            <motion.div variants={fadeIn} className="md:col-span-8">
+              <p className="text-gray-700 mb-10 text-lg leading-relaxed">
                 {workshop.description}
               </p>
               
-              {/* Images */}
-              <ImagesGrid images={workshop.images} title={workshop.title} />
-            </div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r rounded-3xl blur-xl opacity-40" 
+                  style={{ 
+                    backgroundImage: `linear-gradient(to right, ${workshop.color}10, #FFBF0010)` 
+                  }} 
+                />
+                <div className="relative">
+                  <ImagesGrid images={workshop.images} title={workshop.title} />
+                </div>
+              </div>
+            </motion.div>
             
-            {/* Right Column - Sessions */}
-            <div className="lg:col-span-4">
-              <SessionCards sessions={workshop.sessions} color={workshop.color} />
-            </div>
+            {/* Right Column - Session Information */}
+            <motion.div variants={fadeIn} className="md:col-span-4">
+              <div className="rounded-xl overflow-hidden shadow-lg bg-white border border-amber-100/30 flex flex-col w-full relative h-full">
+                <div className="absolute -inset-1 bg-gradient-to-r rounded-xl blur-xl opacity-30 -z-10" 
+                  style={{ backgroundImage: `linear-gradient(to right, ${workshop.color}20, #FFBF0010)` }} 
+                />
+                
+                <div className="text-center py-3 relative z-10" style={{ backgroundColor: `${workshop.color}20` }}>
+                  <h4 className="font-bold text-amber-900 text-lg">WORKSHOP SESSIONS</h4>
+                </div>
+                
+                <div className="p-6 flex flex-col flex-grow relative z-10">
+                  <ul className="space-y-4">
+                    {workshop.sessions.map((session, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="flex-shrink-0 h-6 w-6 rounded-full flex items-center justify-center mt-0.5 text-white mr-3" 
+                              style={{ backgroundColor: workshop.color }}>
+                          {i + 1}
+                        </span>
+                        <span className="text-gray-800">{session}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -258,114 +290,176 @@ const WorkshopCard = ({ workshop, index }: { workshop: typeof workshops[0], inde
 
 export default function WorkshopsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-white to-amber-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#0f172a] to-[#1e293b] py-24 lg:py-32 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-          <div className="absolute -top-40 -left-40 w-80 h-80 bg-yellow-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute top-60 right-1/3 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
-          
-          {/* Grid pattern overlay */}
-          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-10"></div>
+      <div className="relative bg-gradient-to-br from-[#C5A32E] via-[#D4AF37] to-[#B8973F] overflow-hidden">
+        {/* Fixed gear designs in background */}
+        <div className="absolute top-20 right-20 w-72 h-72 opacity-10">
+          <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M464 192l-33.5-5.5c-1.4-4.9-2.9-9.6-4.7-14.3l19.8-27.8-32-32-27.8 19.8c-4.7-1.8-9.4-3.3-14.3-4.7L366 96h-44l-5.5 33.5c-4.9 1.4-9.6 2.9-14.3 4.7l-27.8-19.8-32 32 19.8 27.8c-1.8 4.7-3.3 9.4-4.7 14.3L224 192v44l33.5 5.5c1.4 4.9 2.9 9.6 4.7 14.3l-19.8 27.8 32 32 27.8-19.8c4.7 1.8 9.4 3.3 14.3 4.7L322 336h44l5.5-33.5c4.9-1.4 9.6-2.9 14.3-4.7l27.8 19.8 32-32-19.8-27.8c1.8-4.7 3.3-9.4 4.7-14.3L464 236v-44zM288 256c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z" />
+          </svg>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Text Content */}
-            <div>
-              <div className="inline-flex items-center px-4 py-2 bg-yellow-400/20 rounded-full mb-6">
-                <div className="w-2 h-2 rounded-full bg-yellow-400 mr-2"></div>
-                <span className="text-sm font-medium text-yellow-400">Year-Round Programs</span>
+        <div className="absolute bottom-40 left-10 w-80 h-80 opacity-10">
+          <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M501.1 395.7L384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.6c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.7zM331.7 225c28.3 0 54.9 11 74.9 31l19.4 19.4c15.8-6.9 30.8-16.5 43.8-29.5 37.1-37.1 49.7-89.3 37.9-136.7-2.2-9-13.5-12.1-20.1-5.5l-74.4 74.4-67.9-11.3L334 98.9l74.4-74.4c6.6-6.6 3.4-17.9-5.7-20.2-47.4-11.7-99.6.9-136.6 37.9-28.5 28.5-41.9 66.1-41.2 103.6l82.1 82.1c8.1-1.9 16.5-2.9 24.7-2.9z" />
+          </svg>
+        </div>
+        
+        {/* Solid background elements */}
+        <div className="absolute inset-0 overflow-hidden z-0">
+          <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-amber-400/10 to-transparent"></div>
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-300/10 rounded-full blur-3xl"></div>
+          
+          {/* Grid pattern overlay */}
+          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-5"></div>
+          
+          {/* Wave decoration at bottom */}
+          <svg className="absolute bottom-0 w-full text-amber-50" preserveAspectRatio="none" viewBox="0 0 1440 74" fill="currentColor">
+            <path d="M0,42.9L48,53.2C96,64,192,85,288,74.1C384,64,480,21,576,21.3C672,21,768,64,864,74.1C960,85,1056,64,1152,53.3C1248,43,1344,43,1392,42.7L1440,43L1440,74L1392,74C1344,74,1248,74,1152,74C1056,74,960,74,864,74C768,74,672,74,576,74C480,74,384,74,288,74C192,74,96,74,48,74L0,74Z"></path>
+          </svg>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left content - Text */}
+            <motion.div 
+              className="lg:col-span-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-amber-200/30 border border-amber-200/30 backdrop-blur-sm mb-6">
+                <div className="w-2 h-2 rounded-full bg-amber-200 mr-2"></div>
+                <span className="text-sm font-medium text-amber-800">Year-Round Programs</span>
               </div>
               
-              <h1 className="text-5xl lg:text-7xl font-extrabold text-white mb-8 leading-tight">
-                <span className="block">BizBuzz</span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-yellow-400 to-blue-500">Workshops</span>
+              <h1 className="text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight">
+                <span className="text-white">BizBuzz</span>
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-300">
+                  Workshops
+                </span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed mb-10">
+              <p className="text-xl text-amber-50 mb-8 max-w-xl leading-relaxed">
                 A series of interactive workshops for local schools, business fairs, and online webinars based on a condensed BizBuzz curriculum that introduces young students to core entrepreneurial concepts.
               </p>
               
-              <a 
-                href="#dupage" 
-                className="inline-block bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-semibold py-4 px-8 rounded-xl text-lg shadow-lg hover:shadow-yellow-400/30 transition-all duration-300 hover:-translate-y-1 focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
-              >
-                Explore Workshops
-              </a>
-            </div>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="#dupage"
+                  className="bg-gradient-to-r from-amber-300 to-amber-400 text-amber-900 font-medium py-3 px-6 rounded-lg text-lg transition-all hover:shadow-lg hover:shadow-amber-500/20 hover:-translate-y-1 active:translate-y-0 inline-flex items-center"
+                >
+                  Explore Workshops
+                  <svg className="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
             
-            {/* Hero Images */}
-            <div className="relative h-[600px] hidden lg:block">
-              <div className="absolute w-60 h-80 top-0 right-0 rounded-2xl overflow-hidden shadow-2xl transform rotate-6 z-20">
-                <Image
-                  src="/workshops/be/1.png"
-                  alt="Workshop activity"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/40"></div>
+            {/* Right content - Images */}
+            <motion.div
+              className="lg:col-span-6 relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+              <div className="relative h-[550px]">
+                {/* Main center image */}
+                <motion.div 
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(217,119,6,0.3)] z-30 border-4 border-white"
+                  initial={{ scale: 0.9, y: 20 }}
+                  animate={{ scale: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  <Image
+                    src="/workshops/be/4.png"
+                    alt="Workshop participants"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-700/30 to-transparent"></div>
+                </motion.div>
+                
+                {/* Floating images */}
+                <motion.div 
+                  className="absolute top-0 left-0 w-48 h-64 rounded-2xl overflow-hidden shadow-xl z-10 border-4 border-white"
+                  initial={{ x: -20, y: -20, rotate: -8 }}
+                  animate={{ x: 0, y: 0, rotate: -8 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  <Image
+                    src="/workshops/dcbf/1.jpg"
+                    alt="Workshop activity"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-700/30 to-transparent"></div>
+                </motion.div>
+                
+                <motion.div 
+                  className="absolute bottom-0 right-0 w-56 h-56 rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white"
+                  initial={{ x: 20, y: 20, rotate: 8 }}
+                  animate={{ x: 0, y: 0, rotate: 8 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                  <Image
+                    src="/workshops/ncbf/2.jpeg"
+                    alt="Students presenting"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-700/30 to-transparent"></div>
+                </motion.div>
+                
+                {/* Decorative elements */}
+                <div className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full bg-gradient-to-r from-amber-300/20 to-amber-400/20 blur-2xl"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-20 h-20 rounded-full bg-gradient-to-r from-amber-200/20 to-amber-300/20 blur-xl"></div>
               </div>
-              
-              <div className="absolute w-64 h-72 top-20 left-20 rounded-2xl overflow-hidden shadow-2xl transform -rotate-3 z-10">
-                <Image
-                  src="/workshops/be/4.png"
-                  alt="Workshop participants"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/40"></div>
-              </div>
-              
-              <div className="absolute w-56 h-64 bottom-0 right-24 rounded-2xl overflow-hidden shadow-2xl transform rotate-12 z-30">
-                <Image
-                  src="/workshops/ncbf/2.jpeg"
-                  alt="Students presenting"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/40"></div>
-              </div>
-              
-              <div className="absolute w-48 h-48 bottom-12 left-10 rounded-2xl overflow-hidden shadow-2xl transform -rotate-6 z-0">
-                <Image
-                  src="/workshops/dcbf/3.jpg"
-                  alt="Workshop materials"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/40"></div>
-              </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute w-20 h-20 top-12 left-0 bg-blue-500/40 rounded-full blur-2xl"></div>
-              <div className="absolute w-24 h-24 bottom-24 right-12 bg-yellow-500/30 rounded-full blur-2xl"></div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
-      
-      {/* Statistics Banner */}
-      <div className="bg-white py-10 shadow-md relative">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <p className="text-5xl font-bold text-gray-900 mb-2">7</p>
-              <p className="text-gray-600 font-medium">Unique Workshops</p>
+
+      {/* Stats Section */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16">
+        <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-amber-100/40">
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-amber-100/50">
+            <div className="px-6 py-8 text-center relative">
+              <div className="absolute right-5 top-5 opacity-10">
+                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#FFBF00" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10z" />
+                </svg>
+              </div>
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">7</div>
+              <div className="text-amber-800 font-medium">Unique Workshops</div>
             </div>
-            <div className="text-center">
-              <p className="text-5xl font-bold text-gray-900 mb-2">17</p>
-              <p className="text-gray-600 font-medium">Total Sessions</p>
+            
+            <div className="px-6 py-8 text-center relative">
+              <div className="absolute right-5 top-5 opacity-10">
+                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#E69F16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                </svg>
+              </div>
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">17</div>
+              <div className="text-amber-800 font-medium">Total Sessions</div>
             </div>
-            <div className="text-center">
-              <p className="text-5xl font-bold text-gray-900 mb-2">390+</p>
-              <p className="text-gray-600 font-medium">Students Impacted</p>
+            
+            <div className="px-6 py-8 text-center relative">
+              <div className="absolute right-5 top-5 opacity-10">
+                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#DA951B" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                </svg>
+              </div>
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">390+</div>
+              <div className="text-amber-800 font-medium">Students Impacted</div>
             </div>
           </div>
         </div>
@@ -375,13 +469,32 @@ export default function WorkshopsPage() {
       <div className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">7 Workshops. 17 Sessions.</h2>
-            <p className="text-xl text-gray-700">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-400/15 mb-4">
+              <span className="text-amber-800 font-medium">Entrepreneurship Journey</span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">7 Workshops. 17 Sessions.</h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Hosted at schools like Brookdale Elementary & Madison Junior High, fairs such as the Naperville & Dupage Children&apos;s Business Fairs, and learning centers like Best Brains.
             </p>
           </div>
           
-          <div className="space-y-16">
+          <div className="mb-16 flex flex-wrap justify-center gap-3">
+            {workshops.map((workshop, index) => (
+              <a
+                key={workshop.id}
+                href={`#${workshop.id}`}
+                className="py-2 px-4 rounded-lg text-sm font-medium transition-all hover:-translate-y-1"
+                style={{ 
+                  backgroundColor: `${workshop.color}15`, 
+                  color: workshop.color
+                }}
+              >
+                Workshop {index + 1}: {workshop.title.split(' ')[0]}
+              </a>
+            ))}
+          </div>
+          
+          <div>
             {workshops.map((workshop, index) => (
               <WorkshopCard key={workshop.id} workshop={workshop} index={index} />
             ))}
@@ -389,43 +502,37 @@ export default function WorkshopsPage() {
         </div>
       </div>
       
-      {/* Simplified Modern CTA Section */}
-      <section className="bg-white py-10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Main CTA Card */}
-          <div className="relative overflow-hidden rounded-xl shadow-lg">
-            {/* Background image with overlay */}
-            <div className="absolute inset-0 z-0">
-              <Image 
-                src="/workshops/dcbf/1.jpg" 
-                alt="Workshop participants" 
-                fill 
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-blue-800/50"></div>
-            </div>
-            
-            {/* Content */}
-            <div className="relative z-10 px-6 py-10 md:px-12 flex flex-col items-center text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-2xl">
-                Ready to join our 
-                <span className="text-yellow-300 drop-shadow-sm"> next workshop?</span>
-              </h2>
-              <p className="text-white text-lg md:text-xl mb-8 max-w-2xl font-medium drop-shadow-sm bg-blue-900/30 px-4 py-2 rounded-lg">
-                Sign up for updates on upcoming workshops and events in your area.
-              </p>
-              
-              {/* Action buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-md">
+      {/* CTA Section */}
+      <div className="bg-gradient-to-br from-[#B8973F] via-[#C5A32E] to-[#D4AF37] py-16 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-amber-300/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-200/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-20 h-20 rounded-full bg-amber-100/10 animate-float-slow"></div>
+        </div>
+        
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="bg-white/15 backdrop-blur-lg rounded-2xl p-10 shadow-xl border border-white/20">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-8">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  Ready to join our next workshop?
+                </h3>
+                <p className="text-amber-50 text-lg mb-8 md:mb-0">
+                  Sign up for updates on upcoming workshops and events in your area 
+                  and be the first to know when registration opens.
+                </p>
+              </div>
+              <div className="md:col-span-4 flex flex-col gap-4">
                 <a 
                   href="#dupage" 
-                  className="flex-1 px-6 py-4 bg-yellow-400 text-blue-900 font-bold rounded-lg shadow-lg hover:bg-yellow-300 transition-all duration-300 text-center text-lg"
+                  className="bg-amber-300 text-amber-900 font-medium py-3 px-6 rounded-lg text-center hover:bg-amber-200 transition-all shadow-lg shadow-amber-600/20"
                 >
-                  View Schedule
+                  View Workshop Schedule
                 </a>
                 <a 
-                  href="#" 
-                  className="flex-1 px-6 py-4 bg-white text-blue-800 font-bold rounded-lg shadow-lg hover:bg-blue-50 transition-all duration-300 text-center text-lg border border-white"
+                  href="mailto:info@bizbuzznfp.org" 
+                  className="bg-white/15 backdrop-blur-sm text-white border border-white/20 font-medium py-3 px-6 rounded-lg text-center hover:bg-white/25 transition-all"
                 >
                   Contact Us
                 </a>
@@ -435,10 +542,10 @@ export default function WorkshopsPage() {
           
           {/* Social proof - moved outside the card */}
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-8 w-full">
-            <div className="flex items-center bg-white px-4 py-2 rounded-lg shadow-sm">
+            <div className="flex items-center bg-white/15 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
               <div className="flex -space-x-2 mr-4">
                 {[...Array(3)].map((_, i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-white shadow-md overflow-hidden relative">
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-white/70 shadow-md overflow-hidden relative">
                     <Image 
                       src={`/workshops/${i === 0 ? 'be/1.png' : i === 1 ? 'dcbf/2.jpg' : 'ncbf/3.jpeg'}`}
                       alt="Workshop participant" 
@@ -449,42 +556,60 @@ export default function WorkshopsPage() {
                 ))}
               </div>
               <div>
-                <p className="text-gray-900 font-bold text-lg">390+ students</p>
-                <p className="text-gray-600 text-sm">joined our programs</p>
+                <p className="text-white font-bold text-lg">390+ students</p>
+                <p className="text-amber-50 text-sm">joined our programs</p>
               </div>
             </div>
             
-            <div className="flex items-center gap-1 bg-white px-4 py-2 rounded-lg shadow-sm">
-              <div className="flex text-yellow-400">
+            <div className="flex items-center gap-1 bg-white/15 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
+              <div className="flex text-amber-200">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                   </svg>
                 ))}
               </div>
-              <span className="text-gray-900 font-bold text-lg ml-1">4.9/5</span>
+              <span className="text-white font-bold text-lg ml-1">4.9/5</span>
             </div>
           </div>
         </div>
-      </section>
+      </div>
       
       <style jsx global>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
         }
         
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease-out forwards;
+        @keyframes float-medium {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
         }
         
-        .text-stroke-sm {
-          -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+        @keyframes float-fast {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-8px); }
         }
         
-        @keyframes glow {
-          0%, 100% { text-shadow: 0 0 10px rgba(255, 224, 102, 0.5), 0 0 20px rgba(255, 224, 102, 0.3); }
-          50% { text-shadow: 0 0 20px rgba(255, 224, 102, 0.8), 0 0 30px rgba(255, 224, 102, 0.5); }
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        
+        .animate-float-slow {
+          animation: float-slow 8s ease-in-out infinite;
+        }
+        
+        .animate-float-medium {
+          animation: float-medium 6s ease-in-out infinite;
+        }
+        
+        .animate-float-fast {
+          animation: float-fast 4s ease-in-out infinite;
+        }
+        
+        .animate-spin-slow {
+          animation: spin-slow 60s linear infinite;
         }
       `}</style>
     </div>

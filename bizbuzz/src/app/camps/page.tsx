@@ -282,55 +282,55 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
         <div className={`py-6 px-8 bg-gradient-to-r ${headerColorClass}`}>
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#38b6ff]/20 text-[#003166] text-sm font-medium">
             Week {index + 1}
-          </div>
         </div>
-        
-        {/* Session Content */}
+      </div>
+      
+      {/* Session Content */}
         <div className="p-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-            {/* Left Column - Description and Images */}
-            <motion.div variants={fadeIn} className="md:col-span-8">
+          {/* Left Column - Description and Images */}
+          <motion.div variants={fadeIn} className="md:col-span-8">
               <p className="text-[#235284] mb-10 text-lg leading-relaxed">
-                {session.description}
-              </p>
-              
-              <div className="relative">
+              {session.description}
+            </p>
+            
+            <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r rounded-3xl blur-xl opacity-40" 
-                  style={{ 
-                    backgroundImage: `linear-gradient(to right, ${session.color}10, #38b6ff10)` 
-                  }} 
-                />
-                <div className="relative h-[320px]">
-                  <ImageGrid images={session.images.slice(0, 5)} title={session.title} />
+                style={{ 
+                  backgroundImage: `linear-gradient(to right, ${session.color}10, #38b6ff10)` 
+                }} 
+              />
+              <div className="relative h-[320px]">
+                <ImageGrid images={session.images.slice(0, 5)} title={session.title} />
+              </div>
+            </div>
+            
+            {/* Additional Images for Session 5 - Only show for session 5 */}
+            {session.id === "session5" && (
+              <div className="grid grid-cols-2 gap-4 mt-6">
+                <div className="relative h-[320px] rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/camp_imgs/cards/session5/6.jpg"
+                    alt="Additional session image"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative h-[320px] rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/camp_imgs/cards/session5/7.jpg"
+                    alt="Additional session image"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
-              
-              {/* Additional Images for Session 5 - Only show for session 5 */}
-              {session.id === "session5" && (
-                <div className="grid grid-cols-2 gap-4 mt-6">
-                  <div className="relative h-[320px] rounded-xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/camp_imgs/cards/session5/6.jpg"
-                      alt="Additional session image"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative h-[320px] rounded-xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/camp_imgs/cards/session5/7.jpg"
-                      alt="Additional session image"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              )}
-            </motion.div>
-            
+            )}
+          </motion.div>
+          
             {/* Right Column - Speaker Card */}
-            <motion.div variants={fadeIn} className="md:col-span-4 flex flex-col gap-6">
-              {session.id === "session5" ? (
+          <motion.div variants={fadeIn} className="md:col-span-4 flex flex-col gap-6">
+            {session.id === "session5" ? (
                 // Special case for Session 5 with two speakers
                 <>
                   <SpeakerCard 
@@ -359,9 +359,9 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
                 />
               )}
             </motion.div>
-          </div>
-        </div>
-      </div>
+                    </div>
+                  </div>
+                </div>
     </motion.div>
   );
 };
@@ -378,25 +378,25 @@ const SpeakerCard = ({
 }) => {
   return (
     <div className="rounded-xl overflow-hidden shadow-lg bg-white border border-[#B8e2f4]/30 flex flex-col w-full relative h-full">
-      <div className="absolute -inset-1 bg-gradient-to-r rounded-xl blur-xl opacity-30 -z-10" 
+                <div className="absolute -inset-1 bg-gradient-to-r rounded-xl blur-xl opacity-30 -z-10" 
         style={{ backgroundImage: `linear-gradient(to right, ${color}20, #38b6ff10)` }} 
-      />
+                />
       
       <div className="text-center py-3 relative z-10" style={{ backgroundColor: `${color}20` }}>
         <h4 className="font-bold text-[#003166] text-lg">{title}</h4>
-      </div>
-      
+                </div>
+                
       <div className="p-6 flex flex-col items-center text-center flex-grow justify-between relative z-10">
-        <div className="flex flex-col items-center w-full">
+                  <div className="flex flex-col items-center w-full">
           <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 mb-4 mx-auto" 
             style={{ borderColor: color }}>
-            <Image 
+                      <Image 
               src={speaker.image} 
               alt={speaker.name}
-              fill
-              className="object-cover"
-            />
-          </div>
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
           
           <h5 className="text-xl font-semibold text-[#040037] mb-2">{speaker.name}</h5>
           <p className="text-[#235284] text-sm mb-4">{speaker.role}</p>
@@ -406,14 +406,14 @@ const SpeakerCard = ({
             style={{ backgroundColor: `${color}20`, color: color === "#040037" ? "#38b6ff" : color }}
           >
             &ldquo;{speaker.topic}&rdquo;
-          </div>
+                    </div>
           
           <p className="text-[#235284] italic text-sm">
             {speaker.bio}
-          </p>
-        </div>
-      </div>
-    </div>
+                    </p>
+                  </div>
+                </div>
+              </div>
   );
 };
 
@@ -475,7 +475,7 @@ export default function CampPage() {
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8e2f4] via-[#38b6ff] to-[#8dcfec] drop-shadow-sm">
                   Bootcamp
-                </span>
+              </span>
               </h1>
               
               <p className="text-2xl text-[#B8e2f4] font-light mb-12 max-w-2xl leading-relaxed">
@@ -485,7 +485,7 @@ export default function CampPage() {
               
               <div className="flex flex-wrap gap-6">
                 <Link
-                  href="#session1"
+                  href="#session1" 
                   className="bg-gradient-to-r from-[#38b6ff] to-[#8dcfec] text-white font-medium py-4 px-8 rounded-lg text-xl transition-all hover:shadow-lg hover:shadow-[#38b6ff]/30 hover:-translate-y-1 active:translate-y-0 inline-flex items-center"
                 >
                   Explore Bootcamp
@@ -496,7 +496,7 @@ export default function CampPage() {
                 </Link>
                 
                 <Link
-                  href="mailto:info@bizbuzznfp.org"
+                  href="mailto:info@bizbuzznfp.org" 
                   className="text-white bg-[#003166]/30 border border-[#8dcfec]/40 hover:bg-[#003166]/50 font-medium py-4 px-8 rounded-lg text-xl transition-all inline-flex items-center hover:shadow-lg hover:shadow-[#003166]/20"
                 >
                   Register Now →
@@ -587,7 +587,7 @@ export default function CampPage() {
           </div>
         </div>
       </div>
-
+      
       {/* Stats Section - With Better Icons and Enhanced Design */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24">
         <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-[#B8e2f4]/30">
