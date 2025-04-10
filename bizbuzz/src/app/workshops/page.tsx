@@ -294,13 +294,19 @@ export default function WorkshopsPage() {
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-[#C5A32E] via-[#D4AF37] to-[#B8973F] overflow-hidden">
         {/* Fixed gear designs in background */}
-        <div className="absolute top-20 right-20 w-72 h-72 opacity-10">
+        <div className="absolute top-20 right-20 w-96 h-96 opacity-10">
           <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M464 192l-33.5-5.5c-1.4-4.9-2.9-9.6-4.7-14.3l19.8-27.8-32-32-27.8 19.8c-4.7-1.8-9.4-3.3-14.3-4.7L366 96h-44l-5.5 33.5c-4.9 1.4-9.6 2.9-14.3 4.7l-27.8-19.8-32 32 19.8 27.8c-1.8 4.7-3.3 9.4-4.7 14.3L224 192v44l33.5 5.5c1.4 4.9 2.9 9.6 4.7 14.3l-19.8 27.8 32 32 27.8-19.8c4.7 1.8 9.4 3.3 14.3 4.7L322 336h44l5.5-33.5c4.9-1.4 9.6-2.9 14.3-4.7l27.8 19.8 32-32-19.8-27.8c1.8-4.7 3.3-9.4 4.7-14.3L464 236v-44zM288 256c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z" />
           </svg>
         </div>
         
-        <div className="absolute bottom-40 left-10 w-80 h-80 opacity-10">
+        <div className="absolute top-40 right-40 w-56 h-56 opacity-8 animate-spin-slow">
+          <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M288 256c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm-144 36v44l33.5 5.5c1.4 4.9 2.9 9.6 4.7 14.3l-19.8 27.8 32 32 27.8-19.8c4.7 1.8 9.4 3.3 14.3 4.7L252 432h44l5.5-33.5c4.9-1.4 9.6-2.9 14.3-4.7l27.8 19.8 32-32-19.8-27.8c1.8-4.7 3.3-9.4 4.7-14.3L394 334v-44l-33.5-5.5c-1.4-4.9-2.9-9.6-4.7-14.3l19.8-27.8-32-32-27.8 19.8c-4.7-1.8-9.4-3.3-14.3-4.7L296 192h-44l-5.5 33.5c-4.9 1.4-9.6 2.9-14.3 4.7l-27.8-19.8-32 32 19.8 27.8c-1.8 4.7-3.3 9.4-4.7 14.3L144 292z" />
+          </svg>
+        </div>
+        
+        <div className="absolute bottom-40 left-20 w-96 h-96 opacity-12">
           <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M501.1 395.7L384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.6c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.7zM331.7 225c28.3 0 54.9 11 74.9 31l19.4 19.4c15.8-6.9 30.8-16.5 43.8-29.5 37.1-37.1 49.7-89.3 37.9-136.7-2.2-9-13.5-12.1-20.1-5.5l-74.4 74.4-67.9-11.3L334 98.9l74.4-74.4c6.6-6.6 3.4-17.9-5.7-20.2-47.4-11.7-99.6.9-136.6 37.9-28.5 28.5-41.9 66.1-41.2 103.6l82.1 82.1c8.1-1.9 16.5-2.9 24.7-2.9z" />
           </svg>
@@ -308,7 +314,7 @@ export default function WorkshopsPage() {
         
         {/* Solid background elements */}
         <div className="absolute inset-0 overflow-hidden z-0">
-          <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-amber-400/10 to-transparent"></div>
+          <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-amber-400/10 to-transparent"></div>
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-300/10 rounded-full blur-3xl"></div>
           
@@ -321,8 +327,8 @@ export default function WorkshopsPage() {
           </svg>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-44 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             {/* Left content - Text */}
             <motion.div 
               className="lg:col-span-6"
@@ -330,12 +336,12 @@ export default function WorkshopsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-amber-200/30 border border-amber-200/30 backdrop-blur-sm mb-6">
-                <div className="w-2 h-2 rounded-full bg-amber-200 mr-2"></div>
-                <span className="text-sm font-medium text-amber-800">Year-Round Programs</span>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-200/30 border border-amber-200/30 backdrop-blur-sm mb-10 shadow-sm">
+                <div className="w-3 h-3 rounded-full bg-amber-200 mr-2"></div>
+                <span className="text-base font-medium text-amber-800">Year-Round Programs</span>
               </div>
               
-              <h1 className="text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight">
+              <h1 className="text-7xl lg:text-8xl font-bold mb-10 tracking-tight leading-tight">
                 <span className="text-white">BizBuzz</span>
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-300">
@@ -343,21 +349,30 @@ export default function WorkshopsPage() {
                 </span>
               </h1>
               
-              <p className="text-xl text-amber-50 mb-8 max-w-xl leading-relaxed">
+              <p className="text-2xl text-amber-50 mb-12 max-w-2xl leading-relaxed">
                 A series of interactive workshops for local schools, business fairs, and online webinars based on a condensed BizBuzz curriculum that introduces young students to core entrepreneurial concepts.
               </p>
               
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-6">
                 <a
                   href="#dupage"
-                  className="bg-gradient-to-r from-amber-300 to-amber-400 text-amber-900 font-medium py-3 px-6 rounded-lg text-lg transition-all hover:shadow-lg hover:shadow-amber-500/20 hover:-translate-y-1 active:translate-y-0 inline-flex items-center"
+                  className="bg-gradient-to-r from-amber-300 to-amber-400 text-amber-900 font-medium py-4 px-8 rounded-lg text-xl transition-all hover:shadow-lg hover:shadow-amber-500/20 hover:-translate-y-1 active:translate-y-0 inline-flex items-center"
                 >
                   Explore Workshops
-                  <svg className="w-5 h-5 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
                 </a>
+              </div>
+              
+              {/* Better positioned floating icon beside text */}
+              <div className="relative mt-20">
+                <div className="absolute -top-8 -left-5 w-32 h-32 opacity-15">
+                  <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M352 320c-22.6 0-43.8 6.9-61.2 18.8l-49.3-30.8c5.2-14.4 8.5-29.9 8.5-46 0-16.2-3.3-31.7-8.5-46l49.3-30.8C307.4 197.1 328.4 204 352 204c57.3 0 104-46.7 104-104S409.3-4 352-4s-104 46.7-104 104c0 16.2 3.3 31.7 8.5 46l-49.3 30.8c-5.2 14.4-8.5 29.9-8.5 46 0 57.3 46.7 104 104 104s104-46.7 104-104S409.3 320 352 320zm0-312c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM144 330c-39.8 0-72-32.2-72-72s32.2-72 72-72 72 32.2 72 72-32.2 72-72 72zm208 114c-39.8 0-72-32.2-72-72s32.2-72 72-72 72 32.2 72 72-32.2 72-72 72z" />
+                  </svg>
+                </div>
               </div>
             </motion.div>
             
@@ -368,27 +383,10 @@ export default function WorkshopsPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              {/* Rating component moved to top of right column */}
-              <motion.div 
-                className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-40 flex items-center gap-2 bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 shadow-xl mb-6"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-              >
-                <div className="flex text-amber-200">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                    </svg>
-                  ))}
-                </div>
-                <span className="text-white font-bold text-xl ml-1">4.9/5</span>
-              </motion.div>
-              
-              <div className="relative h-[550px]">
+              <div className="relative h-[650px]">
                 {/* Main center image */}
                 <motion.div 
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(217,119,6,0.3)] z-30 border-4 border-white"
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(217,119,6,0.3)] z-30 border-4 border-white"
                   initial={{ scale: 0.9, y: 20 }}
                   animate={{ scale: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -405,7 +403,7 @@ export default function WorkshopsPage() {
                 
                 {/* Floating images */}
                 <motion.div 
-                  className="absolute top-0 left-0 w-48 h-64 rounded-2xl overflow-hidden shadow-xl z-10 border-4 border-white"
+                  className="absolute top-0 left-0 w-72 h-96 rounded-2xl overflow-hidden shadow-xl z-10 border-4 border-white"
                   initial={{ x: -20, y: -20, rotate: -8 }}
                   animate={{ x: 0, y: 0, rotate: -8 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -421,7 +419,7 @@ export default function WorkshopsPage() {
                 </motion.div>
                 
                 <motion.div 
-                  className="absolute bottom-0 right-0 w-56 h-56 rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white"
+                  className="absolute bottom-0 right-0 w-80 h-80 rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white"
                   initial={{ x: 20, y: 20, rotate: 8 }}
                   animate={{ x: 0, y: 0, rotate: 8 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
@@ -436,34 +434,10 @@ export default function WorkshopsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-700/30 to-transparent"></div>
                 </motion.div>
                 
-                {/* Students count component placed next to main image */}
-                <motion.div 
-                  className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 z-40 flex items-center bg-white/15 backdrop-blur-sm px-5 py-3 rounded-full border border-white/20 shadow-xl"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                >
-                  <div className="flex -space-x-2 mr-4">
-                    {[...Array(3)].map((_, i) => (
-                      <div key={i} className="w-10 h-10 rounded-full border-2 border-white/70 shadow-md overflow-hidden relative">
-                        <Image 
-                          src={`/workshops/${i === 0 ? 'be/1.png' : i === 1 ? 'dcbf/2.jpg' : 'ncbf/3.jpeg'}`}
-                          alt="Workshop participant" 
-                          fill 
-                          className="object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <div>
-                    <p className="text-white font-bold text-lg">390+ students</p>
-                    <p className="text-white text-sm">joined our programs</p>
-                  </div>
-                </motion.div>
-                
                 {/* Decorative elements */}
-                <div className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full bg-gradient-to-r from-amber-300/20 to-amber-400/20 blur-2xl"></div>
-                <div className="absolute bottom-1/3 left-1/3 w-20 h-20 rounded-full bg-gradient-to-r from-amber-200/20 to-amber-300/20 blur-xl"></div>
+                <div className="absolute top-1/4 right-1/4 w-48 h-48 rounded-full bg-gradient-to-r from-amber-300/20 to-amber-400/20 blur-2xl"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-40 h-40 rounded-full bg-gradient-to-r from-amber-200/20 to-amber-300/20 blur-xl"></div>
+                <div className="absolute top-1/2 left-1/2 w-32 h-32 rounded-full bg-gradient-to-r from-amber-300/20 to-amber-400/20 blur-xl"></div>
               </div>
             </motion.div>
           </div>
@@ -494,7 +468,7 @@ export default function WorkshopsPage() {
                 ))}
               </div>
               <div>
-                <p className="text-amber-900 font-bold text-lg">390+ students</p>
+                <p className="text-amber-900 font-bold text-lg">520 students</p>
                 <p className="text-amber-800 text-sm">joined our programs</p>
               </div>
             </div>
@@ -580,46 +554,6 @@ export default function WorkshopsPage() {
             {workshops.map((workshop, index) => (
               <WorkshopCard key={workshop.id} workshop={workshop} index={index} />
             ))}
-          </div>
-        </div>
-      </div>
-      
-      {/* CTA Section */}
-      <div className="bg-gradient-to-br from-[#B8973F] via-[#C5A32E] to-[#D4AF37] py-16 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-amber-300/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-amber-200/10 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/4 left-1/4 w-20 h-20 rounded-full bg-amber-100/10 animate-float-slow"></div>
-        </div>
-        
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="bg-white/15 backdrop-blur-lg rounded-2xl p-10 shadow-xl border border-white/20">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-8">
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Ready to join our next workshop?
-                </h3>
-                <p className="text-white text-lg mb-8 md:mb-0">
-                  Sign up for updates on upcoming workshops and events in your area 
-                  and be the first to know when registration opens.
-                </p>
-              </div>
-              <div className="md:col-span-4 flex flex-col gap-4">
-                <a 
-                  href="#dupage" 
-                  className="bg-amber-300 text-amber-900 font-medium py-3 px-6 rounded-lg text-center hover:bg-amber-200 transition-all shadow-lg shadow-amber-600/20"
-                >
-                  View Workshop Schedule
-                </a>
-                <a 
-                  href="mailto:info@bizbuzznfp.org" 
-                  className="bg-white/15 backdrop-blur-sm text-white border border-white/20 font-medium py-3 px-6 rounded-lg text-center hover:bg-white/25 transition-all"
-                >
-                  Contact Us
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>

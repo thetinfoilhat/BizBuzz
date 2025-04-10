@@ -48,11 +48,6 @@ const OneOnOneSessions = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left column - Title and description */}
             <div className="flex flex-col justify-center">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#003166]/40 backdrop-blur-sm border border-white/10 mb-6">
-                <div className="w-2 h-2 rounded-full bg-[#FFD700] mr-2"></div>
-                <span className="text-sm font-medium text-white">Personal Guidance</span>
-              </div>
-              
               <h1 className="text-left mb-8">
                 <span className="block text-7xl md:text-8xl font-extrabold tracking-tight text-white leading-none">1:1</span>
                 <span className="block text-7xl md:text-8xl font-extrabold tracking-tight text-[#FFD700] leading-none">SESSIONS</span>
