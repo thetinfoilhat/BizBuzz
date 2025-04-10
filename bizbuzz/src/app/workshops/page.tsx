@@ -53,9 +53,9 @@ const workshops = [
       "Brookdale Workshop 4 | November 20th, 2024"
     ],
     images: [
-      "/workshops/be/4.png",
-      "/workshops/be/5.png",
-      "/workshops/be/6.png",
+      "/workshops/be/1.png",
+      "/workshops/be/2.png",
+      "/workshops/be/3.png",
     ],
     color: "#DA951B"
   },

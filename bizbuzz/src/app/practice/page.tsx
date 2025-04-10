@@ -7,6 +7,7 @@ import { useEffect, useState, useRef } from 'react';
 // Fish Tank photos - 12 images for the gallery
 const fishTankPhotos = [
   "/program_cards/fishtank.jpg",
+  "/fish_tank/background.jpg",
   "/hero_imgs/11.jpg",
   "/hero_imgs/13.jpg",
   "/hero_imgs/14.jpg",
