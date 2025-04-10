@@ -507,7 +507,7 @@ export default function CampPage() {
               <div className="relative mt-20">
                 <div className="absolute -top-8 -left-5 w-32 h-32 opacity-15">
                   <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M352 320c-22.6 0-43.8 6.9-61.2 18.8l-49.3-30.8c5.2-14.4 8.5-29.9 8.5-46 0-16.2-3.3-31.7-8.5-46l49.3-30.8C307.4 197.1 328.4 204 352 204c57.3 0 104-46.7 104-104S409.3-4 352-4s-104 46.7-104 104c0 16.2 3.3 31.7 8.5 46l-49.3 30.8C190.4 164.9 169.4 158 144 158c-57.3 0-104 46.7-104 104s46.7 104 104 104c25.4 0 46.4-6.9 62.8-18.8l49.3 30.8c-5.2 14.4-8.5 29.9-8.5 46 0 57.3 46.7 104 104 104s104-46.7 104-104S409.3 320 352 320zm0-312c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM144 330c-39.8 0-72-32.2-72-72s32.2-72 72-72 72 32.2 72 72-32.2 72-72 72zm208 114c-39.8 0-72-32.2-72-72s32.2-72 72-72 72 32.2 72 72-32.2 72-72 72z" />
+                    <path d="M352 320c-22.6 0-43.8 6.9-61.2 18.8l-49.3-30.8c5.2-14.4 8.5-29.9 8.5-46 0-16.2-3.3-31.7-8.5-46l49.3-30.8C307.4 197.1 328.4 204 352 204c57.3 0 104-46.7 104-104S409.3-4 352-4s-104 46.7-104 104c0 16.2 3.3 31.7 8.5 46l-49.3 30.8c-5.2 14.4-8.5 29.9-8.5 46 0 57.3 46.7 104 104 104s104-46.7 104-104S409.3 320 352 320zm0-312c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM144 330c-39.8 0-72-32.2-72-72s32.2-72 72-72 72 32.2 72 72-32.2 72-72 72zm208 114c-39.8 0-72-32.2-72-72s32.2-72 72-72 72 32.2 72 72-32.2 72-72 72z" />
                   </svg>
                 </div>
               </div>
@@ -608,7 +608,7 @@ export default function CampPage() {
                   <path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z" />
                 </svg>
               </div>
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#003166] to-[#38b6ff] mb-4">6</div>
+              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#003166] to-[#38b6ff] mb-4">7</div>
               <div className="text-[#003166] font-medium text-lg">Guest Speakers</div>
             </div>
             
@@ -618,8 +618,8 @@ export default function CampPage() {
                   <path d="M436 160c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20zm-68 304H48V48h320v416zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2z" />
                 </svg>
               </div>
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#003166] to-[#38b6ff] mb-4">200+</div>
-              <div className="text-[#003166] font-medium text-lg">Students Impacted</div>
+              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#003166] to-[#38b6ff] mb-4">105+</div>
+              <div className="text-[#003166] font-medium text-lg">Students Taught</div>
             </div>
           </div>
         </div>
@@ -634,25 +634,29 @@ export default function CampPage() {
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-[#040037] mb-6">2024 Bootcamp Structure</h2>
           <p className="text-[#235284] text-xl max-w-3xl mx-auto">
-            Each bootcamp week builds upon the previous one, creating a comprehensive learning journey that takes students from idea generation to pitching to real investors.
+            Each camp session builds upon the previous one, creating a comprehensive entrepreneurial journey that takes 3rd–8th grade students from idea generation to pitching at the Fish Tank contest.
           </p>
         </div>
         
         {/* Session Navigation */}
-        <div className="mb-16 flex flex-wrap justify-center gap-3">
-          {sessions.map((session, index) => (
-            <a
-              key={session.id}
-              href={`#${session.id}`}
-              className="py-2 px-4 rounded-lg text-sm font-medium transition-all hover:-translate-y-1"
-              style={{ 
-                backgroundColor: `${session.color}20`, 
-                color: session.color === "#040037" ? "#38b6ff" : session.color
-              }}
-            >
-              Week {index + 1}: {session.title}
-            </a>
-          ))}
+        <div className="mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+            {sessions.map((session, index) => (
+              <a
+                key={session.id}
+                href={`#${session.id}`}
+                className="py-1.5 px-3 rounded-full text-center transition-all hover:-translate-y-1 hover:shadow-md flex flex-col items-center justify-center border"
+                style={{ 
+                  backgroundColor: `${session.color}25`,
+                  borderColor: `${session.color}50`,
+                  color: session.color === "#040037" || session.color === "#003166" || session.color === "#235284" ? session.color : "#003166" 
+                }}
+              >
+                <span className="font-bold text-sm">Week {index + 1}</span>
+                <span className="text-xs">{session.title.split(' ')[0]}</span>
+              </a>
+            ))}
+          </div>
         </div>
         
         {/* Sessions list */}
@@ -660,46 +664,6 @@ export default function CampPage() {
           {sessions.map((session, index) => (
             <SessionCard key={session.id} session={session} index={index} />
           ))}
-        </div>
-      </div>
-      
-      {/* CTA Section - New Blue-themed Addition */}
-      <div className="bg-gradient-to-br from-[#040037] via-[#003166] to-[#235284] py-16 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#38b6ff]/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#8dcfec]/10 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/4 left-1/4 w-20 h-20 rounded-full bg-[#B8e2f4]/10 animate-float-slow"></div>
-        </div>
-        
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-10 shadow-xl border border-white/20">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-8">
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Ready to begin your entrepreneurship journey?
-                </h3>
-                <p className="text-[#B8e2f4] text-lg mb-8 md:mb-0">
-                  Join our next cohort and learn to transform your ideas into real businesses 
-                  through our comprehensive six-week bootcamp program.
-                </p>
-              </div>
-              <div className="md:col-span-4 flex flex-col gap-4">
-                <a 
-                  href="mailto:info@bizbuzznfp.org" 
-                  className="bg-[#38b6ff] text-white font-medium py-3 px-6 rounded-lg text-center hover:bg-[#8dcfec] transition-all shadow-lg shadow-[#38b6ff]/20"
-                >
-                  Register for Summer 2024
-                </a>
-                <a 
-                  href="#session1" 
-                  className="bg-white/10 backdrop-blur-sm text-white border border-white/20 font-medium py-3 px-6 rounded-lg text-center hover:bg-white/20 transition-all"
-                >
-                  Learn More
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       

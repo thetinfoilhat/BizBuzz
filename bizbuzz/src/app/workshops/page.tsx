@@ -368,6 +368,23 @@ export default function WorkshopsPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
+              {/* Rating component moved to top of right column */}
+              <motion.div 
+                className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-40 flex items-center gap-2 bg-white/15 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 shadow-xl mb-6"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              >
+                <div className="flex text-amber-200">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-white font-bold text-xl ml-1">4.9/5</span>
+              </motion.div>
+              
               <div className="relative h-[550px]">
                 {/* Main center image */}
                 <motion.div 
@@ -419,6 +436,31 @@ export default function WorkshopsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-700/30 to-transparent"></div>
                 </motion.div>
                 
+                {/* Students count component placed next to main image */}
+                <motion.div 
+                  className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 z-40 flex items-center bg-white/15 backdrop-blur-sm px-5 py-3 rounded-full border border-white/20 shadow-xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
+                  <div className="flex -space-x-2 mr-4">
+                    {[...Array(3)].map((_, i) => (
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-white/70 shadow-md overflow-hidden relative">
+                        <Image 
+                          src={`/workshops/${i === 0 ? 'be/1.png' : i === 1 ? 'dcbf/2.jpg' : 'ncbf/3.jpeg'}`}
+                          alt="Workshop participant" 
+                          fill 
+                          className="object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-lg">390+ students</p>
+                    <p className="text-white text-sm">joined our programs</p>
+                  </div>
+                </motion.div>
+                
                 {/* Decorative elements */}
                 <div className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full bg-gradient-to-r from-amber-300/20 to-amber-400/20 blur-2xl"></div>
                 <div className="absolute bottom-1/3 left-1/3 w-20 h-20 rounded-full bg-gradient-to-r from-amber-200/20 to-amber-300/20 blur-xl"></div>
@@ -430,6 +472,46 @@ export default function WorkshopsPage() {
 
       {/* Stats Section */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16">
+        {/* Social proof banner */}
+        <motion.div
+          className="bg-white backdrop-blur-lg rounded-xl shadow-lg overflow-hidden border-2 border-amber-400 mb-4 flex justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex flex-col sm:flex-row items-center justify-center py-3 px-6 w-full">
+            <div className="flex items-center justify-center sm:border-r border-amber-300 px-6 py-2">
+              <div className="flex -space-x-2 mr-4">
+                {[...Array(3)].map((_, i) => (
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-amber-400 shadow-md overflow-hidden relative">
+                    <Image 
+                      src={`/workshops/${i === 0 ? 'be/1.png' : i === 1 ? 'dcbf/2.jpg' : 'ncbf/3.jpeg'}`}
+                      alt="Workshop participant" 
+                      fill 
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+              <div>
+                <p className="text-amber-900 font-bold text-lg">390+ students</p>
+                <p className="text-amber-800 text-sm">joined our programs</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-2 px-6 py-2">
+              <div className="flex text-amber-500">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                ))}
+              </div>
+              <span className="text-amber-900 font-bold text-xl">4.9/5</span>
+            </div>
+          </div>
+        </motion.div>
+
         <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-amber-100/40">
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-amber-100/50">
             <div className="px-6 py-8 text-center relative">
@@ -439,7 +521,7 @@ export default function WorkshopsPage() {
                 </svg>
               </div>
               <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">7</div>
-              <div className="text-amber-800 font-medium">Unique Workshops</div>
+              <div className="text-amber-800 font-medium">Workshops</div>
             </div>
             
             <div className="px-6 py-8 text-center relative">
@@ -458,8 +540,8 @@ export default function WorkshopsPage() {
                   <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
                 </svg>
               </div>
-              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">390+</div>
-              <div className="text-amber-800 font-medium">Students Impacted</div>
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">520</div>
+              <div className="text-amber-800 font-medium">Students Taught</div>
             </div>
           </div>
         </div>
@@ -518,7 +600,7 @@ export default function WorkshopsPage() {
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   Ready to join our next workshop?
                 </h3>
-                <p className="text-amber-50 text-lg mb-8 md:mb-0">
+                <p className="text-white text-lg mb-8 md:mb-0">
                   Sign up for updates on upcoming workshops and events in your area 
                   and be the first to know when registration opens.
                 </p>
@@ -537,39 +619,6 @@ export default function WorkshopsPage() {
                   Contact Us
                 </a>
               </div>
-            </div>
-          </div>
-          
-          {/* Social proof - moved outside the card */}
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-8 w-full">
-            <div className="flex items-center bg-white/15 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
-              <div className="flex -space-x-2 mr-4">
-                {[...Array(3)].map((_, i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-white/70 shadow-md overflow-hidden relative">
-                    <Image 
-                      src={`/workshops/${i === 0 ? 'be/1.png' : i === 1 ? 'dcbf/2.jpg' : 'ncbf/3.jpeg'}`}
-                      alt="Workshop participant" 
-                      fill 
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-              <div>
-                <p className="text-white font-bold text-lg">390+ students</p>
-                <p className="text-amber-50 text-sm">joined our programs</p>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-1 bg-white/15 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
-              <div className="flex text-amber-200">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                  </svg>
-                ))}
-              </div>
-              <span className="text-white font-bold text-lg ml-1">4.9/5</span>
             </div>
           </div>
         </div>
