@@ -21,7 +21,10 @@ const Header = () => {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-semibold text-[#3AB6FF]">BizBuzz</span>
+              <div className="flex items-center">
+                <span className="text-xl font-semibold text-[#3AB6FF]">BizBuzz</span>
+                <span className="text-xl font-semibold text-[#FFD700] ml-1">NFP</span>
+              </div>
             </Link>
           </div>
           <nav className="flex items-center space-x-8 pr-4">

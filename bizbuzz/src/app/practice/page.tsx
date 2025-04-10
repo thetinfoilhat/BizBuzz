@@ -545,7 +545,7 @@ export default function FishTankPage() {
                   </div>
                   <h4 className="text-2xl font-bold text-white mb-4">Expert Mentorship</h4>
                   <p className="text-white/90">
-                    Participants receive invaluable feedback and guidance from successful entrepreneurs, business professionals, and community leaders who serve as judges and mentors throughout the competition.
+                    Receive detailed feedback from our panel of distinguished judges during your pitch. Gain valuable insights and continued support from successful business leaders to help grow your business long after the competition ends.
                   </p>
                 </div>
                 <div className="absolute bottom-0 right-0 left-0 h-1.5 bg-[#FFD700]"></div>
@@ -567,7 +567,7 @@ export default function FishTankPage() {
                   </div>
                   <h4 className="text-2xl font-bold text-white mb-4">Funding Opportunities</h4>
                   <p className="text-white/90">
-                    Winners receive funding to help launch their businesses, along with ongoing support, networking connections, and resources to turn their entrepreneurial vision into reality.
+                    Winners receive cash prizes of up to $500 to kickstart their business ventures. All participants receive ongoing support, networking connections, and resources to help turn their entrepreneurial vision into reality.
                   </p>
                 </div>
                 <div className="absolute bottom-0 right-0 left-0 h-1.5 bg-[#FFD700]"></div>
@@ -585,7 +585,7 @@ export default function FishTankPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h3 className="text-3xl font-bold text-[#0f172a] mb-6">Your Fish Tank Journey</h3>
+                <h3 className="text-3xl font-bold text-[#0f172a] mb-6">Make a Splash</h3>
                 
                 <div className="space-y-8">
                   <div className="flex">
@@ -594,8 +594,8 @@ export default function FishTankPage() {
                       <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-2"></div>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Application & Team Formation</h4>
-                      <p className="text-[#334155] mb-2">Submit your application and form a team of 2-4 students. Define your business concept and begin initial research.</p>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Registration & Team Formation</h4>
+                      <p className="text-[#000000] mb-2">Form a team of 1–3 students and register to compete. Define your business concept, conduct market research, and develop both a marketing and financial plan. Prepare a 5-minute presentation to bring your idea to life.</p>
                     </div>
                   </div>
                   
@@ -605,8 +605,8 @@ export default function FishTankPage() {
                       <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-2"></div>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Preliminary Round</h4>
-                      <p className="text-[#334155] mb-2">Present your initial business concept to our preliminary judges. Top teams advance to the next round and receive feedback.</p>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Preliminary Round – July 24</h4>
+                      <p className="text-[#000000] mb-2">Present your business concept to a panel of six high school business leaders, including DECA state officers and international finalists. The top 12 teams (approximately 25%) will advance to the final round on July 25th.</p>
                     </div>
                   </div>
                   
@@ -616,8 +616,8 @@ export default function FishTankPage() {
                       <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-2"></div>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Refinement & Mentorship</h4>
-                      <p className="text-[#334155] mb-2">Work with business mentors to refine your business plan, marketing strategy, and pitch presentation.</p>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Final Round – July 25</h4>
+                      <p className="text-[#000000] mb-2">Pitch your polished business idea to a panel of Naperville&apos;s top business owners and government leaders. Winners will receive funding and ongoing support to help launch their ventures. The inaugural Fish Tank champion will receive an interview from NCTV17.</p>
                     </div>
                   </div>
                   
@@ -626,8 +626,8 @@ export default function FishTankPage() {
                       <div className="w-10 h-10 rounded-full bg-[#38b6ff] flex items-center justify-center text-white font-bold">4</div>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Final Pitch & Awards</h4>
-                      <p className="text-[#334155] mb-2">Present your polished business concept to our panel of final judges. Winners receive funding and ongoing support.</p>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">After Fish Tank</h4>
+                      <p className="text-[#000000] mb-2">All participants will continue to have access to BizBuzz Camp resources, detailed feedback from the Fish Tank judges, and contact information for our high school judging panel. Reach out anytime—support does not stop after the pitch event. We cannot wait to see what you build, create, and innovate next!</p>
                     </div>
                   </div>
                 </div>

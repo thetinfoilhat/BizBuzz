@@ -191,12 +191,12 @@ const WorkshopCard = ({ workshop, index }: { workshop: typeof workshops[0], inde
           }
         }
       }}
-      className="mb-24 overflow-hidden"
+      className="mb-16 overflow-hidden"
     >
       {/* Session Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center gap-5 mb-6">
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-4">
         <div 
-          className="w-16 h-16 rounded-full flex items-center justify-center mr-5 text-white font-bold text-xl shadow-lg relative overflow-hidden"
+          className="w-16 h-16 rounded-full flex items-center justify-center mr-4 text-white font-bold text-xl shadow-lg relative overflow-hidden"
           style={{ backgroundColor: workshop.color }}
         >
           <span className="relative z-10">{index + 1}</span>
@@ -205,7 +205,7 @@ const WorkshopCard = ({ workshop, index }: { workshop: typeof workshops[0], inde
         
         <div>
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{workshop.title}</h3>
-          <div className="flex flex-wrap gap-5 text-base text-amber-900 mt-2">
+          <div className="flex flex-wrap gap-4 text-base text-amber-900 mt-2">
             <span className="flex items-center">
               <svg className="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -228,23 +228,20 @@ const WorkshopCard = ({ workshop, index }: { workshop: typeof workshops[0], inde
       
       {/* Session Main Content Card */}
       <div className="rounded-2xl overflow-hidden bg-white shadow-lg border border-amber-100/30">
-        <div className={`py-6 px-8 bg-gradient-to-r from-amber-50 to-white`}>
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-amber-500/20 text-amber-800 text-sm font-medium">
-            Workshop {index + 1}
-          </div>
+        <div className={`py-3 px-6 bg-gradient-to-r from-amber-50 to-white`}>
         </div>
         
         {/* Session Content */}
-        <div className="p-8">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div className="p-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             {/* Left Column - Description and Images */}
             <motion.div variants={fadeIn} className="md:col-span-8">
-              <p className="text-gray-700 mb-10 text-lg leading-relaxed">
+              <p className="text-[#000000] mb-6 text-lg leading-relaxed">
                 {workshop.description}
               </p>
               
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r rounded-3xl blur-xl opacity-40" 
+                <div className="absolute -inset-3 bg-gradient-to-r rounded-3xl blur-xl opacity-40" 
                   style={{ 
                     backgroundImage: `linear-gradient(to right, ${workshop.color}10, #FFBF0010)` 
                   }} 
@@ -262,19 +259,19 @@ const WorkshopCard = ({ workshop, index }: { workshop: typeof workshops[0], inde
                   style={{ backgroundImage: `linear-gradient(to right, ${workshop.color}20, #FFBF0010)` }} 
                 />
                 
-                <div className="text-center py-3 relative z-10" style={{ backgroundColor: `${workshop.color}20` }}>
+                <div className="text-center py-2 relative z-10" style={{ backgroundColor: `${workshop.color}20` }}>
                   <h4 className="font-bold text-amber-900 text-lg">WORKSHOP SESSIONS</h4>
                 </div>
                 
-                <div className="p-6 flex flex-col flex-grow relative z-10">
-                  <ul className="space-y-4">
+                <div className="p-4 flex flex-col flex-grow relative z-10">
+                  <ul className="space-y-3">
                     {workshop.sessions.map((session, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="flex-shrink-0 h-6 w-6 rounded-full flex items-center justify-center mt-0.5 text-white mr-3" 
+                        <span className="flex-shrink-0 h-6 w-6 rounded-full flex items-center justify-center mt-0.5 text-white mr-2" 
                               style={{ backgroundColor: workshop.color }}>
                           {i + 1}
                         </span>
-                        <span className="text-gray-800">{session}</span>
+                        <span className="text-[#000000]">{session}</span>
                       </li>
                     ))}
                   </ul>
@@ -524,32 +521,16 @@ export default function WorkshopsPage() {
       </div>
       
       {/* Main Content */}
-      <div className="py-16 lg:py-24">
+      <div className="py-8 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center max-w-3xl mx-auto">
+          <div className="mb-10 text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-400/15 mb-4">
               <span className="text-amber-800 font-medium">Entrepreneurship Journey</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">7 Workshops. 17 Sessions.</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-[#000000] max-w-3xl mx-auto">
               Hosted at schools like Brookdale Elementary & Madison Junior High, fairs such as the Naperville & Dupage Children&apos;s Business Fairs, and learning centers like Best Brains.
             </p>
-          </div>
-          
-          <div className="mb-16 flex flex-wrap justify-center gap-3">
-            {workshops.map((workshop, index) => (
-              <a
-                key={workshop.id}
-                href={`#${workshop.id}`}
-                className="py-2 px-4 rounded-lg text-sm font-medium transition-all hover:-translate-y-1"
-                style={{ 
-                  backgroundColor: `${workshop.color}15`, 
-                  color: workshop.color
-                }}
-              >
-                Workshop {index + 1}: {workshop.title.split(' ')[0]}
-              </a>
-            ))}
           </div>
           
           <div>
