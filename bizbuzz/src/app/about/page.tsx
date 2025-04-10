@@ -8,22 +8,22 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Redesigned to match other pages */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background image with overlay */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/hero_imgs/hero1.jpg" 
+            src="/about/background.jpg" 
             alt="BizBuzz Hero" 
             fill
             className="object-cover"
             priority
           />
           <div 
-            className="absolute inset-0 bg-gradient-to-b from-[#0c1d3d]/90 to-[#0c1d3d]/80"
+            className="absolute inset-0 bg-gradient-to-b from-[#0c1d3d]/90 to-[#0c1d3d]/65"
           />
           
-          {/* Wave decoration at bottom - smaller and more subtle */}
-          <div className="absolute bottom-0 left-0 right-0">
+          {/* Wave decoration at bottom - moved lower to avoid covering faces */}
+          <div className="absolute bottom-0 left-0 right-0 translate-y-2">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full" preserveAspectRatio="none">
               <path fill="#ffffff" fillOpacity="0.95" d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
             </svg>
@@ -68,7 +68,7 @@ export default function AboutPage() {
         </div>
         
         {/* Content */}
-        <div className="container mx-auto px-4 relative z-10 mt-16">
+        <div className="container mx-auto px-4 relative z-10 -mt-16">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,12 +79,12 @@ export default function AboutPage() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-8 mx-auto relative w-24 h-24"
+              className="mb-6 mx-auto relative w-20 h-20"
             >
               <div className="absolute inset-0 rounded-full bg-[#3AB6FF] opacity-20 animate-pulse"></div>
               <div className="absolute inset-2 rounded-full bg-[#3AB6FF] opacity-10 animate-pulse" style={{ animationDelay: "300ms" }}></div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" className="w-12 h-12 text-[#FFD700]">
+                <svg viewBox="0 0 24 24" className="w-10 h-10 text-[#FFD700]">
                   <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" />
                 </svg>
               </div>
@@ -94,7 +94,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-5xl md:text-6xl font-bold mb-6 text-white"
+              className="text-5xl md:text-6xl font-bold mb-4 text-white"
             >
               About <span className="text-[#3AB6FF]">Biz</span><span className="text-[#FFD700]">Buzz</span>
             </motion.h1>
@@ -103,7 +103,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="text-xl md:text-2xl mb-12 text-white font-light"
+              className="text-xl md:text-2xl font-bold mb-12 text-white"
             >
               Turning <span className="text-[#FFD700]">imagination</span> into <span className="text-[#3AB6FF]">innovation</span> via social entrepreneurship
             </motion.p>
@@ -239,17 +239,8 @@ export default function AboutPage() {
             className="max-w-6xl mx-auto mb-16 text-center"
           >
             <div className="relative inline-block">
-              <motion.div
-                className="absolute -top-6 -left-6 w-12 h-12"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                <svg viewBox="0 0 24 24" className="w-full h-full text-[#3AB6FF]">
-                  <path fill="currentColor" d="M12 15.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65c-.04-.24-.25-.42-.5-.42h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66z" />
-                </svg>
-              </motion.div>
               <h2 className="text-4xl md:text-5xl font-bold text-black relative inline-block">
-                Media Coverage
+                In The News
               </h2>
             </div>
             <div className="mt-4 max-w-2xl mx-auto">
@@ -276,7 +267,7 @@ export default function AboutPage() {
           <InterviewFeature 
             title="Daily Herald Interview"
             description="During the Madison Junior High mxINCedu mentorship program, we had the opportunity to be interviewed by the Daily Herald. We discussed the importance of youth entrepreneurship—especially in Naperville, where over 90% of K–8 students lack access to business education in school."
-            images={["/hero_imgs/hero1.jpg", "/hero_imgs/hero2.jpg"]}
+            images={["/about/daily.jpg", "/about/madi.png"]}
             imagePosition="left"
             index={1}
           />
@@ -345,70 +336,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Connect Section */}
-      <section className="py-24 bg-[#0c1d3d] relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute top-0 right-0 w-full h-full">
-            {[...Array(100)].map((_, i) => (
-              <div 
-                key={i}
-                className="absolute rounded-full bg-white"
-                style={{
-                  width: `${Math.random() * 3 + 1}px`,
-                  height: `${Math.random() * 3 + 1}px`,
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  opacity: Math.random() * 0.8 + 0.2,
-                }}
-              />
-            ))}
-          </div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-[#122a56] p-10 rounded-2xl shadow-xl"
-            >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="mb-6 mx-auto relative w-20 h-20"
-              >
-                <div className="absolute inset-0 rounded-full bg-[#FFD700] opacity-20 animate-pulse"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" className="w-10 h-10 text-[#FFD700]">
-                    <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" />
-                  </svg>
-                </div>
-              </motion.div>
-              
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">Have a Bright Idea?</h2>
-              <p className="text-lg mb-8 text-white/90">
-                Connect with us to learn more about our programs or to discuss collaboration opportunities.
-              </p>
-              
-              <motion.button
-                whileHover={{ 
-                  scale: 1.03,
-                  backgroundColor: "#f0f9ff",
-                  color: "#3AB6FF"
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-[#3AB6FF] text-white font-medium px-8 py-3 rounded-full"
-              >
-                Get in Touch
-              </motion.button>
-            </motion.div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
