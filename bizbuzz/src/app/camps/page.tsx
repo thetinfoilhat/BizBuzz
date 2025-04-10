@@ -467,14 +467,14 @@ export default function CampPage() {
             >
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#38b6ff]/20 border border-[#38b6ff]/30 backdrop-blur-sm mb-10 shadow-sm">
                 <div className="w-3 h-3 rounded-full bg-[#38b6ff] mr-2"></div>
-                <span className="text-base font-medium text-white">Summer 2024</span>
+                <span className="text-base font-medium text-white">Summer 2024 & 2025</span>
               </div>
               
               <h1 className="text-7xl lg:text-8xl font-bold mb-10 tracking-tight leading-tight">
-                <span className="text-white drop-shadow-md">BizCamp</span>
+                <span className="text-white drop-shadow-md">BizBuzz</span>
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8e2f4] via-[#38b6ff] to-[#8dcfec] drop-shadow-sm">
-                  Bootcamp
+                  Camp
               </span>
               </h1>
               
@@ -488,7 +488,7 @@ export default function CampPage() {
                   href="#session1" 
                   className="bg-gradient-to-r from-[#38b6ff] to-[#8dcfec] text-white font-medium py-4 px-8 rounded-lg text-xl transition-all hover:shadow-lg hover:shadow-[#38b6ff]/30 hover:-translate-y-1 active:translate-y-0 inline-flex items-center"
                 >
-                  Explore Bootcamp
+                  Explore Camp
                   <svg className="w-6 h-6 ml-2 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -599,7 +599,7 @@ export default function CampPage() {
                 </svg>
               </div>
               <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#003166] to-[#38b6ff] mb-4">6</div>
-              <div className="text-[#003166] font-medium text-lg">Bootcamp Weeks</div>
+              <div className="text-[#003166] font-medium text-lg">Camp Weeks</div>
             </div>
             
             <div className="px-8 py-12 text-center relative">
@@ -632,7 +632,7 @@ export default function CampPage() {
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#38b6ff]/10 mb-4">
             <span className="text-[#003166] font-medium">Entrepreneurship Journey</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#040037] mb-6">2024 Bootcamp Structure</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#040037] mb-6">2024 Camp Structure</h2>
           <p className="text-[#235284] text-xl max-w-3xl mx-auto">
             Each camp session builds upon the previous one, creating a comprehensive entrepreneurial journey that takes 3rd–8th grade students from idea generation to pitching at the Fish Tank contest.
           </p>
