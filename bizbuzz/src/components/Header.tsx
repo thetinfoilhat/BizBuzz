@@ -33,7 +33,7 @@ const Header = () => {
                   : "text-[#000000] hover:text-[#6366F1]"
               }`}
             >
-              Bootcamps
+              Camps
             </Link>
             <Link 
               href="/workshops" 
@@ -53,7 +53,7 @@ const Header = () => {
                   : "text-[#000000] hover:text-[#6366F1]"
               }`}
             >
-              Fish Tank
+              Fish Tanks
             </Link>
             <Link 
               href="/sessions" 
