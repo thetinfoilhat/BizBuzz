@@ -9,9 +9,9 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-0 sm:px-2 lg:px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-center pl-4">
             <Link href="/" className="flex items-center space-x-2">
               <div className="relative w-6 h-6">
                 <Image 
@@ -21,16 +21,16 @@ const Header = () => {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-semibold text-[#6366F1]">BizBuzz</span>
+              <span className="text-xl font-semibold text-[#3AB6FF]">BizBuzz</span>
             </Link>
           </div>
-          <nav className="flex items-center space-x-8">
+          <nav className="flex items-center space-x-8 pr-4">
             <Link 
               href="/camps" 
               className={`text-sm transition-colors ${
                 pathname === "/camps" 
-                  ? "text-[#6366F1] font-medium" 
-                  : "text-[#000000] hover:text-[#6366F1]"
+                  ? "text-[#3AB6FF] font-medium" 
+                  : "text-[#000000] hover:text-[#3AB6FF]"
               }`}
             >
               Camps
@@ -39,8 +39,8 @@ const Header = () => {
               href="/workshops" 
               className={`text-sm transition-colors ${
                 pathname === "/workshops" 
-                  ? "text-[#6366F1] font-medium" 
-                  : "text-[#000000] hover:text-[#6366F1]"
+                  ? "text-[#3AB6FF] font-medium" 
+                  : "text-[#000000] hover:text-[#3AB6FF]"
               }`}
             >
               Workshops
@@ -49,8 +49,8 @@ const Header = () => {
               href="/practice" 
               className={`text-sm transition-colors ${
                 pathname === "/practice" 
-                  ? "text-[#6366F1] font-medium" 
-                  : "text-[#000000] hover:text-[#6366F1]"
+                  ? "text-[#3AB6FF] font-medium" 
+                  : "text-[#000000] hover:text-[#3AB6FF]"
               }`}
             >
               Fish Tanks
@@ -59,8 +59,8 @@ const Header = () => {
               href="/sessions" 
               className={`text-sm transition-colors ${
                 pathname === "/sessions" 
-                  ? "text-[#6366F1] font-medium" 
-                  : "text-[#000000] hover:text-[#6366F1]"
+                  ? "text-[#3AB6FF] font-medium" 
+                  : "text-[#000000] hover:text-[#3AB6FF]"
               }`}
             >
               1:1 Sessions
@@ -69,8 +69,8 @@ const Header = () => {
               href="/about" 
               className={`text-sm transition-colors ${
                 pathname === "/about" 
-                  ? "text-[#6366F1] font-medium" 
-                  : "text-[#000000] hover:text-[#6366F1]"
+                  ? "text-[#3AB6FF] font-medium" 
+                  : "text-[#000000] hover:text-[#3AB6FF]"
               }`}
             >
               About Us

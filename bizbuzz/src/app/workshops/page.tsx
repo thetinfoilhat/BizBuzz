@@ -378,15 +378,15 @@ export default function WorkshopsPage() {
             
             {/* Right content - Images */}
             <motion.div
-              className="lg:col-span-6 relative"
+              className="lg:col-span-6 relative pl-28"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <div className="relative h-[650px]">
+              <div className="relative h-[750px] w-full overflow-visible">
                 {/* Main center image */}
                 <motion.div 
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(217,119,6,0.3)] z-30 border-4 border-white"
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[380px] h-[400px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(217,119,6,0.3)] z-30 border-4 border-white"
                   initial={{ scale: 0.9, y: 20 }}
                   animate={{ scale: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -401,11 +401,11 @@ export default function WorkshopsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-700/30 to-transparent"></div>
                 </motion.div>
                 
-                {/* Floating images */}
+                {/* Top left floating image - moved further out */}
                 <motion.div 
-                  className="absolute top-0 left-0 w-72 h-96 rounded-2xl overflow-hidden shadow-xl z-10 border-4 border-white"
-                  initial={{ x: -20, y: -20, rotate: -8 }}
-                  animate={{ x: 0, y: 0, rotate: -8 }}
+                  className="absolute top-0 -left-10 w-[250px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-10 border-4 border-white"
+                  initial={{ x: -30, y: -30, rotate: -12 }}
+                  animate={{ x: 0, y: 0, rotate: -12 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   <Image
@@ -418,10 +418,11 @@ export default function WorkshopsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-700/30 to-transparent"></div>
                 </motion.div>
                 
+                {/* Bottom right floating image - moved further out and down */}
                 <motion.div 
-                  className="absolute bottom-0 right-0 w-80 h-80 rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white"
-                  initial={{ x: 20, y: 20, rotate: 8 }}
-                  animate={{ x: 0, y: 0, rotate: 8 }}
+                  className="absolute bottom-0 -right-20 w-[250px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white"
+                  initial={{ x: 30, y: 30, rotate: 12 }}
+                  animate={{ x: 0, y: 0, rotate: 12 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
                 >
                   <Image
@@ -435,9 +436,10 @@ export default function WorkshopsPage() {
                 </motion.div>
                 
                 {/* Decorative elements */}
-                <div className="absolute top-1/4 right-1/4 w-48 h-48 rounded-full bg-gradient-to-r from-amber-300/20 to-amber-400/20 blur-2xl"></div>
-                <div className="absolute bottom-1/3 left-1/3 w-40 h-40 rounded-full bg-gradient-to-r from-amber-200/20 to-amber-300/20 blur-xl"></div>
-                <div className="absolute top-1/2 left-1/2 w-32 h-32 rounded-full bg-gradient-to-r from-amber-300/20 to-amber-400/20 blur-xl"></div>
+                <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-amber-300/20 to-amber-400/20 blur-2xl"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-56 h-56 rounded-full bg-gradient-to-r from-amber-200/20 to-amber-300/20 blur-xl"></div>
+                <div className="absolute top-1/2 -left-1/4 w-72 h-72 rounded-full bg-gradient-to-r from-amber-300/15 to-amber-400/15 blur-3xl"></div>
+                <div className="absolute bottom-1/4 -right-1/4 w-80 h-80 rounded-full bg-gradient-to-r from-amber-300/10 to-amber-400/10 blur-3xl"></div>
               </div>
             </motion.div>
           </div>

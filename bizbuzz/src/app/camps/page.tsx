@@ -9,7 +9,7 @@ const sessions = [
   {
     id: "session1",
     title: "Ideation & Innovation",
-    date: "June 12-13, 2024",
+    date: "June 12th, 2024",
     location: "95th Street Library, Naperville",
     description: "In Session 1, students kicked off our free 2024 Summer Entrepreneurship Camp by exploring the basics of business-minded thinking, learning how to identify and solve real-world problems. After being introduced to concepts like value creation and market fit with 10 instructors, students dove into our Mini Fish Tank activity with $200+ in prizes.",
     speaker: {
@@ -31,7 +31,7 @@ const sessions = [
   {
     id: "session2",
     title: "Unique Value Proposition & Networking",
-    date: "July 8-9, 2024",
+    date: "June 19th, 2024",
     location: "95th Street Library, Naperville",
     description: "In Session 2, students learned how to craft a unique value proposition for their businesses and practiced their networking skills with 9 instructors. They put their skills to the test in a coffee shop simulation contest, responding to situations & prompts (and some surprises too!) to maximize profits and win $100 in awards.",
     speaker: {
@@ -53,7 +53,7 @@ const sessions = [
   {
     id: "session3",
     title: "Marketing",
-    date: "August 15-16, 2024",
+    date: "June 26th, 2024",
     location: "95th Street Library, Naperville",
     description: "In Session 3, students explored marketing, branding, and advertising through activities like the 'Guess the Brand' game and a flyer design challenge with $140 in prizes. With the Fish Tank competition just weeks away, students refined their business identities with 11 instructors and prepared to share them with the world.",
     speaker: {
@@ -75,7 +75,7 @@ const sessions = [
   {
     id: "session4",
     title: "Public Speaking",
-    date: "September 5-6, 2024",
+    date: "July 3rd, 2024",
     location: "95th Street Library, Naperville",
     description: "In Session 4, students explored the art of sales and pitching. Guided by 14 instructors, they practiced their public speaking skills and competed in an interactive, hands-on pitch contest with over $170 in prizes. With this new knowledge, students began developing their presentations and pitches in preparation for Fish Tank.",
     speaker: {
@@ -97,7 +97,7 @@ const sessions = [
   {
     id: "session5",
     title: "Finance",
-    date: "October 10-11, 2024",
+    date: "July 10th, 2024",
     location: "Nichols Library, Naperville",
     description: "In Session 5, students learned the basics of personal and business finance from 16 instructors. They then put their skills to the test in a dream vacation budgeting game, planning their ideal trip and pitching it for a chance to win over $330 in prizes. Students also continued refining their Fish Tank pitches, now incorporating key financial details into their business plans.",
     speaker: {
@@ -121,8 +121,8 @@ const sessions = [
   {
     id: "session6",
     title: "Pitching",
-    date: "November 14-15, 2024",
-    location: "Nichols Library, Naperville",
+    date: "July 17th, 2024",
+    location: "95th Street Library, Naperville",
     description: "In Session 6, the final session before Fish Tank, students participated in a business building workshop to finalize their pitch decks and practice rehearsing their scripts. Joining them for a special surprise were our preliminary judges—Athena Chen, Soohyun Cho, Isabel Yu, Nathan Mendoza, and Olivia Fisz—who offered exciting feedback.",
     speaker: {
       name: "Sean Riley",
@@ -515,15 +515,15 @@ export default function CampPage() {
             
             {/* Right content - Enhanced Images */}
             <motion.div
-              className="lg:col-span-6 relative"
+              className="lg:col-span-6 relative pl-28"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <div className="relative h-[620px]">
+              <div className="relative h-[750px] w-full overflow-visible">
                 {/* Main center image - Enhanced with better shadows and effects */}
                 <motion.div 
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(8,112,184,0.5)] z-30 border-4 border-white/90"
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[380px] h-[400px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(8,112,184,0.3)] z-30 border-4 border-white"
                   initial={{ scale: 0.9, y: 20 }}
                   animate={{ scale: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -540,9 +540,9 @@ export default function CampPage() {
                 
                 {/* Floating images with enhanced styling */}
                 <motion.div 
-                  className="absolute top-0 left-0 w-56 h-72 rounded-2xl overflow-hidden shadow-xl z-10 border-4 border-white/90"
-                  initial={{ x: -20, y: -20, rotate: -8 }}
-                  animate={{ x: 0, y: 0, rotate: -8 }}
+                  className="absolute top-0 -left-10 w-[250px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-10 border-4 border-white"
+                  initial={{ x: -30, y: -30, rotate: -12 }}
+                  animate={{ x: 0, y: 0, rotate: -12 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   <Image
@@ -556,9 +556,9 @@ export default function CampPage() {
                 </motion.div>
                 
                 <motion.div 
-                  className="absolute bottom-0 right-0 w-64 h-64 rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white/90"
-                  initial={{ x: 20, y: 20, rotate: 8 }}
-                  animate={{ x: 0, y: 0, rotate: 8 }}
+                  className="absolute bottom-0 -right-20 w-[250px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white"
+                  initial={{ x: 30, y: 30, rotate: 12 }}
+                  animate={{ x: 0, y: 0, rotate: 12 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
                 >
                   <Image
@@ -571,17 +571,11 @@ export default function CampPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#040037]/30 to-transparent"></div>
                 </motion.div>
                 
-                {/* Better floating element - exclamation icon */}
-                <div className="absolute bottom-10 left-5 opacity-20">
-                  <svg className="h-24 w-24" viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z" />
-                  </svg>
-                </div>
-                
-                {/* Enhanced decorative elements */}
-                <div className="absolute top-1/4 right-1/4 w-48 h-48 rounded-full bg-gradient-to-r from-[#38b6ff]/20 to-[#8dcfec]/20 blur-2xl"></div>
-                <div className="absolute bottom-1/3 left-1/3 w-40 h-40 rounded-full bg-gradient-to-r from-[#B8e2f4]/20 to-[#38b6ff]/20 blur-xl"></div>
-                <div className="absolute top-1/2 left-1/2 w-32 h-32 rounded-full bg-gradient-to-r from-[#003166]/20 to-[#38b6ff]/20 blur-xl"></div>
+                {/* Decorative elements */}
+                <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#38b6ff]/20 to-[#8dcfec]/20 blur-2xl"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-56 h-56 rounded-full bg-gradient-to-r from-[#B8e2f4]/20 to-[#38b6ff]/20 blur-xl"></div>
+                <div className="absolute top-1/2 -left-1/4 w-72 h-72 rounded-full bg-gradient-to-r from-[#003166]/15 to-[#38b6ff]/15 blur-3xl"></div>
+                <div className="absolute bottom-1/4 -right-1/4 w-80 h-80 rounded-full bg-gradient-to-r from-[#003166]/10 to-[#38b6ff]/10 blur-3xl"></div>
               </div>
             </motion.div>
           </div>
@@ -629,10 +623,7 @@ export default function CampPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Section header */}
         <div className="mb-16 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#38b6ff]/10 mb-4">
-            <span className="text-[#003166] font-medium">Entrepreneurship Journey</span>
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#040037] mb-6">2024 Camp Structure</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#040037] mb-6">2024 Entrepreneurship Camp</h2>
           <p className="text-[#235284] text-xl max-w-3xl mx-auto">
             Each camp session builds upon the previous one, creating a comprehensive entrepreneurial journey that takes 3rd–8th grade students from idea generation to pitching at the Fish Tank contest.
           </p>
