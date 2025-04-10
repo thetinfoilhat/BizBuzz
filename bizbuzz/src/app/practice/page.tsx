@@ -19,6 +19,10 @@ const fishTankPhotos = [
   "/hero_imgs/6.jpg",
   "/hero_imgs/7.jpg",
   "/hero_imgs/8.jpg",
+  "/hero_imgs/9.jpg",
+  "/hero_imgs/10.jpg",
+  "/hero_imgs/11.jpg",
+  "/hero_imgs/12.jpg",
 ];
 
 // Preliminary judges
@@ -577,48 +581,48 @@ export default function FishTankPage() {
           </div>
           
           {/* Event Journey & Photos - Improved Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
             {/* Left side - Event journey */}
-            <div className="lg:col-span-5 space-y-6">
+            <div className="lg:col-span-5 space-y-4">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h3 className="text-3xl font-bold text-[#0f172a] mb-6">Make a Splash</h3>
+                <h3 className="text-3xl font-bold text-[#0f172a] mb-4">Make a Splash</h3>
                 
-                <div className="space-y-8">
+                <div className="space-y-5">
                   <div className="flex">
                     <div className="flex-shrink-0 mr-4">
                       <div className="w-10 h-10 rounded-full bg-[#38b6ff] flex items-center justify-center text-white font-bold">1</div>
-                      <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-2"></div>
+                      <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-1"></div>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Registration & Team Formation</h4>
-                      <p className="text-[#000000] mb-2">Form a team of 1–3 students and register to compete. Define your business concept, conduct market research, and develop both a marketing and financial plan. Prepare a 5-minute presentation to bring your idea to life.</p>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-1">Registration & Team Formation</h4>
+                      <p className="text-[#000000] mb-0">Form a team of 1–3 students and register to compete. Define your business concept, conduct market research, and develop both a marketing and financial plan. Prepare a 5-minute presentation to bring your idea to life.</p>
                     </div>
                   </div>
                   
                   <div className="flex">
                     <div className="flex-shrink-0 mr-4">
                       <div className="w-10 h-10 rounded-full bg-[#38b6ff] flex items-center justify-center text-white font-bold">2</div>
-                      <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-2"></div>
+                      <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-1"></div>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Preliminary Round – July 24</h4>
-                      <p className="text-[#000000] mb-2">Present your business concept to a panel of six high school business leaders, including DECA state officers and international finalists. The top 12 teams (approximately 25%) will advance to the final round on July 25th.</p>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-1">Preliminary Round – July 24</h4>
+                      <p className="text-[#000000] mb-0">Present your business concept to a panel of six high school business leaders, including DECA state officers and international finalists. The top 12 teams (approximately 25%) will advance to the final round on July 25th.</p>
                     </div>
                   </div>
                   
                   <div className="flex">
                     <div className="flex-shrink-0 mr-4">
                       <div className="w-10 h-10 rounded-full bg-[#38b6ff] flex items-center justify-center text-white font-bold">3</div>
-                      <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-2"></div>
+                      <div className="w-0.5 h-full bg-[#38b6ff]/30 ml-5 mt-1"></div>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">Final Round – July 25</h4>
-                      <p className="text-[#000000] mb-2">Pitch your polished business idea to a panel of Naperville&apos;s top business owners and government leaders. Winners will receive funding and ongoing support to help launch their ventures. The inaugural Fish Tank champion will receive an interview from NCTV17.</p>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-1">Final Round – July 25</h4>
+                      <p className="text-[#000000] mb-0">Pitch your polished business idea to a panel of Naperville&apos;s top business owners and government leaders. Winners will receive funding and ongoing support to help launch their ventures. The inaugural Fish Tank champion will receive an interview from NCTV17.</p>
                     </div>
                   </div>
                   
@@ -627,8 +631,8 @@ export default function FishTankPage() {
                       <div className="w-10 h-10 rounded-full bg-[#38b6ff] flex items-center justify-center text-white font-bold">4</div>
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-[#0f172a] mb-2">After Fish Tank</h4>
-                      <p className="text-[#000000] mb-2">All participants will continue to have access to BizBuzz Camp resources, detailed feedback from the Fish Tank judges, and contact information for our high school judging panel. Reach out anytime—support does not stop after the pitch event. We cannot wait to see what you build, create, and innovate next!</p>
+                      <h4 className="text-xl font-bold text-[#0f172a] mb-1">After Fish Tank</h4>
+                      <p className="text-[#000000] mb-0">All participants will continue to have access to BizBuzz Camp resources, detailed feedback from the Fish Tank judges, and contact information for our high school judging panel. Reach out anytime—support does not stop after the pitch event. We cannot wait to see what you build, create, and innovate next!</p>
                     </div>
                   </div>
                 </div>
@@ -641,10 +645,10 @@ export default function FishTankPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-7 grid grid-cols-12 grid-rows-12 gap-3 h-[600px]"
+              className="lg:col-span-7 grid grid-cols-12 grid-rows-12 gap-3 h-[600px] mt-32"
             >
               {/* Main large image */}
-              <div className="col-span-8 row-span-8 relative rounded-xl overflow-hidden shadow-xl">
+              <div className="col-span-8 row-span-6 relative rounded-xl overflow-hidden shadow-xl">
                 <Image 
                   src={fishTankPhotos[7]} 
                   alt="Fish Tank group event"
@@ -657,8 +661,8 @@ export default function FishTankPage() {
                 </div>
               </div>
 
-              {/* Top right image */}
-              <div className="col-span-4 row-span-4 relative rounded-xl overflow-hidden shadow-lg">
+              {/* Top right images */}
+              <div className="col-span-4 row-span-3 relative rounded-xl overflow-hidden shadow-lg">
                 <Image 
                   src={fishTankPhotos[4]} 
                   alt="Judges panel"
@@ -667,8 +671,7 @@ export default function FishTankPage() {
                 />
               </div>
 
-              {/* Middle right image */}
-              <div className="col-span-4 row-span-4 relative rounded-xl overflow-hidden shadow-lg">
+              <div className="col-span-4 row-span-3 relative rounded-xl overflow-hidden shadow-lg">
                 <Image 
                   src={fishTankPhotos[3]} 
                   alt="Student presenting"
@@ -677,8 +680,8 @@ export default function FishTankPage() {
                 />
               </div>
 
-              {/* Bottom left image */}
-              <div className="col-span-4 row-span-4 relative rounded-xl overflow-hidden shadow-lg">
+              {/* Middle row images */}
+              <div className="col-span-4 row-span-3 relative rounded-xl overflow-hidden shadow-lg">
                 <Image 
                   src={fishTankPhotos[5]} 
                   alt="Award ceremony"
@@ -687,8 +690,7 @@ export default function FishTankPage() {
                 />
               </div>
 
-              {/* Bottom middle image */}
-              <div className="col-span-4 row-span-4 relative rounded-xl overflow-hidden shadow-lg">
+              <div className="col-span-4 row-span-3 relative rounded-xl overflow-hidden shadow-lg">
                 <Image 
                   src={fishTankPhotos[8]} 
                   alt="Audience at Fish Tank"
@@ -697,11 +699,38 @@ export default function FishTankPage() {
                 />
               </div>
 
-              {/* Bottom right image */}
-              <div className="col-span-4 row-span-4 relative rounded-xl overflow-hidden shadow-lg">
+              <div className="col-span-4 row-span-3 relative rounded-xl overflow-hidden shadow-lg">
                 <Image 
                   src={fishTankPhotos[9]} 
                   alt="Student team collaborating"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              
+              {/* Bottom row images */}
+              <div className="col-span-4 row-span-3 relative rounded-xl overflow-hidden shadow-lg">
+                <Image 
+                  src={fishTankPhotos[10]} 
+                  alt="Fish Tank participants"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              
+              <div className="col-span-4 row-span-3 relative rounded-xl overflow-hidden shadow-lg">
+                <Image 
+                  src={fishTankPhotos[11]} 
+                  alt="Fish Tank competition"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              
+              <div className="col-span-4 row-span-3 relative rounded-xl overflow-hidden shadow-lg">
+                <Image 
+                  src={fishTankPhotos[12]} 
+                  alt="Fish Tank event highlight"
                   fill
                   className="object-cover"
                 />
