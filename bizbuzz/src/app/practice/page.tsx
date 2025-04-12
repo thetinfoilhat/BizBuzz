@@ -349,13 +349,13 @@ export default function FishTankPage() {
                 className="grid grid-cols-3 gap-6 mb-12"
               >
                 <motion.div variants={fadeIn} className="bg-[#003166]/40 backdrop-blur-sm rounded-xl py-6 px-3 text-center border border-white/10">
-                  <div className="text-4xl font-bold text-[#FFD700]">50+</div>
-                  <div className="text-sm text-white">Teams</div>
+                  <div className="text-4xl font-bold text-[#FFD700]">130+</div>
+                  <div className="text-sm text-white">Competitors</div>
                 </motion.div>
                 
                 <motion.div variants={fadeIn} className="bg-[#003166]/40 backdrop-blur-sm rounded-xl py-6 px-3 text-center border border-white/10">
-                  <div className="text-4xl font-bold text-[#FFD700]">2</div>
-                  <div className="text-sm text-white">Days</div>
+                  <div className="text-4xl font-bold text-[#FFD700]">30+</div>
+                  <div className="text-sm text-white">Mentors</div>
                 </motion.div>
                 
                 <motion.div variants={fadeIn} className="bg-[#003166]/40 backdrop-blur-sm rounded-xl py-6 px-3 text-center border border-white/10">
@@ -382,7 +382,7 @@ export default function FishTankPage() {
                 </a>
                 
                 <a 
-                  href="mailto:info@bizbuzznfp.org" 
+                  href="https://tinyurl.com/bizbuzz2025" 
                   className="inline-flex items-center px-8 py-4 bg-[#FFD700] text-[#004080] text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition duration-300"
                 >
                   Apply Now
@@ -473,7 +473,7 @@ export default function FishTankPage() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#000000]/60 via-[#000000]/75 to-[#000000]/90"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#000000]/40 via-[#000000]/50 to-[#000000]/70"></div>
             <div className="absolute inset-0 flex flex-col justify-end p-12">
               <div className="flex items-center mb-4">
                 <div className="w-1.5 h-12 bg-[#FFD700] mr-5 rounded-full"></div>
@@ -547,7 +547,7 @@ export default function FishTankPage() {
                   </div>
                   <h4 className="text-2xl font-bold text-white mb-4">Expert Mentorship</h4>
                   <p className="text-white/90">
-                    Receive detailed feedback from our panel of distinguished judges during your pitch. Gain valuable insights and continued support from successful business leaders to help grow your business long after the competition ends.
+                    All participants will receive detailed feedback from our high school judges, while finalists will also receive feedback from our panel of professional judges. In addition, all students will be provided with contact information for our high school business leaders, offering continued support and guidance as they begin to build their ventures.
                   </p>
                 </div>
                 <div className="absolute bottom-0 right-0 left-0 h-1.5 bg-[#FFD700]"></div>
@@ -569,7 +569,7 @@ export default function FishTankPage() {
                   </div>
                   <h4 className="text-2xl font-bold text-white mb-4">Funding Opportunities</h4>
                   <p className="text-white/90">
-                    Winners receive cash prizes of up to $500 to kickstart their business ventures. All participants receive ongoing support, networking connections, and resources to help turn their entrepreneurial vision into reality.
+                    Fish Tank winners will receive a total of $750 to help launch their businesses: $250 for first place, $200 for second, $150 for third, $100 for fourth, and $50 for fifth. In addition to the cash prizes, all participants will gain access to year-round support and resources to further develop their ventures. The pitch may be over, but the journey to bring their entrepreneurial ideas to life is just getting started.
                   </p>
                 </div>
                 <div className="absolute bottom-0 right-0 left-0 h-1.5 bg-[#FFD700]"></div>
@@ -642,7 +642,7 @@ export default function FishTankPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-7 grid grid-cols-12 grid-rows-12 gap-3 h-[600px] mt-32"
+              className="lg:col-span-7 grid grid-cols-12 grid-rows-12 gap-3 h-full"
             >
               {/* Main large image */}
               <div className="col-span-8 row-span-6 relative rounded-xl overflow-hidden shadow-xl">
@@ -654,7 +654,7 @@ export default function FishTankPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 <div className="absolute bottom-3 left-3 text-white font-bold text-lg">
-                  2023 Participants
+                  2024 Fish Tank Participants
                 </div>
               </div>
 
