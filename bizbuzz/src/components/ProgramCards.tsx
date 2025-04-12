@@ -9,25 +9,25 @@ const programs = [
     title: "Camps",
     description: "Free six-week entrepreneurship camps for third to eighth graders, teaching social innovation, finance, and marketing through hands-on activities, prize-filled challenges, guest speakers, and business building.",
     image: "/program_cards/camps.jpg",
-    link: "/bootcamps"
+    link: "/camps"
   },
   {
     title: "Fish Tank",
     description: "Pitch competitions for student innovators of all ages to present business ideas to a panel of professional judges and earn feedback, hundreds of dollars in awards, and real-world experience.",
     image: "/program_cards/fishtank.jpg",
-    link: "/practice"
+    link: "/fishtank"
   },
   {
     title: "Workshops",
     description: "Mini three- to four-session business bootcamps offering a condensed version of the BizBuzz curriculum at elementary and middle schools, local business fairs like NCBF and DCBF, and online webinars worldwide.",
     image: "/program_cards/workshops.jpg",
-    link: "/contact"
+    link: "/workshops"
   },
   {
     title: "Tutoring",
     description: "One-on-one 1.5-hour sessions with students for business incubation, catching up on camp or workshop material, and personalized mentorship in both finance and innovation.",
     image: "/program_cards/mentorship.jpg",
-    link: "/mentorship"
+    link: "/sessions"
   }
 ];
 

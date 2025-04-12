@@ -221,11 +221,6 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
     }
   };
 
-  // Different color treatment based on session number for variation
-  const headerColorClass = index % 2 === 0 
-    ? 'from-[#38b6ff]/10 to-white' 
-    : 'from-[#8dcfec]/10 to-white';
-
   return (
     <motion.div
       id={session.id}
@@ -245,7 +240,7 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
       className="mb-24 overflow-hidden"
     >
       {/* Session Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center gap-5 mb-6">
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-5 mb-3">
         <div 
           className="w-16 h-16 rounded-full flex items-center justify-center mr-5 text-white font-bold text-xl shadow-lg relative overflow-hidden"
           style={{ backgroundColor: session.color }}
@@ -279,10 +274,7 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
       
       {/* Session Main Content Card */}
       <div className="rounded-2xl overflow-hidden bg-white shadow-lg border border-[#B8e2f4]/30">
-        <div className={`py-6 px-8 bg-gradient-to-r ${headerColorClass}`}>
-      </div>
-      
-      {/* Session Content */}
+        {/* Session Content */}
         <div className="p-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Left Column - Description and Images */}
@@ -373,6 +365,27 @@ const SpeakerCard = ({
   color: string;
   title: string;
 }) => {
+  // Create a proper background color based on color to ensure contrast
+  const getQuoteStyles = () => {
+    // Color mapping for better contrast based on the session color
+    const colorMapping: Record<string, { bg: string; text: string }> = {
+      "#B8e2f4": { bg: "#B8e2f4", text: "#040037" },      // Light blue with dark blue text
+      "#8dcfec": { bg: "#8dcfec", text: "#040037" },      // Medium light blue with dark blue text
+      "#38b6ff": { bg: "#38b6ff", text: "white" },        // Medium blue with white text
+      "#235284": { bg: "#235284", text: "white" },        // Medium dark blue with white text
+      "#003166": { bg: "#003166", text: "white" },        // Dark blue with white text
+      "#040037": { bg: "#040037", text: "white" }         // Very dark blue with white text
+    };
+
+    // Use the mapped color or fallback to the original color with proper contrast
+    return colorMapping[color] || { 
+      bg: color,
+      text: ["#040037", "#003166", "#235284"].includes(color) ? "white" : "#040037"
+    };
+  };
+
+  const quoteStyles = getQuoteStyles();
+
   return (
     <div className="rounded-xl overflow-hidden shadow-lg bg-white border border-[#B8e2f4]/30 flex flex-col w-full relative h-full">
                 <div className="absolute -inset-1 bg-gradient-to-r rounded-xl blur-xl opacity-30 -z-10" 
@@ -400,7 +413,10 @@ const SpeakerCard = ({
           
           <div 
             className="inline-block px-4 py-2 rounded-full text-sm mb-4"
-            style={{ backgroundColor: `${color}20`, color: color === "#040037" ? "#38b6ff" : color }}
+            style={{ 
+              backgroundColor: quoteStyles.bg,
+              color: quoteStyles.text
+            }}
           >
             &ldquo;{speaker.topic}&rdquo;
                     </div>
@@ -493,7 +509,7 @@ export default function CampPage() {
                 </Link>
                 
                 <Link
-                  href="mailto:info@bizbuzznfp.org" 
+                  href="https://tinyurl.com/bizbuzz2025" 
                   className="text-white bg-[#003166]/30 border border-[#8dcfec]/40 hover:bg-[#003166]/50 font-medium py-4 px-8 rounded-lg text-xl transition-all inline-flex items-center hover:shadow-lg hover:shadow-[#003166]/20"
                 >
                   Register Now →
@@ -613,7 +629,7 @@ export default function CampPage() {
                   <path d="M436 160c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20zm-68 304H48V48h320v416zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2z" />
                 </svg>
               </div>
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#003166] to-[#38b6ff] mb-4">105+</div>
+              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#003166] to-[#38b6ff] mb-4">110</div>
               <div className="text-[#003166] font-medium text-lg">Students Taught</div>
             </div>
           </div>
@@ -633,21 +649,30 @@ export default function CampPage() {
         {/* Session Navigation */}
         <div className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            {sessions.map((session, index) => (
-              <a
-                key={session.id}
-                href={`#${session.id}`}
-                className="py-1.5 px-3 rounded-full text-center transition-all hover:-translate-y-1 hover:shadow-md flex flex-col items-center justify-center border"
-                style={{ 
-                  backgroundColor: `${session.color}25`,
-                  borderColor: `${session.color}50`,
-                  color: session.color === "#040037" || session.color === "#003166" || session.color === "#235284" ? session.color : "#003166" 
-                }}
-              >
-                <span className="font-bold text-sm">Week {index + 1}</span>
-                <span className="text-xs">{session.title.split(' ')[0]}</span>
-              </a>
-            ))}
+            {sessions.map((session, index) => {
+              return (
+                <a
+                  key={session.id}
+                  href={`#${session.id}`}
+                  className="py-1.5 px-3 rounded-full text-center transition-all hover:-translate-y-1 hover:shadow-md flex flex-col items-center justify-center border"
+                  style={{ 
+                    backgroundColor: `${session.color}25`,
+                    borderColor: `${session.color}50`,
+                    color: session.color === "#040037" || session.color === "#003166" || session.color === "#235284" ? session.color : "#003166" 
+                  }}
+                >
+                  <span className="font-bold text-sm">Week {index + 1}</span>
+                  <span className="text-xs">
+                    {index === 0 ? "Ideation & Innovation" :
+                     index === 1 ? "Unique Value Proposition & Networking" :
+                     index === 2 ? "Marketing" :
+                     index === 3 ? "Public Speaking" :
+                     index === 4 ? "Finance" :
+                     "Pitching"}
+                  </span>
+                </a>
+              );
+            })}
           </div>
         </div>
         
