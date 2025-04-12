@@ -361,13 +361,13 @@ export default function AboutPage() {
           </motion.div>
           
           {/* Co-Founders */}
-          <div className="mb-20">
+          <div className="mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="mb-12"
+              className="mb-8"
             >
               <h3 className="text-2xl font-bold text-center text-black">
                 <span className="inline-block relative">
@@ -377,13 +377,13 @@ export default function AboutPage() {
               </h3>
             </motion.div>
             
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
               <TeamMember
                 key={1}
                 image={`/team/Allen.png`}
                 name="Allen Xu"
                 role="Co-Founder"
-                description="Allen is a junior at Naperville North HS interested in social innovation and finance. A three-time international finalist in entrepreneurship competitions like the Conrad Challenge & Blue OceanCompetition, and grand winner of the 2025 Harvard International Economics Essay Competition, he hopes to use what he has learned to help younger students turn imagination into innovation. As a kid, Allen spent winters watching Shark Tank and summers running lemonade stands in his cul-de-sac. After discovering that 90% of K–8 schools in Naperville do not offer business classes, he co-founded BizBuzz with Aarav—alongside other EdTech platforms—to help students like him find their ideas and the courage to share them."
+                description="Allen is a junior at Naperville North HS interested in social innovation and finance. A three-time international finalist in entrepreneurship competitions like the Conrad Challenge & Blue Ocean Competition, and grand winner of the 2025 Harvard International Economics Essay Competition, he hopes to use what he has learned to help younger students turn imagination into innovation. As a kid, Allen spent winters watching Shark Tank and summers running lemonade stands in his cul-de-sac. After discovering that 90% of K–8 schools in Naperville do not offer business classes, he co-founded BizBuzz with Aarav—alongside other EdTech platforms—to help students like him find their ideas and the courage to share them."
                 large={true}
                 index={0}
               />
@@ -400,13 +400,13 @@ export default function AboutPage() {
           </div>
           
           {/* Executive Team */}
-          <div className="mb-20">
+          <div className="mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="mb-12"
+              className="mb-8"
             >
               <h3 className="text-2xl font-bold text-center text-black">
                 <span className="inline-block relative">
@@ -416,7 +416,7 @@ export default function AboutPage() {
               </h3>
             </motion.div>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
               <TeamMember
                 key={1}
                 image={`/team/Eddy.png`}
@@ -491,7 +491,7 @@ export default function AboutPage() {
                 image={`/team/Steven.jpg`}
                 name="Steven He"
                 role="2024 Executive Director"
-                description="Steven is a junior at Neuqua Valley HS interested in engineering and entrepreneurship. Growing up building legos and running his own YouTube channel, he’s excited to connect with students, help them explore their own creative ideas, and create projects bigger than themselves."
+                description="Steven is a junior at Neuqua Valley HS interested in engineering and entrepreneurship. Growing up building legos and running his own YouTube channel, he's excited to connect with students, help them explore their own creative ideas, and create projects bigger than themselves."
                 index={0}
               />
               <TeamMember
@@ -1092,37 +1092,72 @@ function TeamMember({
       viewport={{ once: true }}
       className="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-100 group hover:shadow-xl transition-all duration-300 h-full"
     >
-      <div className={`flex flex-col ${large ? 'md:flex-row' : ''}`}>
-        <div className={`relative ${large ? 'md:w-1/2 aspect-square md:aspect-auto min-h-[300px]' : 'aspect-square w-full'} overflow-hidden bg-slate-50`}>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#3AB6FF]/20 to-[#FFD700]/20 opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-10"></div>
-          
-          {/* Always have a beautiful placeholder */}
-          <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: generatePlaceholderColor() }}>
-            <div className="flex flex-col items-center justify-center w-full h-full">
-              <div className="text-5xl font-bold text-white opacity-70">{initials}</div>
-              <div className="text-sm text-white mt-2 opacity-60">{role}</div>
+      {large ? (
+        // Co-founders layout (horizontal)
+        <div className="flex flex-col md:flex-row h-full">
+          <div className="md:w-1/2 aspect-square md:aspect-auto relative overflow-hidden bg-slate-50">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#3AB6FF]/20 to-[#FFD700]/20 opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-10"></div>
+            
+            {/* Placeholder background */}
+            <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: generatePlaceholderColor() }}>
+              <div className="flex flex-col items-center justify-center w-full h-full">
+                <div className="text-5xl font-bold text-white opacity-70">{initials}</div>
+                <div className="text-sm text-white mt-2 opacity-60">{role}</div>
+              </div>
             </div>
+            
+            <Image 
+              src={image}
+              alt={name}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105 z-0"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={index < 2 || image === '/team/Eddy.png'}
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
           </div>
           
-          <Image 
-            src={image}
-            alt={name}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105 z-0"
-            sizes={large ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"}
-            priority={index < 2 || image === '/team/Eddy.png'}
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }}
-          />
+          <div className="p-4 md:p-5 md:w-1/2">
+            <h4 className="text-lg font-bold text-black mb-1">{name}</h4>
+            <p className="text-[#3AB6FF] text-xs font-medium mb-2">{role}</p>
+            <p className="text-black leading-relaxed text-xs md:text-sm">{description || "Coming soon"}</p>
+          </div>
         </div>
-        
-        <div className={`p-6 ${large ? 'md:w-1/2 md:p-8' : ''}`}>
-          <h4 className="text-xl font-bold text-black mb-1">{name}</h4>
-          <p className="text-[#3AB6FF] font-medium mb-4">{role}</p>
-          <p className="text-black leading-relaxed">{description || "Coming soon"}</p>
+      ) : (
+        // Executive team layout (vertical)
+        <div className="flex flex-col h-full">
+          <div className="aspect-square w-full relative overflow-hidden bg-slate-50">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#3AB6FF]/20 to-[#FFD700]/20 opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-10"></div>
+            
+            {/* Placeholder background */}
+            <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: generatePlaceholderColor() }}>
+              <div className="flex flex-col items-center justify-center w-full h-full">
+                <div className="text-5xl font-bold text-white opacity-70">{initials}</div>
+                <div className="text-sm text-white mt-2 opacity-60">{role}</div>
+              </div>
+            </div>
+            
+            <Image 
+              src={image}
+              alt={name}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105 z-0"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+          </div>
+          
+          <div className="p-4 flex-grow flex flex-col">
+            <h4 className="text-base font-bold text-black mb-1">{name}</h4>
+            <p className="text-[#3AB6FF] text-xs font-medium mb-2">{role}</p>
+            <p className="text-black text-xs">{description || "Coming soon"}</p>
+          </div>
         </div>
-      </div>
+      )}
     </motion.div>
   );
 }
@@ -1185,10 +1220,10 @@ function InstructorProfile({
         )}
       </div>
       
-      <div className="p-4 flex-grow flex flex-col">
-        <h4 className="font-bold text-black text-lg">{name}</h4>
-        <p className="text-[#3AB6FF] text-sm font-medium mb-2">{role}</p>
-        <p className="text-black text-sm">{description || "Coming soon"}</p>
+      <div className="p-3 flex-grow flex flex-col">
+        <h4 className="font-bold text-black text-sm">{name}</h4>
+        <p className="text-[#3AB6FF] text-xs font-medium mb-1">{role}</p>
+        <p className="text-black text-xs line-clamp-3">{description || "Coming soon"}</p>
       </div>
     </motion.div>
   );
