@@ -383,7 +383,7 @@ export default function AboutPage() {
                 image={`/team/Allen.png`}
                 name="Allen Xu"
                 role="Co-Founder"
-                description="Allen is a junior @ Naperville North HS interested in social innovation and finance. A four-time international finalist in business/economics competitions, he hopes to use what he has learned to help younger students turn imagination into innovation. When he was younger, Allen spent winters watching Shark Tank and summers running lemonade stands in his cul-de-sac. Upon learning that 90% of K–8 schools in Naperville do not offer any business classes, he co-founded BizBuzz with Aarav to help students like him find their ideas—and the courage to share them."
+                description="Allen is a junior at Naperville North HS interested in social innovation and finance. A three-time international finalist in entrepreneurship competitions like the Conrad Challenge & Blue OceanCompetition, and grand winner of the 2025 Harvard International Economics Essay Competition, he hopes to use what he has learned to help younger students turn imagination into innovation. As a kid, Allen spent winters watching Shark Tank and summers running lemonade stands in his cul-de-sac. After discovering that 90% of K–8 schools in Naperville do not offer business classes, he co-founded BizBuzz with Aarav—alongside other EdTech platforms—to help students like him find their ideas and the courage to share them."
                 large={true}
                 index={0}
               />
@@ -392,7 +392,7 @@ export default function AboutPage() {
                 image={`/team/Aarav.jpg`}
                 name="Aarav Khullar"
                 role="Co-Founder"
-                description="Aarav is a junior @ Naperville North HS with a passion for business and fostering youth entrepreneurship. Growing up watching Shark Tank with his dad, he always wanted to start a high-quality business but never had any opportunities or support to do so. Seeing this disparity–which hundreds of other young students in our community face–he co-founded BizBuzz with one of his best friends."
+                description="Aarav is a junior at Naperville North HS with a passion for business and fostering youth entrepreneurship. Growing up watching Shark Tank with his dad, he always dreamed of starting a high-quality business but never had any opportunities or support to do so. Seeing this same disparity affect hundreds of other young students in his community, he co-founded BizBuzz with one of his best friends, Allen, to give elementary & middle schoolers the kind of opportunity he never had. Now, as a startup founder himself, internationally awarded by the Walt Disney Company for his leadership, and named a Top 100 Emerging Innovator of 2025, Aarav hopes to translate the skills he's learned to empower the youth."
                 large={true}
                 index={1}
               />
@@ -410,7 +410,7 @@ export default function AboutPage() {
             >
               <h3 className="text-2xl font-bold text-center text-black">
                 <span className="inline-block relative">
-                  Executive Leaders
+                  Executive Team
                   <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#3AB6FF]"></div>
                 </span>
               </h3>
@@ -429,15 +429,15 @@ export default function AboutPage() {
                 key={2}
                 image={`/team/Arnav.jpg`}
                 name="Arnav Sharma"
-                role="CTO"
-                description="As Chief Technology Officer, Arnav oversees BizBuzz's digital presence and technical infrastructure. His expertise in web development and design has been crucial in creating an engaging online platform for students, parents, and community members."
+                role="CTO & Executive Team"
+                description="Arnav Sharma is a junior at Naperville North HS passionate about using technology and data science to create opportunities for young aspiring entrepreneurs. With his friends, he built Shadowed.me, a platform connecting 2.1K students to high school clubs and events, and decademy.app, a DECA study tool used by 650+ students that has generated $4.3K in revenue."
                 index={1}
               />
               <TeamMember
                 key={3}
-                image={`/team/Annabelle.jpg`}
-                name="Annabelle Cheng"
-                role="Executive Leader"
+                image={`/team/Aiden.jpg`}
+                name="Aiden Xie"
+                role="Executive Team"
                 description="Annabelle is a sophomore at Neuqua Valley High School who's strengths are music and math. She loves working with kids and is pumped to start teaching them how to get super rich!!!"
                 index={2}
               />
@@ -445,7 +445,7 @@ export default function AboutPage() {
                 key={4}
                 image={`/team/Beau.jpg`}
                 name="Beau Danso"
-                role="Executive Leader"
+                role="Executive Team"
                 description="Beau brings energy and creative thinking to the BizBuzz team. His innovative approaches to programming and student engagement help make our educational experiences both fun and impactful."
                 index={3}
               />
@@ -453,7 +453,7 @@ export default function AboutPage() {
                 key={5}
                 image={`/team/Abby.jpg`}
                 name="Abby May"
-                role="Executive Leader"
+                role="Executive Team"
                 description="Abby is a sophomore at Naperville North High School with a strong interest in business, leadership, and community impact. She's excited to work with other students and help them explore their own skills and passions."
                 index={4}
               />
@@ -461,7 +461,7 @@ export default function AboutPage() {
                 key={6}
                 image={`/team/Lakhi.jpg`}
                 name="Lakhi Thotakura"
-                role="Executive Leader"
+                role="Executive Team"
                 description="Lakhi is a sophomore at Naperville North who hopes to pursue public health or marketing. She can't wait to help students explore business and find their passion!"
                 index={5}
               />
@@ -479,7 +479,7 @@ export default function AboutPage() {
             >
               <h3 className="text-2xl font-bold text-center text-black">
                 <span className="inline-block relative">
-                  Past Executive Leaders
+                  Past Executive Directors
                   <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#3AB6FF] to-[#FFD700]"></div>
                 </span>
               </h3>
@@ -490,16 +490,16 @@ export default function AboutPage() {
                 key={1}
                 image={`/team/Steven.jpg`}
                 name="Steven He"
-                role="2024 Exec Director"
-                description="Steven is a junior @ Neuqua Valley HS interested in engineering and entrepreneurship. Growing up building legos, he's excited to connect with students and help them explore their own creative ideas."
+                role="2024 Executive Director"
+                description="Steven is a junior at Neuqua Valley HS interested in engineering and entrepreneurship. Growing up building legos and running his own YouTube channel, he’s excited to connect with students, help them explore their own creative ideas, and create projects bigger than themselves."
                 index={0}
               />
               <TeamMember
                 key={2}
                 image={`/team/Ansh.jpg`}
                 name="Ansh Shah"
-                role="Past Executive Leader"
-                description="Ansh is a graduating senior at Neuqua Valley that has a passion for engineering & management. He has always been involved in business–whether that's being involved in DECA or seeing his super rich uncle perform day to day operational tasks–and hopes to help students be as involved as him."
+                role="2024 Executive Director"
+                description="Ansh is a graduating senior at Neuqua Valley HS passionate about the intersection of STEM and entrepreneurship. He plans on studying mathematics, computer science, and economics in college and hopes to use his background to build tools that help make entrepreneurship more accessible for all."
                 index={1}
               />
             </div>
