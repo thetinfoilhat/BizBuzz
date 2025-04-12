@@ -446,7 +446,7 @@ export default function AboutPage() {
                 image={`/team/Beau.jpg`}
                 name="Beau Danso"
                 role="Executive Team"
-                description="Beau brings energy and creative thinking to the BizBuzz team. His innovative approaches to programming and student engagement help make our educational experiences both fun and impactful."
+                description="Beau brings energy and creative thinking to the BizBuzz team. Her innovative approaches to programming and student engagement help make our educational experiences both fun and impactful."
                 index={3}
               />
               <TeamMember
