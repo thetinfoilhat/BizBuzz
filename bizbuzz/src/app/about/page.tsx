@@ -250,15 +250,15 @@ export default function AboutPage() {
           
           {/* NCTV17 Interview */}
           <InterviewFeature 
-            title="NCTV17 Interview"
-            description="At Camp Session 5 and during the Fish Tank competition, BizBuzz had the honor of welcoming Jesus Cortez and the NCTV17 team to join us. They conducted interviews and helped share our story with the broader community, capturing the passion, creativity, and entrepreneurial spirit that defined this year's camp and competition."
+            title="Naperville Channel Television 17 Interview"
+            description="At Camp Session 5 and during the Fish Tank competition, BizBuzz had the honor of welcoming Jesus Cortez and the Naperville Channel Television 17 team to join us. They conducted interviews and helped share our story with the broader community, capturing the passion, creativity, and entrepreneurial spirit that defined this year's camp and competition."
             links={[
               {
                 text: "Naperville North Juniors Hold Youth Entrepreneurship Camp for Students",
                 url: "https://www.nctv17.org/news/naperville-north-juniors-hold-youth-entrepreneurship-camp-for-students/"
               }
             ]}
-            videoEmbedUrl="https://www.youtube.com/embed/TmrK8-sFFkA"
+            videoEmbedUrl="https://www.youtube.com/embed/TmrK8-sFFkA?si=me3a8za4ccfFF4Yq"
             imagePosition="right"
             index={0}
           />
@@ -381,18 +381,22 @@ function MissionParagraph({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: animationDelay }}
       viewport={{ once: true }}
-      className={`relative rounded-lg p-5 ${
+      className={`relative rounded-2xl p-7 shadow-lg border ${
         highlight 
-          ? 'bg-gradient-to-r from-[#0c1d3d]/10 via-[#FFD700]/10 to-[#0c1d3d]/10' 
-          : ''
+          ? 'bg-gradient-to-r from-[#0c1d3d]/10 via-[#FFD700]/15 to-[#0c1d3d]/10 border-[#FFD700]/30' 
+          : 'bg-white/80 backdrop-blur-sm border-[#3AB6FF]/20'
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      style={{
+        borderRadius: highlight ? '2rem' : '1.5rem',
+        transform: highlight ? 'scale(1.02)' : 'scale(1)',
+      }}
     >
       <div className="relative z-10">
-        <p className={`text-lg leading-relaxed transition-all duration-500 ${
+        <p className={`leading-relaxed transition-all duration-500 ${
           isHovered ? 'text-[#3AB6FF]' : 'text-black'
-        } ${highlight ? 'text-xl font-medium' : ''}`}>
+        } ${highlight ? 'text-xl font-medium' : 'text-lg'}`}>
           {children}
         </p>
       </div>
@@ -430,7 +434,7 @@ function MissionParagraph({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FFD700]/10 to-transparent -z-0 rounded-lg"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FFD700]/10 to-transparent -z-0 rounded-2xl"
           />
           
           <motion.div
@@ -444,9 +448,17 @@ function MissionParagraph({
               repeat: Infinity,
               repeatType: "loop"
             }}
-            className="absolute inset-0 bg-[#FFD700]/5 -z-0 rounded-lg"
+            className="absolute inset-0 bg-[#FFD700]/5 -z-0 rounded-2xl"
           />
         </>
+      )}
+
+      {/* Decorative elements for non-hovered state */}
+      {highlight && (
+        <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-[#FFD700]/10 rounded-full -z-10"></div>
+      )}
+      {!highlight && (
+        <div className="absolute -top-3 -left-3 w-12 h-12 bg-[#3AB6FF]/10 rounded-full -z-10"></div>
       )}
     </motion.div>
   );
@@ -542,26 +554,22 @@ function InterviewFeature({
         )}
       </div>
       
-      <div className="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-xl">
-        {videoEmbedUrl && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: contentDelay + 0.1 }}
-            viewport={{ once: true }}
-            className="aspect-video relative border-4 border-white shadow-lg rounded-lg overflow-hidden bg-black"
-          >
-            <iframe
-              src={videoEmbedUrl}
-              title={title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            ></iframe>
-          </motion.div>
-        )}
-        
-        {images && (
+      <div className="w-full lg:w-1/2">
+        {videoEmbedUrl ? (
+          <div className="rounded-xl shadow-2xl overflow-hidden border-4 border-white">
+            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+              <iframe 
+                src="https://www.youtube.com/embed/TmrK8-sFFkA?si=me3a8za4ccfFF4Yq" 
+                title="Naperville North Juniors Hold Youth Entrepreneurship Camp" 
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className="h-1 bg-[#3AB6FF] w-full"></div>
+          </div>
+        ) : images && (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
