@@ -389,12 +389,13 @@ export default function AboutPage() {
               />
               <TeamMember
                 key={2}
-                image={`/team/Aarav.jpg`}
+                image={`/team/Aarav.png`}
                 name="Aarav Khullar"
                 role="Co-Founder"
                 description="Aarav is a junior at Naperville North HS with a passion for business and fostering youth entrepreneurship. Growing up watching Shark Tank with his dad, he always dreamed of starting a high-quality business but never had any opportunities or support to do so. Seeing this same disparity affect hundreds of other young students in his community, he co-founded BizBuzz with one of his best friends, Allen, to give elementary & middle schoolers the kind of opportunity he never had. Now, as a startup founder himself, internationally awarded by the Walt Disney Company for his leadership, and named a Top 100 Emerging Innovator of 2025, Aarav hopes to translate the skills he's learned to empower the youth."
                 large={true}
                 index={1}
+                customPosition="40% center"
               />
             </div>
           </div>
@@ -642,10 +643,10 @@ export default function AboutPage() {
               />
               <InstructorProfile
                 key={5}
-                image={`/team/Taskh.jpg`}
-                name="Taskh Taware"
+                image={`/team/Taksh.jpg`}
+                name="Taksh Taware"
                 role="Instructor"
-                description="Taskh is excited to help students develop their business skills and innovation mindset through BizBuzz's hands-on learning approach."
+                description="Taksh is excited to help students develop their business skills and innovation mindset through BizBuzz's hands-on learning approach."
                 index={4}
               />
               <InstructorProfile
@@ -703,7 +704,7 @@ export default function AboutPage() {
           <div className="mt-16 text-center text-sm text-gray-500">
             <p>Note: Add team member photos to the /public/team/ directory using the following naming convention:</p>
             <ul className="mt-2 space-y-1">
-              <li>Co-founders: Allen.png, Aarav.jpg (existing)</li>
+              <li>Co-founders: Allen.png, Aarav.png (existing)</li>
               <li>Executive Leaders: Eddy.png (existing), Arnav.jpg, Annabelle.jpg, Beau.jpg, Abby.jpg, Lakhi.jpg</li>
               <li>Past Leaders: Steven.jpg, Ansh.jpg</li>
               <li>Senior Instructors: Ankita.jpg, Wes.jpg, Ben.jpg, Colin.jpg, Sanj.jpg, Zahra.jpg, Shyam.jpg, Max.jpg</li>
@@ -1067,14 +1068,18 @@ function TeamMember({
   role, 
   description, 
   large = false, 
-  index = 0 
+  index = 0,
+  imagePosition = 'center',
+  customPosition = ''
 }: { 
   image: string, 
   name: string, 
   role: string, 
   description: string, 
   large?: boolean, 
-  index: number 
+  index: number,
+  imagePosition?: 'center' | 'right' | 'left',
+  customPosition?: string
 }) {
   // Generate a consistent color based on name
   const generatePlaceholderColor = () => {
@@ -1083,6 +1088,14 @@ function TeamMember({
   };
   
   const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
+
+  // Helper function to determine the object-position value
+  const getObjectPosition = () => {
+    if (customPosition) return customPosition;
+    if (imagePosition === 'right') return 'right center';
+    if (imagePosition === 'left') return 'left center';
+    return 'center'; // default
+  };
 
   return (
     <motion.div 
@@ -1116,6 +1129,9 @@ function TeamMember({
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
               }}
+              style={{ 
+                objectPosition: getObjectPosition()
+              }}
             />
           </div>
           
@@ -1147,6 +1163,9 @@ function TeamMember({
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
+              }}
+              style={{ 
+                objectPosition: getObjectPosition()
               }}
             />
           </div>
