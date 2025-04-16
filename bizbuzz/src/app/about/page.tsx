@@ -431,7 +431,7 @@ export default function AboutPage() {
                 image={`/team/Arnav.jpg`}
                 name="Arnav Sharma"
                 role="CTO & Executive Team"
-                description="Arnav Sharma is a junior at Naperville North HS passionate about using technology and data science to create opportunities for young aspiring entrepreneurs. With his friends, he built Shadowed.me, a platform connecting 2.1K students to high school clubs and events, and decademy.app, a DECA study tool used by 650+ students that has generated $4.3K in revenue."
+                description="Arnav Sharma is a junior at Naperville North HS passionate about using technology and data science to create opportunities for young aspiring entrepreneurs. With his friends, he built Shadowed.me, a platform connecting 2.1K students to high school clubs and events, and decademy.app, a DECA study tool used by 1000+ students that has generated $5.1K in revenue."
                 index={1}
               />
               <TeamMember
