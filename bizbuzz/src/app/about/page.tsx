@@ -382,7 +382,7 @@ export default function AboutPage() {
                 key={1}
                 image={`/team/Allen.png`}
                 name="Allen Xu"
-                role="Co-Founder"
+                role="Co-Founder & Owner"
                 description="Allen is a junior at Naperville North HS interested in social innovation and finance. A three-time international finalist in entrepreneurship competitions like the Conrad Challenge & Blue Ocean Competition, and grand winner of the 2025 Harvard International Economics Essay Competition, he hopes to use what he has learned to help younger students turn imagination into innovation. As a kid, Allen spent winters watching Shark Tank and summers running lemonade stands in his cul-de-sac. After discovering that 90% of K–8 schools in Naperville do not offer business classes, he co-founded BizBuzz with Aarav—alongside other EdTech platforms—to help students like him find their ideas and the courage to share them."
                 large={true}
                 index={0}
