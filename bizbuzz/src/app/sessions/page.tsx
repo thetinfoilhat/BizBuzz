@@ -471,7 +471,7 @@ const OneOnOneSessions = () => {
                       </div>
                       <div>
                         <h4 className="text-white font-semibold">Need Assistance?</h4>
-                        <p className="text-white/80 text-sm">Email us at info@bizbuzznfp.org</p>
+                        <p className="text-white/80 text-sm">Email us at bizbuzznfp@gmail.com</p>
                       </div>
                     </div>
                   </div>

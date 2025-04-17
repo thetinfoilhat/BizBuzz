@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const squareData = [
   { id: 1, src: "/hero_imgs/1.jpg" },
@@ -98,9 +99,9 @@ const ShuffleHero = () => {
           via social entrepreneurship
         </p>
         <div className="flex gap-4 items-center">
-          <button className="bg-[#003166] text-white font-semibold py-4 px-8 rounded-2xl text-lg transition-all hover:bg-[#00254d] hover:scale-105 active:scale-95 shadow-lg hover:shadow-blue-200">
+          <Link href="/camps" className="bg-[#003166] text-white font-semibold py-4 px-8 rounded-2xl text-lg transition-all hover:bg-[#00254d] hover:scale-105 active:scale-95 shadow-lg hover:shadow-blue-200">
             Learn More
-          </button>
+          </Link>
           <a href="#programs" className="text-[#4B5563] hover:text-[#38b6ff] font-medium text-lg transition-colors">
             View Programs →
           </a>

@@ -221,11 +221,6 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
     }
   };
 
-  // Different color treatment based on session number for variation
-  const headerColorClass = index % 2 === 0 
-    ? 'from-[#38b6ff]/10 to-white' 
-    : 'from-[#8dcfec]/10 to-white';
-
   return (
     <motion.div
       id={session.id}
@@ -245,7 +240,7 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
       className="mb-24 overflow-hidden"
     >
       {/* Session Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center gap-5 mb-6">
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-5 mb-3">
         <div 
           className="w-16 h-16 rounded-full flex items-center justify-center mr-5 text-white font-bold text-xl shadow-lg relative overflow-hidden"
           style={{ backgroundColor: session.color }}
@@ -279,10 +274,7 @@ const SessionCard = ({ session, index }: { session: typeof sessions[0], index: n
       
       {/* Session Main Content Card */}
       <div className="rounded-2xl overflow-hidden bg-white shadow-lg border border-[#B8e2f4]/30">
-        <div className={`py-6 px-8 bg-gradient-to-r ${headerColorClass}`}>
-      </div>
-      
-      {/* Session Content */}
+        {/* Session Content */}
         <div className="p-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Left Column - Description and Images */}
@@ -373,6 +365,27 @@ const SpeakerCard = ({
   color: string;
   title: string;
 }) => {
+  // Create a proper background color based on color to ensure contrast
+  const getQuoteStyles = () => {
+    // Color mapping for better contrast based on the session color
+    const colorMapping: Record<string, { bg: string; text: string }> = {
+      "#B8e2f4": { bg: "#B8e2f4", text: "#040037" },      // Light blue with dark blue text
+      "#8dcfec": { bg: "#8dcfec", text: "#040037" },      // Medium light blue with dark blue text
+      "#38b6ff": { bg: "#38b6ff", text: "white" },        // Medium blue with white text
+      "#235284": { bg: "#235284", text: "white" },        // Medium dark blue with white text
+      "#003166": { bg: "#003166", text: "white" },        // Dark blue with white text
+      "#040037": { bg: "#040037", text: "white" }         // Very dark blue with white text
+    };
+
+    // Use the mapped color or fallback to the original color with proper contrast
+    return colorMapping[color] || { 
+      bg: color,
+      text: ["#040037", "#003166", "#235284"].includes(color) ? "white" : "#040037"
+    };
+  };
+
+  const quoteStyles = getQuoteStyles();
+
   return (
     <div className="rounded-xl overflow-hidden shadow-lg bg-white border border-[#B8e2f4]/30 flex flex-col w-full relative h-full">
                 <div className="absolute -inset-1 bg-gradient-to-r rounded-xl blur-xl opacity-30 -z-10" 
@@ -400,7 +413,10 @@ const SpeakerCard = ({
           
           <div 
             className="inline-block px-4 py-2 rounded-full text-sm mb-4"
-            style={{ backgroundColor: `${color}20`, color: color === "#040037" ? "#38b6ff" : color }}
+            style={{ 
+              backgroundColor: quoteStyles.bg,
+              color: quoteStyles.text
+            }}
           >
             &ldquo;{speaker.topic}&rdquo;
                     </div>
@@ -419,37 +435,37 @@ export default function CampPage() {
     <div className="min-h-screen bg-gradient-to-b from-white to-[#f0f7ff]">
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-[#040037] via-[#003166] to-[#235284] overflow-hidden">
-        {/* Better positioned gear designs in background */}
-        <div className="absolute top-20 right-20 w-96 h-96 opacity-10">
+        {/* Smaller and more subtle gear designs in background */}
+        <div className="absolute top-24 right-24 w-60 h-60 opacity-5">
           <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M464 192l-33.5-5.5c-1.4-4.9-2.9-9.6-4.7-14.3l19.8-27.8-32-32-27.8 19.8c-4.7-1.8-9.4-3.3-14.3-4.7L366 96h-44l-5.5 33.5c-4.9 1.4-9.6 2.9-14.3 4.7l-27.8-19.8-32 32 19.8 27.8c-1.8 4.7-3.3 9.4-4.7 14.3L224 192v44l33.5 5.5c1.4 4.9 2.9 9.6 4.7 14.3l-19.8 27.8 32 32 27.8-19.8c4.7 1.8 9.4 3.3 14.3 4.7L322 336h44l5.5-33.5c4.9-1.4 9.6-2.9 14.3-4.7l27.8 19.8 32-32-19.8-27.8c1.8-4.7 3.3-9.4 4.7-14.3L464 236v-44zM288 256c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z" />
           </svg>
         </div>
         
-        <div className="absolute top-40 right-40 w-56 h-56 opacity-8 animate-spin-slow">
+        <div className="absolute top-48 right-48 w-40 h-40 opacity-5 animate-spin-slow">
           <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M288 256c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm-144 36v44l33.5 5.5c1.4 4.9 2.9 9.6 4.7 14.3l-19.8 27.8 32 32 27.8-19.8c4.7 1.8 9.4 3.3 14.3 4.7L252 432h44l5.5-33.5c4.9-1.4 9.6-2.9 14.3-4.7l27.8 19.8 32-32-19.8-27.8c1.8-4.7 3.3-9.4 4.7-14.3L394 334v-44l-33.5-5.5c-1.4-4.9-2.9-9.6-4.7-14.3l19.8-27.8-32-32-27.8 19.8c-4.7-1.8-9.4-3.3-14.3-4.7L296 192h-44l-5.5 33.5c-4.9 1.4-9.6 2.9-14.3 4.7l-27.8-19.8-32 32 19.8 27.8c-1.8 4.7-3.3 9.4-4.7 14.3L144 292z" />
           </svg>
         </div>
         
-        <div className="absolute bottom-40 left-20 w-80 h-80 opacity-12">
+        <div className="absolute bottom-48 left-24 w-48 h-48 opacity-5">
           <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M501.1 395.7L384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.6c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.7zM331.7 225c28.3 0 54.9 11 74.9 31l19.4 19.4c15.8-6.9 30.8-16.5 43.8-29.5 37.1-37.1 49.7-89.3 37.9-136.7-2.2-9-13.5-12.1-20.1-5.5l-74.4 74.4-67.9-11.3L334 98.9l74.4-74.4c6.6-6.6 3.4-17.9-5.7-20.2-47.4-11.7-99.6.9-136.6 37.9-28.5 28.5-41.9 66.1-41.2 103.6l82.1 82.1c8.1-1.9 16.5-2.9 24.7-2.9z" />
           </svg>
         </div>
         
-        {/* Improved background elements */}
+        {/* More subtle background elements */}
         <div className="absolute inset-0 overflow-hidden z-0">
-          <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#38b6ff]/10 to-transparent"></div>
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#38b6ff]/15 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#8dcfec]/15 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-[#38b6ff]/5 to-transparent"></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#38b6ff]/8 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#8dcfec]/8 rounded-full blur-3xl"></div>
           
-          {/* Enhanced grid pattern overlay with better opacity */}
-          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-4"></div>
+          {/* More subtle grid pattern overlay */}
+          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-3"></div>
           
           {/* Improved wave decoration at bottom */}
-          <svg className="absolute bottom-0 w-full text-[#f0f7ff]" preserveAspectRatio="none" viewBox="0 0 1440 74" fill="currentColor">
-            <path d="M0,42.9L48,53.2C96,64,192,85,288,74.1C384,64,480,21,576,21.3C672,21,768,64,864,74.1C960,85,1056,64,1152,53.3C1248,43,1344,43,1392,42.7L1440,43L1440,74L1392,74C1344,74,1248,74,1152,74C1056,74,960,74,864,74C768,74,672,74,576,74C480,74,384,74,288,74C192,74,96,74,48,74L0,74Z"></path>
+          <svg className="absolute bottom-0 w-full text-[#f0f7ff]" preserveAspectRatio="none" viewBox="0 0 1440 60" fill="currentColor">
+            <path d="M0,32L48,37.3C96,43,192,53,288,48C384,43,480,27,576,21.3C672,16,768,21,864,26.7C960,32,1056,37,1152,37.3C1248,37,1344,32,1392,29.3L1440,27L1440,60L1392,60C1344,60,1248,60,1152,60C1056,60,960,60,864,60C768,60,672,60,576,60C480,60,384,60,288,60C192,60,96,60,48,60L0,60Z"></path>
           </svg>
         </div>
         
@@ -472,7 +488,7 @@ export default function CampPage() {
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B8e2f4] via-[#38b6ff] to-[#8dcfec] drop-shadow-sm">
                   Camp
-              </span>
+                </span>
               </h1>
               
               <p className="text-2xl text-[#B8e2f4] font-light mb-12 max-w-2xl leading-relaxed">
@@ -493,7 +509,7 @@ export default function CampPage() {
                 </Link>
                 
                 <Link
-                  href="mailto:info@bizbuzznfp.org" 
+                  href="https://tinyurl.com/bizbuzz2025" 
                   className="text-white bg-[#003166]/30 border border-[#8dcfec]/40 hover:bg-[#003166]/50 font-medium py-4 px-8 rounded-lg text-xl transition-all inline-flex items-center hover:shadow-lg hover:shadow-[#003166]/20"
                 >
                   Register Now →
@@ -510,37 +526,23 @@ export default function CampPage() {
               </div>
             </motion.div>
             
-            {/* Right content - Enhanced Images */}
+            {/* Right content - Dynamic diagonal layout */}
             <motion.div
-              className="lg:col-span-6 relative pl-28"
+              className="lg:col-span-6 relative"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <div className="relative h-[750px] w-full overflow-visible">
-                {/* Main center image - Enhanced with better shadows and effects */}
-                <motion.div 
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[380px] h-[400px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(8,112,184,0.3)] z-30 border-4 border-white"
-                  initial={{ scale: 0.9, y: 20 }}
-                  animate={{ scale: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                  <Image
-                    src="/camp_imgs/landing/center.jpg"
-                    alt="Student presentation"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#040037]/30 to-transparent"></div>
-                </motion.div>
+              <div className="relative h-[580px] w-full overflow-visible">
+                {/* Dynamic diagonal image arrangement */}
                 
-                {/* Floating images with enhanced styling */}
+                {/* Left image - larger size */}
                 <motion.div 
-                  className="absolute top-0 -left-10 w-[250px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-10 border-4 border-white"
-                  initial={{ x: -30, y: -30, rotate: -12 }}
-                  animate={{ x: 0, y: 0, rotate: -12 }}
+                  className="absolute top-[160px] left-[10px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
+                  initial={{ x: -30, y: 0, rotate: -8 }}
+                  animate={{ x: 0, y: 0, rotate: -8 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
+                  whileHover={{ scale: 1.03, rotate: -6, transition: { duration: 0.3 } }}
                 >
                   <Image
                     src="/camp_imgs/landing/left.jpg"
@@ -549,14 +551,34 @@ export default function CampPage() {
                     className="object-cover"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#040037]/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#040037]/25 to-transparent"></div>
                 </motion.div>
                 
+                {/* Top right image - larger size */}
                 <motion.div 
-                  className="absolute bottom-0 -right-20 w-[250px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white"
-                  initial={{ x: 30, y: 30, rotate: 12 }}
-                  animate={{ x: 0, y: 0, rotate: 12 }}
+                  className="absolute top-[-20px] right-[-20px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-[0_15px_50px_rgba(8,112,184,0.25)] z-30 border-[3px] border-white"
+                  initial={{ scale: 0.92, y: 10 }}
+                  animate={{ scale: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
+                >
+                  <Image
+                    src="/camp_imgs/landing/center.jpg"
+                    alt="Student presentation"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#040037]/25 to-transparent"></div>
+                </motion.div>
+                
+                {/* Bottom right image - larger size */}
+                <motion.div 
+                  className="absolute bottom-[10px] right-[60px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
+                  initial={{ x: 30, y: 0, rotate: 8 }}
+                  animate={{ x: 0, y: 0, rotate: 8 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
+                  whileHover={{ scale: 1.03, rotate: 6, transition: { duration: 0.3 } }}
                 >
                   <Image
                     src="/camp_imgs/landing/right.jpg"
@@ -565,14 +587,12 @@ export default function CampPage() {
                     className="object-cover"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#040037]/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#040037]/25 to-transparent"></div>
                 </motion.div>
                 
-                {/* Decorative elements */}
-                <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#38b6ff]/20 to-[#8dcfec]/20 blur-2xl"></div>
-                <div className="absolute bottom-1/3 left-1/3 w-56 h-56 rounded-full bg-gradient-to-r from-[#B8e2f4]/20 to-[#38b6ff]/20 blur-xl"></div>
-                <div className="absolute top-1/2 -left-1/4 w-72 h-72 rounded-full bg-gradient-to-r from-[#003166]/15 to-[#38b6ff]/15 blur-3xl"></div>
-                <div className="absolute bottom-1/4 -right-1/4 w-80 h-80 rounded-full bg-gradient-to-r from-[#003166]/10 to-[#38b6ff]/10 blur-3xl"></div>
+                {/* Enhanced decorative elements */}
+                <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#38b6ff]/10 to-[#8dcfec]/10 blur-3xl"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-56 h-56 rounded-full bg-gradient-to-r from-[#B8e2f4]/10 to-[#38b6ff]/10 blur-2xl"></div>
               </div>
             </motion.div>
           </div>
@@ -609,7 +629,7 @@ export default function CampPage() {
                   <path d="M436 160c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20zm-68 304H48V48h320v416zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2z" />
                 </svg>
               </div>
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#003166] to-[#38b6ff] mb-4">105+</div>
+              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#003166] to-[#38b6ff] mb-4">110</div>
               <div className="text-[#003166] font-medium text-lg">Students Taught</div>
             </div>
           </div>
@@ -629,21 +649,30 @@ export default function CampPage() {
         {/* Session Navigation */}
         <div className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            {sessions.map((session, index) => (
-              <a
-                key={session.id}
-                href={`#${session.id}`}
-                className="py-1.5 px-3 rounded-full text-center transition-all hover:-translate-y-1 hover:shadow-md flex flex-col items-center justify-center border"
-                style={{ 
-                  backgroundColor: `${session.color}25`,
-                  borderColor: `${session.color}50`,
-                  color: session.color === "#040037" || session.color === "#003166" || session.color === "#235284" ? session.color : "#003166" 
-                }}
-              >
-                <span className="font-bold text-sm">Week {index + 1}</span>
-                <span className="text-xs">{session.title.split(' ')[0]}</span>
-              </a>
-            ))}
+            {sessions.map((session, index) => {
+              return (
+                <a
+                  key={session.id}
+                  href={`#${session.id}`}
+                  className="py-1.5 px-3 rounded-full text-center transition-all hover:-translate-y-1 hover:shadow-md flex flex-col items-center justify-center border"
+                  style={{ 
+                    backgroundColor: `${session.color}25`,
+                    borderColor: `${session.color}50`,
+                    color: session.color === "#040037" || session.color === "#003166" || session.color === "#235284" ? session.color : "#003166" 
+                  }}
+                >
+                  <span className="font-bold text-sm">Week {index + 1}</span>
+                  <span className="text-xs">
+                    {index === 0 ? "Ideation & Innovation" :
+                     index === 1 ? "Unique Value Proposition & Networking" :
+                     index === 2 ? "Marketing" :
+                     index === 3 ? "Public Speaking" :
+                     index === 4 ? "Finance" :
+                     "Pitching"}
+                  </span>
+                </a>
+              );
+            })}
           </div>
         </div>
         

@@ -20,14 +20,14 @@ const Footer = () => {
           <div className="flex flex-col items-center">
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-              <Link href="/dashboard" className="text-gray-400 hover:text-white transition-colors">
-                Dashboard
+              <Link href="/" className="text-gray-400 hover:text-white transition-colors">
+                Home
               </Link>
-              <Link href="/practice" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="/fishtank" className="text-gray-400 hover:text-white transition-colors">
                 Fish Tank
               </Link>
-              <Link href="/bootcamps" className="text-gray-400 hover:text-white transition-colors">
-                Bootcamps
+              <Link href="/camps" className="text-gray-400 hover:text-white transition-colors">
+                Camps
               </Link>
               <Link href="/workshops" className="text-gray-400 hover:text-white transition-colors">
                 Workshops
