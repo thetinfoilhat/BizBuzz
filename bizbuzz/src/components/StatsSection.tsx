@@ -145,7 +145,7 @@ const StatsSection = () => {
             color="#E69F16"
           />
           <StatItem 
-            value={6267} 
+            value={5267} 
             label="Dollars Raised"
             prefix="$"
             imageSrc="/stats/money.jpg"
