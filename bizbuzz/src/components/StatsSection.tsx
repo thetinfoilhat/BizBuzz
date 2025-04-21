@@ -133,7 +133,7 @@ const StatsSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           <StatItem 
-            value={805} 
+            value={753} 
             label="Students"
             imageSrc="/stats/students.jpg"
             color="#FFBF00"
@@ -145,7 +145,7 @@ const StatsSection = () => {
             color="#E69F16"
           />
           <StatItem 
-            value={10698} 
+            value={5267} 
             label="Dollars Raised"
             prefix="$"
             imageSrc="/stats/money.jpg"
