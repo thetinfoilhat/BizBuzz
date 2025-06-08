@@ -349,7 +349,7 @@ export default function FishTankPage() {
                 className="grid grid-cols-3 gap-6 mb-12"
               >
                 <motion.div variants={fadeIn} className="bg-[#003166]/40 backdrop-blur-sm rounded-xl py-6 px-3 text-center border border-white/10">
-                  <div className="text-4xl font-bold text-[#FFD700]">130+</div>
+                  <div className="text-4xl font-bold text-[#FFD700]">100+</div>
                   <div className="text-sm text-white">Competitors</div>
                 </motion.div>
                 
