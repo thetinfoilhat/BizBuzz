@@ -10,8 +10,28 @@ const OneOnOneSessions = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(e.target as HTMLFormElement);
+    const firstName = formData.get('first_name');
+    const lastName = formData.get('last_name');
+    const email = formData.get('email');
+    const message = formData.get('concerns');
+    
+    // Create email content
+    const subject = encodeURIComponent('BizBuzz Question/Contact Form Submission');
+    const body = encodeURIComponent(`
+Name: ${firstName} ${lastName}
+Email: ${email}
+
+Message:
+${message}
+    `);
+    
+    // Open default email client
+    window.location.href = `mailto:bizbuzznfp@gmail.com?subject=${subject}&body=${body}`;
+    
     setFormSubmitted(true);
-    // In a real app, you would send the form data to the server here
   };
 
   return (
@@ -456,10 +476,25 @@ const OneOnOneSessions = () => {
                     <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm mb-6">
                       <span className="text-sm font-medium text-white">Contact Us</span>
                     </div>
-                    <h3 className="text-4xl font-bold text-white mb-4">Book Your Session</h3>
+                    <h3 className="text-4xl font-bold text-white mb-4">Questions Contact Us</h3>
                     <p className="text-lg text-white/90 mb-8">
-                      Fill out this form to request a 1:1 session with one of our expert mentors. We&apos;ll match you with the perfect mentor for your entrepreneurial journey.
+                      Have questions about our programs or want to get in touch? Fill out this form and we&apos;ll get back to you promptly via email.
                     </p>
+                    
+                    {/* Next Available Session Bubble */}
+                    <div className="bg-[#FFD700]/20 backdrop-blur-sm rounded-xl p-6 border border-[#FFD700]/30 mb-8">
+                      <div className="flex items-center mb-3">
+                        <div className="h-8 w-8 rounded-full bg-[#FFD700]/30 flex items-center justify-center mr-3">
+                          <svg className="h-4 w-4 text-[#FFD700]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <h4 className="text-white font-semibold">Upcoming Sessions</h4>
+                      </div>
+                      <p className="text-white/90 text-sm">
+                        Wednesday at 4:00pm at 95th Street Library
+                      </p>
+                    </div>
                   </div>
                   
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
@@ -481,9 +516,9 @@ const OneOnOneSessions = () => {
               {/* Right side: Form */}
               <div className="md:col-span-7 p-8 md:p-10">
                 <div className="mb-8 md:hidden">
-                  <h3 className="text-3xl font-bold text-[#0f172a] mb-3">Book Your Session</h3>
+                  <h3 className="text-3xl font-bold text-[#0f172a] mb-3">Questions Contact Us</h3>
                   <p className="text-[#334155]">
-                    Fill out this form to request a 1:1 session with one of our expert mentors.
+                    Have questions about our programs or want to get in touch? Fill out this form and we&apos;ll get back to you promptly.
                   </p>
                 </div>
                 
@@ -495,6 +530,7 @@ const OneOnOneSessions = () => {
                         <input 
                           type="text" 
                           id="first_name" 
+                          name="first_name"
                           className="bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a] rounded-lg focus:ring-[#003166] focus:border-[#003166] block w-full p-3 shadow-sm transition-all" 
                           placeholder="John" 
                           required 
@@ -505,6 +541,7 @@ const OneOnOneSessions = () => {
                         <input 
                           type="text" 
                           id="last_name" 
+                          name="last_name"
                           className="bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a] rounded-lg focus:ring-[#003166] focus:border-[#003166] block w-full p-3 shadow-sm transition-all" 
                           placeholder="Doe" 
                           required 
@@ -517,6 +554,7 @@ const OneOnOneSessions = () => {
                       <input 
                         type="email" 
                         id="email" 
+                        name="email"
                         className="bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a] rounded-lg focus:ring-[#003166] focus:border-[#003166] block w-full p-3 shadow-sm transition-all" 
                         placeholder="john.doe@example.com" 
                         required 
@@ -524,20 +562,21 @@ const OneOnOneSessions = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="school" className="block text-[#0f172a] font-medium text-sm">School</label>
-                      <input 
-                        type="text" 
-                        id="school" 
-                        className="bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a] rounded-lg focus:ring-[#003166] focus:border-[#003166] block w-full p-3 shadow-sm transition-all" 
-                        placeholder="Naperville Central High School" 
-                        required 
-                      />
+                      <label htmlFor="group_session_info" className="block text-[#0f172a] font-medium text-sm">Group Session Information</label>
+                      <textarea 
+                        id="group_session_info" 
+                        rows={2}
+                        className="bg-[#f8fafc] border border-[#e2e8f0] text-[#334155] rounded-lg block w-full p-3 shadow-sm cursor-default" 
+                        value="The next group session is Wednesday at 4:00pm at 95th Street Library. Please email if you plan on attending."
+                        readOnly
+                      ></textarea>
                     </div>
 
                     <div className="space-y-2">
                       <label htmlFor="concerns" className="block text-[#0f172a] font-medium text-sm">Questions or concerns</label>
                       <textarea 
                         id="concerns" 
+                        name="concerns"
                         rows={3}
                         className="bg-[#f8fafc] border border-[#e2e8f0] text-[#0f172a] rounded-lg focus:ring-[#003166] focus:border-[#003166] block w-full p-3 shadow-sm transition-all" 
                         placeholder="Any questions or concerns you'd like us to address" 
@@ -549,14 +588,14 @@ const OneOnOneSessions = () => {
                         type="submit" 
                         className="w-full bg-[#003166] text-white font-semibold py-3 px-4 rounded-lg transition-all hover:bg-[#004080] hover:shadow-lg hover:shadow-[#003166]/20 active:scale-98 flex items-center justify-center"
                       >
-                        <span>Request Your Session</span>
+                        <span>Send Message</span>
                         <svg className="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                       </button>
                       
                       <p className="text-sm text-[#64748b] text-center mt-4">
-                        We&apos;ll get back to you within 48 hours to schedule your session
+                        We&apos;ll get back to you within 48 hours via email
                       </p>
                     </div>
                   </form>
@@ -567,9 +606,9 @@ const OneOnOneSessions = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold text-[#0f172a] mb-4">Request Submitted!</h3>
+                    <h3 className="text-2xl font-bold text-[#0f172a] mb-4">Message Sent!</h3>
                     <p className="text-[#334155] mb-8 max-w-lg mx-auto">
-                      Thank you for your interest in our 1:1 sessions. We&apos;ll get back to you within 48 hours to schedule your session.
+                      Thank you for reaching out to us! We&apos;ve received your message and will get back to you within 48 hours via email.
                     </p>
                     <button
                       onClick={() => setFormSubmitted(false)}
@@ -578,7 +617,7 @@ const OneOnOneSessions = () => {
                       <svg className="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                       </svg>
-                      Submit Another Request
+                      Send Another Message
                     </button>
                   </div>
                 )}
