@@ -337,7 +337,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Team Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-16 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-full h-32 bg-gradient-to-b from-[#f9fafb] to-transparent"></div>
         
         {/* Background decorations */}
@@ -345,31 +345,31 @@ export default function AboutPage() {
         <div className="absolute top-40 left-20 w-64 h-64 rounded-full bg-[#3AB6FF]/5 blur-3xl"></div>
         <div className="absolute bottom-40 right-20 w-96 h-96 rounded-full bg-[#FFD700]/5 blur-3xl"></div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center mb-20"
+            className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">Our Team</h2>
-            <p className="text-lg text-black max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-black max-w-4xl mx-auto">
               BizBuzz is powered by a dedicated team of student leaders, entrepreneurs, and educators
               committed to fostering the next generation of business innovators.
             </p>
           </motion.div>
           
           {/* Co-Founders */}
-          <div className="mb-16">
+          <div className="mb-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="mb-8"
+              className="mb-12"
             >
-              <h3 className="text-2xl font-bold text-center text-black">
+              <h3 className="text-3xl font-bold text-center text-black">
                 <span className="inline-block relative">
                   Co-Founders
                   <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#FFD700]"></div>
@@ -377,12 +377,12 @@ export default function AboutPage() {
               </h3>
             </motion.div>
             
-            <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
               <TeamMember
                 key={1}
                 image={`/team/Allen.png`}
                 name="Allen Xu"
-                role="Co-Founder (CFO) & NFP Owner"
+                role="President & Co-Founder"
                 description="Allen is a junior at Naperville North HS interested in social innovation and finance. A three-time international finalist in entrepreneurship competitions like the Conrad Challenge & Blue Ocean Competition, and grand winner of the 2025 Harvard International Economics Essay Competition, he hopes to use what he has learned to help younger students turn imagination into innovation. As a kid, Allen spent winters watching Shark Tank and summers running lemonade stands in his cul-de-sac. After discovering that 90% of K–8 schools in Naperville do not offer business classes, he co-founded BizBuzz with Aarav—alongside other EdTech platforms—to help students like him find their ideas and the courage to share them."
                 large={true}
                 index={0}
@@ -391,7 +391,7 @@ export default function AboutPage() {
                 key={2}
                 image={`/team/Aarav.png`}
                 name="Aarav Khullar"
-                role="Co-Founder"
+                role="Vice President & Co-Founder"
                 description="Aarav is a junior at Naperville North HS with a passion for business and fostering youth entrepreneurship. Growing up watching Shark Tank with his dad, he always dreamed of starting a high-quality business but never had any opportunities or support to do so. Seeing this same disparity affect hundreds of other young students in his community, he co-founded BizBuzz with one of his best friends, Allen, to give elementary & middle schoolers the kind of opportunity he never had. Now, as a startup founder himself, internationally awarded by the Walt Disney Company for his leadership, and named a Top 100 Emerging Innovator of 2025, Aarav hopes to translate the skills he's learned to empower the youth."
                 large={true}
                 index={1}
@@ -400,207 +400,164 @@ export default function AboutPage() {
             </div>
           </div>
           
-          {/* Executive Team */}
+          {/* Executive Directors */}
+          <div className="mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <h3 className="text-3xl font-bold text-center text-black">
+                <span className="inline-block relative">
+                  Executive Directors
+                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#3AB6FF]"></div>
+                </span>
+              </h3>
+            </motion.div>
+            
+            {/* First row - 3 directors */}
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-8">
+              <TeamMember
+                key={1}
+                image={`/team/Eddy.png`}
+                name="Eddy Wang"
+                role="Vice President & Co-Director"
+                description="Eddy Wang is an accomplished student leader with a passion for entrepreneurship and innovation. With his strong organizational skills and vision for youth business education, he helps guide BizBuzz's initiatives to reach more students across Naperville."
+                index={0}
+              />
+              <TeamMember
+                key={2}
+                image={`/team/Steven.jpg`}
+                name="Steven He"
+                role="Vice President"
+                description="Steven is a junior at Neuqua Valley HS interested in engineering and entrepreneurship. Growing up building legos and running his own YouTube channel, he's excited to connect with students, help them explore their own creative ideas, and create projects bigger than themselves."
+                index={1}
+              />
+              <TeamMember
+                key={3}
+                image={`/team/Taksh.jpg`}
+                name="Taksh Taware"
+                role="Co-Director"
+                description="Taksh is excited to help students develop their business skills and innovation mindset through BizBuzz's hands-on learning approach."
+                index={2}
+              />
+            </div>
+            
+            {/* Second row - 2 CTOs centered */}
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+              <TeamMember
+                key={4}
+                image={`/team/Arnav.jpg`}
+                name="Arnav Sharma"
+                role="Chief Technical Officer"
+                description="Arnav Sharma is a junior at Naperville North HS passionate about using technology and data science to create opportunities for young aspiring entrepreneurs."
+                index={3}
+              />
+              <TeamMember
+                key={5}
+                image={`/team/Aiden.jpg`}
+                name="Aiden Xie"
+                role="Chief Technical Officer"
+                description="Aiden brings technical expertise and innovative solutions to the BizBuzz platform. His background in technology helps enhance our educational programs and student experience."
+                index={4}
+              />
+            </div>
+          </div>
+          
+          {/* Leadership Team */}
+          <div className="mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <h3 className="text-3xl font-bold text-center text-black">
+                <span className="inline-block relative">
+                  Leadership Team
+                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#FFD700]"></div>
+                </span>
+              </h3>
+            </motion.div>
+            
+            {/* First row - 4 members */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8">
+              <TeamMemberWithImage
+                key={1}
+                image={`/team/Sarah.jpg`}
+                name="Sarah Haque"
+                role="Leadership Team"
+                description="Sarah is a junior at Neuqua Valley interested in bioengineering and business. She's passionate about education and can't wait to work with students and help them grow as entrepreneurs."
+                index={0}
+              />
+              <TeamMemberWithImage
+                key={2}
+                image={`/team/Zoha.jpg`}
+                name="Zoha Ahmad"
+                role="Leadership Team"
+                description="Zoha is an incoming freshman at Naperville Central who is interested in medicine. She was also a student at BizBuzz's 2024 summer camp & is excited to give back to the program that gave her so much."
+                index={1}
+              />
+              <TeamMemberWithImage
+                key={3}
+                image={`/team/Beau.jpg`}
+                name="Beau Danso"
+                role="Leadership Team"
+                description="Beau brings energy and creative thinking to the BizBuzz team. Her innovative approaches to programming and student engagement help make our educational experiences both fun and impactful."
+                index={2}
+              />
+              <TeamMemberWithImage
+                key={4}
+                image={`/team/Ben.jpg`}
+                name="Ben Gula"
+                role="Leadership Team"
+                description="Ben is a junior at Neuqua Valley High School looking to fly high and pursue a career in aviation. He enjoys filming fun Tiktok's, trying new foods, and fostering leadership skills with other students."
+                index={3}
+              />
+            </div>
+            
+            {/* Second row - 3 members centered */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+              <TeamMemberWithImage
+                key={5}
+                image={`/team/Colin.jpg`}
+                name="Colin Singer"
+                role="Leadership Team"
+                description="Colin is a junior at Neuqua Valley High School who is interested in business and law. Colin hopes his passion for creativity in business will inspire all who he works with."
+                index={4}
+              />
+              <TeamMemberWithImage
+                key={6}
+                image={`/team/Max.jpg`}
+                name="Max Nadtochiy"
+                role="Leadership Team"
+                description="Max is a junior at Neuqua Valley who is interested in literature and business. He's excited to help students reach their full potential and become better learners."
+                index={5}
+              />
+              <TeamMemberWithImage
+                key={7}
+                image={`/team/Ansh.jpg`}
+                name="Ansh Shah"
+                role="Leadership Team"
+                description="Ansh is a graduating senior at Neuqua Valley HS passionate about the intersection of STEM and entrepreneurship. He plans on studying mathematics, computer science, and economics in college and hopes to use his background to build tools that help make entrepreneurship more accessible for all."
+                index={6}
+              />
+            </div>
+          </div>
+          
+          {/* Instructors */}
           <div className="mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="mb-8"
-            >
-              <h3 className="text-2xl font-bold text-center text-black">
-                <span className="inline-block relative">
-                  Executive Team
-                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#3AB6FF]"></div>
-                </span>
-              </h3>
-            </motion.div>
-            
-            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              <TeamMember
-                key={1}
-                image={`/team/Eddy.png`}
-                name="Eddy Wang"
-                role="Executive Director"
-                description="Eddy Wang is an accomplished student leader with a passion for entrepreneurship and innovation. With his strong organizational skills and vision for youth business education, he helps guide BizBuzz's initiatives to reach more students across Naperville."
-                index={0}
-              />
-              <TeamMember
-                key={2}
-                image={`/team/Arnav.jpg`}
-                name="Arnav Sharma"
-                role="CTO & Executive Team"
-                description="Arnav Sharma is a junior at Naperville North HS passionate about using technology and data science to create opportunities for young aspiring entrepreneurs. With his friends, he built Shadowed.me, a platform connecting 2.1K students to high school clubs and events, and decademy.app, a DECA study tool used by 1000+ students that has generated $5.1K in revenue."
-                index={1}
-              />
-              <TeamMember
-                key={3}
-                image={`/team/Aiden.jpg`}
-                name="Aiden Xie"
-                role="Executive Team"
-                description="Annabelle is a sophomore at Neuqua Valley High School who's strengths are music and math. She loves working with kids and is pumped to start teaching them how to get super rich!!!"
-                index={2}
-              />
-              <TeamMember
-                key={4}
-                image={`/team/Beau.jpg`}
-                name="Beau Danso"
-                role="Executive Team"
-                description="Beau brings energy and creative thinking to the BizBuzz team. Her innovative approaches to programming and student engagement help make our educational experiences both fun and impactful."
-                index={3}
-              />
-              <TeamMember
-                key={5}
-                image={`/team/Abby.jpg`}
-                name="Abby May"
-                role="Executive Team"
-                description="Abby is a sophomore at Naperville North High School with a strong interest in business, leadership, and community impact. She's excited to work with other students and help them explore their own skills and passions."
-                index={4}
-              />
-              <TeamMember
-                key={6}
-                image={`/team/Lakhi.jpg`}
-                name="Lakhi Thotakura"
-                role="Executive Team"
-                description="Lakhi is a sophomore at Naperville North who hopes to pursue public health or marketing. She can't wait to help students explore business and find their passion!"
-                index={5}
-              />
-            </div>
-          </div>
-          
-          {/* Past Executive Leaders */}
-          <div className="mb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
               className="mb-12"
             >
-              <h3 className="text-2xl font-bold text-center text-black">
-                <span className="inline-block relative">
-                  Past Executive Directors
-                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#3AB6FF] to-[#FFD700]"></div>
-                </span>
-              </h3>
-            </motion.div>
-            
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <TeamMember
-                key={1}
-                image={`/team/Steven.jpg`}
-                name="Steven He"
-                role="2024 Executive Director"
-                description="Steven is a junior at Neuqua Valley HS interested in engineering and entrepreneurship. Growing up building legos and running his own YouTube channel, he's excited to connect with students, help them explore their own creative ideas, and create projects bigger than themselves."
-                index={0}
-              />
-              <TeamMember
-                key={2}
-                image={`/team/Ansh.jpg`}
-                name="Ansh Shah"
-                role="2024 Executive Director"
-                description="Ansh is a graduating senior at Neuqua Valley HS passionate about the intersection of STEM and entrepreneurship. He plans on studying mathematics, computer science, and economics in college and hopes to use his background to build tools that help make entrepreneurship more accessible for all."
-                index={1}
-              />
-            </div>
-          </div>
-          
-          {/* Senior Instructors */}
-          <div className="mb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h3 className="text-2xl font-bold text-center text-black">
-                <span className="inline-block relative">
-                  Senior Instructors
-                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#FFD700]"></div>
-                </span>
-              </h3>
-            </motion.div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              <InstructorProfile
-                key={1}
-                image={`/team/Ankita.jpg`}
-                name="Ankita Senapati"
-                role="Senior Instructor"
-                description="Ankita is a graduating senior at Neuqua Valley and loves empowering kids to do better in their everyday lives. After hosting financial literacy workshops around the city, she hopes to carry her same positive energy to BizBuzz."
-                index={0}
-              />
-              <InstructorProfile
-                key={2}
-                image={`/team/Wes.jpg`}
-                name="Wes Karubas"
-                role="Senior Instructor"
-                description="Wes is a junior at Neuqua Valley and is looking to play soccer as well as studying finance or accounting in college. He has a growing desire to learn entrepreneurship which started from a lemonade stand he started when he was a kid."
-                index={1}
-              />
-              <InstructorProfile
-                key={3}
-                image={`/team/Ben.jpg`}
-                name="Ben Gula"
-                role="Senior Instructor"
-                description="Ben is a junior at Neuqua Valley HIgh School looking to fly high and pursue a career in aviation. He enjoys filming fun Tiktok's, trying new foods, and fostering leadership skills with other students."
-                index={2}
-              />
-              <InstructorProfile
-                key={4}
-                image={`/team/Colin.jpg`}
-                name="Colin Singer"
-                role="Senior Instructor"
-                description="Colin is a junior at Neuqua Valley High School who is interested in business and law. Colin hopes his passion for creativity in business will inspire all who he works with."
-                index={3}
-              />
-              <InstructorProfile
-                key={5}
-                image={`/team/Sanj.jpg`}
-                name="Sanj Gurram"
-                role="Senior Instructor"
-                description="Sanj brings enthusiasm and fresh ideas to the BizBuzz team. With a background in student leadership, he's eager to help young entrepreneurs develop their skills."
-                index={4}
-              />
-              <InstructorProfile
-                key={6}
-                image={`/team/Zahra.jpg`}
-                name="Zahra Moosani"
-                role="Senior Instructor"
-                description="Zahra is passionate about helping students discover their entrepreneurial potential. She brings creativity and organization to the BizBuzz program."
-                index={5}
-              />
-              <InstructorProfile
-                key={7}
-                image={`/team/Shyam.jpg`}
-                name="Shyam Sahani"
-                role="Senior Instructor"
-                description="Shyam Sahani is a junior at Neuqua Valley interested in finance and accounting, he is a returning member of BizBuzz and is looking forward to meeting and teaching everyone this year."
-                index={6}
-              />
-              <InstructorProfile
-                key={8}
-                image={`/team/Max.jpg`}
-                name="Max Nadtochiy"
-                role="Senior Instructor"
-                description="Max is a junior at Neuqua Valley who is interested in literature and business. He's excited to help students reach their full potential and become better learners."
-                index={7}
-              />
-            </div>
-          </div>
-          
-          {/* Instructors */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h3 className="text-2xl font-bold text-center text-black">
+              <h3 className="text-3xl font-bold text-center text-black">
                 <span className="inline-block relative">
                   Instructors
                   <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#3AB6FF]"></div>
@@ -608,107 +565,93 @@ export default function AboutPage() {
               </h3>
             </motion.div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              <InstructorProfile
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-4 lg:gap-6">
+              <InstructorNameOnly
                 key={1}
-                image={`/team/Melody.jpg`}
-                name="Melody Hu"
-                role="Instructor"
-                description="Melody Hu is a sophomore @ Naperville North and is honored to part of BizBuzz this year and is super excited to inspire young entrepreneurs in our community."
+                name="Ankita Senapati"
                 index={0}
               />
-              <InstructorProfile
+              <InstructorNameOnly
                 key={2}
-                image={`/team/Sarah.jpg`}
-                name="Sarah Haque"
-                role="Instructor"
-                description="Sarah is a junior or Neuqua Valley interested in bioengineering and business. She's passionate about education and can't wait to work with students and help them grow as entrepreneurs."
+                name="Wes Karubas"
                 index={1}
               />
-              <InstructorProfile
+              <InstructorNameOnly
                 key={3}
-                image={`/team/Nimra.jpg`}
-                name="Nimra Siddiqui"
-                role="Instructor"
-                description="Nimra is a junior @ Neuqua Valley high school interested in medicine and fostering valuable skills in those younger than her. From a young age, she loved to learn new things and mentor others. She's excited to inspire young minds and help them achieve their greatest potential."
+                name="Sanj Gurram"
                 index={2}
               />
-              <InstructorProfile
+              <InstructorNameOnly
                 key={4}
-                image={`/team/Ethan.jpg`}
-                name="Ethan Brock"
-                role="Instructor"
-                description="Ethan brings energy and fresh ideas to BizBuzz. He's passionate about helping students discover their entrepreneurial potential."
+                name="Zahra Moosani"
                 index={3}
               />
-              <InstructorProfile
+              <InstructorNameOnly
                 key={5}
-                image={`/team/Taksh.jpg`}
-                name="Taksh Taware"
-                role="Instructor"
-                description="Taksh is excited to help students develop their business skills and innovation mindset through BizBuzz's hands-on learning approach."
+                name="Shyam Sahani"
                 index={4}
               />
-              <InstructorProfile
+              <InstructorNameOnly
                 key={6}
-                image={`/team/Abhinav.jpg`}
-                name="Abhinav Byju"
-                role="Instructor"
-                description="Abhinav is a Neuqua Valley freshman interested in science and entrepreneurship. He's excited to help students build their businesses."
+                name="Melody Hu"
                 index={5}
               />
-              <InstructorProfile
+              <InstructorNameOnly
                 key={7}
-                image={`/team/Elena.jpg`}
-                name="Elena Kang-Chou"
-                role="Instructor"
-                description="Elena brings creativity and enthusiasm to the BizBuzz team. She's passionate about helping young students develop their entrepreneurial mindset."
+                name="Nimra Siddiqui"
                 index={6}
               />
-              <InstructorProfile
+              <InstructorNameOnly
                 key={8}
-                image={`/team/Jazzy.jpg`}
-                name="Jazzy Soodan"
-                role="Instructor"
-                description="Jazzy is dedicated to helping students discover their passion for business and entrepreneurship. She brings energy and creative thinking to the BizBuzz program."
+                name="Ethan Brock"
                 index={7}
               />
-              <InstructorProfile
+              <InstructorNameOnly
                 key={9}
-                image={`/team/Zoha.jpg`}
-                name="Zoha Ahmad"
-                role="Instructor"
-                description="Zoha is an incoming freshman at Naperville Central who is interested in medicine. She was also a student at BizBuzz's 2024 summer camp & is excited to give back to the program that gave her so much."
+                name="Abhinav Byju"
                 index={8}
               />
-              <InstructorProfile
+              <InstructorNameOnly
                 key={10}
-                image={`/team/Evan.jpg`}
-                name="Evan Xu"
-                role="Instructor"
-                description="Evan is an incoming freshman at Neuqua Valley High School. He is interested in math and statistics, excited to help students logically."
+                name="Elena Kang-Chou"
                 index={9}
               />
-              <InstructorProfile
+              <InstructorNameOnly
                 key={11}
-                image={`/team/Vivaan.jpg`}
-                name="Vivaan Khullar"
-                role="Instructor"
-                description="Vivaan brings enthusiasm and fresh perspectives to the BizBuzz team. He's eager to help young students develop their entrepreneurial skills."
+                name="Jazzy Soodan"
                 index={10}
+              />
+              <InstructorNameOnly
+                key={12}
+                name="Evan Xu"
+                index={11}
+              />
+              <InstructorNameOnly
+                key={13}
+                name="Vivaan Khullar"
+                index={12}
+              />
+              <InstructorNameOnly
+                key={14}
+                name="Abby May"
+                index={13}
+              />
+              <InstructorNameOnly
+                key={15}
+                name="Lakhi Thotakura"
+                index={14}
               />
             </div>
           </div>
 
           {/* Note about placeholder images */}
-          <div className="mt-16 text-center text-sm text-gray-500">
+          <div className="mt-12 text-center text-sm text-gray-500">
             <p>Note: Add team member photos to the /public/team/ directory using the following naming convention:</p>
             <ul className="mt-2 space-y-1">
               <li>Co-founders: Allen.png, Aarav.png (existing)</li>
-              <li>Executive Leaders: Eddy.png (existing), Arnav.jpg, Annabelle.jpg, Beau.jpg, Abby.jpg, Lakhi.jpg</li>
-              <li>Past Leaders: Steven.jpg, Ansh.jpg</li>
-              <li>Senior Instructors: Ankita.jpg, Wes.jpg, Ben.jpg, Colin.jpg, Sanj.jpg, Zahra.jpg, Shyam.jpg, Max.jpg</li>
-              <li>Instructors: Melody.jpg, Sarah.jpg, Nimra.jpg, Ethan.jpg, Taskh.jpg, Abhinav.jpg, Elena.jpg, Jazzy.jpg, Zoha.jpg, Evan.jpg, Vivaan.jpg</li>
+              <li>Executive Directors: Eddy.png (existing), Steven.jpg, Taksh.jpg, Arnav.jpg, Aiden.jpg</li>
+              <li>Leadership Team: Sarah.jpg, Zoha.jpg, Beau.jpg, Ben.jpg, Colin.jpg, Max.jpg, Ansh.jpg</li>
+              <li>Instructors: All other team members</li>
             </ul>
             <p className="mt-2">Images should be square format, ideally 500x500 pixels or larger for best quality.</p>
           </div>
@@ -1181,8 +1124,8 @@ function TeamMember({
   );
 }
 
-// Instructor Profile Component - For compact instructor listings
-function InstructorProfile({ 
+// Team Member With Image Component - For Leadership Team
+function TeamMemberWithImage({ 
   image, 
   name, 
   role, 
@@ -1231,18 +1174,53 @@ function InstructorProfile({
             e.currentTarget.style.display = 'none';
           }}
         />
-        
-        {role === "Senior Instructor" && (
-          <div className="absolute top-2 right-2 bg-[#FFD700] text-black text-xs px-2 py-1 rounded-full font-medium z-20 shadow-md">
-            Senior
-          </div>
-        )}
       </div>
       
       <div className="p-3 flex-grow flex flex-col">
         <h4 className="font-bold text-black text-sm">{name}</h4>
         <p className="text-[#3AB6FF] text-xs font-medium mb-1">{role}</p>
         <p className="text-black text-xs line-clamp-3">{description || "Coming soon"}</p>
+      </div>
+    </motion.div>
+  );
+}
+
+// Instructor Name Only Component - For compact instructor listings
+function InstructorNameOnly({ 
+  name, 
+  index = 0 
+}: { 
+  name: string, 
+  index: number 
+}) {
+  // Generate a consistent color based on name
+  const generatePlaceholderColor = () => {
+    const colors = ['#3AB6FF', '#FFD700', '#0c1d3d', '#4682B4', '#20B2AA', '#32CD32'];
+    return colors[Math.floor(name.length % colors.length)];
+  };
+  
+  const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
+  
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.03 }}
+      viewport={{ once: true, margin: "-50px" }}
+      className="bg-white rounded-lg shadow-sm overflow-hidden border border-slate-100 group hover:shadow-md transition-all duration-300 flex flex-col"
+    >
+      <div className="aspect-square relative overflow-hidden bg-slate-50">
+        {/* Simple placeholder with initials */}
+        <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: generatePlaceholderColor() }}>
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <div className="text-lg font-bold text-white opacity-80">{initials}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="p-2 text-center">
+        <h4 className="font-medium text-black text-xs leading-tight">{name}</h4>
+        <p className="text-[#3AB6FF] text-xs font-medium mt-1">Instructor</p>
       </div>
     </motion.div>
   );
