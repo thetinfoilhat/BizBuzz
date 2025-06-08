@@ -152,8 +152,8 @@ const StatsSection = () => {
             color="#CD8F20"
           />
           <StatItem 
-            value={504} 
-            label="Hours Instructed"
+            value={411} 
+            label="Sessions"
             imageSrc="/stats/hours.jpg"
             color="#BD7825"
           />

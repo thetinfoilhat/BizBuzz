@@ -15,7 +15,7 @@ const programs = [
     title: "Fish Tank",
     description: "Pitch competitions for student innovators of all ages to present business ideas to a panel of professional judges and earn feedback, hundreds of dollars in awards, and real-world experience.",
     image: "/program_cards/fishtank.jpg",
-    link: "/fishtank"
+    link: "/fish-tank"
   },
   {
     title: "Workshops",
