@@ -480,7 +480,7 @@ export default function CampPage() {
             >
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#38b6ff]/20 border border-[#38b6ff]/30 backdrop-blur-sm mb-10 shadow-sm">
                 <div className="w-3 h-3 rounded-full bg-[#38b6ff] mr-2"></div>
-                <span className="text-base font-medium text-white">Summer 2024 & 2025</span>
+                <span className="text-base font-medium text-white">Summer 2024</span>
               </div>
               
               <h1 className="text-7xl lg:text-8xl font-bold mb-10 tracking-tight leading-tight">
