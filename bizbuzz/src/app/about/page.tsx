@@ -701,18 +701,6 @@ export default function AboutPage() {
               />
             </div>
           </div>
-
-          {/* Note about placeholder images */}
-          <div className="mt-12 text-center text-sm text-gray-500">
-            <p>Note: Add team member photos to the /public/team/ directory using the following naming convention:</p>
-            <ul className="mt-2 space-y-1">
-              <li>Co-founders: Allen.png, Aarav.png (existing)</li>
-              <li>Executive Directors: Eddy.png (existing), Steven.jpg, Taksh.jpg, Arnav.jpg, Aiden.jpg</li>
-              <li>Leadership Team: Sarah.jpg, Zoha.jpg, Beau.jpg, Ben.jpg, Colin.jpg, Max.jpg, Ansh.jpg</li>
-              <li>Instructors: All other team members</li>
-            </ul>
-            <p className="mt-2">Images should be square format, ideally 500x500 pixels or larger for best quality.</p>
-          </div>
         </div>
       </section>
     </div>
