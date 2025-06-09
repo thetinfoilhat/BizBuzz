@@ -266,7 +266,7 @@ ${message}
                       
                       <div className="absolute inset-0 z-10">
                         <Image 
-                          src="/image_gallery/3.jpg" 
+                          src="/image_gallery/9.JPG" 
                           alt="One-on-one mentorship session" 
                           fill 
                           className="object-cover"
