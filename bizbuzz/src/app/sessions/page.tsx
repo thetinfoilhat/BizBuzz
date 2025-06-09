@@ -128,7 +128,7 @@ ${message}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10 h-[500px]">
               <div className="absolute inset-0 bg-[#003166]/20 z-10"></div>
               <Image
-                src="/image_gallery/3.jpg"
+                src="/image_gallery/Sessions.jpg"
                 alt="1:1 session with a mentor"
                 fill
                 className="object-cover"
