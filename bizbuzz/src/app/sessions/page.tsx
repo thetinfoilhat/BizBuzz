@@ -345,7 +345,7 @@ ${message}
                       
                       <div className="absolute inset-0 z-10">
                         <Image 
-                          src="/image_gallery/5.jpg" 
+                          src="/image_gallery/Group.jpg" 
                           alt="Small group session" 
                           fill 
                           className="object-cover"
