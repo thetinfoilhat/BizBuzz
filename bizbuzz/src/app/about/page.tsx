@@ -483,73 +483,72 @@ export default function AboutPage() {
               </h3>
             </motion.div>
             
-            {/* First row - 4 members */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8">
-              <TeamMemberWithImage
-                key={1}
-                image={`/team/Sarah.jpg`}
-                name="Sarah Haque"
-                role="Leadership Team"
-                description="Sarah is a junior at Neuqua Valley interested in bioengineering and business. She's passionate about education and helping students grow as entrepreneurs."
-                index={0}
-              />
-              <TeamMemberWithImage
-                key={2}
-                image={`/team/Zoha.jpg`}
-                name="Zoha Ahmad"
-                role="Leadership Team"
-                description="Zoha is an incoming freshman at Naperville Central interested in medicine. She was a student at BizBuzz's 2024 summer camp and is excited to give back to the program."
-                index={1}
-              />
-              <TeamMemberWithImage
-                key={3}
-                image={`/team/Beau.jpg`}
-                name="Beau Danso"
-                role="Leadership Team"
-                description="Beau brings energy and creative thinking to the BizBuzz team. Her innovative approaches to programming and student engagement make educational experiences fun and impactful."
-                index={2}
-              />
-              <TeamMemberWithImage
-                key={4}
-                image={`/team/Ben.jpg`}
-                name="Ben Gula"
-                role="Leadership Team"
-                description="Ben is a junior at Neuqua Valley High School pursuing a career in aviation. He enjoys filming TikToks, trying new foods, and fostering leadership skills with other students."
-                index={3}
-              />
-            </div>
-            
-            {/* Second row - 3 members centered */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-              <TeamMemberWithImage
-                key={5}
-                image={`/team/Colin.jpg`}
-                name="Colin Singer"
-                role="Leadership Team"
-                description="Colin is a junior at Neuqua Valley High School interested in business and law. He hopes his passion for creativity in business will inspire all who he works with."
-                index={4}
-              />
-              <TeamMemberWithImage
-                key={6}
-                image={`/team/Max.jpg`}
-                name="Max Nadtochiy"
-                role="Leadership Team"
-                description="Max is a junior at Neuqua Valley interested in literature and business. He's excited to help students reach their full potential and become better learners."
-                index={5}
-              />
-              <TeamMemberWithImage
-                key={7}
-                image={`/team/Ansh.jpg`}
-                name="Ansh Shah"
-                role="Leadership Team"
-                description="Ansh is a graduating senior at Neuqua Valley passionate about STEM and entrepreneurship. He plans to study mathematics, computer science, and economics in college to build accessible entrepreneurship tools."
-                index={6}
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  name: "Abby May",
+                  description: "Abby is a sophomore at Naperville North passionate about business and leadership. She brings creative energy and innovative ideas to help students discover their entrepreneurial potential."
+                },
+                {
+                  name: "Beau Danso",
+                  description: "Beau brings enthusiasm and fresh perspectives to the BizBuzz team. Her innovative approaches to student engagement make learning both fun and impactful."
+                },
+                {
+                  name: "Ca Van",
+                  description: "Ca is dedicated to fostering entrepreneurial skills in young students. With a background in project management, she helps structure and organize BizBuzz's initiatives."
+                },
+                {
+                  name: "Colin Singer",
+                  description: "Colin is a junior at Neuqua Valley with a passion for business and law. He hopes to inspire creativity and innovation in all students he works with."
+                },
+                {
+                  name: "Elena Kang Chou",
+                  description: "Elena brings creativity and enthusiasm to the team. She's passionate about helping young students develop their entrepreneurial mindset and problem-solving abilities."
+                },
+                {
+                  name: "Ethan Brock",
+                  description: "Ethan combines his love for innovation with teaching. He focuses on helping students discover their entrepreneurial potential and develop business solutions."
+                },
+                {
+                  name: "Lakhi Thotakura",
+                  description: "Lakhi is passionate about public health and marketing. She brings her diverse interests to help students explore different aspects of business and entrepreneurship."
+                },
+                {
+                  name: "Max Nadtochiy",
+                  description: "Max brings his expertise in literature and business to BizBuzz. He's dedicated to helping students become better learners and reach their full potential."
+                },
+                {
+                  name: "Melody Hu",
+                  description: "Melody is excited to inspire young entrepreneurs in our community. She brings fresh perspectives and creative approaches to business education."
+                },
+                {
+                  name: "Nimra Siddiqui",
+                  description: "Nimra combines her interests in medicine and education to help students develop valuable skills. She loves mentoring others to achieve their potential."
+                },
+                {
+                  name: "Sarah Haque",
+                  description: "Sarah is passionate about bioengineering and business. She brings her technical knowledge to help students understand the intersection of STEM and entrepreneurship."
+                },
+                {
+                  name: "Shyam Sahani",
+                  description: "Shyam specializes in finance and accounting. As a returning BizBuzz member, he's excited to share his knowledge and experience with new students."
+                },
+                {
+                  name: "Zoha Ahmad",
+                  description: "Zoha brings fresh perspectives as a former BizBuzz camp participant. She's passionate about giving back to the program and helping new students succeed."
+                }
+              ].map((member, index) => (
+                <div key={index} className="bg-white rounded-xl p-6 shadow-md border border-[#003166]/10 hover:shadow-lg transition-all duration-300">
+                  <h4 className="text-lg font-semibold text-black mb-2">{member.name}</h4>
+                  <p className="text-[#3AB6FF] text-sm mb-3">Leadership Team</p>
+                  <p className="text-black/80 text-sm">{member.description}</p>
+                </div>
+              ))}
             </div>
           </div>
           
           {/* Instructors */}
-          <div className="mb-16">
+          <div className="mb-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -565,140 +564,112 @@ export default function AboutPage() {
               </h3>
             </motion.div>
             
-            {/* First row - 4 instructors */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8">
-              <TeamMemberWithImage
-                key={1}
-                image={`/team/Ankita.jpg`}
-                name="Ankita Senapati"
-                role="Instructor"
-                description="Ankita is a graduating senior at Neuqua Valley who loves empowering kids to do better in their everyday lives. After hosting financial literacy workshops around the city, she hopes to carry her positive energy to BizBuzz."
-                index={0}
-              />
-              <TeamMemberWithImage
-                key={2}
-                image={`/team/Wes.jpg`}
-                name="Wes Karubas"
-                role="Instructor"
-                description="Wes is a junior at Neuqua Valley looking to play soccer and study finance or accounting in college. His passion for entrepreneurship started from a lemonade stand he ran as a kid."
-                index={1}
-              />
-              <TeamMemberWithImage
-                key={3}
-                image={`/team/Sanj.jpg`}
-                name="Sanj Gurram"
-                role="Instructor"
-                description="Sanj brings enthusiasm and fresh ideas to the BizBuzz team. With a background in student leadership, he's eager to help young entrepreneurs develop their skills and confidence."
-                index={2}
-              />
-              <TeamMemberWithImage
-                key={4}
-                image={`/team/Zahra.jpg`}
-                name="Zahra Moosani"
-                role="Instructor"
-                description="Zahra is passionate about helping students discover their entrepreneurial potential. She brings creativity and organization to the BizBuzz program, making learning fun and engaging for everyone."
-                index={3}
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  name: "Onkar Lidder",
+                  description: "Onkar brings technical expertise and innovative teaching methods to BizBuzz. He's passionate about making complex business concepts accessible to young learners."
+                },
+                {
+                  name: "Abhinav Byju",
+                  description: "Abhinav combines his interests in science and entrepreneurship to help students explore the intersection of STEM and business innovation."
+                },
+                {
+                  name: "Anay Apte",
+                  description: "Anay is dedicated to fostering creativity and critical thinking in young entrepreneurs. He brings energy and enthusiasm to every session."
+                },
+                {
+                  name: "Ankita Senapati",
+                  description: "Ankita is passionate about financial literacy and youth empowerment. She brings her experience from hosting workshops to help students succeed."
+                },
+                {
+                  name: "Annabelle Cheng",
+                  description: "Annabelle combines creativity with strategic thinking to help students develop their business ideas and entrepreneurial skills."
+                },
+                {
+                  name: "Ansh Shah",
+                  description: "Ansh is passionate about STEM and entrepreneurship. He focuses on helping students build practical skills for their future ventures."
+                },
+                {
+                  name: "Ben Gula",
+                  description: "Ben brings his passion for aviation and business to BizBuzz. He enjoys helping students explore unique perspectives in entrepreneurship."
+                },
+                {
+                  name: "Elizabeth Gao",
+                  description: "Elizabeth is dedicated to helping students develop their business acumen. She brings creativity and structure to her teaching approach."
+                },
+                {
+                  name: "Hadley Benson",
+                  description: "Hadley combines her love for innovation with effective teaching methods. She's passionate about fostering the next generation of entrepreneurs."
+                },
+                {
+                  name: "Wes Karubas",
+                  description: "Wes brings his entrepreneurial experience from running his own ventures to help inspire and guide young business minds."
+                },
+                {
+                  name: "Yuju Cho",
+                  description: "Yuju is passionate about helping students discover their potential in business. She brings fresh perspectives to entrepreneurship education."
+                },
+                {
+                  name: "Zahra Moosani",
+                  description: "Zahra combines creativity with organization to make learning engaging. She's dedicated to helping students discover their entrepreneurial potential."
+                }
+              ].map((member, index) => (
+                <div key={index} className="bg-white rounded-xl p-6 shadow-md border border-[#003166]/10 hover:shadow-lg transition-all duration-300">
+                  <h4 className="text-lg font-semibold text-black mb-2">{member.name}</h4>
+                  <p className="text-[#3AB6FF] text-sm mb-3">Instructor</p>
+                  <p className="text-black/80 text-sm">{member.description}</p>
+                </div>
+              ))}
             </div>
+          </div>
+
+          {/* Youth Leadership Team */}
+          <div className="mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <h3 className="text-3xl font-bold text-center text-black">
+                <span className="inline-block relative">
+                  Youth Leadership Team
+                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#FFD700]"></div>
+                </span>
+              </h3>
+            </motion.div>
             
-            {/* Second row - 4 instructors */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8">
-              <TeamMemberWithImage
-                key={5}
-                image={`/team/Shyam.jpg`}
-                name="Shyam Sahani"
-                role="Instructor"
-                description="Shyam is a junior at Neuqua Valley interested in finance and accounting. As a returning BizBuzz member, he's looking forward to meeting and teaching everyone this year."
-                index={4}
-              />
-              <TeamMemberWithImage
-                key={6}
-                image={`/team/Melody.jpg`}
-                name="Melody Hu"
-                role="Instructor"
-                description="Melody is a sophomore at Naperville North who is honored to be part of BizBuzz this year. She's super excited to inspire young entrepreneurs in our community."
-                index={5}
-              />
-              <TeamMemberWithImage
-                key={7}
-                image={`/team/Nimra.jpg`}
-                name="Nimra Siddiqui"
-                role="Instructor"
-                description="Nimra is a junior at Neuqua Valley interested in medicine and fostering valuable skills in younger students. She loves learning new things and mentoring others to achieve their potential."
-                index={6}
-              />
-              <TeamMemberWithImage
-                key={8}
-                image={`/team/Ethan.jpg`}
-                name="Ethan Brock"
-                role="Instructor"
-                description="Ethan brings energy and fresh ideas to BizBuzz. He's passionate about helping students discover their entrepreneurial potential and develop innovative business solutions."
-                index={7}
-              />
-            </div>
-            
-            {/* Third row - 4 instructors */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8">
-              <TeamMemberWithImage
-                key={9}
-                image={`/team/Abhinav.jpg`}
-                name="Abhinav Byju"
-                role="Instructor"
-                description="Abhinav is a Neuqua Valley freshman interested in science and entrepreneurship. He's excited to help students build their businesses and explore the intersection of STEM and innovation."
-                index={8}
-              />
-              <TeamMemberWithImage
-                key={10}
-                image={`/team/Elena.jpg`}
-                name="Elena Kang-Chou"
-                role="Instructor"
-                description="Elena brings creativity and enthusiasm to the BizBuzz team. She's passionate about helping young students develop their entrepreneurial mindset and problem-solving skills."
-                index={9}
-              />
-              <TeamMemberWithImage
-                key={11}
-                image={`/team/Jazzy.jpg`}
-                name="Jazzy Soodan"
-                role="Instructor"
-                description="Jazzy is dedicated to helping students discover their passion for business and entrepreneurship. She brings energy and creative thinking to the BizBuzz program."
-                index={10}
-              />
-              <TeamMemberWithImage
-                key={12}
-                image={`/team/Evan.jpg`}
-                name="Evan Xu"
-                role="Instructor"
-                description="Evan is an incoming freshman at Neuqua Valley High School. He is interested in math and statistics and is excited to help students think logically about business challenges."
-                index={11}
-              />
-            </div>
-            
-            {/* Fourth row - 3 instructors centered */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
-              <TeamMemberWithImage
-                key={13}
-                image={`/team/Vivaan.jpg`}
-                name="Vivaan Khullar"
-                role="Instructor"
-                description="Vivaan brings enthusiasm and fresh perspectives to the BizBuzz team. He's eager to help young students develop their entrepreneurial skills and creative thinking abilities."
-                index={12}
-              />
-              <TeamMemberWithImage
-                key={14}
-                image={`/team/Abby.jpg`}
-                name="Abby May"
-                role="Instructor"
-                description="Abby is a sophomore at Naperville North with strong interests in business, leadership, and community impact. She's excited to help students explore their skills and passions."
-                index={13}
-              />
-              <TeamMemberWithImage
-                key={15}
-                image={`/team/Lakhi.jpg`}
-                name="Lakhi Thotakura"
-                role="Instructor"
-                description="Lakhi is a sophomore at Naperville North who hopes to pursue public health or marketing. She can't wait to help students explore business and find their passion."
-                index={14}
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  name: "Vivaan Khullar",
+                  description: "Vivaan brings enthusiasm and fresh perspectives to the team. He's eager to help young students develop their entrepreneurial skills and creative thinking."
+                },
+                {
+                  name: "Evan Xu",
+                  description: "Evan combines his interest in mathematics and statistics with business concepts to help students approach challenges logically."
+                },
+                {
+                  name: "Mishi Patel",
+                  description: "Mishi is passionate about innovation and youth leadership. She brings creative energy to help students explore their entrepreneurial ideas."
+                },
+                {
+                  name: "Ethan Nie",
+                  description: "Ethan focuses on helping students understand the practical aspects of business. He brings enthusiasm and clear communication to every session."
+                },
+                {
+                  name: "Jazzy Soodan",
+                  description: "Jazzy is dedicated to helping students discover their passion for business. She brings energy and creative thinking to the BizBuzz program."
+                }
+              ].map((member, index) => (
+                <div key={index} className="bg-white rounded-xl p-6 shadow-md border border-[#003166]/10 hover:shadow-lg transition-all duration-300">
+                  <h4 className="text-lg font-semibold text-black mb-2">{member.name}</h4>
+                  <p className="text-[#3AB6FF] text-sm mb-3">Youth Leadership</p>
+                  <p className="text-black/80 text-sm">{member.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -1166,67 +1137,6 @@ function TeamMember({
           </div>
         </div>
       )}
-    </motion.div>
-  );
-}
-
-// Team Member With Image Component - For Leadership Team
-function TeamMemberWithImage({ 
-  image, 
-  name, 
-  role, 
-  description, 
-  index = 0 
-}: { 
-  image: string, 
-  name: string, 
-  role: string, 
-  description: string, 
-  index: number 
-}) {
-  // Generate a consistent color based on name
-  const generatePlaceholderColor = () => {
-    const colors = ['#3AB6FF', '#FFD700', '#0c1d3d', '#4682B4', '#20B2AA'];
-    return colors[Math.floor(name.length % colors.length)];
-  };
-  
-  const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
-  
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      viewport={{ once: true, margin: "-50px" }}
-      className="bg-white rounded-xl shadow-md overflow-hidden border border-slate-100 group hover:shadow-xl transition-all duration-300 flex flex-col h-full"
-    >
-      <div className="aspect-square relative overflow-hidden bg-slate-50">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#3AB6FF]/20 to-[#FFD700]/20 opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-10"></div>
-        
-        {/* Always have a beautiful placeholder */}
-        <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: generatePlaceholderColor() }}>
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <div className="text-4xl font-bold text-white opacity-70">{initials}</div>
-          </div>
-        </div>
-        
-        <Image 
-          src={image}
-          alt={name}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105 z-0"
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          onError={(e) => {
-            e.currentTarget.style.display = 'none';
-          }}
-        />
-      </div>
-      
-      <div className="p-4 flex-grow flex flex-col">
-        <h4 className="font-bold text-black text-sm md:text-base leading-tight mb-1">{name}</h4>
-        <p className="text-[#3AB6FF] text-xs md:text-sm font-medium mb-3">{role}</p>
-        <p className="text-black text-xs md:text-sm leading-relaxed flex-grow">{description}</p>
-      </div>
     </motion.div>
   );
 } 
