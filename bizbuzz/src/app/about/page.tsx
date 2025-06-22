@@ -401,7 +401,7 @@ export default function AboutPage() {
           </div>
           
           {/* Executive Directors */}
-          <div className="mb-20">
+          <div className="mb-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -418,49 +418,44 @@ export default function AboutPage() {
             </motion.div>
             
             {/* First row - 3 directors */}
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-8">
-              <TeamMember
+            <div className="grid md:grid-cols-3 gap-8 lg:gap-10 mb-10">
+              <ExecutiveCard
                 key={1}
-                image={`/team/Eddy.png`}
                 name="Eddy Wang"
-                role="Vice President & Co-Director"
-                description="Eddy Wang is an accomplished student leader with a passion for entrepreneurship and innovation. With his strong organizational skills and vision for youth business education, he helps guide BizBuzz's initiatives to reach more students across Naperville."
+                initials="EW"
+                description="Eddy is a dedicated leader with a passion for entrepreneurship and youth education. With exceptional organizational skills, he coordinates BizBuzz initiatives to reach students across Naperville, creating meaningful learning opportunities and inspiring future business leaders."
                 index={0}
               />
-              <TeamMember
+              <ExecutiveCard
                 key={2}
-                image={`/team/Steven.jpg`}
                 name="Steven He"
-                role="Vice President"
-                description="Steven is a junior at Neuqua Valley HS interested in engineering and entrepreneurship. Growing up building legos and running his own YouTube channel, he's excited to connect with students, help them explore their own creative ideas, and create projects bigger than themselves."
+                initials="SH"
+                description="Steven combines his engineering background with entrepreneurial vision to mentor young innovators. His creative approach to problem-solving and project-based learning helps students develop practical skills while exploring their own business ideas and building confidence through hands-on experience."
                 index={1}
               />
-              <TeamMember
+              <ExecutiveCard
                 key={3}
-                image={`/team/Taksh.jpg`}
                 name="Taksh Taware"
-                role="Co-Director"
-                description="Taksh Taware is an incoming freshman at Naperville Central High School who is passionate about empowering youth entrepreneurship. With strong leadership skills, he has raised over $1,000 in funding and is a proud winner of BizBuzz's annual Fish Tank competition"
+                initials="TT"
+                description="Taksh brings fresh perspectives and leadership experience to the BizBuzz team. Having successfully raised funding for his own ventures, he mentors students through the entrepreneurial process, from ideation to execution, helping them transform creative concepts into viable business opportunities with real-world impact."
                 index={2}
               />
             </div>
             
             {/* Second row - 2 CTOs centered */}
-            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
-              <TeamMember
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto">
+              <ExecutiveCard
                 key={4}
-                image={`/team/Arnav.jpg`}
                 name="Arnav Sharma"
-                role="Chief Technical Officer"
-                description="Arnav Sharma is a junior at Naperville North HS passionate about using technology and data science to create opportunities for young aspiring entrepreneurs."
+                initials="AS"
+                description="Arnav leverages his expertise in technology and data science to create innovative educational platforms for young entrepreneurs. His technical knowledge and creative problem-solving abilities help streamline BizBuzz operations and develop digital resources that enhance the learning experience for students exploring business concepts."
                 index={3}
               />
-              <TeamMember
+              <ExecutiveCard
                 key={5}
-                image={`/team/Aiden.jpg`}
                 name="Aiden Xie"
-                role="Chief Technical Officer"
-                description="Aiden brings technical expertise and innovative solutions to the BizBuzz platform. His background in technology helps enhance our educational programs and student experience."
+                initials="AX"
+                description="Aiden specializes in developing technical solutions that make entrepreneurship education accessible and engaging. His innovative approach to educational technology helps BizBuzz create interactive learning experiences, enabling students to better understand complex business concepts through intuitive digital tools and creative programming."
                 index={4}
               />
             </div>
@@ -1030,7 +1025,9 @@ function TeamMember({
   large = false, 
   index = 0,
   imagePosition = 'center',
-  customPosition = ''
+  customPosition = '',
+  centerText = false,
+  larger = false
 }: { 
   image: string, 
   name: string, 
@@ -1039,7 +1036,9 @@ function TeamMember({
   large?: boolean, 
   index: number,
   imagePosition?: 'center' | 'right' | 'left',
-  customPosition?: string
+  customPosition?: string,
+  centerText?: boolean,
+  larger?: boolean
 }) {
   // Generate a consistent color based on name
   const generatePlaceholderColor = () => {
@@ -1063,7 +1062,7 @@ function TeamMember({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-100 group hover:shadow-xl transition-all duration-300 h-full"
+      className={`bg-white rounded-xl shadow-lg overflow-hidden border border-slate-100 group hover:shadow-xl transition-all duration-300 h-full ${larger ? 'shadow-xl' : ''}`}
     >
       {large ? (
         // Co-founders layout (horizontal)
@@ -1074,7 +1073,7 @@ function TeamMember({
             {/* Placeholder background */}
             <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: generatePlaceholderColor() }}>
               <div className="flex flex-col items-center justify-center w-full h-full">
-                <div className="text-5xl font-bold text-white opacity-70">{initials}</div>
+                <div className={`font-bold text-white opacity-70 ${larger ? 'text-6xl' : 'text-5xl'}`}>{initials}</div>
                 <div className="text-sm text-white mt-2 opacity-60">{role}</div>
               </div>
             </div>
@@ -1095,22 +1094,22 @@ function TeamMember({
             />
           </div>
           
-          <div className="p-4 md:p-5 md:w-1/2">
-            <h4 className="text-lg font-bold text-black mb-1">{name}</h4>
-            <p className="text-[#3AB6FF] text-xs font-medium mb-2">{role}</p>
-            <p className="text-black leading-relaxed text-xs md:text-sm">{description || "Coming soon"}</p>
+          <div className={`p-4 md:p-5 md:w-1/2 ${centerText ? 'text-center' : ''} ${larger ? 'p-6 md:p-7' : ''}`}>
+            <h4 className={`font-bold text-black mb-1 ${larger ? 'text-xl md:text-2xl' : 'text-lg'}`}>{name}</h4>
+            {role && <p className="text-[#3AB6FF] text-xs font-medium mb-2">{role}</p>}
+            <p className={`text-black leading-relaxed ${larger ? 'text-sm md:text-base' : 'text-xs md:text-sm'}`}>{description || "Coming soon"}</p>
           </div>
         </div>
       ) : (
         // Executive team layout (vertical)
         <div className="flex flex-col h-full">
-          <div className="aspect-square w-full relative overflow-hidden bg-slate-50">
+          <div className={`aspect-square w-full relative overflow-hidden bg-slate-50 ${larger ? 'aspect-[4/3]' : ''}`}>
             <div className="absolute inset-0 bg-gradient-to-br from-[#3AB6FF]/20 to-[#FFD700]/20 opacity-0 group-hover:opacity-30 transition-opacity duration-300 z-10"></div>
             
             {/* Placeholder background */}
             <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundColor: generatePlaceholderColor() }}>
               <div className="flex flex-col items-center justify-center w-full h-full">
-                <div className="text-5xl font-bold text-white opacity-70">{initials}</div>
+                <div className={`font-bold text-white opacity-70 ${larger ? 'text-6xl' : 'text-5xl'}`}>{initials}</div>
                 <div className="text-sm text-white mt-2 opacity-60">{role}</div>
               </div>
             </div>
@@ -1130,13 +1129,49 @@ function TeamMember({
             />
           </div>
           
-          <div className="p-4 flex-grow flex flex-col">
-            <h4 className="text-base font-bold text-black mb-1">{name}</h4>
-            <p className="text-[#3AB6FF] text-xs font-medium mb-2">{role}</p>
-            <p className="text-black text-xs">{description || "Coming soon"}</p>
+          <div className={`flex-grow flex flex-col ${centerText ? 'items-center text-center' : ''} ${larger ? 'p-6' : 'p-4'}`}>
+            <h4 className={`font-bold text-black mb-1 ${larger ? 'text-xl' : 'text-base'}`}>{name}</h4>
+            {role && <p className="text-[#3AB6FF] text-xs font-medium mb-2">{role}</p>}
+            <p className={`text-black ${larger ? 'text-sm leading-relaxed' : 'text-xs'}`}>{description || "Coming soon"}</p>
           </div>
         </div>
       )}
+    </motion.div>
+  );
+}
+
+// Executive Card Component
+function ExecutiveCard({ name, initials, description, index }: { name: string, initials: string, description: string, index: number }) {
+  // Generate a gradient based on initials
+  const getGradient = () => {
+    const colors = [
+      'from-[#3AB6FF] to-[#0066cc]',
+      'from-[#FFD700] to-[#FFA500]',
+      'from-[#4CAF50] to-[#2E7D32]',
+      'from-[#9C27B0] to-[#673AB7]',
+      'from-[#FF5722] to-[#E91E63]'
+    ];
+    return colors[index % colors.length];
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="bg-white rounded-xl shadow-md overflow-hidden border border-slate-100 hover:shadow-lg transition-all duration-300"
+    >
+      <div className="p-6 flex flex-col items-center text-center">
+        {/* Name with large initials */}
+        <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${getGradient()} flex items-center justify-center mb-4 shadow-md`}>
+          <span className="text-xl font-bold text-white">{initials}</span>
+        </div>
+        
+        <h4 className="text-lg font-bold text-black mb-3">{name}</h4>
+        
+        <p className="text-black/80 text-sm leading-relaxed">{description}</p>
+      </div>
     </motion.div>
   );
 } 
