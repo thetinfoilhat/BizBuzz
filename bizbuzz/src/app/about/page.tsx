@@ -417,22 +417,26 @@ export default function AboutPage() {
               </h3>
             </motion.div>
             
-            {/* First row - 3 directors */}
-            <div className="grid md:grid-cols-3 gap-8 lg:gap-10 mb-10">
+            {/* First row - 2 CTOs at top */}
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto mb-10">
               <ExecutiveCard
                 key={1}
-                name="Eddy Wang"
-                initials="EW"
-                description="Eddy is a dedicated leader with a passion for entrepreneurship and youth education. With exceptional organizational skills, he coordinates BizBuzz initiatives to reach students across Naperville, creating meaningful learning opportunities and inspiring future business leaders."
+                name="Arnav Sharma"
+                initials="AS"
+                description="Arnav leverages his expertise in technology and data science to create innovative educational platforms for young entrepreneurs. His technical knowledge and creative problem-solving abilities help streamline BizBuzz operations and develop digital resources that enhance the learning experience for students exploring business concepts."
                 index={0}
               />
               <ExecutiveCard
                 key={2}
-                name="Steven He"
-                initials="SH"
-                description="Steven combines his engineering background with entrepreneurial vision to mentor young innovators. His creative approach to problem-solving and project-based learning helps students develop practical skills while exploring their own business ideas and building confidence through hands-on experience."
+                name="Ethan Brock"
+                initials="EB"
+                description="Ethan specializes in developing technical solutions that make entrepreneurship education accessible and engaging. His innovative approach to educational technology helps BizBuzz create interactive learning experiences, enabling students to better understand complex business concepts through intuitive digital tools and creative programming."
                 index={1}
               />
+            </div>
+            
+            {/* Second row - 3 directors */}
+            <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
               <ExecutiveCard
                 key={3}
                 name="Taksh Taware"
@@ -440,22 +444,18 @@ export default function AboutPage() {
                 description="Taksh brings fresh perspectives and leadership experience to the BizBuzz team. Having successfully raised funding for his own ventures, he mentors students through the entrepreneurial process, from ideation to execution, helping them transform creative concepts into viable business opportunities with real-world impact."
                 index={2}
               />
-            </div>
-            
-            {/* Second row - 2 CTOs centered */}
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto">
               <ExecutiveCard
                 key={4}
-                name="Arnav Sharma"
-                initials="AS"
-                description="Arnav leverages his expertise in technology and data science to create innovative educational platforms for young entrepreneurs. His technical knowledge and creative problem-solving abilities help streamline BizBuzz operations and develop digital resources that enhance the learning experience for students exploring business concepts."
+                name="Steven He"
+                initials="SH"
+                description="Steven combines his engineering background with entrepreneurial vision to mentor young innovators. His creative approach to problem-solving and project-based learning helps students develop practical skills while exploring their own business ideas and building confidence through hands-on experience."
                 index={3}
               />
               <ExecutiveCard
                 key={5}
-                name="Aiden Xie"
-                initials="AX"
-                description="Aiden specializes in developing technical solutions that make entrepreneurship education accessible and engaging. His innovative approach to educational technology helps BizBuzz create interactive learning experiences, enabling students to better understand complex business concepts through intuitive digital tools and creative programming."
+                name="Eddy Wang"
+                initials="EW"
+                description="Eddy is a dedicated leader with a passion for entrepreneurship and youth education. With exceptional organizational skills, he coordinates BizBuzz initiatives to reach students across Naperville, creating meaningful learning opportunities and inspiring future business leaders."
                 index={4}
               />
             </div>
