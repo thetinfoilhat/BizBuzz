@@ -435,20 +435,20 @@ export default function AboutPage() {
               />
               <ExecutiveCard
                 key={3}
-                name="Taksh Taware"
-                initials="TT"
-                description="Taksh brings fresh perspectives and leadership experience to the BizBuzz team. Having successfully raised funding for his own ventures, he mentors students through the entrepreneurial process, from ideation to execution, helping them transform creative concepts into viable business opportunities with real-world impact."
-                index={2}
-              />
-            </div>
-            
-            {/* Second row - 2 CTOs centered */}
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto">
-              <ExecutiveCard
-                key={4}
                 name="Arnav Sharma"
                 initials="AS"
                 description="Arnav leverages his expertise in technology and data science to create innovative educational platforms for young entrepreneurs. His technical knowledge and creative problem-solving abilities help streamline BizBuzz operations and develop digital resources that enhance the learning experience for students exploring business concepts."
+                index={2}
+              />
+            </div>
+
+            {/* Second row - additional directors */}
+            <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+              <ExecutiveCard
+                key={4}
+                name="Taksh Taware"
+                initials="TT"
+                description="Taksh brings fresh perspectives and leadership experience to the BizBuzz team. Having successfully raised funding for his own ventures, he mentors students through the entrepreneurial process, from ideation to execution, helping them transform creative concepts into viable business opportunities with real-world impact."
                 index={3}
               />
               <ExecutiveCard
@@ -457,6 +457,13 @@ export default function AboutPage() {
                 initials="AX"
                 description="Aiden specializes in developing technical solutions that make entrepreneurship education accessible and engaging. His innovative approach to educational technology helps BizBuzz create interactive learning experiences, enabling students to better understand complex business concepts through intuitive digital tools and creative programming."
                 index={4}
+              />
+              <ExecutiveCard
+                key={6}
+                name="Ethan Brock"
+                initials="EB"
+                description="Ethan specializes in developing technical solutions that make entrepreneurship education accessible and engaging. His innovative approach to educational technology helps BizBuzz create interactive learning experiences, enabling students to better understand complex business concepts through intuitive digital tools and creative programming."
+                index={5}
               />
             </div>
           </div>
