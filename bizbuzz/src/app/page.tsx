@@ -1,8 +1,8 @@
 import ShuffleHero from "@/components/ShuffleHero";
+import DualYearBand from "@/components/DualYearBand";
 import LogoScroller from "@/components/LogoScroller";
-import StatsSection from "@/components/StatsSection";
 import ImageGallery from "@/components/ImageGallery";
-import ProgramCards from "@/components/ProgramCards";
+import YearAwareProgramCards from "@/components/YearAwareProgramCards";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -12,12 +12,12 @@ export default function Home() {
         <ShuffleHero />
       </div>
       
-      <div id="logo-section" className="pt-4 pb-4">
-        <LogoScroller />
+      <div id="dual-year-section">
+        <DualYearBand />
       </div>
       
-      <div id="stats-section" className="pt-4">
-        <StatsSection />
+      <div id="logo-section" className="pt-4 pb-4">
+        <LogoScroller />
       </div>
       
       <div id="image-gallery-section">
@@ -25,7 +25,7 @@ export default function Home() {
       </div>
       
       <div id="program-cards-section">
-        <ProgramCards />
+        <YearAwareProgramCards />
       </div>
       
       <Footer />

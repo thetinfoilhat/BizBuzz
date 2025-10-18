@@ -274,6 +274,86 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Grants & Recognition Section */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-6xl mx-auto"
+          >
+            {/* Clean modern card */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+              {/* Header with icon and title */}
+              <div className="bg-gradient-to-r from-[#FFD700] to-[#FFA500] px-8 py-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-md">
+                    <svg viewBox="0 0 24 24" className="w-7 h-7 text-[#FFD700]" fill="currentColor">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 className="text-3xl font-bold text-white">Teen Philanthropy Initiative 2025</h2>
+                    <p className="text-white/90 text-sm mt-1">Grants & Recognition</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Content */}
+              <div className="p-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  {/* Left: Description and Stats */}
+                  <div className="space-y-6">
+                    <p className="text-base text-black leading-relaxed">
+                      We are honored to be recipients of the prestigious Teen Philanthropy Initiative 2025 grant. This recognition acknowledges our commitment to fostering entrepreneurship education and empowering young minds to create positive change in their communities.
+                    </p>
+                    
+                    {/* Clean stats */}
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-[#FFD700]">2025</div>
+                        <div className="text-xs text-black/60 uppercase tracking-wider mt-1">Grant Year</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-[#3AB6FF]">Youth</div>
+                        <div className="text-xs text-black/60 uppercase tracking-wider mt-1">Focus</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-[#FFD700]">Impact</div>
+                        <div className="text-xs text-black/60 uppercase tracking-wider mt-1">Community</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Right: Event Photos - 2 Vertical Images */}
+                  <div className="grid grid-cols-2 gap-4">
+                    {[1, 2].map((num, idx) => (
+                      <motion.div
+                        key={num}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: idx * 0.15 }}
+                        className="aspect-[3/4] relative rounded-lg overflow-hidden bg-gray-50 border-2 border-gray-200 group hover:border-[#FFD700] hover:shadow-md transition-all"
+                      >
+                        <div className="absolute inset-0 flex flex-col items-center justify-center">
+                          <svg className="w-12 h-12 text-gray-300 group-hover:text-[#FFD700] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <p className="text-xs text-gray-400 mt-2">Photo {num}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Goals Section */}
       <section className="py-24 bg-[#f9fafb] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-full h-32 bg-gradient-to-b from-white to-transparent"></div>
@@ -401,7 +481,7 @@ export default function AboutPage() {
           </div>
           
           {/* Executive Directors */}
-          <div className="mb-24">
+          <div className="mb-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -417,53 +497,85 @@ export default function AboutPage() {
               </h3>
             </motion.div>
             
-            {/* First row - 3 directors */}
-            <div className="grid md:grid-cols-3 gap-8 lg:gap-10 mb-10">
-              <ExecutiveCard
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+              <TeamMember
                 key={1}
+                image={`/team/Eddy.png`}
                 name="Eddy Wang"
-                initials="EW"
+                role="Executive Director"
                 description="Eddy is a dedicated leader with a passion for entrepreneurship and youth education. With exceptional organizational skills, he coordinates BizBuzz initiatives to reach students across Naperville, creating meaningful learning opportunities and inspiring future business leaders."
+                large={false}
                 index={0}
+                larger={true}
               />
-              <ExecutiveCard
+              <TeamMember
                 key={2}
+                image={`/team/Steven.png`}
                 name="Steven He"
-                initials="SH"
+                role="Executive Director"
                 description="Steven combines his engineering background with entrepreneurial vision to mentor young innovators. His creative approach to problem-solving and project-based learning helps students develop practical skills while exploring their own business ideas and building confidence through hands-on experience."
+                large={false}
                 index={1}
+                larger={true}
               />
-              <ExecutiveCard
+              <TeamMember
                 key={3}
-                name="Arnav Sharma"
-                initials="AS"
-                description="Arnav leverages his expertise in technology and data science to create innovative educational platforms for young entrepreneurs. His technical knowledge and creative problem-solving abilities help streamline BizBuzz operations and develop digital resources that enhance the learning experience for students exploring business concepts."
+                image={`/team/Taksh.png`}
+                name="Taksh Taware"
+                role="Executive Director"
+                description="Taksh brings fresh perspectives and leadership experience to the BizBuzz team. Having successfully raised funding for his own ventures, he mentors students through the entrepreneurial process, from ideation to execution, helping them transform creative concepts into viable business opportunities with real-world impact."
+                large={false}
                 index={2}
+                larger={true}
+              />
+              <TeamMember
+                key={4}
+                image={`/team/Arnav.png`}
+                name="Arnav Sharma"
+                role="Executive Director"
+                description="Arnav leverages his expertise in technology and data science to create innovative educational platforms for young entrepreneurs. His technical knowledge and creative problem-solving abilities help streamline BizBuzz operations and develop digital resources that enhance the learning experience for students exploring business concepts."
+                large={false}
+                index={3}
+                larger={true}
               />
             </div>
+          </div>
 
-            {/* Second row - additional directors */}
-            <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
-              <ExecutiveCard
-                key={4}
-                name="Taksh Taware"
-                initials="TT"
-                description="Taksh brings fresh perspectives and leadership experience to the BizBuzz team. Having successfully raised funding for his own ventures, he mentors students through the entrepreneurial process, from ideation to execution, helping them transform creative concepts into viable business opportunities with real-world impact."
-                index={3}
-              />
-              <ExecutiveCard
-                key={5}
-                name="Aiden Xie"
-                initials="AX"
-                description="Aiden specializes in developing technical solutions that make entrepreneurship education accessible and engaging. His innovative approach to educational technology helps BizBuzz create interactive learning experiences, enabling students to better understand complex business concepts through intuitive digital tools and creative programming."
-                index={4}
-              />
-              <ExecutiveCard
-                key={6}
+          {/* Chief Technology Officers */}
+          <div className="mb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <h3 className="text-3xl font-bold text-center text-black">
+                <span className="inline-block relative">
+                  Chief Technology Officers
+                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#FFD700]"></div>
+                </span>
+              </h3>
+            </motion.div>
+            
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
+              <TeamMember
+                key={1}
+                image={`/team/Ethan.png`}
                 name="Ethan Brock"
-                initials="EB"
+                role="Chief Technology Officer"
                 description="Ethan specializes in developing technical solutions that make entrepreneurship education accessible and engaging. His innovative approach to educational technology helps BizBuzz create interactive learning experiences, enabling students to better understand complex business concepts through intuitive digital tools and creative programming."
-                index={5}
+                large={false}
+                index={0}
+              />
+              <TeamMember
+                key={2}
+                image={`/team/Aiden.png`}
+                name="Aiden Xie"
+                role="Chief Technology Officer"
+                description="Aiden specializes in developing technical solutions that make entrepreneurship education accessible and engaging. His innovative approach to educational technology helps BizBuzz create interactive learning experiences, enabling students to better understand complex business concepts through intuitive digital tools and creative programming."
+                large={false}
+                index={1}
               />
             </div>
           </div>
@@ -506,10 +618,6 @@ export default function AboutPage() {
                 {
                   name: "Elena Kang Chou",
                   description: "Elena brings creativity and enthusiasm to the team. She's passionate about helping young students develop their entrepreneurial mindset and problem-solving abilities."
-                },
-                {
-                  name: "Ethan Brock",
-                  description: "Ethan combines his love for innovation with teaching. He focuses on helping students discover their entrepreneurial potential and develop business solutions."
                 },
                 {
                   name: "Lakhi Thotakura",
@@ -1146,39 +1254,3 @@ function TeamMember({
     </motion.div>
   );
 }
-
-// Executive Card Component
-function ExecutiveCard({ name, initials, description, index }: { name: string, initials: string, description: string, index: number }) {
-  // Generate a gradient based on initials
-  const getGradient = () => {
-    const colors = [
-      'from-[#3AB6FF] to-[#0066cc]',
-      'from-[#FFD700] to-[#FFA500]',
-      'from-[#4CAF50] to-[#2E7D32]',
-      'from-[#9C27B0] to-[#673AB7]',
-      'from-[#FF5722] to-[#E91E63]'
-    ];
-    return colors[index % colors.length];
-  };
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="bg-white rounded-xl shadow-md overflow-hidden border border-slate-100 hover:shadow-lg transition-all duration-300"
-    >
-      <div className="p-6 flex flex-col items-center text-center">
-        {/* Name with large initials */}
-        <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${getGradient()} flex items-center justify-center mb-4 shadow-md`}>
-          <span className="text-xl font-bold text-white">{initials}</span>
-        </div>
-        
-        <h4 className="text-lg font-bold text-black mb-3">{name}</h4>
-        
-        <p className="text-black/80 text-sm leading-relaxed">{description}</p>
-      </div>
-    </motion.div>
-  );
-} 
