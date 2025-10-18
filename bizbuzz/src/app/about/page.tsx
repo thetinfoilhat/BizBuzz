@@ -497,7 +497,7 @@ export default function AboutPage() {
                 },
                 {
                   name: "Ca Van",
-                  description: "Ca is dedicated to fostering entrepreneurial skills in young students. With a background in project management, she helps structure and organize BizBuzz's initiatives."
+                  description: "Ca is dedicated to fostering entrepreneurial skills in young students. With a background in project management, he helps structure and organize BizBuzz's initiatives."
                 },
                 {
                   name: "Colin Singer",
