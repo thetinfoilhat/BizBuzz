@@ -1,10 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section - Redesigned to match other pages */}
@@ -30,41 +36,42 @@ export default function AboutPage() {
           </div>
           
           {/* Floating light elements */}
-          {[...Array(15)].map((_, i) => (
-            <motion.div 
-              key={i}
-              initial={{ 
-                x: Math.random() * 100 - 50 + "%",
-                y: Math.random() * 100 - 50 + "%",
-                opacity: Math.random() * 0.5 + 0.1 
-              }}
-              animate={{ 
-                x: [
-                  Math.random() * 100 - 50 + "%",
-                  Math.random() * 100 - 50 + "%"
-                ],
-                y: [
-                  Math.random() * 100 - 50 + "%",
-                  Math.random() * 100 - 50 + "%"
-                ]
-              }}
-              transition={{ 
-                duration: Math.random() * 15 + 15,
-                repeat: Infinity,
-                repeatType: "reverse"
-              }}
-              className="absolute rounded-full"
-              style={{
-                width: `${Math.random() * 15 + 5}px`,
-                height: `${Math.random() * 15 + 5}px`,
-                background: i % 3 === 0 
-                  ? "radial-gradient(circle, #3AB6FF 0%, rgba(58, 182, 255, 0) 70%)" 
-                  : i % 3 === 1 
-                    ? "radial-gradient(circle, #FFD700 0%, rgba(255, 215, 0, 0) 70%)" 
-                    : "radial-gradient(circle, #ffffff 0%, rgba(255, 255, 255, 0) 70%)",
-              }}
-            />
-          ))}
+          {mounted &&
+            [...Array(15)].map((_, i) => (
+              <motion.div 
+                key={i}
+                initial={{ 
+                  x: Math.random() * 100 - 50 + "%",
+                  y: Math.random() * 100 - 50 + "%",
+                  opacity: Math.random() * 0.5 + 0.1 
+                }}
+                animate={{ 
+                  x: [
+                    Math.random() * 100 - 50 + "%",
+                    Math.random() * 100 - 50 + "%"
+                  ],
+                  y: [
+                    Math.random() * 100 - 50 + "%",
+                    Math.random() * 100 - 50 + "%"
+                  ]
+                }}
+                transition={{ 
+                  duration: Math.random() * 15 + 15,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+                className="absolute rounded-full"
+                style={{
+                  width: `${Math.random() * 15 + 5}px`,
+                  height: `${Math.random() * 15 + 5}px`,
+                  background: i % 3 === 0 
+                    ? "radial-gradient(circle, #3AB6FF 0%, rgba(58, 182, 255, 0) 70%)" 
+                    : i % 3 === 1 
+                      ? "radial-gradient(circle, #FFD700 0%, rgba(255, 215, 0, 0) 70%)" 
+                      : "radial-gradient(circle, #ffffff 0%, rgba(255, 255, 255, 0) 70%)",
+                }}
+              />
+            ))}
         </div>
         
         {/* Content */}
@@ -124,27 +131,28 @@ export default function AboutPage() {
         {/* Dynamic background elements */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0c1d3d]/5 to-transparent"></div>
         <div className="absolute top-0 right-0 w-full h-64 opacity-20">
-          {[...Array(15)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full bg-[#3AB6FF]"
-              style={{
-                width: `${Math.random() * 8 + 3}px`,
-                height: `${Math.random() * 8 + 3}px`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, Math.random() * -30 - 10],
-                opacity: [0.2, 0.8, 0]
-              }}
-              transition={{
-                duration: Math.random() * 5 + 5,
-                repeat: Infinity,
-                repeatType: "loop"
-              }}
-            />
-          ))}
+          {mounted &&
+            [...Array(15)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-[#3AB6FF]"
+                style={{
+                  width: `${Math.random() * 8 + 3}px`,
+                  height: `${Math.random() * 8 + 3}px`,
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                }}
+                animate={{
+                  y: [0, Math.random() * -30 - 10],
+                  opacity: [0.2, 0.8, 0]
+                }}
+                transition={{
+                  duration: Math.random() * 5 + 5,
+                  repeat: Infinity,
+                  repeatType: "loop"
+                }}
+              />
+            ))}
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -205,28 +213,29 @@ export default function AboutPage() {
       <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-[#f8fafc]">
         <div className="absolute inset-0 z-0 overflow-hidden opacity-10">
           <div className="absolute top-0 left-0 w-full h-full">
-            {[...Array(30)].map((_, i) => (
-              <motion.div 
-                key={i}
-                className="absolute rounded-full"
-                style={{
-                  backgroundColor: i % 2 === 0 ? '#3AB6FF' : '#FFD700',
-                  width: `${Math.random() * 8 + 2}px`,
-                  height: `${Math.random() * 8 + 2}px`,
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                }}
-                animate={{ 
-                  scale: [1, 1.5, 1],
-                  opacity: [0.3, 0.8, 0.3]
-                }}
-                transition={{ 
-                  duration: Math.random() * 3 + 2,
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }}
-              />
-            ))}
+            {mounted &&
+              [...Array(30)].map((_, i) => (
+                <motion.div 
+                  key={i}
+                  className="absolute rounded-full"
+                  style={{
+                    backgroundColor: i % 2 === 0 ? '#3AB6FF' : '#FFD700',
+                    width: `${Math.random() * 8 + 2}px`,
+                    height: `${Math.random() * 8 + 2}px`,
+                    top: `${Math.random() * 100}%`,
+                    left: `${Math.random() * 100}%`,
+                  }}
+                  animate={{ 
+                    scale: [1, 1.5, 1],
+                    opacity: [0.3, 0.8, 0.3]
+                  }}
+                  transition={{ 
+                    duration: Math.random() * 3 + 2,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }}
+                />
+              ))}
           </div>
         </div>
         
@@ -328,7 +337,7 @@ export default function AboutPage() {
                   </div>
                   
                   {/* Right: Event Photos - 2 Vertical Images */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="flex gap-3 justify-center">
                     {[1, 2].map((num, idx) => (
                       <motion.div
                         key={num}
@@ -336,10 +345,10 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: idx * 0.15 }}
-                        className="aspect-[3/4] relative rounded-lg overflow-hidden bg-gray-50 border-2 border-gray-200 group hover:border-[#FFD700] hover:shadow-md transition-all"
+                        className="w-40 h-52 relative rounded-lg overflow-hidden bg-gray-50 border border-gray-200 group hover:border-[#FFD700] hover:shadow-md transition-all"
                       >
                         <div className="absolute inset-0 flex flex-col items-center justify-center">
-                          <svg className="w-12 h-12 text-gray-300 group-hover:text-[#FFD700] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-10 h-10 text-gray-300 group-hover:text-[#FFD700] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                           <p className="text-xs text-gray-400 mt-2">Photo {num}</p>

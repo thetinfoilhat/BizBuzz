@@ -53,7 +53,6 @@ const Header = () => {
         { href: "/fish-tank-2025", label: "2025 Fish Tank", color: "#FFBF00" }
       ]
     },
-    { href: "/years", label: "All Seasons" },
     { href: "/sessions", label: "1:1 Sessions" },
     { href: "/about", label: "About Us" },
   ];
