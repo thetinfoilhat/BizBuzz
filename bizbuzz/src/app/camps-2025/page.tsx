@@ -524,10 +524,10 @@ export default function Camps2025Page() {
     <div className="min-h-screen bg-gradient-to-b from-white to-[#FFF9E6]">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#8B6914] via-[#CD8F20] to-[#FFBF00]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#E69F16] via-[#FFBF00] to-[#FFD700]"></div>
         <div className="absolute inset-0">
-          <div className="absolute -top-32 -left-16 w-[420px] h-[420px] rounded-full bg-[#FFEA9E]/30 blur-3xl"></div>
-          <div className="absolute top-40 -right-32 w-[520px] h-[520px] rounded-full bg-[#CF8D18]/35 blur-[140px]"></div>
+          <div className="absolute -top-32 -left-16 w-[420px] h-[420px] rounded-full bg-[#FFE699]/30 blur-3xl"></div>
+          <div className="absolute top-40 -right-32 w-[520px] h-[520px] rounded-full bg-[#E69F16]/35 blur-[140px]"></div>
           <div className="absolute bottom-[-220px] left-1/2 -translate-x-1/2 w-[780px] h-[780px] rounded-full bg-[#FFBF00]/25 blur-[180px]"></div>
           <div
             className="absolute inset-0 opacity-[0.06]"
@@ -536,7 +536,7 @@ export default function Camps2025Page() {
               backgroundSize: "28px 28px"
             }}
           ></div>
-          <div className="absolute bottom-0 w-full h-32 bg-gradient-to-b from-transparent via-[#FFF5CF]/40 to-[#FFF9E6]"></div>
+          <div className="absolute bottom-0 w-full h-32 bg-gradient-to-b from-transparent via-[#FFF5E6]/40 to-[#FFF9E6]"></div>
           <svg className="absolute bottom-[-24px] w-full text-[#FFF9E6]" viewBox="0 0 1440 120" preserveAspectRatio="none" fill="currentColor">
             <path d="M0,48L48,54.7C96,61,192,75,288,74.7C384,75,480,59,576,48C672,37,768,32,864,37.3C960,43,1056,59,1152,64C1248,69,1344,64,1392,61.3L1440,59L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
           </svg>
@@ -550,35 +550,36 @@ export default function Camps2025Page() {
               transition={{ duration: 0.7 }}
               className="text-white"
             >
-              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-medium mb-8 shadow-lg shadow-[#8B6914]/30">
-                <span className="w-2 h-2 rounded-full bg-[#FFBF00]"></span>
+              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/15 border border-white/25 backdrop-blur-md text-sm font-semibold mb-8 shadow-lg">
+                <span className="w-2 h-2 rounded-full bg-white"></span>
                 Summer 2025
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight">
-                <span className="block">BizBuzz</span>
-                <span className="block text-[#FFE699]">Entrepreneurship Camp</span>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
+                <span className="block text-white">BizBuzz</span>
+                <span className="block text-white">Entrepreneurship</span>
+                <span className="block text-white">Camp</span>
               </h1>
 
-              <p className="mt-6 text-lg sm:text-xl text-white/85 max-w-2xl leading-relaxed">
+              <p className="mt-6 text-xl text-white/90 max-w-2xl leading-relaxed">
                 Seven sessions of hands-on innovation where young founders ideate, build, and pitch market-ready ventures alongside Shark Tank alumni, civic leaders, and finance experts.
               </p>
 
-              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-white/80">
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md">
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/15 border border-white/20 backdrop-blur-md text-white/90">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   June 6 - July 25, 2025
                 </div>
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md">
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/15 border border-white/20 backdrop-blur-md text-white/90">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0L6.343 16.657A8 8 0 1117.657 5.343 8 8 0 0117.657 16.657z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   Benedictine University, Lisle
                 </div>
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md">
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/15 border border-white/20 backdrop-blur-md text-white/90">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.178c.969 0 1.371 1.24.588 1.81l-3.382 2.457a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.382-2.457a1 1 0 00-1.176 0l-3.382 2.457c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.957 9.401c-.783-.57-.38-1.81.588-1.81h4.178a1 1 0 00.95-.69l1.286-3.974z" />
                   </svg>
@@ -589,7 +590,7 @@ export default function Camps2025Page() {
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link
                   href="/fish-tank-2025"
-                  className="inline-flex items-center px-8 py-4 rounded-full bg-[#FFE699] text-[#8B6914] font-semibold shadow-xl shadow-[#8B6914]/30 hover:shadow-[#8B6914]/50 hover:-translate-y-0.5 transition-all"
+                  className="inline-flex items-center px-8 py-4 rounded-full bg-white text-[#8B6914] font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all"
                 >
                   View 2025 Fish Tank
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -598,7 +599,7 @@ export default function Camps2025Page() {
                 </Link>
                 <Link
                   href="/camps"
-                  className="inline-flex items-center px-8 py-4 rounded-full border border-white/40 text-white font-medium hover:bg-white/15 transition-all"
+                  className="inline-flex items-center px-8 py-4 rounded-full border-2 border-white/40 text-white font-bold hover:bg-white/15 transition-all"
                 >
                   View 2024 Camp
                 </Link>
@@ -612,9 +613,9 @@ export default function Camps2025Page() {
               className="relative"
             >
               <div className="absolute -inset-6 bg-white/20 blur-3xl opacity-40"></div>
-              <div className="relative bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-10 shadow-2xl shadow-[#8B6914]/25 overflow-hidden">
-                <div className="absolute -top-16 -right-8 w-48 h-48 rounded-full bg-[#FFE699]/30 blur-2xl"></div>
-                <div className="absolute top-10 right-10 text-white/50">
+              <div className="relative bg-white/15 backdrop-blur-2xl border border-white/25 rounded-3xl p-10 shadow-2xl overflow-hidden">
+                <div className="absolute -top-16 -right-8 w-48 h-48 rounded-full bg-white/20 blur-2xl"></div>
+                <div className="absolute top-10 right-10 text-white/40">
                   <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.4} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.873v4.254a1 1 0 001.555.832l3.197-2.122a1 1 0 000-1.669z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.4} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -622,7 +623,7 @@ export default function Camps2025Page() {
                 </div>
 
                 <div className="mb-8">
-                  <span className="text-sm uppercase tracking-[0.3em] text-white/60">Camp Snapshot</span>
+                  <span className="text-sm uppercase tracking-[0.3em] text-white/70 font-semibold">Camp Snapshot</span>
                   <h2 className="mt-3 text-3xl font-bold text-white">Our boldest summer yet</h2>
                 </div>
 
@@ -635,7 +636,7 @@ export default function Camps2025Page() {
                   ].map((stat) => (
                     <div
                       key={stat.label}
-                      className="rounded-2xl bg-white/10 border border-white/15 px-5 py-6 flex flex-col justify-center text-white shadow-inner shadow-[#8B6914]/20"
+                      className="rounded-2xl bg-white/15 border border-white/20 px-5 py-6 flex flex-col justify-center text-white shadow-inner"
                     >
                       <div className="text-3xl font-bold">{stat.value}</div>
                       <div className="text-xs uppercase tracking-wide text-white/70 mt-1">{stat.label}</div>
@@ -643,12 +644,12 @@ export default function Camps2025Page() {
                   ))}
                 </div>
 
-                <div className="mt-10 p-5 rounded-2xl bg-[#FFE699]/15 border border-[#FFE699]/40 text-white/85">
-                  <div className="flex items-center gap-3 text-sm font-medium">
-                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#FFE699]/30 text-[#8B6914]">✦</span>
+                <div className="mt-10 p-5 rounded-2xl bg-white/10 border border-white/20 text-white/90">
+                  <div className="flex items-center gap-3 text-sm font-semibold">
+                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20">✦</span>
                     Weekly showcases with mentor feedback and prize challenges
                   </div>
-                  <p className="text-sm text-white/70 mt-3">
+                  <p className="text-sm text-white/75 mt-3 leading-relaxed">
                     From branding labs with Kandice Henning to finance intensives with Mayor Scott Wehrli and Raymond Munch, every session builds toward Fish Tank success.
                   </p>
                 </div>
