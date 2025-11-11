@@ -1,36 +1,166 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BizBuzz NFP Website
 
-## Getting Started
+Official website for BizBuzz NFP - turning imagination into innovation via social entrepreneurship.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Multi-Year Architecture**: Browse and compare 2024 and 2025 seasons
+- **Dynamic Year Pages**: Dedicated pages for each cohort with programs, timelines, and stories
+- **Comparison View**: Side-by-side KPI comparison with CSV export
+- **Responsive Design**: Optimized for mobile, tablet, and desktop
+- **Accessibility**: WCAG 2.2 AA compliant
+- **Modern Stack**: Next.js 14 + TypeScript + Tailwind CSS
+
+## 📁 Project Structure
+
+```
+bizbuzz/
+├── data/years/           # Year-specific data (JSON)
+├── src/
+│   ├── app/             # Next.js App Router pages
+│   │   ├── years/       # Year archive pages
+│   │   ├── compare/     # Comparison pages
+│   │   ├── camps/       # Program pages
+│   │   ├── workshops/
+│   │   └── fish-tank/
+│   ├── components/      # Reusable React components
+│   ├── contexts/        # React Context providers
+│   └── types/           # TypeScript type definitions
+└── public/              # Static assets (images, etc.)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
+- Node.js 18+ 
+- npm, yarn, or pnpm
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Installation
 
-## Learn More
+```bash
+# Clone the repository
+git clone [repository-url]
 
-To learn more about Next.js, take a look at the following resources:
+# Navigate to project
+cd bizbuzz
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Install dependencies
+npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Run development server
+npm run dev
+```
 
-## Deploy on Vercel
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Editing Year Data
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All year-specific content is stored in `/data/years/[year].json`.
+
+**Quick Start:**
+1. Open `/data/years/2025.json`
+2. Update KPIs, programs, or other sections
+3. Save the file
+4. Refresh your browser to see changes
+
+**Detailed Instructions:** See [DATA_EDITING_GUIDE.md](./DATA_EDITING_GUIDE.md)
+
+## 🎨 Design System
+
+### Color Themes
+
+**2024 (Blue Theme)**
+- Primary: `#38b6ff`
+- Dark: `#003166`
+- Backgrounds: Blue gradients
+
+**2025 (Purple Theme)**
+- Primary: `#8b5cf6`
+- Dark: `#4c1d95`
+- Backgrounds: Purple gradients
+
+**Shared**
+- Gold: `#FFBF00`
+- Text: Pure black `#000000` (never gray)
+- Cards: Pure white `#ffffff`
+
+### Typography
+- **Font**: Poppins (Google Fonts)
+- **Weights**: 100-900 available
+- **Scale**: Tailwind default scale
+
+## 🌐 Key Routes
+
+- `/` - Homepage
+- `/years` - Year index (view all seasons)
+- `/years/2024` - 2024 season details
+- `/years/2025` - 2025 season details
+- `/compare/2024-vs-2025` - Year comparison
+- `/camps` - 2024 Camps (legacy route)
+- `/workshops` - Workshops
+- `/fish-tank` - Fish Tank competition
+- `/about` - About BizBuzz
+
+## 🧪 Testing
+
+```bash
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
+
+# Build (ensures no errors)
+npm run build
+```
+
+## 📦 Building for Production
+
+```bash
+# Create production build
+npm run build
+
+# Start production server
+npm start
+```
+
+## 🚢 Deployment
+
+The site is optimized for deployment on [Vercel](https://vercel.com):
+
+1. Push to your git repository
+2. Import project in Vercel
+3. Deploy automatically on each push to main
+
+## 📚 Documentation
+
+- [DATA_EDITING_GUIDE.md](./DATA_EDITING_GUIDE.md) - How to update year data
+- [CONTRIBUTING.md](./CONTRIBUTING.md) - Contribution guidelines
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+
+## 🤝 Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed contribution guidelines.
+
+**Quick Contribution Steps:**
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request with screenshots
+
+## 📄 License
+
+[Add your license here]
+
+## 💬 Support
+
+For questions or issues:
+- Open a GitHub issue
+- Contact the BizBuzz team
+- Refer to documentation files
+
+---
+
+Built with ❤️ by the BizBuzz team

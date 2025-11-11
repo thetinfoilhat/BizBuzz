@@ -1,8 +1,7 @@
 import ShuffleHero from "@/components/ShuffleHero";
 import LogoScroller from "@/components/LogoScroller";
-import StatsSection from "@/components/StatsSection";
 import ImageGallery from "@/components/ImageGallery";
-import ProgramCards from "@/components/ProgramCards";
+import YearAwareProgramCards from "@/components/YearAwareProgramCards";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -16,16 +15,12 @@ export default function Home() {
         <LogoScroller />
       </div>
       
-      <div id="stats-section" className="pt-4">
-        <StatsSection />
-      </div>
-      
       <div id="image-gallery-section">
         <ImageGallery />
       </div>
       
       <div id="program-cards-section">
-        <ProgramCards />
+        <YearAwareProgramCards />
       </div>
       
       <Footer />

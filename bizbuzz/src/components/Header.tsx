@@ -34,9 +34,25 @@ const Header = () => {
   };
 
   const navLinks = [
-    { href: "/camps", label: "Camps" },
+    { 
+      href: "/camps", 
+      label: "Camps",
+      hasDropdown: true,
+      dropdownItems: [
+        { href: "/camps", label: "2024 Camps", color: "#38b6ff" },
+        { href: "/camps-2025", label: "2025 Camps", color: "#FFBF00" }
+      ]
+    },
     { href: "/workshops", label: "Workshops" },
-    { href: "/fish-tank", label: "Fish Tanks" },
+    { 
+      href: "/fish-tank", 
+      label: "Fish Tank",
+      hasDropdown: true,
+      dropdownItems: [
+        { href: "/fish-tank", label: "2024 Fish Tank", color: "#38b6ff" },
+        { href: "/fish-tank-2025", label: "2025 Fish Tank", color: "#FFBF00" }
+      ]
+    },
     { href: "/sessions", label: "1:1 Sessions" },
     { href: "/about", label: "About Us" },
   ];
@@ -65,17 +81,61 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 pr-4">
             {navLinks.map((link) => (
-              <Link 
-                key={link.href}
-                href={link.href} 
-                className={`text-sm transition-colors ${
-                  pathname === link.href 
-                    ? "text-[#3AB6FF] font-medium" 
-                    : "text-[#000000] hover:text-[#3AB6FF]"
-                }`}
-              >
-                {link.label}
-              </Link>
+              link.hasDropdown ? (
+                <div key={link.href} className="relative group">
+                  <button 
+                    className={`text-sm transition-colors flex items-center ${
+                      pathname === link.href || link.dropdownItems?.some(item => pathname === item.href || (item.href.includes('#') && pathname.startsWith(item.href.split('#')[0])))
+                        ? "text-[#3AB6FF] font-medium" 
+                        : "text-[#000000] hover:text-[#3AB6FF]"
+                    }`}
+                  >
+                    {link.label}
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
+                    <div className="py-2">
+                      {link.dropdownItems?.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={`block px-4 py-3 text-sm transition-colors hover:bg-gray-50 ${
+                            pathname === item.href
+                              ? "bg-blue-50 font-medium"
+                              : ""
+                          }`}
+                        >
+                          <div className="flex items-center">
+                            {item.color && (
+                              <div 
+                                className="w-3 h-3 rounded-full mr-2"
+                                style={{ backgroundColor: item.color }}
+                              ></div>
+                            )}
+                            <span style={{ color: item.color || '#000000' }}>
+                              {item.label}
+                            </span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link 
+                  key={link.href}
+                  href={link.href} 
+                  className={`text-sm transition-colors ${
+                    pathname === link.href 
+                      ? "text-[#3AB6FF] font-medium" 
+                      : "text-[#000000] hover:text-[#3AB6FF]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </nav>
           
@@ -102,17 +162,49 @@ const Header = () => {
       >
         <div className="px-4 py-3">
           {navLinks.map((link) => (
-            <Link 
-              key={link.href}
-              href={link.href} 
-              className={`block py-3 text-base transition-colors ${
-                pathname === link.href 
-                  ? "text-[#3AB6FF] font-medium" 
-                  : "text-[#000000] hover:text-[#3AB6FF]"
-              }`}
-            >
-              {link.label}
-            </Link>
+            <div key={link.href}>
+              {link.hasDropdown ? (
+                <div className="mb-2">
+                  <div className="text-[#000000] font-semibold py-2 text-base border-b border-gray-100">
+                    {link.label}
+                  </div>
+                  {link.dropdownItems?.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`block py-2 pl-4 text-sm transition-colors ${
+                        pathname === item.href
+                          ? "font-medium"
+                          : "hover:bg-gray-50"
+                      }`}
+                    >
+                      <div className="flex items-center">
+                        {item.color && (
+                          <div 
+                            className="w-3 h-3 rounded-full mr-2"
+                            style={{ backgroundColor: item.color }}
+                          ></div>
+                        )}
+                        <span style={{ color: item.color || '#000000' }}>
+                          {item.label}
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <Link 
+                  href={link.href} 
+                  className={`block py-3 text-base transition-colors ${
+                    pathname === link.href 
+                      ? "text-[#3AB6FF] font-medium" 
+                      : "text-[#000000] hover:text-[#3AB6FF]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )}
+            </div>
           ))}
         </div>
       </div>
