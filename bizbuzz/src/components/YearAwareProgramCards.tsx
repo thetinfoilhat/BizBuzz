@@ -43,36 +43,36 @@ const programsByYear = {
   ],
   2025: [
     {
-      title: "Enhanced Camp",
-      description: "Expanded six-week program with cutting-edge topics: AI integration, global entrepreneurship, social impact, and advanced financial literacy. 150+ students per session expected.",
+      title: "Summer Camp",
+      description: "Free seven-week entrepreneurship camp featuring 7 sessions, 5 guest speakers including Shark Tank alum Lindsey Fleischhauer and Mayor Scott Wehrli, and hands-on business challenges. 120 students learned ideation, marketing, finance, and pitching.",
       image: "/program_cards/camps.jpg",
-      link: "/years/2025",
-      stats: "6 Enhanced Sessions • 8 Speakers • 150+ Students",
-      badge: "Enhanced"
+      link: "/camps-2025",
+      stats: "7 Sessions • 5 Speakers • 120 Students",
+      badge: undefined
     },
     {
-      title: "Fish Tank 2025",
-      description: "Upgraded competition at Northwestern University featuring specialized tracks (AI & Tech, Social Impact, Sustainability), international mentorship, and over $2,000 in prizes.",
+      title: "Fish Tank",
+      description: "Our second annual pitch competition at Benedictine University where 70 young entrepreneurs competed for funding, mentorship, and resources to launch their businesses.",
       image: "/program_cards/fishtank.jpg",
-      link: "/years/2025",
-      stats: "150+ Competitors • 14 Judges • $2,000+ in Prizes",
-      badge: "Expanded"
+      link: "/fish-tank-2025",
+      stats: "70 Competitors • 10 Judges • Prizes & Funding",
+      badge: undefined
     },
     {
-      title: "Advanced Workshops",
-      description: "7 specialized workshop series including Global Summit, AI Bootcamp, Social Impact series, FinTech workshop, and Innovation Lab experiences reaching 785+ students.",
+      title: "Workshops",
+      description: "Workshop series across elementary schools, business fairs, and community centers, reaching students with condensed entrepreneurship curriculum and hands-on activities.",
       image: "/program_cards/workshops.jpg",
-      link: "/years/2025",
-      stats: "7 Series • 23 Sessions • 785+ Students",
-      badge: "New Topics"
+      link: "/workshops",
+      stats: "Multiple Workshops • Hands-On Learning",
+      badge: undefined
     },
     {
-      title: "Elite Mentorship",
-      description: "Enhanced one-on-one mentorship including international mentor matching, specialized industry experts, and quarterly progress reviews for sustained support.",
+      title: "1:1 Mentorship",
+      description: "Personalized one-on-one sessions providing business incubation support, curriculum reinforcement, and tailored mentorship in innovation and finance.",
       image: "/program_cards/mentorship.jpg",
       link: "/sessions",
-      stats: "Global Mentors • Expert Matching",
-      badge: "Premium"
+      stats: "Custom Sessions • Individual Support",
+      badge: undefined
     }
   ]
 };
