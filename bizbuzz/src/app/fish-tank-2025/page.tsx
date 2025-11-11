@@ -6,19 +6,29 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 
 // 2025 Fish Tank photos
+const heroSlides = [
+  "/fish_tank/2025/images/hero-celebration.jpg",
+  "/fish_tank/2025/images/hero-stage.jpg",
+  "/fish_tank/2025/images/hero-judges.jpg",
+];
+
 const fishTankPhotos = [
-  "/program_cards/fishtank.jpg",
-  "/fish_tank/background.jpg",
-  "/fish_tank/1.jpg",
-  "/fish_tank/2.jpg",
-  "/fish_tank/3.jpg",
-  "/fish_tank/4.jpg",
-  "/fish_tank/5.jpg",
-  "/fish_tank/6.jpg",
-  "/fish_tank/7.jpg",
-  "/fish_tank/8.jpg",
-  "/fish_tank/9.jpg",
-  "/fish_tank/10.jpg",
+  "/fish_tank/2025/images/goodpic.jpg",
+  "/fish_tank/2025/images/gallery-stage.jpg",
+  "/fish_tank/2025/images/gallery-pitching.jpg",
+  "/fish_tank/2025/images/gallery-prototype.jpg",
+  "/fish_tank/2025/images/gallery-workshop.jpg",
+  "/fish_tank/2025/images/gallery-team.jpg",
+  "/fish_tank/2025/images/gallery-speaker.jpg",
+  "/fish_tank/2025/images/gallery-awards.jpg",
+  "/fish_tank/2025/images/gallery-trophy.jpg",
+  "/fish_tank/2025/images/gallery-market.jpg",
+  "/fish_tank/2025/images/prelim-judge.jpg",
+  "/fish_tank/2025/images/gallery-check.jpg",
+  "/fish_tank/2025/images/gallery-mentors.jpg",
+  "/fish_tank/2025/images/gallery-friends.jpg",
+  "/fish_tank/2025/images/gallery-group.jpg",
+  "/fish_tank/2025/images/gallery-celebrate.jpg",
 ];
 
 const competitionWinners = [
@@ -26,7 +36,7 @@ const competitionWinners = [
     placement: "1st Place",
     team: "AbduRahman Yuldash",
     project: "The Better Investor",
-    image: "",
+    image: "/fish_tank/2025/winners/first-place.JPG",
     description:
       "The Better Investor makes growing your money feel less like guesswork and more like a game you can actually win. It replaces fear and FOMO with clarity, teaching timeless investing wisdom through AI coaching that talks with you, not at you. Through the web app, you can earn XP, unlock titles, and watch your confidence grow as your portfolio does too.",
   },
@@ -34,23 +44,23 @@ const competitionWinners = [
     placement: "2nd Place",
     team: "Arjun Singh & Arjun Malhotra",
     project: "MagicPillow",
-    image: "",
+    image: "/fish_tank/2025/winners/second-place.JPG",
     description:
-      "Magic Pillow is the world&apos;s first pillow that dreams as big as you do. It heats when you&apos;re cold, cools when you&apos;re sweaty, tracks your sleep, and keeps your neck happy through every nap and flight—all for under $80. Built for travelers, hot sleepers, and anyone tired of restless nights, it makes comfort feel a little more like magic.",
+      "Magic Pillow is the world's first pillow that dreams as big as you do. It heats when you're cold, cools when you're sweaty, tracks your sleep, and keeps your neck happy through every nap and flight—all for under $80. Built for travelers, hot sleepers, and anyone tired of restless nights, it makes comfort feel a little more like magic.",
   },
   {
     placement: "3rd Place",
     team: "Saravan & Shanvitha Palakruthi",
     project: "EverFresh",
-    image: "",
+    image: "/fish_tank/2025/winners/third-place.JPG",
     description:
-      "EverFresh is a smart stand that keeps food fresher for longer, tackling spoilage in a $30B market. With built-in preservation tech and refillable pouches, it helps households waste less, save more, and enjoy food the way it&apos;s meant to taste—fresh.",
+      "EverFresh is a smart stand that keeps food fresher for longer, tackling spoilage in a $30B market. With built-in preservation tech and refillable pouches, it helps households waste less, save more, and enjoy food the way it's meant to taste—fresh.",
   },
   {
     placement: "4th Place",
     team: "Ohm Patel, Nikhil Naveen, Sai Sirasani, & Krish Mittal",
     project: "Agritech",
-    image: "",
+    image: "/fish_tank/2025/winners/fourth-place.JPG",
     description:
       "Agritech is where agriculture meets technology. It uses innovation in applications of AI, robotics, biotechnology, and data analytics to make farming more sustainable and resilient. From precision irrigation and soil sensors to autonomous tractors and vertical farms, Agritech is redefining how the world grows food.",
   },
@@ -58,7 +68,7 @@ const competitionWinners = [
     placement: "5th Place",
     team: "Sanvi Das & Ovee Yande",
     project: "SGS",
-    image: "",
+    image: "/fish_tank/2025/winners/fifth-place.JPG",
     description:
       "SGS is a smart gardening system that takes the guesswork out of growing. Using automated sensors, timed watering, and real-time data, it keeps your plants healthy no matter how busy you are. Every plant parent deserves to be a pro!",
   },
@@ -68,37 +78,38 @@ const finalsJudges = [
   {
     name: "Aleck Matambo",
     title: "Senior Director of Global Procurement @ Google",
-    image: "/fish_tank/judges/finals/aleck-matambo.jpg",
-    bio: "Aleck Matambo led global procurement at Google, managing $16B in annual spend across EMEA, APAC, and LATAM. He developed the company&apos;s first AI-native procurement tool, automated contract analysis, and drove a global savings program that improved efficiency by over 10%. He also established the One Google Negotiation Program and Cloud & AI Strategic Alliances Platform, delivering $1B in annual value across 50+ major deals.",
+    image: "/fish_tank/f_judges/aleck.jpg",
+    bio: "Aleck Matambo led global procurement at Google, managing $16B in annual spend across EMEA, APAC, and LATAM. He developed the company's first AI-native procurement tool, automated contract analysis, and drove a global savings program that improved efficiency by over 10%. He also established the One Google Negotiation Program and Cloud & AI Strategic Alliances Platform, delivering $1B in annual value across 50+ major deals.",
   },
   {
     name: "Ryan Havlick",
     title: "Venture Partner @ Multimodal Ventures",
-    image: "",
-    bio: "Ryan Havlick is a Venture Partner at Multimodal Ventures, a Chicago-based seed-stage fund investing in Y Combinator–backed startups. He helps evaluate potential portfolio investments, enhance Midas (the firm&apos;s proprietary data tool), and refine investment strategy and due diligence. He relies on data-driven analysis to assess startups like those BizBuzz kidpreneurs are developing for Fish Tank.",
+    image: "/fish_tank/f_judges/ryan.jpg",
+    bio: "Ryan Havlick is a Venture Partner at Multimodal Ventures, a Chicago-based seed-stage fund investing in Y Combinator–backed startups. He helps evaluate potential portfolio investments, enhance Midas (the firm's proprietary data tool), and refine investment strategy and due diligence. He relies on data-driven analysis to assess startups like those BizBuzz kidpreneurs are developing for Fish Tank.",
   },
   {
     name: "Isha Elandassery",
     title: "Founder @ Naperville Rising Women in Business",
-    image: "/fish_tank/judges/finals/isha-elandassery.jpg",
-    bio: "Isha Elandassery is a junior at the Kelley School of Business, where she studies finance and serves as president of the university&apos;s Girl Up United Nations chapter. As a former guest speaker for BizBuzz and 2024 Fish Tank judge, she&apos;s excited to return once again to create “biz” and “buzz.”",
+    image: "/fish_tank/f_judges/isha.jpg",
+    bio: "Isha Elandassery is a junior at the Kelley School of Business, where she studies finance and serves as president of the university's Girl Up United Nations chapter. As a former guest speaker for BizBuzz and 2024 Fish Tank judge, she's excited to return once again to create “biz” and “buzz.”",
   },
   {
     name: "Usha Shedge",
     title: "Founder @ Smart Sakhi",
-    image: "",
+    image: "/fish_tank/f_judges/usha.jpg",
     bio: "Usha Shedge is a social entrepreneur and technologist passionate about using innovation to drive community impact. After 18 years in IT and Business Intelligence, she founded initiatives empowering thousands of youth and women farmers through sustainability projects and mission-driven enterprise.",
+    objectPosition: "center 19%"
   },
   {
     name: "Geetha Pilli",
     title: "Director of Enterprise Architecture @ Core-Mark International",
-    image: "",
+    image: "/fish_tank/f_judges/geetha.jpg",
     bio: "Geetha Pilli leads technology strategy, system integration, and digital transformation across high-volume retail and supply-chain operations. With an MBA from the University of Chicago Booth School of Business, she drives initiatives that leverage IoT and AI to enhance efficiency and business value.",
   },
   {
     name: "Nara Rosie",
     title: "Consultant @ PwC",
-    image: "",
+    image: "/fish_tank/f_judges/nara.jpg",
     bio: "Nara Rosie brings strategic advisory experience from PwC, helping organizations embrace the consulting mindset behind building scalable, resilient ventures—and inspiring young founders to think the same way.",
   },
 ];
@@ -142,6 +153,8 @@ export default function FishTank2025Page() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const topWinners = competitionWinners.slice(0, 3);
   const bottomWinners = competitionWinners.slice(3);
+  const firstWinner = topWinners[0];
+  const runnerUps = [...topWinners.slice(1), ...bottomWinners];
 
   const prelimTop = prelimJudges.slice(0, 3);
   const prelimBottom = prelimJudges.slice(3);
@@ -174,7 +187,7 @@ export default function FishTank2025Page() {
     resetTimeout();
     timeoutRef.current = setTimeout(() => {
       setActiveSlide((prevIndex) => 
-        prevIndex === 2 ? 0 : prevIndex + 1
+        prevIndex === heroSlides.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
 
@@ -183,67 +196,32 @@ export default function FishTank2025Page() {
     };
   }, [activeSlide]);
 
-  const renderAvatar = (src: string, alt: string, accent: string) => (
-    <div
-      className="relative w-20 h-20 rounded-full overflow-hidden flex items-center justify-center shadow-lg"
-      style={{ background: accent }}
-    >
-      {src ? (
-        <Image src={src} alt={alt} fill className="object-cover" />
-      ) : (
-        <svg
-          className="w-10 h-10 text-white"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M5.121 17.804A4 4 0 018 16h8a4 4 0 012.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-        </svg>
-      )}
-    </div>
-  );
-
   const renderJudgePhoto = (
-    src: string,
+    src: string | undefined,
     alt: string,
     gradient: string,
     badge: string,
-    badgeColor: string
+    badgeColor: string,
+    objectPosition?: string
   ) => (
-    <div className="relative h-56 w-full overflow-hidden bg-gray-100">
+    <div className="relative h-52 overflow-hidden">
+      <div className="absolute inset-0" style={{ background: gradient }}></div>
       {src ? (
-        <Image src={src} alt={alt} fill className="object-cover object-center" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover"
+          style={objectPosition ? { objectPosition } : undefined}
+        />
       ) : (
-        <div
-          className="absolute inset-0 flex items-center justify-center"
-          style={{ background: gradient }}
-        >
-          <svg
-            className="w-16 h-16 text-white/80"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.672 0-8 1.337-8 4v1.5a.5.5 0 00.5.5h15a.5.5 0 00.5-.5V18c0-2.663-5.328-4-8-4z"
-            />
-          </svg>
+        <div className="absolute inset-0 flex items-center justify-center text-white/70 text-4xl font-bold">
+          {alt.split(" ").map((word) => word[0]).join("")}
         </div>
       )}
-      <span
-        className="absolute top-3 left-3 px-3 py-1 text-xs font-semibold text-white rounded-full shadow"
-        style={{ backgroundColor: badgeColor }}
-      >
+      <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-[0.3em] uppercase" style={{ background: badgeColor, color: '#0b1120' }}>
         {badge}
-      </span>
+      </div>
     </div>
   );
 
@@ -383,9 +361,9 @@ export default function FishTank2025Page() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[560px] border border-white/10">
                 {/* Main hero image */}
-                {fishTankPhotos.slice(6, 9).map((photo, index) => (
+                {heroSlides.map((photo, index) => (
                   <div 
-                    key={index} 
+                    key={photo} 
                     className={`absolute inset-0 transition-opacity duration-1000 ${activeSlide === index ? 'opacity-100' : 'opacity-0'}`}
                   >
                     <Image 
@@ -398,11 +376,6 @@ export default function FishTank2025Page() {
                   </div>
                 ))}
                 
-                {/* Decorative elements */}
-                <div className="absolute top-4 right-4 bg-[#FFBF00] text-[#CD8F20] px-3 py-1.5 rounded-lg font-bold text-sm">
-                  2025 EDITION
-                </div>
-                
                 {/* Image content overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/70 via-black/40 to-transparent text-white">
                   <h3 className="text-2xl font-bold mb-1">July 23-24, 2025</h3>
@@ -411,7 +384,7 @@ export default function FishTank2025Page() {
                 
                 {/* Dot navigation */}
                 <div className="absolute bottom-6 right-6 flex space-x-3 z-10">
-                  {[0, 1, 2].map((idx) => (
+                  {heroSlides.map((_, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActiveSlide(idx)}
@@ -639,67 +612,84 @@ export default function FishTank2025Page() {
       </section>
 
       {/* Winners Section */}
-      <section className="py-16 bg-[#0b1120] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Fish Tank Competition Winners</h2>
-            <p className="text-lg text-white/80 max-w-3xl mx-auto">
+      <section className="py-20 bg-[#0b1120] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-5">Fish Tank Competition Winners</h2>
+            <p className="text-lg text-white/80 max-w-4xl mx-auto">
               Celebrating the ventures that impressed our judges with bold ideas, polished execution, and impact ready to scale.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {topWinners.map((winner, idx) => (
-              <motion.div
-                key={winner.project}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-lg backdrop-blur-sm"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  {renderAvatar(
-                    winner.image,
-                    `${winner.project} team`,
-                    "linear-gradient(135deg,#FFBF00,#FFD861)"
-                  )}
-                  <div>
-                    <div className="text-xs uppercase tracking-wide text-amber-200">{winner.placement}</div>
-                    <h3 className="text-xl font-bold text-white">{winner.project}</h3>
-                    <p className="text-white/70 text-sm">{winner.team}</p>
-                  </div>
+          {firstWinner && (
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white/8 border border-white/15 rounded-3xl shadow-2xl backdrop-blur-md overflow-hidden flex flex-col lg:flex-row"
+            >
+              <div className="relative lg:w-[48%] h-[320px] lg:h-[420px]">
+                <Image
+                  src={firstWinner.image}
+                  alt={`${firstWinner.project} team`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex-1 p-10 lg:p-14 flex flex-col gap-6">
+                <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/10 border border-white/20 rounded-full text-xs tracking-[0.4em] uppercase text-[#FFBF00] font-semibold w-fit">
+                  {firstWinner.placement}
                 </div>
-                <p className="text-white/80 leading-relaxed text-sm">{winner.description}</p>
-              </motion.div>
-            ))}
-          </div>
+                <div>
+                  <h3 className="text-3xl lg:text-4xl font-bold text-white leading-tight">{firstWinner.project}</h3>
+                  <p className="text-white/70 text-base lg:text-lg mt-2">{firstWinner.team}</p>
+                </div>
+                <p className="text-white/80 text-base lg:text-lg leading-relaxed">
+                  {firstWinner.description}
+                </p>
+              </div>
+            </motion.div>
+          )}
 
-          <div className="mt-10 flex flex-col md:flex-row md:justify-center gap-8">
-            {bottomWinners.map((winner, idx) => (
-              <motion.div
-                key={winner.project}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-lg backdrop-blur-sm max-w-md mx-auto md:mx-0"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  {renderAvatar(
-                    winner.image,
-                    `${winner.project} team`,
-                    "linear-gradient(135deg,#FFBF00,#FFD861)"
-                  )}
-                  <div>
-                    <div className="text-xs uppercase tracking-wide text-amber-200">{winner.placement}</div>
-                    <h3 className="text-xl font-bold text-white">{winner.project}</h3>
-                    <p className="text-white/70 text-sm">{winner.team}</p>
+          <div className="mt-16">
+            <h3 className="text-3xl font-semibold text-white mb-8">Runner-Ups</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+              {runnerUps.map((winner, idx) => (
+                <motion.div
+                  key={winner.project}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="group bg-white/7 border border-white/12 rounded-[28px] shadow-xl backdrop-blur-lg overflow-hidden flex flex-col hover:border-[#FFBF00]/50 hover:shadow-[#FFBF00]/20 transition-all duration-300"
+                >
+                  <div className={`relative h-56 ${winner.placement === '5th Place' ? 'overflow-hidden' : ''}`}>
+                    <Image
+                      src={winner.image}
+                      alt={`${winner.project} team`}
+                      fill
+                      className={`object-cover ${winner.placement === '5th Place' ? 'object-top lg:object-[center_9%]' : ''}`}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-black/40"></div>
+                    <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFBF00]/95 text-[#0b1120] text-[11px] font-semibold tracking-[0.3em] uppercase shadow-lg">
+                      {winner.placement}
+                    </div>
                   </div>
-                </div>
-                <p className="text-white/80 leading-relaxed text-sm">{winner.description}</p>
-              </motion.div>
-            ))}
+                  <div className="p-7 flex flex-col gap-3 flex-1">
+                    <div>
+                      <h4 className="text-2xl font-semibold text-white leading-snug group-hover:text-[#FFBF00] transition-colors duration-300">
+                        {winner.project}
+                      </h4>
+                      <p className="text-white/65 text-sm mt-1">{winner.team}</p>
+                    </div>
+                    <p className="text-white/80 text-sm leading-relaxed flex-1">
+                      {winner.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -737,7 +727,8 @@ export default function FishTank2025Page() {
                   judge.name,
                   "linear-gradient(135deg,#FFBF00,#FFD861)",
                   "Finals Judge",
-                  "#FFBF00"
+                  "#FFBF00",
+                  judge.objectPosition
                 )}
                 <div className="p-6 flex flex-col gap-3 flex-1">
                   <div className="space-y-1">
