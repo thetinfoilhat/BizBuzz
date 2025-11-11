@@ -256,41 +256,6 @@ const supporters = [
   "White Sox", "Wise Youth"
 ];
 
-const newsHighlights = [
-  {
-    title: "2025 KidsMatter Teen Philanthropy Initiative Grant Winner",
-    subtitle: "Grant Recipient",
-    description: "The Teen Philanthropy Initiative partners with local organizations to expand youth programming. After an in-depth review and interview, BizBuzz received a $1,000 grant—the largest award in Naperville for the 2024–2025 cycle.",
-    date: "February 2025",
-    image: "/about/tpi.jpg",
-    link: "https://www.kidsmatter2us.org/teen-philanthropy-initiative/"
-  },
-  {
-    title: "Naperville Channel Television 17 Interview",
-    subtitle: "BizBuzz Turns Imagination into Innovation",
-    description: "On Spotlight with Jane Wernette, BizBuzz shared behind-the-scenes stories from the 2025 Summer Entrepreneurship Camp and second annual Fish Tank contest at Benedictine University—with more students, mentors, and guest speakers than ever before.",
-    date: "July 14, 2025",
-    image: "/about/nctv-spotlight.jpg",
-    link: "https://www.nctv17.org/spotlight/bizbuzz-nfp/"
-  },
-  {
-    title: "Naperville Channel Television 17 Interview",
-    subtitle: "Inspired to Share Our Story",
-    description: "In fall 2024, BizBuzz met with NCTV17 to discuss how local news coverage amplifies student entrepreneurship. Their support connected us with parents and sponsors eager to help turn imagination into innovation.",
-    date: "August 21, 2025",
-    image: "/about/nctv-feature.jpg",
-    link: "https://www.nctv17.org/news/students-share-bizbuzz-story/"
-  },
-  {
-    title: "We Love Naperville Interview",
-    subtitle: "Inaugural BizBuzz Camp for Kid Entrepreneurs",
-    description: "Following the first Fish Tank contest, BizBuzz celebrated the success of its inaugural summer camp and the kidpreneurs who participated—including champion Garrett Hauk.",
-    date: "August 9, 2024",
-    image: "/about/welovenaperville.jpg",
-    link: "https://www.welovenaperville.com/inaugural-bizbuzz-camp"
-  }
-];
-
 // ============================================================================
 // MAIN COMPONENT
 // ============================================================================
@@ -542,85 +507,61 @@ export default function AboutPage() {
             index={1}
           />
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10">
-            {newsHighlights.map((item, idx) => (
-              <NewsCard key={idx} {...item} index={idx} />
-            ))}
-          </div>
-        </div>
-      </section>
+          <InterviewFeature 
+            title="Naperville Channel Television 17 Interview"
+            description="Over the summer, BizBuzz joined Jane Wernette with Naperville Community Television 17 and their Spotlight show to talk about our 2025 Summer Entrepreneurship Camp and the second annual Fish Tank contest at Benedictine University. This year, we came back bigger than ever, with more students, more mentors, and an incredible lineup of guest speakers like Shark Tank alum Lindsey Fleischhauer and Mayor Scott Wehrli. What started as a small idea has now grown into one of the largest youth entrepreneurship programs across the country!"
+            links={[
+              {
+                text: "BizBuzz Turns Imagination into Innovation",
+                url: "https://www.nctv17.org/spotlight/bizbuzz-turns-imagination-into-innovation/"
+              }
+            ]}
+            singleImage="/news/nctv-spotlight-2025.jpg"
+            imagePosition="right"
+            index={2}
+          />
 
-      {/* Grants & Recognition Section */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="max-w-6xl mx-auto"
-          >
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
-              <div className="bg-gradient-to-r from-[#FFD700] to-[#FFA500] px-8 py-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-md">
-                    <svg viewBox="0 0 24 24" className="w-7 h-7 text-[#FFD700]" fill="currentColor">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-white">Teen Philanthropy Initiative 2025</h2>
-                    <p className="text-white/90 text-sm mt-1">Grants & Recognition</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="p-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <div className="space-y-6">
-                    <p className="text-base text-black leading-relaxed">
-                      We are honored to be recipients of the prestigious Teen Philanthropy Initiative 2025 grant. This recognition acknowledges our commitment to fostering entrepreneurship education and empowering young minds to create positive change in their communities.
-                    </p>
-                    
-                    <div className="grid grid-cols-3 gap-4">
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-[#FFD700]">2025</div>
-                        <div className="text-xs text-black/60 uppercase tracking-wider mt-1">Grant Year</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-[#3AB6FF]">Youth</div>
-                        <div className="text-xs text-black/60 uppercase tracking-wider mt-1">Focus</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-[#FFD700]">Impact</div>
-                        <div className="text-xs text-black/60 uppercase tracking-wider mt-1">Community</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-3 justify-center">
-                    {[1, 2].map((num, idx) => (
-                      <motion.div
-                        key={num}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: idx * 0.15 }}
-                        className="w-40 h-52 relative rounded-lg overflow-hidden bg-gray-50 border border-gray-200 group hover:border-[#FFD700] hover:shadow-md transition-all"
-                      >
-                        <div className="absolute inset-0 flex flex-col items-center justify-center">
-                          <svg className="w-10 h-10 text-gray-300 group-hover:text-[#FFD700] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                          <p className="text-xs text-gray-400 mt-2">Photo {num}</p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          <InterviewFeature 
+            title="Naperville Channel Television 17 Interview"
+            description="In fall 2024, BizBuzz was invited to interview with Naperville Community Television 17 to share how local news has helped the organization grow. Coverage from NCTV17 has connected BizBuzz with parents looking for opportunities for their students and sponsors looking to support youth entrepreneurship. Through these connections, BizBuzz can better turn imagination into innovation!"
+            links={[
+              {
+                text: "The Students of BizBuzz Were Inspired by NCTV17 to Share Their Story",
+                url: "https://www.youtube.com/watch?v=CETzJ9aPp7w"
+              }
+            ]}
+            singleImage="/news/nctv-students-2024.jpg"
+            imagePosition="left"
+            index={3}
+          />
+
+          <InterviewFeature 
+            title="We Love Naperville Interview"
+            description="Shortly after the first-ever Fish Tank contest, BizBuzz celebrated the success of its inaugural summer camp in the Chicagoland area and the success of all the young kidpreneurs who participated, including Fish Tank champion Garrett Hauk."
+            links={[
+              {
+                text: "Inaugural BizBuzz Camp for Kid Entrepreneurs",
+                url: "https://welovenaperville.co/article/inaugural-bizbuzz-camp-for-kid-entrepreneurs"
+              }
+            ]}
+            singleImage="/news/welovenaperville-2024.jpg"
+            imagePosition="right"
+            index={4}
+          />
+
+          <InterviewFeature 
+            title="2025 KidsMatter Teen Philanthropy Initiative Grant Winner"
+            description="The Teen Philanthropy Initiative is a national 501(c)(3) nonprofit philanthropy service organization who partners with communities and local tax-exempt organizations to expand existing programs or initiate new projects. In the 2024–2025 application cycle, following an intensive review process and one-hour interview, BizBuzz was awarded a $1,000 grant—the largest amount of funding given to any organization in Naperville."
+            links={[
+              {
+                text: "Learn More About the Teen Philanthropy Initiative",
+                url: "https://www.kidsmatter2us.org/teen-philanthropy-initiative/"
+              }
+            ]}
+            images={["/news/tpi-2025.jpg", "/news/tpi-2025-b.jpg"]}
+            imagePosition="left"
+            index={5}
+          />
         </div>
       </section>
 
@@ -883,43 +824,6 @@ function SupporterPill({ name }: { name: string }) {
   );
 }
 
-function NewsCard({ title, subtitle, description, date, image, index, link }: { title: string; subtitle: string; description: string; date: string; image?: string; index: number; link?: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col md:flex-row"
-    >
-      <div className="relative md:w-2/5 h-56 md:h-auto">
-        {image ? (
-          <Image src={image} alt={title} fill className="object-cover" />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#3AB6FF]/40 via-[#FFD700]/40 to-[#3AB6FF]/40 flex items-center justify-center text-white/80 font-bold text-xl">
-            BizBuzz
-          </div>
-        )}
-      </div>
-      <div className="p-8 flex-1 flex flex-col gap-4">
-        <div className="text-xs font-semibold uppercase tracking-[0.3em] text-[#3AB6FF]">{date}</div>
-        <div>
-          <h3 className="text-2xl font-bold text-black">{title}</h3>
-          <p className="text-[#FFD700] text-sm font-semibold">{subtitle}</p>
-        </div>
-        <p className="text-black/70 leading-relaxed text-sm md:text-base flex-1">{description}</p>
-        {link && (
-          <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#3AB6FF] text-sm font-semibold hover:underline">
-            Read the story
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 3h7m0 0v7m0-7L10 14" />
-            </svg>
-          </a>
-        )}
-      </div>
-    </motion.div>
-  );
-}
 
 function MissionParagraph({ children, animationDelay = 0, highlight = false }: { children: React.ReactNode, animationDelay?: number, highlight?: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -1015,11 +919,12 @@ interface InterviewFeatureProps {
   links?: Link[];
   videoEmbedUrl?: string;
   images?: string[];
+  singleImage?: string;
   imagePosition: 'left' | 'right';
   index: number;
 }
 
-function InterviewFeature({ title, description, links, videoEmbedUrl, images, imagePosition, index }: InterviewFeatureProps) {
+function InterviewFeature({ title, description, links, videoEmbedUrl, images, singleImage, imagePosition, index }: InterviewFeatureProps) {
   const contentDelay = index * 0.2;
   
   return (
@@ -1096,6 +1001,41 @@ function InterviewFeature({ title, description, links, videoEmbedUrl, images, im
             </div>
             <div className="h-1 bg-[#3AB6FF] w-full"></div>
           </div>
+        ) : singleImage ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: contentDelay + 0.1 }}
+            viewport={{ once: true }}
+            className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-md border-4 border-white"
+          >
+            <Image src={singleImage} alt={title} fill className="object-cover" />
+          </motion.div>
+        ) : images && images.length === 2 ? (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: contentDelay + 0.1 }}
+            viewport={{ once: true }}
+            className="relative w-full h-full"
+          >
+            <div className="relative w-full aspect-[4/3]">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="absolute top-0 right-0 w-[65%] aspect-[4/3] rounded-lg overflow-hidden shadow-xl border-4 border-white z-10"
+              >
+                <Image src={images[1]} alt={`${title} image 2`} fill className="object-cover" />
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="absolute bottom-0 left-0 w-[70%] aspect-[4/3] rounded-lg overflow-hidden shadow-xl border-4 border-white"
+              >
+                <Image src={images[0]} alt={`${title} image 1`} fill className="object-cover" />
+              </motion.div>
+            </div>
+          </motion.div>
         ) : images && (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
