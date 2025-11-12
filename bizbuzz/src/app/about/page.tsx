@@ -651,8 +651,8 @@ export default function AboutPage() {
             people={PEOPLE.youthLeadership} 
             role="Youth Leadership"
             color="#FFD700"
-              />
-            </div>
+          />
+        </div>
       </section>
 
       {/* Detailed Impact & Reach Section */}
@@ -680,83 +680,20 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden"
             >
-              <h3 className="text-3xl font-bold text-center text-black">
-                <span className="inline-block relative">
-                  Leadership Team
-                  <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#FFD700]"></div>
-                </span>
-              </h3>
-            </motion.div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  name: "Abby May",
-                  description: "Abby is a sophomore at Naperville North passionate about business and leadership. She brings creative energy and innovative ideas to help students discover their entrepreneurial potential."
-                },
-                {
-                  name: "Beau Danso",
-                  description: "Beau brings enthusiasm and fresh perspectives to the BizBuzz team. Her innovative approaches to student engagement make learning both fun and impactful."
-                },
-                {
-                  name: "Ca Van",
-                  description: "Ca is dedicated to fostering entrepreneurial skills in young students. With a background in project management, he helps structure and organize BizBuzz's initiatives."
-                },
-                {
-                  name: "Colin Singer",
-                  description: "Colin is a junior at Neuqua Valley with a passion for business and law. He hopes to inspire creativity and innovation in all students he works with."
-                },
-                {
-                  name: "Elena Kang Chou",
-                  description: "Elena brings creativity and enthusiasm to the team. She's passionate about helping young students develop their entrepreneurial mindset and problem-solving abilities."
-                },
-                {
-                  name: "Ethan Brock",
-                  description: "Ethan combines his love for innovation with teaching. He focuses on helping students discover their entrepreneurial potential and develop business solutions."
-                },
-                {
-                  name: "Lakhi Thotakura",
-                  description: "Lakhi is passionate about public health and marketing. She brings her diverse interests to help students explore different aspects of business and entrepreneurship."
-                },
-                {
-                  name: "Max Nadtochiy",
-                  description: "Max brings his expertise in literature and business to BizBuzz. He's dedicated to helping students become better learners and reach their full potential."
-                },
-                {
-                  name: "Melody Hu",
-                  description: "Melody is excited to inspire young entrepreneurs in our community. She brings fresh perspectives and creative approaches to business education."
-                },
-                {
-                  name: "Nimra Siddiqui",
-                  description: "Nimra combines her interests in medicine and education to help students develop valuable skills. She loves mentoring others to achieve their potential."
-                },
-                {
-                  name: "Sarah Haque",
-                  description: "Sarah is passionate about bioengineering and business. She brings her technical knowledge to help students understand the intersection of STEM and entrepreneurship."
-                },
-                {
-                  name: "Shyam Sahani",
-                  description: "Shyam specializes in finance and accounting. As a returning BizBuzz member, he's excited to share his knowledge and experience with new students."
-                },
-                {
-                  name: "Zoha Ahmad",
-                  description: "Zoha brings fresh perspectives as a former BizBuzz camp participant. She's passionate about giving back to the program and helping new students succeed."
-                }
-              ].map((member, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-md border border-[#003166]/10 hover:shadow-lg transition-all duration-300">
-                  <h4 className="text-lg font-semibold text-black mb-2">{member.name}</h4>
-                  <p className="text-[#3AB6FF] text-sm mb-3">Leadership Team</p>
-                  <p className="text-black/80 text-sm">{member.description}</p>
+              <div className="px-8 py-6 border-b border-slate-100 flex items-center justify-between">
+                <div>
+                  <h3 className="text-2xl font-semibold text-black">Student Participation</h3>
+                  <p className="text-black/60">Breakdown of students who have joined BizBuzz programs</p>
                 </div>
                 <span className="text-sm font-semibold text-[#3AB6FF] uppercase tracking-[0.3em]">Programs</span>
               </div>
               <div className="max-h-[320px] overflow-y-auto px-8 py-6 space-y-4 custom-scroll">
                 {programParticipation.map((program, idx) => (
                   <ProgramStat key={idx} {...program} />
-              ))}
-            </div>
+                ))}
+              </div>
             </motion.div>
-          
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -767,29 +704,29 @@ export default function AboutPage() {
               <div className="px-8 py-6 border-b border-slate-100">
                 <h3 className="text-2xl font-semibold text-black">Schools We Serve</h3>
                 <p className="text-black/60">Representation from elementary, middle, and high schools across the region</p>
-                </div>
+              </div>
               <div className="max-h-[320px] overflow-y-auto px-8 py-6 custom-scroll">
                 <div className="grid md:grid-cols-3 gap-6 text-left">
                   {schoolDirectory.map((group, idx) => (
                     <SchoolColumn key={idx} {...group} />
-              ))}
-            </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
             className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden"
           >
             <div className="px-8 py-6 border-b border-slate-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 <h3 className="text-2xl font-semibold text-black">Community Support</h3>
                 <p className="text-black/60">Financial contributions and in-kind resources empower BizBuzz to stay student-led and cost-free.</p>
-                </div>
+              </div>
             </div>
             <div className="px-8 py-6 grid md:grid-cols-3 gap-6">
               {fundingSummary.map((item, idx) => (
@@ -802,7 +739,7 @@ export default function AboutPage() {
                 {supporters.map((supporter, idx) => (
                   <SupporterPill key={idx} name={supporter} />
                 ))}
-          </div>
+              </div>
             </div>
           </motion.div>
         </div>
