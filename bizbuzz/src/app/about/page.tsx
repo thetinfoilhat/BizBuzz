@@ -76,6 +76,11 @@ const PEOPLE = {
       description: "Aiden builds the infrastructure that powers BizBuzz's digital presence. His software development skills support scalable programs and user-friendly tools for students and families."
     },
     {
+      name: "Elena Kang Chou",
+      role: "Leadership Team",
+      description: "Leading initiatives that help BizBuzz reach more students every year."
+    },
+    {
       name: "Lakhi Thotakura",
       role: "Leadership Team",
       description: "Leading initiatives that help BizBuzz reach more students every year."
@@ -87,11 +92,6 @@ const PEOPLE = {
     },
     {
       name: "Annabelle Cheng",
-      role: "Leadership Team",
-      description: "Leading initiatives that help BizBuzz reach more students every year."
-    },
-    {
-      name: "Elena Kang Chou",
       role: "Leadership Team",
       description: "Leading initiatives that help BizBuzz reach more students every year."
     },
