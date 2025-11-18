@@ -553,27 +553,27 @@ export default function FishTank2025Page() {
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6">
                 <div className="text-4xl font-bold mb-2">🥇</div>
-                <div className="text-2xl font-bold mb-1">$2,000</div>
+                <div className="text-2xl font-bold mb-1">$250</div>
                 <div className="text-sm text-amber-100">First Place</div>
               </div>
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6">
                 <div className="text-4xl font-bold mb-2">🥈</div>
-                <div className="text-2xl font-bold mb-1">$1,200</div>
+                <div className="text-2xl font-bold mb-1">$200</div>
                 <div className="text-sm text-amber-100">Second Place</div>
               </div>
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6">
                 <div className="text-4xl font-bold mb-2">🥉</div>
-                <div className="text-2xl font-bold mb-1">$800</div>
+                <div className="text-2xl font-bold mb-1">$150</div>
                 <div className="text-sm text-amber-100">Third Place</div>
               </div>
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6">
                 <div className="text-4xl font-bold mb-2">🏆</div>
-                <div className="text-2xl font-bold mb-1">$600</div>
+                <div className="text-2xl font-bold mb-1">$100</div>
                 <div className="text-sm text-amber-100">Fourth Place</div>
               </div>
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6">
                 <div className="text-4xl font-bold mb-2">⭐</div>
-                <div className="text-2xl font-bold mb-1">$400</div>
+                <div className="text-2xl font-bold mb-1">$50</div>
                 <div className="text-sm text-amber-100">Fifth Place</div>
               </div>
             </div>
