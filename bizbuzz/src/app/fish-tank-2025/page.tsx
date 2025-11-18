@@ -25,7 +25,7 @@ const fishTankPhotos = [
   "/fish_tank/2025/images/gallery-market.jpg",
   "/fish_tank/2025/images/prelim-judge.jpg",
   "/fish_tank/2025/images/gallery-check.jpg",
-  "/fish_tank/2025/images/gallery-mentors.jpg",
+  "/fish_tank/2025/images/IMG_5116.jpeg",
   "/fish_tank/2025/images/gallery-friends.jpg",
   "/fish_tank/2025/images/gallery-group.jpg",
   "/fish_tank/2025/images/gallery-celebrate.jpg",
