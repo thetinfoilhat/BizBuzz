@@ -349,7 +349,7 @@ export default function FishTankPage() {
                 className="grid grid-cols-3 gap-6 mb-12"
               >
                 <motion.div variants={fadeIn} className="bg-[#003166]/40 backdrop-blur-sm rounded-xl py-6 px-3 text-center border border-white/10">
-                  <div className="text-4xl font-bold text-[#FFD700]">100+</div>
+                  <div className="text-4xl font-bold text-[#FFD700]">80+</div>
                   <div className="text-sm text-white">Competitors</div>
                 </motion.div>
                 
@@ -382,10 +382,10 @@ export default function FishTankPage() {
                 </a>
                 
                 <a 
-                  href="https://tinyurl.com/bizbuzz2025" 
+                  href="https://forms.gle/eK8CgNGCyvuQXwNq7" 
                   className="inline-flex items-center px-8 py-4 bg-[#FFD700] text-[#004080] text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition duration-300"
                 >
-                  Apply Now
+                  Join Now
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>

@@ -6,6 +6,22 @@ import { motion } from 'framer-motion';
 // Workshop data with updated information
 const workshops = [
   {
+    id: "naperville2025",
+    title: "2025 Naperville Children's Business Fair",
+    date: "August 9th, 2025",
+    location: "Naperville, IL",
+    description: "BizBuzz staff judged a full-day, farmers-market style event at the new Matrix Club, where kidpreneurs ages 5–14 tested the waters of entrepreneurship by selling handmade goods and pitching their small businesses.",
+    sessions: [
+      "Naperville Children's Business Fair | August 9th, 2025"
+    ],
+    images: [
+      "/workshops/ncbf/1.jpeg",
+      "/workshops/ncbf/2.jpeg",
+      "/workshops/ncbf/3.jpeg",
+    ],
+    color: "#FFBF00"
+  },
+  {
     id: "dupage",
     title: "Dupage Children's Business Fair Workshops",
     date: "March 16th, 2025 to April 26th, 2025",
@@ -78,7 +94,7 @@ const workshops = [
   },
   {
     id: "naperville",
-    title: "Naperville Children's Business Fair Workshops",
+    title: "2024 Naperville Children's Business Fair Workshops",
     date: "July 6th, 2024 to August 3rd, 2024",
     location: "Naperville, IL",
     description: "Three workshops helping 50 students use creative problem-solving, marketing, and finance to launch products sold alongside 150 young entrepreneurs at the Naperville Children's Business Fair.",
@@ -352,7 +368,7 @@ export default function WorkshopsPage() {
               
               <div className="flex flex-wrap gap-6">
                 <a
-                  href="#dupage"
+                  href="#naperville2025"
                   className="bg-gradient-to-r from-amber-300 to-amber-400 text-amber-900 font-medium py-4 px-8 rounded-lg text-xl transition-all hover:shadow-lg hover:shadow-amber-500/20 hover:-translate-y-1 active:translate-y-0 inline-flex items-center"
                 >
                   Explore Workshops
@@ -448,46 +464,6 @@ export default function WorkshopsPage() {
 
       {/* Stats Section */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16">
-        {/* Social proof banner */}
-        <motion.div
-          className="bg-white backdrop-blur-lg rounded-xl shadow-lg overflow-hidden border-2 border-amber-400 mb-4 flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex flex-col sm:flex-row items-center justify-center py-3 px-6 w-full">
-            <div className="flex items-center justify-center sm:border-r border-amber-300 px-6 py-2">
-              <div className="flex -space-x-2 mr-4">
-                {[...Array(3)].map((_, i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-amber-400 shadow-md overflow-hidden relative">
-                    <Image 
-                      src={`/workshops/${i === 0 ? 'be/1.png' : i === 1 ? 'dcbf/2.jpg' : 'ncbf/3.jpeg'}`}
-                      alt="Workshop participant" 
-                      fill 
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-              <div>
-                <p className="text-amber-900 font-bold text-lg">545 students</p>
-                <p className="text-amber-800 text-sm">joined our programs</p>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-2 px-6 py-2">
-              <div className="flex text-amber-500">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                  </svg>
-                ))}
-              </div>
-              <span className="text-amber-900 font-bold text-xl">4.9/5</span>
-            </div>
-          </div>
-        </motion.div>
-
         <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-amber-100/40">
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-amber-100/50">
             <div className="px-6 py-8 text-center relative">
@@ -496,7 +472,7 @@ export default function WorkshopsPage() {
                   <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10z" />
                 </svg>
               </div>
-              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">7</div>
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">8</div>
               <div className="text-amber-800 font-medium">Workshops</div>
             </div>
             
@@ -506,7 +482,7 @@ export default function WorkshopsPage() {
                   <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
                 </svg>
               </div>
-              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">17</div>
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">18</div>
               <div className="text-amber-800 font-medium">Total Sessions</div>
             </div>
             
@@ -516,7 +492,7 @@ export default function WorkshopsPage() {
                   <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
                 </svg>
               </div>
-              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">560</div>
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 mb-2">710</div>
               <div className="text-amber-800 font-medium">Students Taught</div>
             </div>
           </div>
@@ -530,7 +506,7 @@ export default function WorkshopsPage() {
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-400/15 mb-4">
               <span className="text-amber-800 font-medium">Entrepreneurship Journey</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">7 Workshops. 17 Sessions.</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">8 Workshops. 18 Sessions.</h2>
             <p className="text-xl text-[#000000] max-w-3xl mx-auto">
               Hosted at schools like Brookdale Elementary & Madison Junior High, fairs such as the Naperville & Dupage Children&apos;s Business Fairs, and learning centers like Best Brains.
             </p>
