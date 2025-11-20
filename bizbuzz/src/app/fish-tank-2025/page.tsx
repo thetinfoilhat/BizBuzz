@@ -617,7 +617,7 @@ export default function FishTank2025Page() {
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold mb-5">Fish Tank Competition Winners</h2>
             <p className="text-lg text-white/80 max-w-4xl mx-auto">
-              Celebrating the ventures that impressed our judges with bold ideas, polished execution, and impact ready to scale.
+              Celebrating the innovations that rose to the surface with bold ideas, polished presentations, and the potential to make waves far beyond our tank.
             </p>
           </div>
 
