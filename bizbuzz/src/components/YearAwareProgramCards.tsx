@@ -161,14 +161,9 @@ export default function YearAwareProgramCards() {
                       hoveredIndex === index ? 'opacity-100' : 'opacity-0'
                     }`}>
                       <div className="p-6 flex-1 flex flex-col justify-center">
-                        <p className="text-white text-base md:text-lg leading-relaxed mb-4">
+                        <p className="text-white text-base md:text-lg leading-relaxed">
                           {program.description}
                         </p>
-                        <div className={`text-sm font-semibold ${
-                          selectedYear === 2024 ? 'text-[#38b6ff]' : 'text-[#FFBF00]'
-                        }`}>
-                          {program.stats}
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -177,28 +172,6 @@ export default function YearAwareProgramCards() {
             ))}
           </motion.div>
         </AnimatePresence>
-
-        {/* View All Link */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 text-center"
-        >
-          <Link
-            href={`/years/${selectedYear}`}
-            className={`inline-flex items-center px-6 py-3 bg-gradient-to-r ${
-              selectedYear === 2024 
-                ? 'from-[#003166] to-[#38b6ff]'
-                : 'from-[#CD8F20] to-[#FFBF00]'
-            } text-white font-semibold rounded-xl hover:shadow-lg transition-all`}
-          >
-            View All {selectedYear} Programs
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </motion.div>
       </div>
     </section>
   );
