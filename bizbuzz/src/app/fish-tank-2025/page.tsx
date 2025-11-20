@@ -308,12 +308,12 @@ export default function FishTank2025Page() {
                 className="grid grid-cols-3 gap-6 mb-12"
               >
                 <motion.div variants={fadeIn} className="bg-[#CD8F20]/40 backdrop-blur-sm rounded-xl py-6 px-3 text-center border border-white/10">
-                  <div className="text-4xl font-bold text-[#FFBF00]">150+</div>
+                  <div className="text-4xl font-bold text-[#FFBF00]">70+</div>
                   <div className="text-sm text-white">Competitors</div>
                 </motion.div>
                 
                 <motion.div variants={fadeIn} className="bg-[#CD8F20]/40 backdrop-blur-sm rounded-xl py-6 px-3 text-center border border-white/10">
-                  <div className="text-4xl font-bold text-[#FFBF00]">30+</div>
+                  <div className="text-4xl font-bold text-[#FFBF00]">25+</div>
                   <div className="text-sm text-white">Mentors</div>
                 </motion.div>
                 
@@ -341,7 +341,7 @@ export default function FishTank2025Page() {
                 </a>
                 
                 <a 
-                  href="https://tinyurl.com/bizbuzz2025" 
+                  href="https://forms.gle/5k1pAFnvRbDRGvc5A" 
                   className="inline-flex items-center px-8 py-4 bg-[#FFBF00] text-[#CD8F20] text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition duration-300"
                 >
                   Apply Now
@@ -378,8 +378,8 @@ export default function FishTank2025Page() {
                 
                 {/* Image content overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/70 via-black/40 to-transparent text-white">
-                  <h3 className="text-2xl font-bold mb-1">July 23-24, 2025</h3>
-                  <p className="text-lg">Benedictine University, Lisle</p>
+                  <h3 className="text-2xl font-bold mb-1">August 2-3, 2025</h3>
+                  <p className="text-lg">Benedictine University Goodwin Hall of Business, Lisle</p>
                 </div>
                 
                 {/* Dot navigation */}
@@ -438,7 +438,7 @@ export default function FishTank2025Page() {
                   Inspired by the world-renowned series, Shark Tank, the Fish Tank competition invites 3rd-9th grade students in the Chicagoland area to identify a market opportunity and introduce a new business, product, or service.
                 </p>
                 <p className="text-xl leading-relaxed text-white mb-6">
-                  Hosted at Benedictine University on July 23rd & 24th with some of Naperville&apos;s biggest business owners and leaders, participants will take their big innovations to an even bigger stage.
+                  Hosted at Benedictine University Goodwin Hall of Business on August 2nd & 3rd with some of Naperville&apos;s biggest business owners and leaders, participants will take their big innovations to an even bigger stage.
                 </p>
               </div>
               <div className="flex items-center gap-3 mt-2">
@@ -447,7 +447,7 @@ export default function FishTank2025Page() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <span className="text-white font-medium">July 23-24, 2025</span>
+                <span className="text-white font-medium">August 2-3, 2025</span>
                 <span className="text-white opacity-60 mx-2">•</span>
                 <div className="w-8 h-8 rounded-full bg-[#FFBF00] flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#CD8F20]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -455,7 +455,7 @@ export default function FishTank2025Page() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <span className="text-white font-medium">Benedictine University, Lisle</span>
+                <span className="text-white font-medium">Benedictine University Goodwin Hall of Business, Lisle</span>
               </div>
             </div>
           </motion.div>
@@ -467,7 +467,7 @@ export default function FishTank2025Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#000000] mb-4">
-              About Fish Tank 2025
+            2025 Fish Tank Contest
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               An enhanced competition experience featuring two days of pitching, mentorship, and celebration of youth entrepreneurship.
@@ -487,15 +487,15 @@ export default function FishTank2025Page() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-[#000000] mb-3">Day 1: Preliminary Round</h3>
-              <p className="text-gray-700 mb-4">July 23rd, 2025</p>
+              <p className="text-gray-700 mb-4">August 2nd, 2025</p>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
-                  <span>All participants pitch their ideas to preliminary judges</span>
+                  <span>All participants pitch their ideas to high school business students</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
-                  <span>2-3 minute pitches followed by Q&A</span>
+                  <span>5-minute pitches followed by 5-minute Q&A sessions</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
@@ -503,7 +503,7 @@ export default function FishTank2025Page() {
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
-                  <span>Evening mentorship sessions for finalists</span>
+                  <span>Evening mentorship sessions and workshops for finalists</span>
                 </li>
               </ul>
             </motion.div>
@@ -520,19 +520,19 @@ export default function FishTank2025Page() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-[#000000] mb-3">Day 2: Final Round</h3>
-              <p className="text-gray-700 mb-4">July 24th, 2025</p>
+              <p className="text-gray-700 mb-4">August 3rd, 2025</p>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
-                  <span>Top 12 finalists pitch to industry leaders</span>
+                  <span>Top 12 finalists pitch to a panel of industry leaders</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
-                  <span>5-minute presentations with demos and Q&A</span>
+                  <span>5-minute presentations with demos and 10-minute Q&A sessions</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
-                  <span>Top 5 winners awarded prizes and funding</span>
+                  <span>Top 4 winners awarded $750+ in prize funding</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
@@ -588,7 +588,7 @@ export default function FishTank2025Page() {
             <h2 className="text-4xl font-bold text-[#000000] mb-4">
               Fish Tank 2025 Highlights
             </h2>
-            <p className="text-xl text-gray-700">
+            <p className="text-2xl text-gray-700">
               Moments from this year&apos;s competition
             </p>
           </div>
