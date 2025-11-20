@@ -687,40 +687,36 @@ export default function Camps2025Page() {
       {/* Stats Section */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24">
         <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-[#FFE08A]/40">
-          <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#FFE08A]/30">
-            {[
-              { value: "7", label: "Camp Sessions", icon: "calendar" },
-              { value: "120+", label: "Students", icon: "students" },
-              { value: "5", label: "Guest Speakers", icon: "mic" },
-              { value: "$5K+", label: "Funding & Prizes", icon: "trophy" },
-            ].map((stat) => (
-              <div key={stat.label} className="px-8 py-12 text-center relative">
-                <div className="absolute right-6 top-6 opacity-10">
-                  {stat.icon === "calendar" && (
-                    <svg className="h-12 w-12" viewBox="0 0 448 512" fill="#7A4B00" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M152 64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H56c-30.9 0-56 25.1-56 56v48h448V120c0-30.9-25.1-56-56-56h-48V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152zM0 456c0 30.9 25.1 56 56 56h336c30.9 0 56-25.1 56-56V200H0v256z" />
-                    </svg>
-                  )}
-                  {stat.icon === "students" && (
-                    <svg className="h-12 w-12" viewBox="0 0 640 512" fill="#7A4B00" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M320 32L0 176l320 144 192-86.4V352h64v-96l64-28.8L320 32zm-32 354.7L128 320v64c0 35.3 86 64 192 64s192-28.7 192-64v-64l-160 66.7a63.99 63.99 0 0 1-64 0z" />
-                    </svg>
-                  )}
-                  {stat.icon === "mic" && (
-                    <svg className="h-12 w-12" viewBox="0 0 384 512" fill="#7A4B00" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M192 352c53 0 96-43 96-96V96c0-53-43-96-96-96s-96 43-96 96v160c0 53 43 96 96 96zm136-160v64c0 74-56 135-128 143.1V464h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H112c-13.3 0-24-10.7-24-24s10.7-24 24-24h72v-64.9C112 327 56 266 56 192v-64c0-13.3 10.7-24 24-24s24 10.7 24 24v64c0 48.6 39.4 88 88 88s88-39.4 88-88v-64c0-13.3 10.7-24 24-24s24 10.7 24 24z" />
-                    </svg>
-                  )}
-                  {stat.icon === "trophy" && (
-                    <svg className="h-12 w-12" viewBox="0 0 576 512" fill="#7A4B00" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M552 64h-88V24c0-13.3-10.7-24-24-24H136c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v32c0 88.4 71.6 160 160 160 22.3 0 43.7-4.5 63.1-12.7 12.1 28.5 35.4 50.8 64.9 60.7V416h-64c-44.2 0-80 35.8-80 80 0 8.8 7.2 16 16 16h256c8.8 0 16-7.2 16-16 0-44.2-35.8-80-80-80h-64v-87.3c29.5-9.9 52.8-32.2 64.9-60.7 19.4 8.2 40.8 12.7 63.1 12.7 88.4 0 160-71.6 160-160V88c0-13.3-10.7-24-24-24zM160 224c-61.9 0-112-50.1-112-112v-8h64v32c0 13.3 10.7 24 24 24h24v64zm288 0h-24v-64h24c13.3 0 24-10.7 24-24v-32h64v8c0 61.9-50.1 112-112 112z" />
-                    </svg>
-                  )}
-                </div>
-                <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8B4E00] to-[#FFBF00] mb-4">{stat.value}</div>
-                <div className="text-[#8B4E00] font-medium text-lg">{stat.label}</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#FFE08A]/30">
+            <div className="px-8 py-12 text-center relative">
+              <div className="absolute right-6 top-6 opacity-10">
+                <svg className="h-12 w-12" viewBox="0 0 512 512" fill="#7A4B00" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.41 148.02l232.94 105.67c6.8 3.09 14.49 3.09 21.29 0l232.94-105.67c16.55-7.51 16.55-32.52 0-40.03L266.65 2.31a25.607 25.607 0 0 0-21.29 0L12.41 107.98c-16.55 7.51-16.55 32.53 0 40.04zm487.18 88.28l-58.09-26.33-161.64 73.27c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.51 209.97l-58.1 26.33c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.09 14.49 3.09 21.29 0L499.59 276.3c16.55-7.5 16.55-32.5 0-40zm0 127.8l-57.87-26.23-161.86 73.37c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.29 337.87 12.41 364.1c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.09 14.49 3.09 21.29 0L499.59 404.1c16.55-7.5 16.55-32.5 0-40z" />
+                </svg>
               </div>
-            ))}
+              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8B4E00] to-[#FFBF00] mb-4">7</div>
+              <div className="text-[#8B4E00] font-medium text-lg">Camp Sessions</div>
+            </div>
+            
+            <div className="px-8 py-12 text-center relative">
+              <div className="absolute right-6 top-6 opacity-10">
+                <svg className="h-12 w-12" viewBox="0 0 640 512" fill="#7A4B00" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z" />
+                </svg>
+              </div>
+              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8B4E00] to-[#FFBF00] mb-4">5</div>
+              <div className="text-[#8B4E00] font-medium text-lg">Guest Speakers</div>
+            </div>
+            
+            <div className="px-8 py-12 text-center relative">
+              <div className="absolute right-6 top-6 opacity-10">
+                <svg className="h-12 w-12" viewBox="0 0 448 512" fill="#7A4B00" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M436 160c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20zm-68 304H48V48h320v416zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2z" />
+                </svg>
+              </div>
+              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8B4E00] to-[#FFBF00] mb-4">120+</div>
+              <div className="text-[#8B4E00] font-medium text-lg">Students Taught</div>
+            </div>
           </div>
         </div>
       </div>
