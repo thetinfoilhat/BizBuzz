@@ -499,7 +499,7 @@ export default function FishTank2025Page() {
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
-                  <span>Top 15 finalists selected to advance</span>
+                  <span>Top 12 finalists selected to advance</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
@@ -524,7 +524,7 @@ export default function FishTank2025Page() {
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
-                  <span>Top 15 finalists pitch to industry leaders</span>
+                  <span>Top 12 finalists pitch to industry leaders</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#FFBF00] mt-2 flex-shrink-0"></div>
@@ -708,7 +708,7 @@ export default function FishTank2025Page() {
               Finals Judges
             </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Industry leaders who evaluated our top 15 finalists and selected the 2025 champions.
+              Industry leaders who evaluated our top 12 finalists and selected the 2025 champions.
             </p>
           </motion.div>
 
