@@ -10,7 +10,7 @@ const sessions = [
     id: "session1",
     title: "Networking & Ideation",
     date: "June 6th, 2025",
-    location: "Benedictine University, Lisle",
+    location: "95th Street Library, Naperville",
     description: "In Session 1, kidpreneurs at our 2025 Summer Entrepreneurship Camp broke the ice with new friends and high school instructors through a high-stakes Networking Bingo game. They then learned to identify and brainstorm real-world problems in an interactive \"Bug-Me List\" and ideation session. The day concluded with a Mini Fish Tank challenge, where students pitched creative product mashups for Jolly Ranchers and $135 in Andy's Ice Cream treat cards.",
     speaker: null,
     speaker2: null,
@@ -27,7 +27,7 @@ const sessions = [
     id: "session2",
     title: "Lean Canvas & Value Proposition",
     date: "June 13th, 2025",
-    location: "Benedictine University, Lisle",
+    location: "95th Street Library, Naperville",
     description: "In Session 2, kidpreneurs kicked things off with our Inventor Fusion game, combining random objects to invent new products and test their teamwork. They then completed a Lean Canvas Model to refine their business ideas from the previous session. Building on these ideas, they competed in our Pokémon Card Investor Report challenge, where students pitched 30-second summaries of their ideas, advanced through group voting rounds, and competed for Chicago Wolves and White Sox game tickets.",
     speaker: null,
     speaker2: null,
@@ -44,7 +44,7 @@ const sessions = [
     id: "session3",
     title: "Marketing & Branding",
     date: "June 20th, 2025",
-    location: "Benedictine University, Lisle",
+    location: "95th Street Library, Naperville",
     description: "In Session 3, students learned how to market their business ideas by designing logos, slogans, product sketches, and fliers that built a cohesive brand. After an icebreaker where they pitched creative uses for random objects, each room worked on Canva to build a group logo and flier, deciding on colors, fonts, and layouts together. Students then created their own marketing portfolios and competed in a full-class flier design bracket, with top teams winning Illinois State University football and basketball game tickets.",
     speaker: {
       name: "Kandice Henning",
@@ -67,7 +67,7 @@ const sessions = [
     id: "session4",
     title: "Prototyping & Product Creation",
     date: "June 27th, 2025",
-    location: "Benedictine University, Lisle",
+    location: "95th Street Library, Naperville",
     description: "In Session 4, students brought their Fish Tank ideas to life through hands-on creation. After the \"Personal Brand Soul Train\" icebreaker, they split into three creative tracks—Tinkercad for 3D modeling, Google Sites for website design, and detailed sketching—to build prototypes, online product pages, and prototype blueprints with high school specialists.",
     speaker: {
       name: "Lindsey Fleischhauer",
@@ -90,7 +90,7 @@ const sessions = [
     id: "session5",
     title: "Finance & Budgeting",
     date: "July 11th, 2025",
-    location: "Benedictine University, Lisle",
+    location: "95th Street Library, Naperville",
     description: "In Session 5, students got \"hired\" by Invisibelle, a startup selling invisible products, pitching their wildest talents to instructors in a hilarious Founder's Got Talent challenge. They then learned how to think like entrepreneurs by budgeting a $3,500 dream vacation, making surprise spending choices and pitching their trips to classmates. The top planners walked away with Kane County Cougar and Chicago Fire game tickets, while everyone else scored sweet Jolly Ranchers for a job well done.",
     speaker: {
       name: "Mary Gibson",
@@ -113,7 +113,7 @@ const sessions = [
     id: "session6",
     title: "Business Planning & Leadership",
     date: "July 18th, 2025",
-    location: "Benedictine University, Lisle",
+    location: "95th Street Library, Naperville",
     description: "In Session 6, students finalized their Fish Tank ideas, outlining full business plans from problem to profit. After hearing advice from Mayor Scott Wehrli and City Finance Director Raymond Munch, they spent the afternoon polishing slides, scripts, and prototypes—and celebrating their progress with prizes like Keller's Farmstead passes, a DuPage Children's Museum family pass, a DuPage Forest Preserve gift card, and a Gourmet Gift Baskets gift card.",
     speaker: {
       name: "Scott Wehrli",
@@ -142,7 +142,7 @@ const sessions = [
     id: "session7",
     title: "Pitch Rehearsal & Preparation",
     date: "July 25th, 2025",
-    location: "Benedictine University, Lisle",
+    location: "95th Street Library, Naperville",
     description: "Biz, Buzz, Build! Students spent the day fully immersed in their Fish Tank projects, perfecting business plans, building prototypes, and running mock pitches with instructors. The session focused entirely on preparation, teamwork, and refining every detail to get ready for the big day.",
     speaker: null,
     speaker2: null,
@@ -523,141 +523,207 @@ export default function Camps2025Page() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-[#FFF9E6]">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#E69F16] via-[#FFBF00] to-[#FFD700]"></div>
-        <div className="absolute inset-0">
-          <div className="absolute -top-32 -left-16 w-[420px] h-[420px] rounded-full bg-[#FFE699]/30 blur-3xl"></div>
-          <div className="absolute top-40 -right-32 w-[520px] h-[520px] rounded-full bg-[#E69F16]/35 blur-[140px]"></div>
-          <div className="absolute bottom-[-220px] left-1/2 -translate-x-1/2 w-[780px] h-[780px] rounded-full bg-[#FFBF00]/25 blur-[180px]"></div>
-          <div
-            className="absolute inset-0 opacity-[0.06]"
-            style={{
-              backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.35) 1px, transparent 0)",
-              backgroundSize: "28px 28px"
-            }}
-          ></div>
-          <div className="absolute bottom-0 w-full h-32 bg-gradient-to-b from-transparent via-[#FFF5E6]/40 to-[#FFF9E6]"></div>
-          <svg className="absolute bottom-[-24px] w-full text-[#FFF9E6]" viewBox="0 0 1440 120" preserveAspectRatio="none" fill="currentColor">
-            <path d="M0,48L48,54.7C96,61,192,75,288,74.7C384,75,480,59,576,48C672,37,768,32,864,37.3C960,43,1056,59,1152,64C1248,69,1344,64,1392,61.3L1440,59L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+      <div className="relative bg-gradient-to-br from-[#CD8F20] via-[#E69F16] to-[#FFBF00] overflow-hidden">
+        <div className="absolute top-24 right-24 w-60 h-60 opacity-15">
+          <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M464 192l-33.5-5.5c-1.4-4.9-2.9-9.6-4.7-14.3l19.8-27.8-32-32-27.8 19.8c-4.7-1.8-9.4-3.3-14.3-4.7L366 96h-44l-5.5 33.5c-4.9 1.4-9.6 2.9-14.3 4.7l-27.8-19.8-32 32 19.8 27.8c-1.8 4.7-3.3 9.4-4.7 14.3L224 192v44l33.5 5.5c1.4 4.9 2.9 9.6 4.7 14.3l-19.8 27.8 32 32 27.8-19.8c4.7 1.8 9.4 3.3 14.3 4.7L322 336h44l5.5-33.5c4.9-1.4 9.6-2.9 14.3-4.7l27.8 19.8 32-32-19.8-27.8c1.8-4.7 3.3-9.4 4.7-14.3L464 236v-44zM288 256c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z" />
+          </svg>
+        </div>
+        <div className="absolute top-48 right-48 w-40 h-40 opacity-10 animate-spin-slow">
+          <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M288 256c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm-144 36v44l33.5 5.5c1.4 4.9 2.9 9.6 4.7 14.3l-19.8 27.8 32 32 27.8-19.8c4.7 1.8 9.4 3.3 14.3 4.7L252 432h44l5.5-33.5c4.9-1.4 9.6-2.9 14.3-4.7l27.8 19.8 32-32-19.8-27.8c1.8-4.7 3.3-9.4 4.7-14.3L394 334v-44l-33.5-5.5c-1.4-4.9-2.9-9.6-4.7-14.3l19.8-27.8-32-32-27.8 19.8c-4.7-1.8-9.4-3.3-14.3-4.7L296 192h-44l-5.5 33.5c-4.9 1.4-9.6 2.9-14.3 4.7l-27.8-19.8-32 32 19.8 27.8c-1.8 4.7-3.3 9.4-4.7 14.3L144 292z" />
+          </svg>
+        </div>
+        <div className="absolute bottom-48 left-24 w-48 h-48 opacity-10">
+          <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M501.1 395.7L384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.6c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.7zM331.7 225c28.3 0 54.9 11 74.9 31l19.4 19.4c15.8-6.9 30.8-16.5 43.8-29.5 37.1-37.1 49.7-89.3 37.9-136.7-2.2-9-13.5-12.1-20.1-5.5l-74.4 74.4-67.9-11.3L334 98.9l74.4-74.4c6.6-6.6 3.4-17.9-5.7-20.2-47.4-11.7-99.6.9-136.6 37.9-28.5 28.5-41.9 66.1-41.2 103.6l82.1 82.1c8.1-1.9 16.5-2.9 24.7-2.9z" />
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
-          <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-16 items-center">
+        <div className="absolute inset-0 overflow-hidden z-0">
+          <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-[#FFD700]/20 to-transparent"></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#FFD700]/15 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#FFBF00]/20 rounded-full blur-3xl"></div>
+          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-[0.05]"></div>
+          <svg className="absolute bottom-0 w-full text-[#FFF9E6]" preserveAspectRatio="none" viewBox="0 0 1440 60" fill="currentColor">
+            <path d="M0,32L48,37.3C96,43,192,53,288,48C384,43,480,27,576,21.3C672,16,768,21,864,26.7C960,32,1056,37,1152,37.3C1248,37,1344,32,1392,29.3L1440,27L1440,60L1392,60C1344,60,1248,60,1152,60C1056,60,960,60,864,60C768,60,672,60,576,60C480,60,384,60,288,60C192,60,96,60,48,60L0,60Z"></path>
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-32 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <motion.div
+              className="lg:col-span-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="text-white"
+              transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/15 border border-white/25 backdrop-blur-md text-sm font-semibold mb-8 shadow-lg">
-                <span className="w-2 h-2 rounded-full bg-white"></span>
-                Summer 2025
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/30 border border-white/40 backdrop-blur-sm mb-10 shadow-sm">
+                <div className="w-3 h-3 rounded-full bg-white mr-2"></div>
+                <span className="text-base font-medium text-white">Summer 2025</span>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
-                <span className="block text-white">BizBuzz</span>
-                <span className="block text-white">Entrepreneurship</span>
-                <span className="block text-white">Camp</span>
+              <h1 className="text-7xl lg:text-8xl font-bold mb-10 tracking-tight leading-tight">
+                <span className="text-white drop-shadow-md">BizBuzz</span>
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE39F] via-[#FFC94D] to-[#FFAF02] drop-shadow-sm">
+                  Camp
+                </span>
               </h1>
 
-              <p className="mt-6 text-xl text-white/90 max-w-2xl leading-relaxed">
-                Seven sessions of hands-on innovation where young founders ideate, build, and pitch market-ready ventures alongside Shark Tank alumni, civic leaders, and finance experts.
+              <p className="text-2xl text-white/95 font-light mb-12 max-w-2xl leading-relaxed">
+                Our seven-session BizBuzz Camp helps young founders ideate, build, and pitch market-ready ventures alongside Shark Tank alumni, civic leaders, and finance experts.
               </p>
 
-              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/15 border border-white/20 backdrop-blur-md text-white/90">
+              <div className="flex flex-wrap gap-6">
+                <Link
+                  href="#session1"
+                  className="bg-gradient-to-r from-[#FFBF00] to-[#FFD700] text-[#8B6914] font-medium py-4 px-8 rounded-lg text-xl transition-all hover:shadow-lg hover:shadow-[#FFBF00]/30 hover:-translate-y-1 active:translate-y-0 inline-flex items-center"
+                >
+                  Explore Camp
+                  <svg className="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </Link>
+
+                <Link
+                  href="/fish-tank-2025"
+                  className="text-white bg-white/25 border border-white/40 hover:bg-white/35 font-medium py-4 px-8 rounded-lg text-xl transition-all inline-flex items-center hover:shadow-lg hover:shadow-white/30"
+                >
+                  View 2025 Fish Tank →
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12 text-sm text-white/90">
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/20 border border-white/30 backdrop-blur-md">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  June 6 - July 25, 2025
+                  June 6 – July 25, 2025
                 </div>
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/15 border border-white/20 backdrop-blur-md text-white/90">
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/20 border border-white/30 backdrop-blur-md">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0L6.343 16.657A8 8 0 1117.657 5.343 8 8 0 0117.657 16.657z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  Benedictine University, Lisle
+                  95th Street Library, Naperville
                 </div>
-                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/15 border border-white/20 backdrop-blur-md text-white/90">
+                <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/20 border border-white/30 backdrop-blur-md">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.178c.969 0 1.371 1.24.588 1.81l-3.382 2.457a1 1 0 00-.364 1.118l1.287 3.974c.3.922-.755 1.688-1.54 1.118l-3.382-2.457a1 1 0 00-1.176 0l-3.382 2.457c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.957 9.401c-.783-.57-.38-1.81.588-1.81h4.178a1 1 0 00.95-.69l1.286-3.974z" />
                   </svg>
                   Hands-on challenges & prize competitions
                 </div>
               </div>
-
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link
-                  href="/fish-tank-2025"
-                  className="inline-flex items-center px-8 py-4 rounded-full bg-white text-[#8B6914] font-bold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all"
-                >
-                  View 2025 Fish Tank
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/camps"
-                  className="inline-flex items-center px-8 py-4 rounded-full border-2 border-white/40 text-white font-bold hover:bg-white/15 transition-all"
-                >
-                  View 2024 Camp
-                </Link>
-              </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="relative"
+              className="lg:col-span-6 relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
             >
-              <div className="absolute -inset-6 bg-white/20 blur-3xl opacity-40"></div>
-              <div className="relative bg-white/15 backdrop-blur-2xl border border-white/25 rounded-3xl p-10 shadow-2xl overflow-hidden">
-                <div className="absolute -top-16 -right-8 w-48 h-48 rounded-full bg-white/20 blur-2xl"></div>
-                <div className="absolute top-10 right-10 text-white/40">
-                  <svg className="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.4} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.873v4.254a1 1 0 001.555.832l3.197-2.122a1 1 0 000-1.669z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.4} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
+              <div className="relative h-[580px] w-full overflow-visible">
+                <motion.div
+                  className="absolute top-[160px] left-[10px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
+                  initial={{ x: -30, y: 0, rotate: -8 }}
+                  animate={{ x: 0, y: 0, rotate: -8 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  whileHover={{ scale: 1.03, rotate: -6, transition: { duration: 0.3 } }}
+                >
+                  <Image
+                    src="/camp_imgs/2025/session5/session5a.jpg"
+                    alt="Session collaboration"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#CD8F20]/25 to-transparent"></div>
+                </motion.div>
 
-                <div className="mb-8">
-                  <span className="text-sm uppercase tracking-[0.3em] text-white/70 font-semibold">Camp Snapshot</span>
-                  <h2 className="mt-3 text-3xl font-bold text-white">Our boldest summer yet</h2>
-                </div>
+                <motion.div
+                  className="absolute top-[-20px] right-[-20px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-[0_15px_50px_rgba(190,120,16,0.3)] z-30 border-[3px] border-white"
+                  initial={{ scale: 0.92, y: 10 }}
+                  animate={{ scale: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
+                >
+                  <Image
+                    src="/camp_imgs/2025/session3/session3b.jpg"
+                    alt="Marketing workshop"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#CD8F20]/25 to-transparent"></div>
+                </motion.div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { value: "7", label: "Sessions" },
-                    { value: "120+", label: "Students" },
-                    { value: "5", label: "Guest Speakers" },
-                    { value: "$5K+", label: "Funding & Prizes" },
-                  ].map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="rounded-2xl bg-white/15 border border-white/20 px-5 py-6 flex flex-col justify-center text-white shadow-inner"
-                    >
-                      <div className="text-3xl font-bold">{stat.value}</div>
-                      <div className="text-xs uppercase tracking-wide text-white/70 mt-1">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
+                <motion.div
+                  className="absolute bottom-[10px] right-[60px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
+                  initial={{ x: 30, y: 0, rotate: 8 }}
+                  animate={{ x: 0, y: 0, rotate: 8 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  whileHover={{ scale: 1.03, rotate: 6, transition: { duration: 0.3 } }}
+                >
+                  <Image
+                    src="/camp_imgs/2025/session4/session4c.jpg"
+                    alt="Prototype building"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#CD8F20]/25 to-transparent"></div>
+                </motion.div>
 
-                <div className="mt-10 p-5 rounded-2xl bg-white/10 border border-white/20 text-white/90">
-                  <div className="flex items-center gap-3 text-sm font-semibold">
-                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20">✦</span>
-                    Weekly showcases with mentor feedback and prize challenges
-                  </div>
-                  <p className="text-sm text-white/75 mt-3 leading-relaxed">
-                    From branding labs with Kandice Henning to finance intensives with Mayor Scott Wehrli and Raymond Munch, every session builds toward Fish Tank success.
-                  </p>
-                </div>
+                <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#FFD700]/20 to-[#FFBF00]/15 blur-3xl"></div>
+                <div className="absolute bottom-1/3 left-1/3 w-56 h-56 rounded-full bg-gradient-to-r from-[#FFBF00]/20 to-[#FFD700]/15 blur-2xl"></div>
               </div>
             </motion.div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Stats Section */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24">
+        <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-[#FFE08A]/40">
+          <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#FFE08A]/30">
+            {[
+              { value: "7", label: "Camp Sessions", icon: "calendar" },
+              { value: "120+", label: "Students", icon: "students" },
+              { value: "5", label: "Guest Speakers", icon: "mic" },
+              { value: "$5K+", label: "Funding & Prizes", icon: "trophy" },
+            ].map((stat) => (
+              <div key={stat.label} className="px-8 py-12 text-center relative">
+                <div className="absolute right-6 top-6 opacity-10">
+                  {stat.icon === "calendar" && (
+                    <svg className="h-12 w-12" viewBox="0 0 448 512" fill="#7A4B00" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M152 64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H56c-30.9 0-56 25.1-56 56v48h448V120c0-30.9-25.1-56-56-56h-48V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152zM0 456c0 30.9 25.1 56 56 56h336c30.9 0 56-25.1 56-56V200H0v256z" />
+                    </svg>
+                  )}
+                  {stat.icon === "students" && (
+                    <svg className="h-12 w-12" viewBox="0 0 640 512" fill="#7A4B00" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M320 32L0 176l320 144 192-86.4V352h64v-96l64-28.8L320 32zm-32 354.7L128 320v64c0 35.3 86 64 192 64s192-28.7 192-64v-64l-160 66.7a63.99 63.99 0 0 1-64 0z" />
+                    </svg>
+                  )}
+                  {stat.icon === "mic" && (
+                    <svg className="h-12 w-12" viewBox="0 0 384 512" fill="#7A4B00" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M192 352c53 0 96-43 96-96V96c0-53-43-96-96-96s-96 43-96 96v160c0 53 43 96 96 96zm136-160v64c0 74-56 135-128 143.1V464h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H112c-13.3 0-24-10.7-24-24s10.7-24 24-24h72v-64.9C112 327 56 266 56 192v-64c0-13.3 10.7-24 24-24s24 10.7 24 24v64c0 48.6 39.4 88 88 88s88-39.4 88-88v-64c0-13.3 10.7-24 24-24s24 10.7 24 24z" />
+                    </svg>
+                  )}
+                  {stat.icon === "trophy" && (
+                    <svg className="h-12 w-12" viewBox="0 0 576 512" fill="#7A4B00" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M552 64h-88V24c0-13.3-10.7-24-24-24H136c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v32c0 88.4 71.6 160 160 160 22.3 0 43.7-4.5 63.1-12.7 12.1 28.5 35.4 50.8 64.9 60.7V416h-64c-44.2 0-80 35.8-80 80 0 8.8 7.2 16 16 16h256c8.8 0 16-7.2 16-16 0-44.2-35.8-80-80-80h-64v-87.3c29.5-9.9 52.8-32.2 64.9-60.7 19.4 8.2 40.8 12.7 63.1 12.7 88.4 0 160-71.6 160-160V88c0-13.3-10.7-24-24-24zM160 224c-61.9 0-112-50.1-112-112v-8h64v32c0 13.3 10.7 24 24 24h24v64zm288 0h-24v-64h24c13.3 0 24-10.7 24-24v-32h64v8c0 61.9-50.1 112-112 112z" />
+                    </svg>
+                  )}
+                </div>
+                <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8B4E00] to-[#FFBF00] mb-4">{stat.value}</div>
+                <div className="text-[#8B4E00] font-medium text-lg">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Sessions Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
