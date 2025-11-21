@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 // ============================================================================
 // TYPE DEFINITIONS
@@ -447,6 +447,86 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Detailed Impact & Reach Section */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center max-w-4xl mx-auto mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">A deeper look at the students, schools, and community partners that make BizBuzz possible.</h2>
+          </motion.div>
+            
+          <div className="grid lg:grid-cols-2 gap-12 mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden"
+            >
+              <div className="px-8 py-6 border-b border-slate-100 flex items-center justify-between">
+                <div>
+                  <h3 className="text-2xl font-semibold text-black">Student Participation</h3>
+                  <p className="text-black/60">Breakdown of students who have joined BizBuzz programs</p>
+                </div>
+                <span className="text-sm font-semibold text-[#3AB6FF] uppercase tracking-[0.3em]">Programs</span>
+              </div>
+              <div className="max-h-[320px] overflow-y-auto px-8 py-6 space-y-4 custom-scroll">
+                {programParticipation.map((program, idx) => (
+                  <ProgramStat key={idx} {...program} />
+                ))}
+              </div>
+            </motion.div>
+          
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden"
+            >
+              <div className="px-8 py-6 border-b border-slate-100 flex flex-col gap-2">
+                <h3 className="text-2xl font-semibold text-black">Schools We Serve</h3>
+                <p className="text-black/60">Representation from elementary, middle, and high schools across the region</p>
+              </div>
+              <SchoolGallery schoolDirectory={schoolDirectory} />
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden"
+          >
+            <div className="px-8 py-6 border-b border-slate-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <h3 className="text-2xl font-semibold text-black">Community Support</h3>
+                <p className="text-black/60">Financial contributions and in-kind resources empower BizBuzz to stay student-led and cost-free.</p>
+              </div>
+            </div>
+            <div className="px-8 py-6 grid md:grid-cols-3 gap-6">
+              {fundingSummary.map((item, idx) => (
+                <FundingCard key={idx} {...item} />
+              ))}
+            </div>
+            <div className="px-8 pb-8">
+              <h4 className="text-sm font-semibold text-black/70 uppercase tracking-[0.3em] mb-4">Partners &amp; Sponsors</h4>
+              <div className="flex flex-wrap gap-3">
+                {supporters.map((supporter, idx) => (
+                  <EnhancedSupporterPill key={idx} name={supporter} index={idx} />
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Media Coverage Section */}
       <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-[#f8fafc]">
         <div className="absolute inset-0 z-0 overflow-hidden opacity-10">
@@ -623,95 +703,6 @@ export default function AboutPage() {
             </div>
       </section>
 
-      {/* Detailed Impact & Reach Section */}
-      <section className="py-24 bg-[#f9fafb] relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
-        <div className="container mx-auto px-4 relative z-10">
-            <motion.div
-            initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Our Reach & Impact</h2>
-            <p className="text-lg text-black/70">
-              A deeper look at the students, schools, and community partners that make BizBuzz possible.
-            </p>
-            </motion.div>
-            
-          <div className="grid lg:grid-cols-2 gap-12 mb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden"
-            >
-              <div className="px-8 py-6 border-b border-slate-100 flex items-center justify-between">
-                <div>
-                  <h3 className="text-2xl font-semibold text-black">Student Participation</h3>
-                  <p className="text-black/60">Breakdown of students who have joined BizBuzz programs</p>
-                </div>
-                <span className="text-sm font-semibold text-[#3AB6FF] uppercase tracking-[0.3em]">Programs</span>
-              </div>
-              <div className="max-h-[320px] overflow-y-auto px-8 py-6 space-y-4 custom-scroll">
-                {programParticipation.map((program, idx) => (
-                  <ProgramStat key={idx} {...program} />
-              ))}
-            </div>
-            </motion.div>
-          
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden"
-            >
-              <div className="px-8 py-6 border-b border-slate-100">
-                <h3 className="text-2xl font-semibold text-black">Schools We Serve</h3>
-                <p className="text-black/60">Representation from elementary, middle, and high schools across the region</p>
-                </div>
-              <div className="max-h-[320px] overflow-y-auto px-8 py-6 custom-scroll">
-                <div className="grid md:grid-cols-3 gap-6 text-left">
-                  {schoolDirectory.map((group, idx) => (
-                    <SchoolColumn key={idx} {...group} />
-              ))}
-            </div>
-              </div>
-            </motion.div>
-          </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden"
-          >
-            <div className="px-8 py-6 border-b border-slate-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <h3 className="text-2xl font-semibold text-black">Community Support</h3>
-                <p className="text-black/60">Financial contributions and in-kind resources empower BizBuzz to stay student-led and cost-free.</p>
-                </div>
-            </div>
-            <div className="px-8 py-6 grid md:grid-cols-3 gap-6">
-              {fundingSummary.map((item, idx) => (
-                <FundingCard key={idx} {...item} />
-              ))}
-            </div>
-            <div className="px-8 pb-8">
-              <h4 className="text-sm font-semibold text-black/70 uppercase tracking-[0.3em] mb-4">Partners &amp; Sponsors</h4>
-              <div className="flex flex-wrap gap-3">
-                {supporters.map((supporter, idx) => (
-                  <SupporterPill key={idx} name={supporter} />
-                ))}
-          </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 }
@@ -736,17 +727,63 @@ function ScrollIndicator() {
 }
 
 function ImpactCard({ value, label, description, index }: { value: string; label: string; description?: string; index: number }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(cardRef, { once: true, amount: 0.5 });
+  const countable = /\d/.test(value);
+  const [displayValue, setDisplayValue] = useState(value);
+
+  useEffect(() => {
+    if (!countable || !isInView) return;
+    const numeric = parseInt(value.replace(/[^0-9]/g, ""), 10);
+    if (Number.isNaN(numeric)) return;
+    const prefix = value.trim().startsWith("$") ? "$" : "";
+    const suffix = value.trim().endsWith("+") ? "+" : "";
+    const duration = 1200;
+    const startTime = performance.now();
+    let frame: number;
+
+    const animateValue = (time: number) => {
+      const progress = Math.min((time - startTime) / duration, 1);
+      const current = Math.round(progress * numeric);
+      const formatted = `${prefix}${current.toLocaleString()}${suffix}`;
+      setDisplayValue(formatted);
+      if (progress < 1) {
+        frame = requestAnimationFrame(animateValue);
+      } else {
+        setDisplayValue(value);
+      }
+    };
+
+    frame = requestAnimationFrame(animateValue);
+    return () => cancelAnimationFrame(frame);
+  }, [value, countable, isInView]);
+
   return (
     <motion.div
+      ref={cardRef}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="bg-white rounded-3xl shadow-lg border border-slate-100 p-8 text-left"
+      className="relative overflow-hidden bg-white rounded-3xl shadow-lg border border-slate-100 p-8 text-left"
     >
-      <div className="text-4xl font-bold text-[#0c1d3d] mb-3">{value}</div>
-      <div className="text-lg font-semibold text-[#3AB6FF] mb-2">{label}</div>
-      {description && <p className="text-sm text-black/60 leading-relaxed">{description}</p>}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#3AB6FF]/5 via-transparent to-[#FFD700]/5 opacity-60" />
+      <div className="relative flex flex-col gap-3">
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <span className="relative flex h-4 w-4">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3AB6FF]/50"></span>
+              <span className="relative inline-flex rounded-full h-4 w-4 bg-[#3AB6FF]"></span>
+            </span>
+          </div>
+          <p className="text-sm uppercase tracking-[0.35em] text-[#3AB6FF]">Impact</p>
+        </div>
+        <div className="text-4xl font-bold text-[#0c1d3d] mb-1">
+          {countable ? displayValue : value}
+        </div>
+        <div className="text-lg font-semibold text-[#3AB6FF] mb-2">{label}</div>
+        {description && <p className="text-sm text-black/60 leading-relaxed">{description}</p>}
+      </div>
     </motion.div>
   );
 }
@@ -760,18 +797,71 @@ function ProgramStat({ total, label }: { total: number; label: string }) {
   );
 }
 
-function SchoolColumn({ title, items }: { title: string; items: string[] }) {
+function SchoolGallery({ schoolDirectory }: { schoolDirectory: Array<{ title: string; items: string[] }> }) {
+  const [activeGroup, setActiveGroup] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const active = schoolDirectory[activeGroup];
+
   return (
-    <div>
-      <h4 className="text-sm font-semibold text-[#0c1d3d] uppercase tracking-[0.25em] mb-3">{title}</h4>
-      <ul className="space-y-2 text-sm text-black/70">
-        {items.map((item, idx) => (
-          <li key={idx} className="flex items-start gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#3AB6FF] mt-1.5"></span>
-            <span>{item}</span>
-          </li>
+    <div className="px-8 py-6 space-y-6">
+      <div className="flex gap-3 flex-wrap">
+        {schoolDirectory.map((group, idx) => (
+          <motion.button
+            key={group.title}
+            type="button"
+            onClick={() => setActiveGroup(idx)}
+            whileHover={{ scale: 1.03 }}
+            className="px-4 py-2 rounded-full border text-sm font-semibold transition-all"
+            animate={{
+              backgroundColor: activeGroup === idx ? '#3AB6FF' : 'transparent',
+              color: activeGroup === idx ? '#fff' : '#0c1d3d',
+              borderColor: activeGroup === idx ? '#3AB6FF' : 'rgba(12,29,61,0.2)',
+              boxShadow: activeGroup === idx ? '0 15px 25px rgba(58,182,255,0.25)' : '0 0 0 rgba(0,0,0,0)'
+            }}
+          >
+            {group.title}
+          </motion.button>
         ))}
-      </ul>
+      </div>
+
+      <motion.div
+        key={active.title}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="max-h-[320px] overflow-y-auto custom-scroll pr-3"
+      >
+        <div className="grid sm:grid-cols-2 gap-3">
+          {active.items.map((school, idx) => (
+            <motion.div
+              key={school}
+              whileHover={{ scale: 1.02 }}
+              onMouseEnter={() => setHoveredIndex(idx)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              animate={{
+                borderColor: hoveredIndex === idx ? '#3AB6FF' : 'rgba(12,29,61,0.1)',
+                backgroundColor: hoveredIndex === idx ? 'rgba(58,182,255,0.08)' : '#ffffff'
+              }}
+              className="p-3 rounded-2xl border flex items-center gap-3 transition-colors duration-200"
+            >
+              <motion.div
+                animate={{
+                  backgroundColor: hoveredIndex === idx ? '#3AB6FF' : '#E8F6FF',
+                  color: hoveredIndex === idx ? '#fff' : '#3AB6FF'
+                }}
+                className="w-10 h-10 rounded-xl flex items-center justify-center font-semibold text-sm"
+              >
+                {school.slice(0, 2).toUpperCase()}
+              </motion.div>
+              <div className="flex-1">
+                <p className="font-semibold text-[#0c1d3d] leading-tight">{school}</p>
+                <p className="text-xs text-black/50">{active.title}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 }
@@ -786,12 +876,35 @@ function FundingCard({ label, value, helper }: { label: string; value: string; h
   );
 }
 
-function SupporterPill({ name }: { name: string }) {
+function EnhancedSupporterPill({ name, index }: { name: string; index: number }) {
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <span className="px-4 py-2 bg-[#3AB6FF]/5 text-[#0c1d3d] text-sm font-medium rounded-full border border-[#3AB6FF]/10">{name}</span>
+    <motion.span
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.3, delay: index * 0.02 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ scale: 1.05, y: -2 }}
+      className="inline-block cursor-pointer"
+    >
+      <motion.span
+        animate={{
+          backgroundColor: isHovered ? '#3AB6FF' : 'rgba(58, 182, 255, 0.05)',
+          color: isHovered ? 'white' : '#0c1d3d',
+          borderColor: isHovered ? '#3AB6FF' : 'rgba(58, 182, 255, 0.1)',
+          boxShadow: isHovered ? '0 4px 12px rgba(58, 182, 255, 0.3)' : '0 0 0 rgba(58, 182, 255, 0)'
+        }}
+        transition={{ duration: 0.2 }}
+        className="px-4 py-2 text-sm font-medium rounded-full border inline-block"
+      >
+        {name}
+      </motion.span>
+    </motion.span>
   );
 }
-
 
 function MissionParagraph({ children, animationDelay = 0, highlight = false }: { children: React.ReactNode, animationDelay?: number, highlight?: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
