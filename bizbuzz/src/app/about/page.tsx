@@ -184,10 +184,10 @@ const PEOPLE = {
 // ============================================================================
 
 const impactStats = [
-  { label: "Students Served", value: "1,172", description: "across camps, competitions, and workshops since 2024" },
-  { label: "Schools Engaged", value: "79", description: "elementary, middle, and high schools represented" },
-  { label: "Funding Raised", value: "$10,421", description: "from 48 community partners and sponsors" },
-  { label: "Student Staff", value: "82", description: "volunteers powering BizBuzz programs" }
+  { label: "Students Taught", value: "1,172", description: "across camps, competitions, and workshops since 2024" },
+  { label: "Schools Engaged", value: "79", description: "elementary, middle, and high schools represented across Illinois" },
+  { label: "Funding Raised", value: "$10,421", description: "from 48 community partners, organizations, and sponsors" },
+  { label: "Student Staff", value: "82", description: "high school volunteer staff and instructors" }
 ];
 
 const programParticipation = [
@@ -565,38 +565,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Goals Section */}
-      <section className="py-24 bg-[#f9fafb] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-full h-32 bg-gradient-to-b from-white to-transparent"></div>
-        <div className="absolute bottom-0 right-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="max-w-3xl mx-auto text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">Our Goals</h2>
-            <p className="text-lg text-black max-w-2xl mx-auto">
-              At BizBuzz, we aspire to transform the landscape of youth entrepreneurship through these foundational goals:
-            </p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            <GoalCardNew title="Foster High-Demand Skills" description="To foster high-demand business skills through real world, project-based learning opportunities." icon="business" color="#3AB6FF" index={0} />
-            <GoalCardNew title="Enhance Confidence" description="To enhance young students' confidence in communication and leadership, preparing them for success in high school & beyond." icon="confidence" color="#FFD700" index={1} />
-            <GoalCardNew title="Promote Teamwork" description="To promote teamwork, collaborative problem-solving, and community engagement." icon="teamwork" color="#3AB6FF" index={2} />
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 mt-12 max-w-[calc(100%*2/3)] mx-auto">
-            <GoalCardNew title="Inspire Entrepreneurs" description="To inspire the next generation of entrepreneurs." icon="inspire" color="#FFD700" index={3} />
-            <GoalCardNew title="Innovate Solutions" description="To innovate tomorrow's solutions for today's problems." icon="innovate" color="#3AB6FF" index={4} />
-          </div>
-        </div>
-      </section>
-
       {/* Our Team Section */}
       <section className="py-16 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-full h-32 bg-gradient-to-b from-[#f9fafb] to-transparent"></div>
@@ -651,8 +619,8 @@ export default function AboutPage() {
             people={PEOPLE.youthLeadership} 
             role="Youth Leadership"
             color="#FFD700"
-          />
-        </div>
+              />
+            </div>
       </section>
 
       {/* Detailed Impact & Reach Section */}
@@ -690,10 +658,10 @@ export default function AboutPage() {
               <div className="max-h-[320px] overflow-y-auto px-8 py-6 space-y-4 custom-scroll">
                 {programParticipation.map((program, idx) => (
                   <ProgramStat key={idx} {...program} />
-                ))}
-              </div>
+              ))}
+            </div>
             </motion.div>
-
+          
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -704,29 +672,29 @@ export default function AboutPage() {
               <div className="px-8 py-6 border-b border-slate-100">
                 <h3 className="text-2xl font-semibold text-black">Schools We Serve</h3>
                 <p className="text-black/60">Representation from elementary, middle, and high schools across the region</p>
-              </div>
+                </div>
               <div className="max-h-[320px] overflow-y-auto px-8 py-6 custom-scroll">
                 <div className="grid md:grid-cols-3 gap-6 text-left">
                   {schoolDirectory.map((group, idx) => (
                     <SchoolColumn key={idx} {...group} />
-                  ))}
-                </div>
+              ))}
+            </div>
               </div>
             </motion.div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden"
           >
             <div className="px-8 py-6 border-b border-slate-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 <h3 className="text-2xl font-semibold text-black">Community Support</h3>
                 <p className="text-black/60">Financial contributions and in-kind resources empower BizBuzz to stay student-led and cost-free.</p>
-              </div>
+                </div>
             </div>
             <div className="px-8 py-6 grid md:grid-cols-3 gap-6">
               {fundingSummary.map((item, idx) => (
@@ -739,7 +707,7 @@ export default function AboutPage() {
                 {supporters.map((supporter, idx) => (
                   <SupporterPill key={idx} name={supporter} />
                 ))}
-              </div>
+          </div>
             </div>
           </motion.div>
         </div>
@@ -1057,88 +1025,6 @@ function InterviewFeature({ title, description, links, videoEmbedUrl, images, si
           </motion.div>
         )}
       </div>
-    </motion.div>
-  );
-}
-
-function GoalCardNew({ title, description, icon, color, index, className = '' }: { title: string, description: string, icon: string, color: string, index: number, className?: string }) {
-  const [isHovered, setIsHovered] = useState(false);
-  
-  const getIcon = () => {
-    switch(icon) {
-      case 'business':
-        return (
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
-          </svg>
-        );
-      case 'confidence':
-        return (
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-          </svg>
-        );
-      case 'teamwork':
-        return (
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-          </svg>
-        );
-      case 'inspire':
-        return (
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" />
-          </svg>
-        );
-      case 'innovate':
-        return (
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-          </svg>
-        );
-      default:
-        return null;
-    }
-  };
-  
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      className={`bg-white p-8 rounded-xl shadow-lg relative overflow-hidden group h-full ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="absolute top-0 left-0 w-full h-1" style={{ backgroundColor: color }}></div>
-      
-      <div className="relative z-10 h-full flex flex-col">
-        <div className="mb-6">
-          <div 
-            className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300"
-            style={{ 
-              backgroundColor: isHovered ? color : '#f3f4f6',
-              transform: isHovered ? 'scale(1.1)' : 'scale(1)'
-            }}
-          >
-            <div className="w-8 h-8 text-current transition-all duration-300" style={{ color: isHovered ? 'white' : color }}>
-              {getIcon()}
-            </div>
-          </div>
-        </div>
-        
-        <h3 className="text-xl font-bold mb-4 text-black">{title}</h3>
-        <p className="text-black flex-grow">{description}</p>
-      </div>
-      
-      <div 
-        className="absolute -bottom-full right-0 w-60 h-60 rounded-full transition-all duration-500 ease-in-out opacity-10"
-        style={{ 
-          backgroundColor: color,
-          transform: isHovered ? 'translate(20%, 60%)' : 'translate(20%, 100%)'
-        }}
-      ></div>
     </motion.div>
   );
 }
