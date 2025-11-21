@@ -556,9 +556,9 @@ export default function CampPage() {
                 
                 {/* Top right image - larger size */}
                 <motion.div 
-                  className="absolute top-[-20px] right-[-20px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-[0_15px_50px_rgba(8,112,184,0.25)] z-30 border-[3px] border-white"
-                  initial={{ scale: 0.92, y: 10 }}
-                  animate={{ scale: 1, y: 0 }}
+                  className="absolute top-[-20px] left-[30%] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-[0_15px_50px_rgba(8,112,184,0.25)] z-30 border-[3px] border-white"
+                  initial={{ scale: 0.92, y: 10, rotate: 4 }}
+                  animate={{ scale: 1, y: 0, rotate: 4 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                   whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
                 >
