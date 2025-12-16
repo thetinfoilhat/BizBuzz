@@ -106,6 +106,11 @@ const PEOPLE = {
       description: "Leading initiatives that help BizBuzz reach more students every year."
     },
     {
+      name: "Max Nadtochiy",
+      role: "Leadership Team",
+      description: "Max contributes his passion for business education and leadership to help expand BizBuzz's impact within the community."
+    },
+    {
       name: "Zoha Ahmad",
       role: "Leadership Team",
       description: "Leading initiatives that help BizBuzz reach more students every year."
