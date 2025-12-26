@@ -114,6 +114,16 @@ const PEOPLE = {
       name: "Zoha Ahmad",
       role: "Leadership Team",
       description: "Leading initiatives that help BizBuzz reach more students every year."
+    },
+    {
+      name: "Colin Singer",
+      role: "Leadership Team",
+      description: "Leading initiatives that help BizBuzz reach more students every year."
+    },
+    {
+      name: "Ca Van",
+      role: "Leadership Team",
+      description: "Leading initiatives that help BizBuzz reach more students every year."
     }
   ],
 
