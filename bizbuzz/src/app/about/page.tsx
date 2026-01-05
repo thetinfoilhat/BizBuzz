@@ -76,6 +76,16 @@ const PEOPLE = {
       description: "Aiden builds the infrastructure that powers BizBuzz's digital presence. His software development skills support scalable programs and user-friendly tools for students and families."
     },
     {
+      name: "Max Nadtochiy",
+      role: "Leadership Team",
+      description: "Max contributes his passion for business education and leadership to help expand BizBuzz's impact within the community."
+    },
+    {
+      name: "Ca Van",
+      role: "Leadership Team",
+      description: "Leading initiatives that help BizBuzz reach more students every year."
+    },
+    {
       name: "Elena Kang Chou",
       role: "Leadership Team",
       description: "Leading initiatives that help BizBuzz reach more students every year."
@@ -106,22 +116,12 @@ const PEOPLE = {
       description: "Leading initiatives that help BizBuzz reach more students every year."
     },
     {
-      name: "Max Nadtochiy",
-      role: "Leadership Team",
-      description: "Max contributes his passion for business education and leadership to help expand BizBuzz's impact within the community."
-    },
-    {
       name: "Zoha Ahmad",
       role: "Leadership Team",
       description: "Leading initiatives that help BizBuzz reach more students every year."
     },
     {
       name: "Colin Singer",
-      role: "Leadership Team",
-      description: "Leading initiatives that help BizBuzz reach more students every year."
-    },
-    {
-      name: "Ca Van",
       role: "Leadership Team",
       description: "Leading initiatives that help BizBuzz reach more students every year."
     }
