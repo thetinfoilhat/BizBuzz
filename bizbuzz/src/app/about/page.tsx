@@ -167,6 +167,10 @@ const PEOPLE = {
     {
       name: "Zahra Moosani",
       description: "Zahra combines creativity with organization to make learning engaging. She's dedicated to helping students discover their entrepreneurial potential."
+    },
+    {
+      name: "Rehaan John",
+      description: "Rehaan brings enthusiasm and innovative teaching approaches to BizBuzz. He's committed to helping young students develop their entrepreneurial skills and turn their ideas into reality."
     }
   ],
 
