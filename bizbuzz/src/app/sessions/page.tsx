@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Footer from "@/components/Footer";
+import Footer from "@/components/layout/Footer";
 
 const OneOnOneSessions = () => {
   const [activeTab, setActiveTab] = useState<'individual' | 'group'>('individual');

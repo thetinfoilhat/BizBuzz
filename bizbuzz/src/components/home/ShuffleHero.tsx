@@ -102,7 +102,7 @@ const ShuffleHero = () => {
           via social entrepreneurship
         </p>
         <div className="flex gap-4 items-center">
-          <Link href="/camps" className="bg-[#003166] text-white font-semibold py-4 px-8 rounded-2xl text-lg transition-all hover:bg-[#00254d] hover:scale-105 active:scale-95 shadow-lg hover:shadow-blue-200">
+          <Link href="/camps-2024" className="bg-[#003166] text-white font-semibold py-4 px-8 rounded-2xl text-lg transition-all hover:bg-[#00254d] hover:scale-105 active:scale-95 shadow-lg hover:shadow-blue-200">
             Learn More
           </Link>
           <a href="#programs" className="text-[#4B5563] hover:text-[#38b6ff] font-medium text-lg transition-colors">

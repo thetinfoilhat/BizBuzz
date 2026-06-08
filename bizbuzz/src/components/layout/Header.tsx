@@ -34,23 +34,26 @@ const Header = () => {
   };
 
   const navLinks = [
-    { 
-      href: "/camps", 
+    {
+      href: "/camps-2024",
       label: "Camps",
       hasDropdown: true,
       dropdownItems: [
-        { href: "/camps", label: "2024 Camps", color: "#38b6ff" },
-        { href: "/camps-2025", label: "2025 Camps", color: "#FFBF00" }
+        { href: "/camps-2024", label: "2024 Camps", color: "#38b6ff" },
+        { href: "/camps-2025", label: "2025 Camps", color: "#FFBF00" },
+        { href: "/camps-2026", label: "2026 Camps", color: "#10b981" },
+        { href: "/camps-2027", label: "2027 Camps", color: "#8b5cf6" }
       ]
     },
     { href: "/workshops", label: "Workshops" },
-    { 
-      href: "/fish-tank", 
+    {
+      href: "/fish-tank-2024",
       label: "Fish Tank",
       hasDropdown: true,
       dropdownItems: [
-        { href: "/fish-tank", label: "2024 Fish Tank", color: "#38b6ff" },
-        { href: "/fish-tank-2025", label: "2025 Fish Tank", color: "#FFBF00" }
+        { href: "/fish-tank-2024", label: "2024 Fish Tank", color: "#38b6ff" },
+        { href: "/fish-tank-2025", label: "2025 Fish Tank", color: "#FFBF00" },
+        { href: "/fish-tank-2026", label: "2026 Fish Tank", color: "#10b981" }
       ]
     },
     { href: "/sessions", label: "1:1 Sessions" },

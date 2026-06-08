@@ -7,10 +7,10 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import data2024 from '@/../data/years/2024.json';
 import data2025 from '@/../data/years/2025.json';
-import InteractiveTimeline from '@/components/InteractiveTimeline';
-import LightboxGallery from '@/components/LightboxGallery';
-import PressCard from '@/components/PressCard';
-import ScrollProgress from '@/components/ScrollProgress';
+import InteractiveTimeline from '@/components/years/InteractiveTimeline';
+import LightboxGallery from '@/components/shared/LightboxGallery';
+import PressCard from '@/components/shared/PressCard';
+import ScrollProgress from '@/components/layout/ScrollProgress';
 import type { YearData, ProgramKind } from '@/types/years';
 
 const datasets: Record<string, YearData> = {

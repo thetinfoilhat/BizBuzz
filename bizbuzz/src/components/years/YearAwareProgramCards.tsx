@@ -12,7 +12,7 @@ const programsByYear = {
       title: "Summer Camp",
       description: "Free six-week entrepreneurship camp featuring 6 sessions, 7 guest speakers, and hands-on business challenges. 110 students learned ideation, marketing, finance, and pitching.",
       image: "/program_cards/camps.jpg",
-      link: "/camps",
+      link: "/camps-2024",
       stats: "6 Sessions • 7 Speakers • 110 Students",
       badge: undefined
     },
@@ -20,7 +20,7 @@ const programsByYear = {
       title: "Fish Tank",
       description: "Our inaugural pitch competition at College of DuPage where 100+ young entrepreneurs competed for $750 in prizes, mentorship, and resources to launch their businesses.",
       image: "/program_cards/fishtank.jpg",
-      link: "/fish-tank",
+      link: "/fish-tank-2024",
       stats: "100+ Competitors • 11 Judges • $750 in Prizes",
       badge: undefined
     },
@@ -74,11 +74,45 @@ const programsByYear = {
       stats: "Custom Sessions • Individual Support",
       badge: undefined
     }
+  ],
+  2026: [
+    {
+      title: "Summer Camp",
+      description: "Coming Summer 2026 — our next entrepreneurship camp is in the works. Stay tuned for dates, sessions, guest speakers, and registration details.",
+      image: "/program_cards/camps.jpg",
+      link: "/camps-2026",
+      stats: "Details Coming Soon",
+      badge: "Coming Soon"
+    },
+    {
+      title: "Fish Tank",
+      description: "The 2026 Fish Tank pitch competition is coming. More students, more judges, bigger prizes. Details will be announced as the event approaches.",
+      image: "/program_cards/fishtank.jpg",
+      link: "/fish-tank-2026",
+      stats: "Details Coming Soon",
+      badge: "Coming Soon"
+    },
+    {
+      title: "Workshops",
+      description: "Workshop series across elementary schools, business fairs, and community centers, reaching students with condensed entrepreneurship curriculum and hands-on activities.",
+      image: "/program_cards/workshops.jpg",
+      link: "/workshops",
+      stats: "Details Coming Soon",
+      badge: undefined
+    },
+    {
+      title: "1:1 Mentorship",
+      description: "Personalized one-on-one sessions providing business incubation support, curriculum reinforcement, and tailored mentorship in innovation and finance.",
+      image: "/program_cards/mentorship.jpg",
+      link: "/sessions",
+      stats: "Custom Sessions • Individual Support",
+      badge: undefined
+    }
   ]
 };
 
 export default function YearAwareProgramCards() {
-  const [selectedYear, setSelectedYear] = useState<2024 | 2025>(2024);
+  const [selectedYear, setSelectedYear] = useState<2024 | 2025 | 2026>(2024);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const currentPrograms = programsByYear[selectedYear];
