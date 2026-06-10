@@ -23,10 +23,10 @@ const Footer = () => {
               <Link href="/" className="text-gray-400 hover:text-white transition-colors">
                 Home
               </Link>
-              <Link href="/fishtank" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="/fish-tank-2024" className="text-gray-400 hover:text-white transition-colors">
                 Fish Tank
               </Link>
-              <Link href="/camps" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="/camps-2024" className="text-gray-400 hover:text-white transition-colors">
                 Camps
               </Link>
               <Link href="/workshops" className="text-gray-400 hover:text-white transition-colors">

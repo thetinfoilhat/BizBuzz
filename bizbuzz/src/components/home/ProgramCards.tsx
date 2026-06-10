@@ -9,13 +9,13 @@ const programs = [
     title: "Camps",
     description: "Free six-week entrepreneurship camps for third to eighth graders, teaching social innovation, finance, and marketing through hands-on activities, prize-filled challenges, guest speakers, and business building.",
     image: "/program_cards/camps.jpg",
-    link: "/camps"
+    link: "/camps-2024"
   },
   {
     title: "Fish Tank",
     description: "Pitch competitions for student innovators of all ages to present business ideas to a panel of professional judges and earn feedback, hundreds of dollars in awards, and real-world experience.",
     image: "/program_cards/fishtank.jpg",
-    link: "/fish-tank"
+    link: "/fish-tank-2024"
   },
   {
     title: "Workshops",

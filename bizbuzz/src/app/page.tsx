@@ -1,8 +1,8 @@
-import ShuffleHero from "@/components/ShuffleHero";
-import LogoScroller from "@/components/LogoScroller";
-import ImageGallery from "@/components/ImageGallery";
-import YearAwareProgramCards from "@/components/YearAwareProgramCards";
-import Footer from "@/components/Footer";
+import ShuffleHero from "@/components/home/ShuffleHero";
+import LogoScroller from "@/components/home/LogoScroller";
+import ImageGallery from "@/components/home/ImageGallery";
+import YearAwareProgramCards from "@/components/years/YearAwareProgramCards";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (

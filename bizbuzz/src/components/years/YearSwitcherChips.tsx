@@ -3,26 +3,33 @@
 import { motion } from 'framer-motion';
 
 interface YearSwitcherChipsProps {
-  selectedYear: 2024 | 2025;
-  onYearChange: (year: 2024 | 2025) => void;
+  selectedYear: 2024 | 2025 | 2026;
+  onYearChange: (year: 2024 | 2025 | 2026) => void;
   className?: string;
 }
 
 export default function YearSwitcherChips({ selectedYear, onYearChange, className = '' }: YearSwitcherChipsProps) {
   const years = [
-    { 
-      value: 2024 as const, 
-      label: '2024', 
+    {
+      value: 2024 as const,
+      label: '2024',
       color: '#38b6ff',
       gradient: 'from-[#003166] to-[#38b6ff]',
       hoverBg: 'hover:bg-blue-50'
     },
-    { 
-      value: 2025 as const, 
-      label: '2025', 
+    {
+      value: 2025 as const,
+      label: '2025',
       color: '#FFBF00',
       gradient: 'from-[#CD8F20] to-[#FFBF00]',
       hoverBg: 'hover:bg-amber-50'
+    },
+    {
+      value: 2026 as const,
+      label: '2026',
+      color: '#10b981',
+      gradient: 'from-[#064e3b] to-[#10b981]',
+      hoverBg: 'hover:bg-emerald-50'
     }
   ];
 
