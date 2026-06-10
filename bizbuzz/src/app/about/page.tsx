@@ -93,6 +93,7 @@ const PEOPLE = {
       description: "Leading initiatives that help BizBuzz reach more students every year."
     },
     {
+      image: "/team/Lakhi.jpeg",
       name: "Lakhi Thotakura",
       role: "Leadership Team",
       description: "Leading initiatives that help BizBuzz reach more students every year."
@@ -148,40 +149,43 @@ const PEOPLE = {
       image: "/team/Taksh.png",
       name: "Taksh Taware",
       role: "President",
-      description: "Taksh was an Executive Director of BizBuzz, where he has helped grow the program and raise thousands of dollars to expand opportunities for young entrepreneurs. A passionate leader, he was a key driver behind BizBuzz in 2025, focusing on building a strong, impactful community. Taksh is also an Illinois DECA State Champion and a Physics State Champion, showcasing both business and analytical excellence. Outside the classroom, he plays soccer and values teamwork and discipline. He is currently conducting research at UIC, continuing to explore innovation and problem-solving at a higher level. He is excited to inspire the next generation of entrepreneurs through BizBuzz.",
+      description: "Taksh was an Executive Director of BizBuzz, where he has helped grow the program and raise thousands of dollars to expand opportunities for young entrepreneurs. He is the founder of Venture Lab and Demo Day, two of BizBuzz's most impactful programs that give students real hands-on experience building and pitching their ideas. A passionate leader, he was a key driver behind BizBuzz in 2025, focusing on building a strong, impactful community. Taksh is also an Illinois DECA State Champion and a Physics State Champion, showcasing both business and analytical excellence. Outside the classroom, he plays soccer and values teamwork and discipline. He is currently conducting research at UIC, continuing to explore innovation and problem-solving at a higher level.",
       customPosition: "center 15%"
     },
   ],
 
   leadershipTeam2026: [
     {
+      image: "/team/Lakhi.jpeg",
       name: "Lakhi Thotakura",
       role: "Chief Operating Officer",
-      description: "Details coming soon."
+      customPosition: "center 0%",
+      description: "Lakhi keeps BizBuzz running behind the scenes. As COO, she coordinates logistics across camps, sessions, and events, making sure everything from scheduling to execution actually comes together. She brings a sharp eye for organization and a genuine passion for making youth entrepreneurship programs as impactful as possible."
     },
     {
-      image: "/team/Elena.png",
+      image: "/team/Elena.jpeg",
       name: "Elena Kang Chou",
       role: "Chief Marketing Officer",
-      description: "Details coming soon."
+      description: "Elena leads BizBuzz's brand and outreach efforts, shaping how the program is seen and heard by students, families, and the broader community. She has a knack for turning big ideas into compelling stories, and her work across social media and marketing has helped BizBuzz reach more young entrepreneurs every year."
     },
     {
-      image: "team/Abby.png",
+      image: "/team/Abby.jpeg",
       name: "Abby May",
       role: "Chief Financial Officer",
-      description: "Details coming soon."
+      customPosition: "center 30%",
+      description: "Abby manages the financial side of BizBuzz, overseeing budgeting and resource allocation to keep programs sustainable and growing. She is passionate about financial literacy and believes that understanding money is one of the most important skills a young entrepreneur can have."
     },
     {
       image: "/team/Amar.png",
       name: "Amar Goyal",
       role: "Chief Technology Officer",
       customPosition: "center 30%",
-      description: "Amar is a student developer with strong skills in software engineering and development. On his FRC robotics team's software subteam, he helped engineer the software powering the robot's shooter mechanism — work that contributed to the team earning a spot at the 2026 FRC Championship. At BizBuzz, he leads the technical vision, architecting and maintaining the platforms that power every camp, session, and demo day experience. Amar believes great technology should be invisible and the ideas it enables should speak for themselves."
+      description: "Amar is a student developer with strong skills in software engineering and development. On his FRC robotics team's software subteam, he helped engineer the software powering the robot's shooter mechanism, work that contributed to the team earning a spot at the 2026 FRC Championship. At BizBuzz, he leads the technical vision, architecting and maintaining the platforms that power every camp, session, and demo day experience. Amar believes great technology should be invisible and the ideas it enables should speak for themselves."
     },
     {
       name: "Elizabeth Gao",
       role: "Executive Director",
-      description: "Details coming soon."
+      description: "Elizabeth helps drive the overall direction of BizBuzz as Executive Director, working across teams to make sure programs are well-coordinated and student-focused. She is deeply committed to expanding access to entrepreneurship education and plays a key role in keeping BizBuzz growing year over year."
     },
   ],
 
@@ -1342,7 +1346,8 @@ function TeamMember({
   };
   
   const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
-  const hasImage = Boolean(image);
+  const [imgError, setImgError] = useState(false);
+  const hasImage = Boolean(image) && !imgError;
 
   function getObjectPositionValue() {
     if (customPosition) return customPosition;
@@ -1389,9 +1394,7 @@ function TeamMember({
               className="object-cover transition-transform duration-500 group-hover:scale-105 z-0"
               sizes={large ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"}
               priority={Boolean(image && image === '/team/Eddy.png' && index === 0)}
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-              }}
+              onError={() => setImgError(true)}
               style={{ objectPosition: objectPositionValue as unknown as string }}
             />
           )}
