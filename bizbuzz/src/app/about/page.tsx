@@ -148,7 +148,8 @@ const PEOPLE = {
       image: "/team/Taksh.png",
       name: "Taksh Taware",
       role: "President",
-      description: "Taksh was an Executive Director of BizBuzz, where he has helped grow the program and raise thousands of dollars to expand opportunities for young entrepreneurs. A passionate leader, he was a key driver behind BizBuzz in 2025, focusing on building a strong, impactful community. Taksh is also an Illinois DECA State Champion and a Physics State Champion, showcasing both business and analytical excellence. Outside the classroom, he plays soccer and values teamwork and discipline. He is currently conducting research at UIC, continuing to explore innovation and problem-solving at a higher level. He is excited to inspire the next generation of entrepreneurs through BizBuzz."
+      description: "Taksh was an Executive Director of BizBuzz, where he has helped grow the program and raise thousands of dollars to expand opportunities for young entrepreneurs. A passionate leader, he was a key driver behind BizBuzz in 2025, focusing on building a strong, impactful community. Taksh is also an Illinois DECA State Champion and a Physics State Champion, showcasing both business and analytical excellence. Outside the classroom, he plays soccer and values teamwork and discipline. He is currently conducting research at UIC, continuing to explore innovation and problem-solving at a higher level. He is excited to inspire the next generation of entrepreneurs through BizBuzz.",
+      customPosition: "center 15%"
     },
   ],
 
