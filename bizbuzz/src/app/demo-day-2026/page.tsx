@@ -20,44 +20,6 @@ const galleryPhotos = [
   "/fish_tank/2025/images/gallery-check.jpg",
 ];
 
-const presenters = [
-  {
-    name: "TBD",
-    business: "TBD",
-    description: "Presenter details will be announced after Demo Day 2026.",
-    image: "",
-  },
-  {
-    name: "TBD",
-    business: "TBD",
-    description: "Presenter details will be announced after Demo Day 2026.",
-    image: "",
-  },
-  {
-    name: "TBD",
-    business: "TBD",
-    description: "Presenter details will be announced after Demo Day 2026.",
-    image: "",
-  },
-  {
-    name: "TBD",
-    business: "TBD",
-    description: "Presenter details will be announced after Demo Day 2026.",
-    image: "",
-  },
-  {
-    name: "TBD",
-    business: "TBD",
-    description: "Presenter details will be announced after Demo Day 2026.",
-    image: "",
-  },
-  {
-    name: "TBD",
-    business: "TBD",
-    description: "Presenter details will be announced after Demo Day 2026.",
-    image: "",
-  },
-];
 
 const timelineSteps = [
   {
@@ -259,7 +221,8 @@ export default function DemoDay2026Page() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl"
+              className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+              onClick={() => openLightbox(4)}
             >
               <Image src={galleryPhotos[4]} alt="Demo Day showcase" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#78350f]/60 to-transparent"></div>
@@ -373,7 +336,7 @@ export default function DemoDay2026Page() {
           >
             <h2 className="text-4xl font-bold text-white mb-6">Want to Showcase at Demo Day?</h2>
             <p className="text-xl text-white/90 mb-8">
-              Join BizBuzz Camp 2026 and turn your business idea into a reality! Our program provides mentorship, resources, and a supportive community to help you succeed. Whether you're dreaming of launching a tech startup or a local service, Demo Day is your stage to shine.
+              Join BizBuzz Camp 2026 and turn your business idea into a reality! Our program provides mentorship, resources, and a supportive community to help you succeed. Whether you&apos;re dreaming of launching a tech startup or a local service, Demo Day is your stage to shine.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/camps-2026?tab=venturelab" className="px-8 py-4 bg-white text-[#78350f] font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
