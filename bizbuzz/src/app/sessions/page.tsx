@@ -8,26 +8,15 @@ const OneOnOneSessions = () => {
   const [activeTab, setActiveTab] = useState<'individual' | 'group'>('individual');
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
     const formData = new FormData(e.target as HTMLFormElement);
     const firstName = formData.get('first_name');
     const lastName = formData.get('last_name');
     const email = formData.get('email');
     const message = formData.get('concerns');
-
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ firstName, lastName, email, message }),
-    });
-
-    if (res.ok) {
-      setFormSubmitted(true);
-    } else {
-      alert('Failed to send message. Please email us directly at bizbuzznfp@gmail.com');
-    }
+    window.location.href = `mailto:bizbuzznfp@gmail.com?subject=Contact Form: ${firstName} ${lastName}&body=Name: ${firstName} ${lastName}%0AEmail: ${email}%0A%0AMessage:%0A${message}`;
+    setFormSubmitted(true);
   };
 
   return (
