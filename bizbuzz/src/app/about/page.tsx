@@ -165,6 +165,7 @@ const PEOPLE = {
       description: "Details coming soon."
     },
     {
+      image: "team/Abby.png",
       name: "Abby May",
       role: "Chief Financial Officer",
       description: "Details coming soon."
