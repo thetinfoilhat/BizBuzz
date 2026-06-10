@@ -163,7 +163,7 @@ const PEOPLE = {
       description: "Lakhi keeps BizBuzz running behind the scenes. As COO, she coordinates logistics across camps, sessions, and events, making sure everything from scheduling to execution actually comes together. She brings a sharp eye for organization and a genuine passion for making youth entrepreneurship programs as impactful as possible."
     },
     {
-      image: "/team/Elena.jpeg",
+      image: "/team/Elena_clean.png",
       name: "Elena Kang Chou",
       role: "Chief Marketing Officer",
       description: "Elena leads BizBuzz's brand and outreach efforts, shaping how the program is seen and heard by students, families, and the broader community. She has a knack for turning big ideas into compelling stories, and her work across social media and marketing has helped BizBuzz reach more young entrepreneurs every year."
@@ -176,7 +176,7 @@ const PEOPLE = {
       description: "Abby manages the financial side of BizBuzz, overseeing budgeting and resource allocation to keep programs sustainable and growing. She is passionate about financial literacy and believes that understanding money is one of the most important skills a young entrepreneur can have."
     },
     {
-      image: "/team/Amar.png",
+      image: "/team/Amar_clean.png",
       name: "Amar Goyal",
       role: "Chief Technology Officer",
       customPosition: "center 30%",
@@ -1346,8 +1346,7 @@ function TeamMember({
   };
   
   const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
-  const [imgError, setImgError] = useState(false);
-  const hasImage = Boolean(image) && !imgError;
+  const hasImage = Boolean(image);
 
   function getObjectPositionValue() {
     if (customPosition) return customPosition;
@@ -1386,16 +1385,12 @@ function TeamMember({
           )}
             
           {hasImage && (
-            <Image
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
               src={image as string}
               alt={name}
-              fill
-              unoptimized
-              className="object-cover transition-transform duration-500 group-hover:scale-105 z-0"
-              sizes={large ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"}
-              priority={Boolean(image && image === '/team/Eddy.png' && index === 0)}
-              onError={() => setImgError(true)}
-              style={{ objectPosition: objectPositionValue as unknown as string }}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 z-0"
+              style={{ objectPosition: objectPositionValue as string }}
             />
           )}
           </div>
