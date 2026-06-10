@@ -42,6 +42,7 @@ const PEOPLE = {
       image: "/team/Eddy.png",
       name: "Eddy Wang",
       role: "Vice President",
+      customPosition: "center 0%",
       description: "Eddy is a dedicated leader with a passion for entrepreneurship and youth education. With exceptional organizational skills, he coordinates BizBuzz initiatives to reach students across Naperville, creating meaningful learning opportunities and inspiring future business leaders."
     },
     {
@@ -54,6 +55,7 @@ const PEOPLE = {
       image: "/team/Taksh.png",
       name: "Taksh Taware",
       role: "2025 Executive Director",
+      customPosition: "60% 15%",
       description: "Taksh brings fresh perspectives and leadership experience to the BizBuzz team. Having successfully raised funding for his own ventures, he mentors students through the entrepreneurial process from ideation to execution, helping them transform creative concepts into viable business opportunities with real-world impact."
     },
     {
@@ -125,6 +127,60 @@ const PEOPLE = {
       role: "Leadership Team",
       description: "Leading initiatives that help BizBuzz reach more students every year."
     }
+  ],
+
+  coFounders2026: [
+    {
+      image: "/team/Allen.png",
+      name: "Allen Xu",
+      role: "Co-Founder",
+      customPosition: "center 10%",
+      description: "Allen is a junior at Naperville North HS interested in social innovation and finance. A three-time international finalist in entrepreneurship competitions like the Conrad Challenge & Blue Ocean Competition, and grand winner of the 2025 Harvard International Economics Essay Competition, he hopes to use what he has learned to help younger students turn imagination into innovation. As a kid, Allen spent winters watching Shark Tank and summers running lemonade stands in his cul-de-sac. After discovering that 90% of K–8 schools in Naperville do not offer business classes, he co-founded BizBuzz with Aarav—alongside other EdTech platforms—to help students like him find their ideas and the courage to share them."
+    },
+    {
+      image: "/team/Aarav.png",
+      name: "Aarav Khullar",
+      role: "Co-Founder",
+      description: "Aarav is a junior at Naperville North HS with a passion for business and fostering youth entrepreneurship. Growing up watching Shark Tank with his dad, he always dreamed of starting a high-quality business but never had any opportunities or support to do so. Seeing this same disparity affect hundreds of other young students in his community, he co-founded BizBuzz with one of his best friends, Allen, to give elementary & middle schoolers the kind of opportunity he never had. Now, as a startup founder himself, internationally awarded by the Walt Disney Company for his leadership, and named a Top 100 Emerging Innovator of 2025, Aarav hopes to translate the skills he's learned to empower the youth.",
+      customPosition: "40% 10%"
+    },
+    {
+      image: "/team/Taksh.png",
+      name: "Taksh Taware",
+      role: "President",
+      description: "Taksh was an Executive Director of BizBuzz, where he has helped grow the program and raise thousands of dollars to expand opportunities for young entrepreneurs. A passionate leader, he was a key driver behind BizBuzz in 2025, focusing on building a strong, impactful community. Taksh is also an Illinois DECA State Champion and a Physics State Champion, showcasing both business and analytical excellence. Outside the classroom, he plays soccer and values teamwork and discipline. He is currently conducting research at UIC, continuing to explore innovation and problem-solving at a higher level. He is excited to inspire the next generation of entrepreneurs through BizBuzz."
+    },
+  ],
+
+  leadershipTeam2026: [
+    {
+      name: "Lakhi Thotakura",
+      role: "Chief Operating Officer",
+      description: "Details coming soon."
+    },
+    {
+      image: "/team/Elena.png",
+      name: "Elena Kang Chou",
+      role: "Chief Marketing Officer",
+      description: "Details coming soon."
+    },
+    {
+      name: "Abby May",
+      role: "Chief Financial Officer",
+      description: "Details coming soon."
+    },
+    {
+      image: "/team/Amar.png",
+      name: "Amar Goyal",
+      role: "Chief Technology Officer",
+      customPosition: "center 30%",
+      description: "Amar is a student developer with strong skills in software engineering and development. On his FRC robotics team's software subteam, he helped engineer the software powering the robot's shooter mechanism — work that contributed to the team earning a spot at the 2026 FRC Championship. At BizBuzz, he leads the technical vision, architecting and maintaining the platforms that power every camp, session, and demo day experience. Amar believes great technology should be invisible and the ideas it enables should speak for themselves."
+    },
+    {
+      name: "Elizabeth Gao",
+      role: "Executive Director",
+      description: "Details coming soon."
+    },
   ],
 
   instructors: [
@@ -281,6 +337,7 @@ const supporters = [
 
 export default function AboutPage() {
   const [mounted, setMounted] = useState(false);
+  const [leadershipYear, setLeadershipYear] = useState<"2025" | "2026">("2025");
 
   useEffect(() => {
     setMounted(true);
@@ -677,29 +734,50 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">Our Team</h2>
-            <p className="text-lg md:text-xl text-black max-w-4xl mx-auto">
+            <p className="text-lg md:text-xl text-black max-w-4xl mx-auto mb-8">
               BizBuzz is powered by a dedicated team of student leaders, entrepreneurs, and educators committed to fostering the next generation of business innovators.
             </p>
           </motion.div>
-          
-          {/* Co-Founders */}
-          <TeamSection 
-            title="Co-Founders" 
-            people={PEOPLE.coFounders} 
+
+          {/* Presidents & Co-Founders — static, always shown */}
+          <TeamSection
+            title="Presidents & Co-Founders"
+            people={PEOPLE.coFounders2026}
             color="#FFD700"
-            gridClass="grid md:grid-cols-2 gap-8 lg:gap-12"
-                large={true}
+            gridClass="grid md:grid-cols-3 gap-6"
+            large={false}
+            smallerSecondary={true}
           />
 
+          {/* Leadership Team year toggle */}
+          <div className="flex items-center justify-center gap-3 mt-10 mb-4">
+            <span className="text-sm font-semibold text-[#0c1d3d]/60 uppercase tracking-widest">Leadership Team</span>
+            <div className="inline-flex rounded-full border border-[#3AB6FF]/30 overflow-hidden shadow-sm">
+              {(["2025", "2026"] as const).map((year) => (
+                <button
+                  key={year}
+                  onClick={() => setLeadershipYear(year)}
+                  className={`px-6 py-2 text-sm font-semibold transition-all duration-200 ${
+                    leadershipYear === year
+                      ? "bg-[#3AB6FF] text-white"
+                      : "bg-white text-[#0c1d3d] hover:bg-[#f0f9ff]"
+                  }`}
+                >
+                  {year}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Leadership Team */}
-          <TeamSection 
-            title="Leadership Team" 
-            people={PEOPLE.leadershipTeam} 
+          <TeamSection
+            title="Leadership Team"
+            people={leadershipYear === "2025" ? PEOPLE.leadershipTeam : PEOPLE.leadershipTeam2026}
             color="#3AB6FF"
-            gridClass="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6"
+            gridClass={leadershipYear === "2026" ? "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 lg:gap-6" : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6"}
             larger={false}
             smallerSecondary={true}
           />
@@ -1301,10 +1379,11 @@ function TeamMember({
           )}
             
           {hasImage && (
-            <Image 
+            <Image
               src={image as string}
               alt={name}
               fill
+              unoptimized
               className="object-cover transition-transform duration-500 group-hover:scale-105 z-0"
               sizes={large ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"}
               priority={Boolean(image && image === '/team/Eddy.png' && index === 0)}

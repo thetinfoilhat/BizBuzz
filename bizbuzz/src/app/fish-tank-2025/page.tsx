@@ -836,10 +836,7 @@ export default function FishTank2025Page() {
               Registration for Fish Tank 2025 opens in Spring 2025. Join our mailing list to be the first to know!
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/years/2025" className="px-8 py-4 bg-white text-[#CD8F20] font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
-                View Full 2025 Season
-              </Link>
-              <Link href="/camps-2025" className="px-8 py-4 bg-white/20 backdrop-blur-sm text-white border border-white/30 font-semibold rounded-xl hover:bg-white/30 transition-all">
+              <Link href="/camps-2025" className="px-8 py-4 bg-white text-[#CD8F20] font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
                 2025 Summer Camps
               </Link>
             </div>

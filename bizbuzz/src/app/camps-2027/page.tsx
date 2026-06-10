@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useState } from 'react';
 
 // 2027 Session data — layout placeholder, content TBD
 const sessions = [
@@ -408,11 +409,13 @@ const SessionCard = ({ session, index }: { session: SessionType, index: number }
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function Camps2027Page() {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-[#faf5ff]">
 
       {/* ── Hero Section ── */}
-      <div className="relative bg-gradient-to-br from-[#2e1065] via-[#4c1d95] to-[#5b21b6] overflow-hidden">
+      <div className="relative bg-gradient-to-br from-[#2e1065] via-[#4c1d95] to-[#5b21b6]">
         {/* Background SVG icons */}
         <div className="absolute top-24 right-24 w-60 h-60 opacity-15">
           <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -442,7 +445,7 @@ export default function Camps2027Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-32 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <motion.div
-              className="lg:col-span-6"
+              className="lg:col-span-6 relative z-50"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -465,23 +468,35 @@ export default function Camps2027Page() {
               </p>
 
               <div className="flex flex-wrap gap-6">
-                <Link
-                  href="#session1"
-                  className="bg-gradient-to-r from-[#8b5cf6] to-[#a78bfa] text-white font-medium py-4 px-8 rounded-lg text-xl transition-all hover:shadow-lg hover:shadow-[#8b5cf6]/30 hover:-translate-y-1 active:translate-y-0 inline-flex items-center"
-                >
-                  Explore Camp
-                  <svg className="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </Link>
-
-                <Link
-                  href="/sessions"
-                  className="text-white bg-white/25 border border-white/40 hover:bg-white/35 font-medium py-4 px-8 rounded-lg text-xl transition-all inline-flex items-center hover:shadow-lg hover:shadow-white/30"
-                >
-                  Register Interest →
-                </Link>
+                <div className="relative">
+                  <button
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                    className="bg-gradient-to-r from-[#8b5cf6] to-[#a78bfa] text-white font-medium py-4 px-8 rounded-lg text-xl transition-all hover:shadow-lg hover:shadow-[#8b5cf6]/30 hover:-translate-y-1 active:translate-y-0 inline-flex items-center"
+                  >
+                    Explore Other Camps
+                    <svg className={`w-5 h-5 ml-2 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {dropdownOpen && (
+                    <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-2xl border border-[#ddd6fe]/40 overflow-hidden z-[200]">
+                      {[
+                        { label: 'Camp 2024', href: '/camps-2024' },
+                        { label: 'Camp 2025', href: '/camps-2025' },
+                        { label: 'Camp 2026', href: '/camps-2026' },
+                      ].map(({ label, href }) => (
+                        <Link
+                          key={href}
+                          href={href}
+                          onClick={() => setDropdownOpen(false)}
+                          className="block px-5 py-3 text-[#2e1065] font-medium hover:bg-[#f5f3ff] transition-colors text-base"
+                        >
+                          {label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </motion.div>
 
@@ -533,80 +548,34 @@ export default function Camps2027Page() {
         </div>
       </div>
 
-      {/* ── Stats Section ── */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24">
-        <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-[#ddd6fe]/40">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#ddd6fe]/30">
-            <div className="px-8 py-12 text-center relative">
-              <div className="absolute right-6 top-6 opacity-10">
-                <svg className="h-12 w-12" viewBox="0 0 512 512" fill="#2e1065" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.41 148.02l232.94 105.67c6.8 3.09 14.49 3.09 21.29 0l232.94-105.67c16.55-7.51 16.55-32.52 0-40.03L266.65 2.31a25.607 25.607 0 0 0-21.29 0L12.41 107.98c-16.55 7.51-16.55 32.53 0 40.04zm487.18 88.28l-58.09-26.33-161.64 73.27c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.51 209.97l-58.1 26.33c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.09 14.49 3.09 21.29 0L499.59 276.3c16.55-7.5 16.55-32.5 0-40zm0 127.8l-57.87-26.23-161.86 73.37c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.29 337.87 12.41 364.1c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.09 14.49 3.09 21.29 0L499.59 404.1c16.55-7.5 16.55-32.5 0-40z" />
-                </svg>
-              </div>
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#2e1065] to-[#8b5cf6] mb-4">TBD</div>
-              <div className="text-[#2e1065] font-medium text-lg">Camp Sessions</div>
-            </div>
-
-            <div className="px-8 py-12 text-center relative">
-              <div className="absolute right-6 top-6 opacity-10">
-                <svg className="h-12 w-12" viewBox="0 0 640 512" fill="#2e1065" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z" />
-                </svg>
-              </div>
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#2e1065] to-[#8b5cf6] mb-4">TBD</div>
-              <div className="text-[#2e1065] font-medium text-lg">Guest Speakers</div>
-            </div>
-
-            <div className="px-8 py-12 text-center relative">
-              <div className="absolute right-6 top-6 opacity-10">
-                <svg className="h-12 w-12" viewBox="0 0 448 512" fill="#2e1065" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M436 160c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20zm-68 304H48V48h320v416zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2z" />
-                </svg>
-              </div>
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#2e1065] to-[#8b5cf6] mb-4">TBD</div>
-              <div className="text-[#2e1065] font-medium text-lg">Students Taught</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Sessions Section ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-[#2e1065] mb-6">Camp Sessions</h2>
-          <p className="text-xl text-[#4c1d95] max-w-3xl mx-auto">
-            Multi-week entrepreneurship education, hands-on activities, and mentorship from industry leaders. Full session details will be announced ahead of Summer 2027.
-          </p>
-        </div>
-
-        {sessions.map((session, index) => (
-          <SessionCard key={session.id} session={session} index={index} />
-        ))}
-      </section>
-
-      {/* ── CTA Section ── */}
-      <section className="bg-gradient-to-r from-[#2e1065] via-[#4c1d95] to-[#8b5cf6] py-20">
+      {/* ── 2027 Interest Banner ── */}
+      <section className="bg-gradient-to-r from-[#4c1d95] to-[#2e1065] py-14">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">Ready for 2027?</h2>
-          <p className="text-xl text-white/90 mb-10">
-            Applications open Spring 2027. Join our mailing list to be the first to know.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/sessions"
-              className="px-10 py-4 bg-white text-[#2e1065] font-bold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all text-lg"
-            >
-              1:1 Mentorship →
-            </Link>
-            <Link
-              href="/about"
-              className="px-10 py-4 bg-white/20 backdrop-blur-sm text-white border-2 border-white font-bold rounded-full hover:bg-white/30 transition-all text-lg"
-            >
-              Learn More
-            </Link>
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/15 border border-white/25 mb-6">
+            <div className="w-2 h-2 rounded-full bg-[#a78bfa] mr-2 animate-pulse"></div>
+            <span className="text-sm font-medium text-white/90">2026 Camp In Progress</span>
           </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            BizBuzz Camp 2026 is currently underway
+          </h2>
+          <p className="text-lg text-white/85 mb-8 max-w-2xl mx-auto">
+            Missed your spot in 2026 or already looking ahead? Secure your place in the 2027 camp now before seats fill up.
+          </p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe_MouwxaWfjA6UeibsY2lrZoZky-n13jffMH7aP1UNiuDGzQ/viewform?usp=preview"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-10 py-4 bg-white text-[#2e1065] font-bold rounded-full text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
+          >
+            Guarantee Your 2027 Spot
+            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <p className="text-sm text-white/50 mt-4">Limited seats available</p>
         </div>
       </section>
+
     </div>
   );
 }

@@ -744,6 +744,9 @@ export default function FishTank2026Page() {
                 About BizBuzz
               </Link>
             </div>
+            <p className="text-white/60 text-sm mt-5 max-w-xl mx-auto">
+              Students participating in the 2026 VentureLab Camp can not participate in the 2026 Fish Tank competition.
+            </p>
           </motion.div>
         </div>
       </section>

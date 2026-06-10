@@ -3,33 +3,42 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 
-// 2026 Session data — layout placeholder, content TBD
-const sessions = [
+// ── KidPreneur Camp Sessions ──────────────────────────────────────────────────
+
+const kidpreneurSessions = [
   {
-    id: "session1",
-    title: "Session 1 — TBD",
-    date: "TBD, 2026",
-    location: "TBD, Naperville",
-    description: "Session 1 details coming soon. Check back as we finalize the 2026 curriculum.",
+    id: "kp-session1",
+    title: "Ideation",
+    date: "June 5th, 2026",
+    location: "95th Street Library, Naperville",
+    description: "In Session 1, our kidpreneurs kicked things off by connecting with new friends and high school instructors through a high-energy Networking Bingo game. They then explored real-world problem solving with an interactive \"Bug-Me List\" and ideation session, learning how to spot everyday challenges and turn them into business ideas. Throughout the session, they also began learning the importance of using money wisely by earning BizBucks, which they can redeem for a variety of rewards.",
     speaker: null,
     speaker2: null,
     images: [
-      "/camp_imgs/2025/session1/session1a.jpg",
-      "/camp_imgs/2025/session1/session1b.jpg",
-      "/camp_imgs/2025/session1/session1c.jpg",
-      "/camp_imgs/2025/session1/session1d.jpg",
-      "/camp_imgs/2025/session1/session1e.jpg",
+      "/camp_imgs/2026/session1kp/session1kpa.JPG",
+      "/camp_imgs/2026/session1kp/session1kpb.JPG",
+      "/camp_imgs/2026/session1kp/session1kpc.JPG",
+      "/camp_imgs/2026/session1kp/session1kpd.JPG",
+      "/camp_imgs/2026/session1kp/session1kpe.JPG",
     ],
     color: "#bbf7d0"
   },
   {
-    id: "session2",
-    title: "Session 2 — TBD",
-    date: "TBD, 2026",
-    location: "TBD, Naperville",
-    description: "Session 2 details coming soon. Check back as we finalize the 2026 curriculum.",
-    speaker: null,
+    id: "kp-session2",
+    title: "Finance",
+    date: "June 12th, 2026",
+    location: "Nichols Library, Naperville",
+    description: "In Session 2, students took part in an interactive Finance Workshop at Nichols Library, starting with a \"Price is Right\" icebreaker to learn cost, price, and profit. They explored what makes a strong pitch and how to develop ideas, then applied these skills through activities like a Startup Auction, Shark Tank deal decisions, Business Disaster scenarios, and the $100 Challenge. Throughout the session, students practiced teamwork, decision-making, and learned to use money wisely by using opportunities.",
+    speaker: {
+      name: "Isha Elandassery",
+      role: "Entrepreneur & Finance Educator",
+      topic: "Money Moves & Smart Decisions",
+      bio: "Bringing finance to life through real-world scenarios, she showed students how smart money decisions fuel entrepreneurship — from startup auctions to Shark Tank-style deal analysis, she made every dollar a lesson in strategy.",
+      image: "/camp_imgs/2026/ishaelandessary"
+    },
     speaker2: null,
     images: [
       "/camp_imgs/2025/session2/session2a.jpg",
@@ -41,11 +50,11 @@ const sessions = [
     color: "#86efac"
   },
   {
-    id: "session3",
-    title: "Session 3 — TBD",
-    date: "TBD, 2026",
-    location: "TBD, Naperville",
-    description: "Session 3 details coming soon. Check back as we finalize the 2026 curriculum.",
+    id: "kp-session3",
+    title: "Marketing & Prototyping",
+    date: "June 19th, 2026",
+    location: "95th Street Library, Naperville",
+    description: "In Session 3, students dove into the fundamentals of marketing and product design. They learned how businesses attract customers, build a brand, and communicate value effectively. Through hands-on activities, students created their own brand identity and began designing simple prototypes of their ideas. By testing and refining their concepts, they understood how strong marketing and thoughtful design work together to bring ideas to life and make products stand out.",
     speaker: null,
     speaker2: null,
     images: [
@@ -58,11 +67,11 @@ const sessions = [
     color: "#10b981"
   },
   {
-    id: "session4",
-    title: "Session 4 — TBD",
-    date: "TBD, 2026",
-    location: "TBD, Naperville",
-    description: "Session 4 details coming soon. Check back as we finalize the 2026 curriculum.",
+    id: "kp-session4",
+    title: "Problem Solving & Business Models",
+    date: "June 26th, 2026",
+    location: "95th Street Library, Naperville",
+    description: "In Session 4, students focused on solving problems and turning ideas into structured business models. They learned how successful companies identify customer needs, create value, and generate revenue. Through interactive exercises, students broke down their ideas into key components such as target audience, pricing, and operations. By the end of the session, they had a clearer understanding of how businesses function and how to build a sustainable and scalable idea.",
     speaker: null,
     speaker2: null,
     images: [
@@ -75,11 +84,124 @@ const sessions = [
     color: "#059669"
   },
   {
-    id: "session5",
-    title: "Session 5 — TBD",
-    date: "TBD, 2026",
-    location: "TBD, Naperville",
-    description: "Session 5 details coming soon. Check back as we finalize the 2026 curriculum.",
+    id: "kp-session5",
+    title: "Presentational & Speaking Skills",
+    date: "July 3rd, 2026",
+    location: "Nichols Library, Naperville",
+    description: "In Session 5, students developed strong communication and presentation skills essential for entrepreneurship. They learned how to confidently speak in front of an audience, structure a compelling pitch, and clearly explain their ideas. Through practice activities and feedback, students refined their tone, body language, and storytelling abilities. This session prepared them to present with confidence, helping them effectively share their ideas and persuade others.",
+    speaker: {
+      name: "Scott Wehrli",
+      role: "Mayor of Naperville",
+      topic: "Leading the Local Way",
+      bio: "Sharing stories from his journey in public service and business, he inspired students to see leadership as service to their community. He encouraged them to stay curious, take initiative, and use entrepreneurship to make a lasting local impact.",
+      image: "/camp_imgs/speakers/scottwehrli.jpg"
+    },
+    speaker2: null,
+    images: [
+      "/camp_imgs/2025/session5/session5a.jpg",
+      "/camp_imgs/2025/session5/session5b.jpg",
+      "/camp_imgs/2025/session5/session5c.jpg",
+      "/camp_imgs/2025/session5/session5d.jpg",
+      "/camp_imgs/2025/session5/session5e.jpg",
+    ],
+    color: "#047857"
+  },
+  {
+    id: "kp-session6",
+    title: "Mock Pitch",
+    date: "July 10th, 2026",
+    location: "Nichols Library, Naperville",
+    description: "In Session 6, students brought everything together in a Mock Pitch experience. They presented their business ideas in a Fish Tank-style setting, applying the skills learned throughout the program. Students received feedback from instructors and peers, allowing them to improve their ideas and presentation style. This session built confidence, reinforced key concepts, and prepared them for the final competition by simulating a real entrepreneurial pitching environment.",
+    speaker: null,
+    speaker2: null,
+    images: [
+      "/camp_imgs/2025/session6/session6a.jpg",
+      "/camp_imgs/2025/session6/session6b.jpg",
+      "/camp_imgs/2025/session6/session6c.jpg",
+      "/camp_imgs/2025/session6/session6d.jpg",
+      "/camp_imgs/2025/session6/session6e.jpg",
+    ],
+    color: "#065f46"
+  },
+];
+
+// ── VentureLab Sessions ───────────────────────────────────────────────────────
+
+const ventureLabSessions = [
+  {
+    id: "vl-session1",
+    title: "Ideation",
+    date: "June 5th, 2026",
+    location: "95th Street Library, Naperville",
+    description: "In Session 1, students were introduced to entrepreneurship through a hands-on Startup Ideation Lab. They learned how to identify real-world problems using a \"Bug Me List\" and turn those challenges into creative business ideas. Through brainstorming, poster creation, and a mini tradeshow, students explored different concepts, collaborated with peers, and began forming teams. By the end of the session, they delivered short pitches and took their first steps toward building a strong, innovative startup idea.",
+    speaker: null,
+    speaker2: null,
+    images: [
+      "/camp_imgs/2025/session1/session1a.jpg",
+      "/camp_imgs/2025/session1/session1b.jpg",
+      "/camp_imgs/2025/session1/session1c.jpg",
+      "/camp_imgs/2025/session1/session1d.jpg",
+      "/camp_imgs/2025/session1/session1e.jpg",
+    ],
+    color: "#bbf7d0"
+  },
+  {
+    id: "vl-session2",
+    title: "Feasibility & Market Research",
+    date: "June 12th, 2026",
+    location: "Nichols Library, Naperville",
+    description: "In Session 2, students continued building on their ideas from the Startup Ideation Lab. They refined their problem-solution concepts, strengthened their understanding of their target audience, and further developed their startup vision. Through continued collaboration, feedback, and pitching practice, students improved their ideas and communication skills. This session reinforced creativity, critical thinking, and iteration, helping students gain confidence in their ideas while preparing for more advanced development in future sessions.",
+    speaker: null,
+    speaker2: null,
+    images: [
+      "/camp_imgs/2025/session2/session2a.jpg",
+      "/camp_imgs/2025/session2/session2b.jpg",
+      "/camp_imgs/2025/session2/session2c.jpg",
+      "/camp_imgs/2025/session2/session2d.jpg",
+      "/camp_imgs/2025/session2/session2e.jpg",
+    ],
+    color: "#86efac"
+  },
+  {
+    id: "vl-session3",
+    title: "Prototyping",
+    date: "June 19th, 2026",
+    location: "95th Street Library, Naperville",
+    description: "In Session 3, students learned how to bring their ideas to life through prototyping. They explored how successful startups test and refine their concepts using simple models, sketches, or mockups. Through hands-on activities, students created early versions of their product or service and gathered feedback from peers. This process helped them understand the importance of iteration, user experience, and continuous improvement as they began transforming their ideas into something tangible.",
+    speaker: null,
+    speaker2: null,
+    images: [
+      "/camp_imgs/2025/session3/session3a.jpg",
+      "/camp_imgs/2025/session3/session3b.jpg",
+      "/camp_imgs/2025/session3/session3c.jpg",
+      "/camp_imgs/2025/session3/session3d.jpg",
+      "/camp_imgs/2025/session3/session3e.jpg",
+    ],
+    color: "#10b981"
+  },
+  {
+    id: "vl-session4",
+    title: "Project Management & Linking",
+    date: "June 26th, 2026",
+    location: "95th Street Library, Naperville",
+    description: "In Session 4, students focused on organizing their ideas and managing their projects effectively. They learned how to break down their startup into key tasks, set goals, and assign roles within their teams. Additionally, they explored how different parts of a business connect, including product development, marketing, and operations. Through structured planning activities, students strengthened their teamwork and leadership skills while ensuring their ideas were clear, cohesive, and ready for presentation.",
+    speaker: null,
+    speaker2: null,
+    images: [
+      "/camp_imgs/2025/session4/session4a.jpg",
+      "/camp_imgs/2025/session4/session4b.jpg",
+      "/camp_imgs/2025/session4/session4c.jpg",
+      "/camp_imgs/2025/session4/session4d.jpg",
+      "/camp_imgs/2025/session4/session4e.jpg",
+    ],
+    color: "#059669"
+  },
+  {
+    id: "vl-session5",
+    title: "Presentational & Speaking Skills",
+    date: "July 3rd, 2026",
+    location: "Nichols Library, Naperville",
+    description: "In Session 5, students developed the communication skills needed to present their ideas confidently. They learned how to structure a clear and compelling pitch, improve their public speaking, and use storytelling to engage an audience. Through guided practice and feedback, students refined their delivery, body language, and clarity. This session helped them feel more confident presenting their ideas and prepared them to effectively communicate their startup vision.",
     speaker: null,
     speaker2: null,
     images: [
@@ -92,11 +214,11 @@ const sessions = [
     color: "#047857"
   },
   {
-    id: "session6",
-    title: "Session 6 — TBD",
-    date: "TBD, 2026",
-    location: "TBD, Naperville",
-    description: "Session 6 details coming soon. Check back as we finalize the 2026 curriculum.",
+    id: "vl-session6",
+    title: "Demo Day Practice",
+    date: "July 10th, 2026",
+    location: "Nichols Library, Naperville",
+    description: "In Session 6, students focused on practicing for Demo Day in a low-pressure, supportive environment. They ran through their full pitches, received feedback from instructors and peers, and made final improvements to both their ideas and presentation style. The goal of this session was repetition and refinement, helping students build confidence, fix weak points, and feel fully prepared. By the end, students had a polished pitch and a clear understanding of how to present effectively.",
     speaker: null,
     speaker2: null,
     images: [
@@ -108,23 +230,6 @@ const sessions = [
     ],
     color: "#065f46"
   },
-  {
-    id: "session7",
-    title: "Session 7 — TBD",
-    date: "TBD, 2026",
-    location: "TBD, Naperville",
-    description: "Session 7 details coming soon. Check back as we finalize the 2026 curriculum.",
-    speaker: null,
-    speaker2: null,
-    images: [
-      "/camp_imgs/2025/session7/session7a.jpg",
-      "/camp_imgs/2025/session7/session7b.jpg",
-      "/camp_imgs/2025/session7/session7c.jpg",
-      "/camp_imgs/2025/session7/session7d.jpg",
-      "/camp_imgs/2025/session7/session7e.JPG",
-    ],
-    color: "#064e3b"
-  }
 ];
 
 // ── Image Grid ────────────────────────────────────────────────────────────────
@@ -170,7 +275,7 @@ const SpeakerCard = ({
   color,
   title
 }: {
-  speaker: { name: string; role: string; topic: string; bio: string; image: string };
+  speaker: { name: string; role: string; topic: string; bio: string; image: string; objectPosition?: string };
   color: string;
   title: string;
 }) => {
@@ -197,7 +302,13 @@ const SpeakerCard = ({
       <div className="p-6 flex flex-col items-center text-center flex-grow justify-between relative z-10">
         <div className="flex flex-col items-center w-full">
           <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 mb-4 mx-auto" style={{ borderColor: color }}>
-            <Image src={speaker.image} alt={speaker.name} fill className="object-cover" />
+            <Image
+              src={speaker.image}
+              alt={speaker.name}
+              fill
+              className="object-cover"
+              style={{ objectPosition: speaker.objectPosition ?? "center" }}
+            />
           </div>
           <h5 className="text-xl font-semibold text-[#064e3b] mb-2">{speaker.name}</h5>
           <p className="text-[#047857] text-sm mb-4">{speaker.role}</p>
@@ -214,7 +325,7 @@ const SpeakerCard = ({
   );
 };
 
-type SessionType = (typeof sessions)[number];
+type SessionType = (typeof kidpreneurSessions)[number];
 type SpeakerType = NonNullable<SessionType["speaker"]>;
 
 // ── Session Card ──────────────────────────────────────────────────────────────
@@ -228,13 +339,10 @@ const SessionCard = ({ session, index }: { session: SessionType, index: number }
   const primarySpeaker = session.speaker;
   const secondarySpeaker = session.speaker2;
   const rawLayoutType = secondarySpeaker ? "dual" : primarySpeaker ? "single" : "none";
-  const layoutOverride = ["session1", "session2", "session7"].includes(session.id) ? "wide" : undefined;
-  const layoutType = layoutOverride ?? rawLayoutType;
+  const layoutType = rawLayoutType === "none" ? "wide" : rawLayoutType;
   const extraImages = session.images.slice(5);
-  const imageWrapperHeight = layoutType === "none" ? "relative h-[380px]" : "relative h-[320px]";
-  const descriptionClasses = layoutType === "none"
-    ? "text-[#047857] mb-8 text-xl leading-relaxed"
-    : "text-[#047857] mb-10 text-lg leading-relaxed";
+  const imageWrapperHeight = "relative h-[320px]";
+  const descriptionClasses = "text-[#047857] mb-10 text-lg leading-relaxed";
 
   return (
     <motion.div
@@ -341,13 +449,11 @@ const SessionCard = ({ session, index }: { session: SessionType, index: number }
               {extraImages.length > 0 && (
                 <div
                   className={`grid gap-4 mt-6 ${
-                    layoutType === "wide"
-                      ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
-                      : extraImages.length === 1
+                    extraImages.length === 1
+                      ? "grid-cols-1 sm:grid-cols-2"
+                      : extraImages.length === 2
                         ? "grid-cols-1 sm:grid-cols-2"
-                        : extraImages.length === 2
-                          ? "grid-cols-1 sm:grid-cols-2"
-                          : "grid-cols-2 sm:grid-cols-3"
+                        : "grid-cols-2 sm:grid-cols-3"
                   }`}
                 >
                   {extraImages.map((img, extraIdx) => (
@@ -376,26 +482,6 @@ const SessionCard = ({ session, index }: { session: SessionType, index: number }
                 <SpeakerCard speaker={secondarySpeaker as SpeakerType} color={session.color} title="GUEST SPEAKER" />
               </motion.div>
             )}
-
-            {/* No-speaker info box */}
-            {layoutType === "none" && (
-              <motion.div variants={fadeIn} className="order-2 xl:col-span-12">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-[#047857] font-medium bg-[#f0fff8] border border-[#bbf7d0]/40 rounded-2xl p-6">
-                  <div className="space-y-1">
-                    <h4 className="text-lg font-semibold text-[#064e3b]">Hands-On Studio</h4>
-                    <p className="text-sm leading-relaxed">Dedicated build time with high school mentors to polish Fish Tank pitches, prototypes, and marketing decks.</p>
-                  </div>
-                  <div className="space-y-1">
-                    <h4 className="text-lg font-semibold text-[#064e3b]">Mentor Office Hours</h4>
-                    <p className="text-sm leading-relaxed">Rotating stations with alumni coaches for financial modeling, storytelling, and stage presence.</p>
-                  </div>
-                  <div className="space-y-1">
-                    <h4 className="text-lg font-semibold text-[#064e3b]">Showcase Prep</h4>
-                    <p className="text-sm leading-relaxed">Dry runs with timed feedback so every team is performance-ready by the end of the day.</p>
-                  </div>
-                </div>
-              </motion.div>
-            )}
           </div>
         </div>
       </div>
@@ -405,13 +491,23 @@ const SessionCard = ({ session, index }: { session: SessionType, index: number }
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-export default function Camps2026Page() {
+function Camps2026Inner() {
+  const searchParams = useSearchParams();
+  const [activeCamp, setActiveCamp] = useState<"kidpreneur" | "venturelab">("kidpreneur");
+
+  useEffect(() => {
+    if (searchParams.get("tab") === "venturelab") {
+      setActiveCamp("venturelab");
+    }
+  }, [searchParams]);
+
+  const activeSessions = activeCamp === "kidpreneur" ? kidpreneurSessions : ventureLabSessions;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-[#f0fff8]">
 
       {/* ── Hero Section ── */}
       <div className="relative bg-gradient-to-br from-[#064e3b] via-[#065f46] to-[#047857] overflow-hidden">
-        {/* Background SVG icons */}
         <div className="absolute top-24 right-24 w-60 h-60 opacity-15">
           <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M464 192l-33.5-5.5c-1.4-4.9-2.9-9.6-4.7-14.3l19.8-27.8-32-32-27.8 19.8c-4.7-1.8-9.4-3.3-14.3-4.7L366 96h-44l-5.5 33.5c-4.9 1.4-9.6 2.9-14.3 4.7l-27.8-19.8-32 32 19.8 27.8c-1.8 4.7-3.3 9.4-4.7 14.3L224 192v44l33.5 5.5c1.4 4.9 2.9 9.6 4.7 14.3l-19.8 27.8 32 32 27.8-19.8c4.7 1.8 9.4 3.3 14.3 4.7L322 336h44l5.5-33.5c4.9-1.4 9.6-2.9 14.3-4.7l27.8 19.8 32-32-19.8-27.8c1.8-4.7 3.3-9.4 4.7-14.3L464 236v-44zM288 256c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z" />
@@ -459,12 +555,12 @@ export default function Camps2026Page() {
               </h1>
 
               <p className="text-2xl text-white/95 font-light mb-12 max-w-2xl leading-relaxed">
-                Our multi-week entrepreneurship camp helps young founders ideate, build, and pitch market-ready ventures alongside industry leaders and business experts.
+                Two six-session programs — KidPreneur Camp and VentureLab — helping young founders ideate, build, and pitch market-ready ventures alongside industry leaders and business experts.
               </p>
 
               <div className="flex flex-wrap gap-6">
                 <Link
-                  href="#session1"
+                  href="#kp-session1"
                   className="bg-gradient-to-r from-[#10b981] to-[#34d399] text-white font-medium py-4 px-8 rounded-lg text-xl transition-all hover:shadow-lg hover:shadow-[#10b981]/30 hover:-translate-y-1 active:translate-y-0 inline-flex items-center"
                 >
                   Explore Camp
@@ -541,7 +637,7 @@ export default function Camps2026Page() {
                   <path d="M12.41 148.02l232.94 105.67c6.8 3.09 14.49 3.09 21.29 0l232.94-105.67c16.55-7.51 16.55-32.52 0-40.03L266.65 2.31a25.607 25.607 0 0 0-21.29 0L12.41 107.98c-16.55 7.51-16.55 32.53 0 40.04zm487.18 88.28l-58.09-26.33-161.64 73.27c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.51 209.97l-58.1 26.33c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.09 14.49 3.09 21.29 0L499.59 276.3c16.55-7.5 16.55-32.5 0-40zm0 127.8l-57.87-26.23-161.86 73.37c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.29 337.87 12.41 364.1c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.09 14.49 3.09 21.29 0L499.59 404.1c16.55-7.5 16.55-32.5 0-40z" />
                 </svg>
               </div>
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#064e3b] to-[#10b981] mb-4">TBD</div>
+              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#064e3b] to-[#10b981] mb-4">12</div>
               <div className="text-[#064e3b] font-medium text-lg">Camp Sessions</div>
             </div>
 
@@ -551,7 +647,7 @@ export default function Camps2026Page() {
                   <path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z" />
                 </svg>
               </div>
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#064e3b] to-[#10b981] mb-4">TBD</div>
+              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#064e3b] to-[#10b981] mb-4">2</div>
               <div className="text-[#064e3b] font-medium text-lg">Guest Speakers</div>
             </div>
 
@@ -561,8 +657,8 @@ export default function Camps2026Page() {
                   <path d="M436 160c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h320c26.5 0 48-21.5 48-48v-48h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-20v-64h20zm-68 304H48V48h320v416zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2z" />
                 </svg>
               </div>
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#064e3b] to-[#10b981] mb-4">TBD</div>
-              <div className="text-[#064e3b] font-medium text-lg">Students Taught</div>
+              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#064e3b] to-[#10b981] mb-4">2</div>
+              <div className="text-[#064e3b] font-medium text-lg">Camp Programs</div>
             </div>
           </div>
         </div>
@@ -570,14 +666,38 @@ export default function Camps2026Page() {
 
       {/* ── Sessions Section ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <h2 className="text-5xl font-bold text-[#064e3b] mb-6">Camp Sessions</h2>
-          <p className="text-xl text-[#047857] max-w-3xl mx-auto">
-            Multi-week entrepreneurship education, hands-on activities, and mentorship from industry leaders. Full session details will be announced ahead of Summer 2026.
+          <p className="text-xl text-[#047857] max-w-3xl mx-auto mb-10">
+            Two six-week programs running simultaneously. Select a camp to explore its sessions.
           </p>
+
+          {/* Camp Tab Switcher */}
+          <div className="inline-flex rounded-xl bg-[#f0fff8] border border-[#bbf7d0] p-1 gap-1">
+            <button
+              onClick={() => setActiveCamp("kidpreneur")}
+              className={`px-8 py-3 rounded-lg text-base font-semibold transition-all ${
+                activeCamp === "kidpreneur"
+                  ? "bg-[#10b981] text-white shadow-md"
+                  : "text-[#047857] hover:bg-[#bbf7d0]/50"
+              }`}
+            >
+              KidPreneur Camp
+            </button>
+            <button
+              onClick={() => setActiveCamp("venturelab")}
+              className={`px-8 py-3 rounded-lg text-base font-semibold transition-all ${
+                activeCamp === "venturelab"
+                  ? "bg-[#10b981] text-white shadow-md"
+                  : "text-[#047857] hover:bg-[#bbf7d0]/50"
+              }`}
+            >
+              VentureLab
+            </button>
+          </div>
         </div>
 
-        {sessions.map((session, index) => (
+        {activeSessions.map((session, index) => (
           <SessionCard key={session.id} session={session} index={index} />
         ))}
       </section>
@@ -606,5 +726,13 @@ export default function Camps2026Page() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function Camps2026Page() {
+  return (
+    <Suspense>
+      <Camps2026Inner />
+    </Suspense>
   );
 }

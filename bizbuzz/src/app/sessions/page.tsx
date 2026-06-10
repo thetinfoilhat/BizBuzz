@@ -8,30 +8,26 @@ const OneOnOneSessions = () => {
   const [activeTab, setActiveTab] = useState<'individual' | 'group'>('individual');
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Get form data
+
     const formData = new FormData(e.target as HTMLFormElement);
     const firstName = formData.get('first_name');
     const lastName = formData.get('last_name');
     const email = formData.get('email');
     const message = formData.get('concerns');
-    
-    // Create email content
-    const subject = encodeURIComponent('BizBuzz Question/Contact Form Submission');
-    const body = encodeURIComponent(`
-Name: ${firstName} ${lastName}
-Email: ${email}
 
-Message:
-${message}
-    `);
-    
-    // Open default email client
-    window.location.href = `mailto:bizbuzznfp@gmail.com?subject=${subject}&body=${body}`;
-    
-    setFormSubmitted(true);
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ firstName, lastName, email, message }),
+    });
+
+    if (res.ok) {
+      setFormSubmitted(true);
+    } else {
+      alert('Failed to send message. Please email us directly at bizbuzznfp@gmail.com');
+    }
   };
 
   return (
@@ -75,7 +71,7 @@ ${message}
               
               <div className="bg-[#003166]/40 backdrop-blur-sm rounded-xl p-7 border border-white/10 shadow-lg mb-12">
                 <p className="text-xl leading-relaxed text-white">
-                  Connect with experienced mentors in personalized 1.5-hour sessions designed to accelerate your entrepreneurial journey and bring your business ideas to life.
+                  Connect with experienced mentors in personalized 30 minute sessions designed to accelerate your entrepreneurial journey and bring your business ideas to life.
                 </p>
               </div>
               
@@ -88,10 +84,7 @@ ${message}
                 <div className="flex flex-wrap gap-3 mb-6">
                   {[
                     { name: "95th Library", color: "#10b981" },
-                    { name: "Nichols Library", color: "#f59e0b" },
-                    { name: "Naper Blvd Library", color: "#0ea5e9" },
-                    { name: "Aurora Library", color: "#8b5cf6" },
-                    { name: "Lisle Library", color: "#ec4899" }
+                    { name: "Nichols Library", color: "#f59e0b" }
                   ].map((location, index) => (
                     <div key={index} className="inline-flex items-center px-3 py-1.5 bg-[#003166]/60 backdrop-blur-sm rounded-lg border border-white/10 hover:bg-[#003166]/80 transition-all">
                       <span className="inline-block w-3 h-3 rounded-full mr-2" style={{ backgroundColor: location.color }}></span>
@@ -223,7 +216,7 @@ ${message}
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
                           </div>
-                          <span className="text-[#334155]">Personalized 1.5-hour sessions</span>
+                          <span className="text-[#334155]">Personalized 30-minute sessions</span>
                         </li>
                         <li className="flex items-start">
                           <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#003166] flex items-center justify-center mr-3 mt-0.5">
@@ -476,7 +469,7 @@ ${message}
                     <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm mb-6">
                       <span className="text-sm font-medium text-white">Contact Us</span>
                     </div>
-                    <h3 className="text-4xl font-bold text-white mb-4">Questions Contact Us</h3>
+                    <h3 className="text-4xl font-bold text-white mb-4">Questions? Contact Us!</h3>
                     <p className="text-lg text-white/90 mb-8">
                       Have questions about our programs or want to get in touch? Fill out this form and we&apos;ll get back to you promptly via email.
                     </p>
@@ -489,10 +482,17 @@ ${message}
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </div>
-                        <h4 className="text-white font-semibold">Upcoming Sessions</h4>
+                        Office Hours
                       </div>
                       <p className="text-white/90 text-sm">
-                        Wednesday at 4:00pm at 95th Street Library
+                        <a 
+                        href="https://docs.google.com/spreadsheets/d/1Yb8OgMehdX1jjKmVifRFxkD-spdUaXXHREKcxjvPWLQ/edit?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#FFD700] hover:underline"
+                        >
+                          View Office Hours Schedule
+                        </a>
                       </p>
                     </div>
                   </div>

@@ -1,5 +1,8 @@
 "use client";
 
+/// <reference types="react" />
+/// <reference types="react-dom" />
+
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -51,7 +54,8 @@ const sessions = [
       role: "CEO of the Alive Center",
       topic: "Brand Like a Boss",
       bio: "Sharing how strategic marketing grew the ALIVE Center into three Naperville locations and counting, she showed students that powerful branding goes beyond visuals, using storytelling to build genuine connection.",
-      image: "/camp_imgs/speakers/kandice.jpg"
+      image: "/camp_imgs/speakers/kandicehenning.jpg",
+      objectPosition: "center 2%"
     },
     speaker2: null,
     images: [
@@ -74,7 +78,8 @@ const sessions = [
       role: "Co-Founder at Totes Babies",
       topic: "Totes Babies, Totally Brilliant",
       bio: "Walking students through the journey of refining her car seat carrier for parents on the go, she shared how Totes Babies grew from a rough prototype to a Shark Tank success story, eventually pitching it in Las Vegas and securing a deal on Season 12, Episode 17.",
-      image: "/camp_imgs/speakers/lindsey.jpg"
+      image: "/camp_imgs/speakers/lindseyfleischhauer.jpg",
+      objectPosition: "30% center"
     },
     speaker2: null,
     images: [
@@ -97,7 +102,7 @@ const sessions = [
       role: "Naperville Park District President",
       topic: "Campaigning Your Company",
       bio: "As the city's Park District President, she connected big data, emotion, and politics, showing students how running a campaign is just like marketing a business—where authentic, consistent storytelling turns voters and customers into true supporters!",
-      image: "/camp_imgs/speakers/mary.jpg"
+      image: "/camp_imgs/speakers/marygibson.jpeg"
     },
     speaker2: null,
     images: [
@@ -120,14 +125,15 @@ const sessions = [
       role: "Mayor of Naperville",
       topic: "Leading the Local Way",
       bio: "Sharing stories from his journey in public service and business, he inspired students to see leadership as service to their community. He encouraged them to stay curious, take initiative, and use entrepreneurship to make a lasting local impact.",
-      image: "/camp_imgs/speakers/scott.jpg"
+      image: "/camp_imgs/speakers/scottwehrli.jpg"
     },
     speaker2: {
       name: "Raymond Munch",
       role: "City Director of Finance",
       topic: "Finance Fuels Innovation",
       bio: "He showed students how budgeting, planning, and smart financial strategy power both cities and startups alike. He connected real-world finance to their Fish Tank projects, emphasizing how numbers can tell the story behind every great idea.",
-      image: "/camp_imgs/speakers/raymond.jpg"
+      image: "/camp_imgs/speakers/raymondmunch.jpg",
+      objectPosition: "center 0%"
     },
     images: [
       "/camp_imgs/2025/session6/session6a.jpg",
@@ -230,7 +236,7 @@ const SpeakerCard = ({
   color, 
   title 
 }: { 
-  speaker: { name: string; role: string; topic: string; bio: string; image: string; };
+  speaker: { name: string; role: string; topic: string; bio: string; image: string; objectPosition?: string; };
   color: string;
   title: string;
 }) => {
@@ -272,6 +278,7 @@ const SpeakerCard = ({
               alt={speaker.name}
               fill
               className="object-cover"
+              style={{ objectPosition: speaker.objectPosition ?? "center"}}
             />
           </div>
           
