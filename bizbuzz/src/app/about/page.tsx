@@ -14,6 +14,7 @@ type Person = {
   role: string;
   description: string;
   customPosition?: string;
+  customImageStyle?: React.CSSProperties;
 };
 
 // ============================================================================
@@ -96,6 +97,7 @@ const PEOPLE = {
       image: "/team/Lakhi.jpeg",
       name: "Lakhi Thotakura",
       role: "Leadership Team",
+      customPosition: "center 0%",
       description: "Leading initiatives that help BizBuzz reach more students every year."
     },
     {
@@ -109,8 +111,11 @@ const PEOPLE = {
       description: "Leading initiatives that help BizBuzz reach more students every year."
     },
     {
+      image: "/team/Elizabeth.jpeg",
       name: "Elizabeth Gao",
       role: "Leadership Team",
+      customImageStyle: { transform: "scale(2.2)", transformOrigin: "center 20%" },
+      customPosition: "center 60%",
       description: "Leading initiatives that help BizBuzz reach more students every year."
     },
     {
@@ -183,8 +188,11 @@ const PEOPLE = {
       description: "Amar is a student developer with strong skills in software engineering and development. On his FRC robotics team's software subteam, he helped engineer the software powering the robot's shooter mechanism, work that contributed to the team earning a spot at the 2026 FRC Championship. At BizBuzz, he leads the technical vision, architecting and maintaining the platforms that power every camp, session, and demo day experience. Amar believes great technology should be invisible and the ideas it enables should speak for themselves."
     },
     {
+      image: "/team/Elizabeth.jpeg",
       name: "Elizabeth Gao",
       role: "Executive Director",
+      customImageStyle: { transform: "scale(2.2)", transformOrigin: "center 20%" },
+      customPosition: "center 60%",
       description: "Elizabeth helps drive the overall direction of BizBuzz as Executive Director, working across teams to make sure programs are well-coordinated and student-focused. She is deeply committed to expanding access to entrepreneurship education and plays a key role in keeping BizBuzz growing year over year."
     },
   ],
@@ -1274,6 +1282,7 @@ function TeamSection({ title, people, color, gridClass, large = false, larger = 
             large={large}
             index={index}
             customPosition={person.customPosition}
+            customImageStyle={person.customImageStyle}
             centerText={!large}
             larger={larger}
             smallerSecondary={smallerSecondary && index >= 4}
@@ -1315,27 +1324,29 @@ function SimpleTeamSection({ title, people, role, color }: { title: string; peop
   );
 }
 
-function TeamMember({ 
-  image, 
-  name, 
-  role, 
-  description, 
-  large = false, 
+function TeamMember({
+  image,
+  name,
+  role,
+  description,
+  large = false,
   index = 0,
   imagePosition = 'center',
   customPosition = '',
+  customImageStyle,
   centerText = false,
   larger = false,
   smallerSecondary = false
-}: { 
-  image?: string, 
-  name: string, 
-  role: string, 
-  description: string, 
-  large?: boolean, 
+}: {
+  image?: string,
+  name: string,
+  role: string,
+  description: string,
+  large?: boolean,
   index: number,
   imagePosition?: 'center' | 'right' | 'left',
   customPosition?: string,
+  customImageStyle?: React.CSSProperties,
   centerText?: boolean,
   larger?: boolean,
   smallerSecondary?: boolean
@@ -1390,7 +1401,7 @@ function TeamMember({
               src={image as string}
               alt={name}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 z-0"
-              style={{ objectPosition: objectPositionValue as string }}
+              style={{ objectPosition: objectPositionValue as string, ...customImageStyle }}
             />
           )}
           </div>

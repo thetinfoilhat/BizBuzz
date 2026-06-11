@@ -56,13 +56,6 @@ const Header = () => {
         { href: "/fish-tank-2026", label: "2026 Fish Tank", color: "#10b981" }
       ]
     },
-    { 
-      href: "/demo-day", label: "Demo Day" ,
-      hasDropdown: true,
-      dropdownItems: [
-        { href: "/demo-day-2026", label: "2026 Demo Day", color: "#10b981" }
-      ]
-    },
     { href: "/sessions", label: "1:1 Sessions" },
     { href: "/about", label: "About Us" },
   ];

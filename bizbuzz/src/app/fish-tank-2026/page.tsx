@@ -127,6 +127,72 @@ export default function FishTank2026Page() {
         </div>
       </div>
 
+      {/* ── Two Tracks Section ── */}
+      <section className="py-20 px-4">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            className="text-center mb-14"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#d1fae5] border border-[#6ee7b7] mb-6">
+              <div className="w-2 h-2 rounded-full bg-[#10b981] mr-2 animate-pulse"></div>
+              <span className="text-sm font-medium text-[#065f46]">2026 Season</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#064e3b] mb-4">Two Competitions. One Stage.</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Fish Tank 2026 will feature two separate tracks so every young entrepreneur competes against peers at their level.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Kidpreneurs track */}
+            <motion.div
+              className="bg-white rounded-2xl shadow-lg border border-[#a7f3d0] p-8 flex flex-col"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-14 h-14 rounded-xl bg-[#d1fae5] flex items-center justify-center mb-6 text-2xl">🐟</div>
+              <h3 className="text-2xl font-bold text-[#064e3b] mb-2">Kidpreneurs Track</h3>
+              <p className="text-[#10b981] font-medium text-sm mb-4">For Kidpreneurs Camp students</p>
+              <p className="text-gray-600 leading-relaxed flex-grow">
+                Built for our youngest entrepreneurs. Kidpreneurs camp students will pitch their business ideas in a supportive, beginner-friendly environment designed to build confidence and creativity.
+              </p>
+              <div className="mt-6 pt-6 border-t border-[#d1fae5]">
+                <span className="inline-flex items-center text-sm text-[#065f46] font-medium">
+                  <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  More details coming soon
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Venture Lab track */}
+            <motion.div
+              className="bg-white rounded-2xl shadow-lg border border-[#a7f3d0] p-8 flex flex-col"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-14 h-14 rounded-xl bg-[#d1fae5] flex items-center justify-center mb-6 text-2xl">🦈</div>
+              <h3 className="text-2xl font-bold text-[#064e3b] mb-2">Venture Lab Track</h3>
+              <p className="text-[#10b981] font-medium text-sm mb-4">For Venture Lab students</p>
+              <p className="text-gray-600 leading-relaxed flex-grow">
+                For students who have been through the full Venture Lab experience. Expect a more rigorous pitch format, deeper feedback from judges, and higher stakes as competitors go head-to-head.
+              </p>
+              <div className="mt-6 pt-6 border-t border-[#d1fae5]">
+                <span className="inline-flex items-center text-sm text-[#065f46] font-medium">
+                  <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  More details coming soon
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Enrollment Banner ── */}
       <section className="bg-gradient-to-r from-[#065f46] to-[#064e3b] py-14">
         <div className="max-w-4xl mx-auto px-4 text-center">
