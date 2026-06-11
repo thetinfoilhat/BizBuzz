@@ -275,8 +275,8 @@ const PEOPLE = {
 const impactStats = [
   { label: "Students Taught", value: "1,172", description: "across camps, competitions, and workshops since 2024" },
   { label: "Schools Engaged", value: "79", description: "elementary, middle, and high schools represented across Illinois" },
-  { label: "Funding Raised", value: "$10,421", description: "from 48 community partners, organizations, and sponsors" },
-  { label: "Student Staff", value: "82", description: "high school volunteer staff and instructors" }
+  { label: "Funding Raised", value: "$15,000+", description: "from 50+ community partners, organizations, and sponsors" },
+  { label: "Student Staff", value: "112", description: "high school volunteer staff and instructors" }
 ];
 
 const programParticipation = [
@@ -326,9 +326,9 @@ const schoolDirectory = [
 ];
 
 const fundingSummary = [
-  { label: "Total Raised", value: "$10,421", helper: "48 organizations" },
-  { label: "Monetary Funding", value: "$7,912" },
-  { label: "In-kind Donations", value: "$2,509" }
+  { label: "Total Raised", value: "$15,000+", helper: "50+ organizations" },
+  { label: "Monetary Funding", value: "$12,062" },
+  { label: "In-kind Donations", value: "$3,038" }
 ];
 
 const supporters = [
@@ -336,12 +336,12 @@ const supporters = [
   "Best Brains", "Business for Kids", "Category Pirates", "Centennial Beach", "Center for Future Innovators",
   "Chicago Wolves", "College of DuPage", "Conference Planning Resources", "Costco", "D203", "D204",
   "DuPage Children's Business Fair", "DuPage Children's Museum", "Elite Tutoring Place", "Fort Hill",
-  "Fresh Thyme", "Gia Mia", "Gourmet Gift Baskets", "Kabat American", "Kendra Scott",
+  "Fresh Thyme", "Gia Mia", "Gourmet Gift Baskets", "Hiren Patel", "Kabat American", "Kendra Scott",
   "Illinois State University", "Kane County Cougars", "Kids Matter", "La Sorella di Francesca", "MOD Pizza",
   "Midwest Badminton", "Nandos", "Naper Nuts & Sweets", "Naperville Children's Business Fair",
-  "Naperville Park District", "Naperville Public Libraries", "NCTV17", "Nothing Bundt Cakes", "Potbelly",
-  "Potters Place", "River Run Raptors Swim Team", "Samantha Zylstra & Associates", "SteamDream Team",
-  "Steeple Run Stingrays Swim Team", "Stillwater Starz Swim Team", "Teen Philanthropy Initiative",
+  "Naperville Park District", "Naperville Public Libraries", "Nara Rosie", "NCTV17", "Nothing Bundt Cakes", "Potbelly",
+  "Potters Place", "Right Choice Dental Care", "River Run Raptors Swim Team", "Samantha Zylstra & Associates", "SteamDream Team",
+  "Steeple Run Stingrays Swim Team", "Stillwater Starz Swim Team", "Teen Philanthropy Institute",
   "White Sox", "Wise Youth"
 ];
 

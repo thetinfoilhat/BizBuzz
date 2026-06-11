@@ -58,6 +58,7 @@ const Header = () => {
     },
     { href: "/sessions", label: "1:1 Sessions" },
     { href: "/about", label: "About Us" },
+    { href: "/sponsors", label: "Sponsors" },
   ];
 
   return (
