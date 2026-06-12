@@ -9,8 +9,43 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "BizBuzz",
-  description: "Turning imagination into innovation via social entrepreneurship",
+  metadataBase: new URL("https://www.bizbuzz.it"),
+  title: {
+    default: "BizBuzz NFP | Youth Entrepreneurship Camps & Fish Tank in Naperville",
+    template: "%s | BizBuzz NFP",
+  },
+  description:
+    "BizBuzz NFP is a student-run 501(c)(3) nonprofit in Naperville, Illinois teaching entrepreneurship to elementary and middle school students through free summer camps, workshops, and the Fish Tank pitch competition.",
+  keywords: [
+    "BizBuzz",
+    "youth entrepreneurship",
+    "kids business camp",
+    "Naperville summer camp",
+    "Fish Tank competition",
+    "student nonprofit",
+    "entrepreneurship education",
+    "Chicagoland",
+  ],
+  openGraph: {
+    type: "website",
+    siteName: "BizBuzz NFP",
+    url: "https://www.bizbuzz.it",
+    title: "BizBuzz NFP | Youth Entrepreneurship Camps & Fish Tank",
+    description:
+      "Free entrepreneurship camps, workshops, and pitch competitions for elementary and middle school students across Chicagoland.",
+    images: [{ url: "/logo.png", width: 800, height: 600, alt: "BizBuzz NFP logo" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BizBuzz NFP | Youth Entrepreneurship Camps & Fish Tank",
+    description:
+      "Free entrepreneurship camps, workshops, and pitch competitions for students across Chicagoland.",
+    images: ["/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
