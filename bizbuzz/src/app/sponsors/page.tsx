@@ -24,35 +24,35 @@ const SPONSOR_YEARS: YearGroup[] = [
         logo: "/sponsors/hirenpatel.png",
         amount: 2000,
         description:
-          "Hiren Patel is a franchise entrepreneur who owns and operates 64 Dunkin' locations and 4 Smoothie King stores. As someone who built a business empire from the ground up, he knows firsthand what it takes to turn ambition into results, and his support helps BizBuzz give young entrepreneurs that same opportunity.",
+          "Hiren Patel owns and operates 64 Dunkin' locations and 4 Smoothie King stores. He built his franchise portfolio from the ground up through decades of disciplined operations and reinvestment. Today he leads hundreds of employees across two national brands. Hiren understands what young founders face because he walked the same path: start small, learn fast, grow with care. His contribution, the largest in BizBuzz history, funds camps, Fish Tank prizes, and materials for student entrepreneurs across Chicagoland in 2026.",
       },
       {
         name: "Right Choice Dental Care",
         logo: "/sponsors/rightchoicedentalcare.png",
         amount: 1000,
         description:
-          "Right Choice Dental Care is a family dental practice committed to serving the local community. Beyond caring for smiles, the practice has been one of BizBuzz's most consistent supporters, backing youth entrepreneurship programs for multiple years running.",
+          "Right Choice Dental Care provides cosmetic, family, and restorative dentistry at three Naperville locations on Aurora Avenue, 95th Street, and Ogden Avenue. Dr. Pinal, a summa cum laude graduate of the University of Illinois at Chicago College of Dentistry, leads the practice. Services include general dentistry, braces, veneers, implants, and dentures for patients of all ages. The practice has backed BizBuzz youth entrepreneurship programs every year since 2025, one of our most loyal supporters.",
       },
       {
-        name: "Teen Philanthropy Institute",
+        name: "Teen Philanthropy Initiative",
         logo: "/sponsors/teenphilanthropyinstitute.png",
         amount: 750,
         description:
-          "The Teen Philanthropy Institute empowers young people to direct charitable giving toward causes they care about. After first supporting BizBuzz in 2025, they returned in 2026 with another grant to keep youth entrepreneurship programs growing.",
+          "The Teen Philanthropy Initiative, run by Naperville nonprofit KidsMatter, trains 30 high school juniors at a time in fundraising, budgeting, and grant-making. Each cohort awards $10,000 in grants to youth-serving nonprofits across the greater Chicago area. Their 2026 grant marks a second straight year of support for BizBuzz.",
       },
       {
         name: "Nara Rosie",
         logo: "/sponsors/nararosie.png",
         amount: 200,
         description:
-          "Nara Rosie is a community supporter who believes in giving young people the tools to chase their ideas. Her contribution helps fund camp materials and programming for student entrepreneurs.",
+          "Nara Rosie supports young entrepreneurs in the Naperville area. Her gift funds camp materials and programming for student founders.",
       },
       {
         name: "Elite Tutoring Place",
         logo: "/sponsors/elitetutoringplace.jpg",
         amount: 100,
         description:
-          "Elite Tutoring Place is a Naperville learning center providing personalized academic support for K-12 students. A returning sponsor since 2024, they share BizBuzz's belief that investing in education pays the best dividends.",
+          "Elite Tutoring Place has provided K-12 tutoring and SAT/ACT prep in Naperville since 2009. The center has sponsored BizBuzz every year since 2024.",
       },
     ],
   },
@@ -65,7 +65,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 1500,
         date: "May 18 & June 8, 2025",
         description:
-          "Right Choice Dental Care is a family dental practice dedicated to quality care and community involvement. In 2025 the practice's family, together with Taksh, contributed a combined $1,500 to expand BizBuzz programming and reach more students.",
+          "Right Choice Dental Care serves Naperville families at three locations with cosmetic, general, and restorative dentistry. Dr. Pinal, a summa cum laude graduate of the University of Illinois at Chicago College of Dentistry, leads the practice. In May and June 2025 the practice family, together with Taksh, gave a combined $1,500 to BizBuzz. The funding expanded programming and helped BizBuzz reach more students than in any prior year.",
       },
       {
         name: "AT&T",
@@ -73,15 +73,15 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 1000,
         date: "April 1, 2025",
         description:
-          "AT&T is one of the world's largest telecommunications companies, connecting millions of people every day. Their sponsorship reflects a long-standing commitment to supporting education and opportunity in local communities.",
+          "AT&T ranks among the largest telecommunications companies in the world. The company serves more than 100 million U.S. families and businesses through wireless and fiber networks. AT&T invests in education and digital access programs in communities nationwide. Their 2025 sponsorship funded BizBuzz camps and competitions across Chicagoland.",
       },
       {
-        name: "Teen Philanthropy Institute",
+        name: "Teen Philanthropy Initiative",
         logo: "/sponsors/teenphilanthropyinstitute.png",
         amount: 1000,
         date: "April 20, 2025",
         description:
-          "The Teen Philanthropy Institute empowers young people to direct charitable giving toward causes they care about. Their grant recognized BizBuzz's impact on youth entrepreneurship education in the Chicagoland area.",
+          "The Teen Philanthropy Initiative, a program of Naperville nonprofit KidsMatter, teaches high school students strategic giving over a two-year cohort. Students learn fundraising, budgeting, and grant evaluation, then award $10,000 to youth-serving nonprofits in the greater Chicago area. Cohort members visit applicant organizations, review proposals, and vote on awards. Their 2025 grant recognized BizBuzz's work in youth entrepreneurship education.",
       },
       {
         name: "Kabat American",
@@ -89,7 +89,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 1000,
         date: "May 13, 2025",
         description:
-          "Kabat American has supported BizBuzz since the very first camp in 2024. Their continued sponsorship year after year has helped BizBuzz grow from a single summer program into a year-round organization.",
+          "Kabat American has backed BizBuzz since the first camp in 2024. The company returned in 2025 with a second $1,000 sponsorship. Funding at this level covers venue costs, materials, and prizes for an entire camp session. Repeat support from Kabat American helped BizBuzz grow from one summer program into a year-round organization.",
       },
       {
         name: "Costco",
@@ -97,7 +97,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 100,
         date: "May 13, 2025",
         description:
-          "Costco Wholesale is known for supporting the communities where its members live and work. Their repeat sponsorship helps cover supplies and materials for BizBuzz camp sessions.",
+          "Costco Wholesale operates nearly 900 warehouses worldwide. Their repeat sponsorship covers supplies and materials for BizBuzz camp sessions.",
       },
     ],
   },
@@ -110,7 +110,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 1000,
         date: "May 28, 2024",
         description:
-          "Kabat American was one of BizBuzz's founding sponsors, coming on board before the very first camp session. Their early belief in the mission helped get BizBuzz off the ground.",
+          "Kabat American signed on before the first BizBuzz camp session in May 2024. Their early funding paid for the supplies, space, and prizes needed to launch. Founding sponsors take a chance on unproven ideas, and Kabat American took ours. BizBuzz exists today because of this early belief.",
       },
       {
         name: "Midwest Badminton",
@@ -118,7 +118,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 1000,
         date: "July 13, 2024",
         description:
-          "Midwest Badminton is a premier badminton training facility serving athletes across the Chicago suburbs. Their sponsorship helped fund the inaugural Fish Tank competition and summer camp programming.",
+          "Midwest Badminton runs training facilities in Woodridge and Naperville with up to 13 courts, LED lighting, and airflow flooring designed to prevent injuries. Coaches offer team training, private lessons, and open gym for kids and adults. The club has sent students to the state championship every year since 2012. Their 2024 sponsorship funded the inaugural Fish Tank competition and summer camp programming.",
       },
       {
         name: "Conference Planning Resources",
@@ -126,7 +126,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 250,
         date: "June 10, 2024",
         description:
-          "Conference Planning Resources is a professional event planning company with deep experience organizing meetings and conferences. Their sponsorship supported BizBuzz's first summer of in-person sessions.",
+          "Conference Planning Resources, based in Naperville, handles hotel procurement, site selection, and contract negotiation for national associations and Fortune 500 companies. The firm plans sales meetings, conferences, and executive retreats. Their sponsorship supported BizBuzz's first summer of in-person sessions.",
       },
       {
         name: "SteamDream Team",
@@ -134,7 +134,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 150,
         date: "July 25, 2024",
         description:
-          "SteamDream Team is a youth organization focused on hands-on STEM education. Their donation reflected a shared mission of getting kids excited about building and creating.",
+          "SteamDream Team gives kids hands-on STEM education. Their donation backed a shared goal: more kids building and creating.",
       },
       {
         name: "Samantha Zylstra & Associates, LLC",
@@ -142,7 +142,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 100,
         date: "June 10, 2024",
         description:
-          "Samantha Zylstra & Associates is a professional services firm that stepped up as a sponsor during BizBuzz's first summer, helping cover program costs for students.",
+          "Samantha Zylstra & Associates is a Naperville counseling practice offering therapy for couples, families, and adults. The firm helped cover program costs during BizBuzz's first summer.",
       },
       {
         name: "Elite Tutoring Place",
@@ -150,7 +150,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 100,
         date: "June 10, 2024",
         description:
-          "Elite Tutoring Place is a Naperville tutoring center offering personalized academic support across all grade levels. They were among the first local businesses to sponsor BizBuzz and have returned every year since.",
+          "Elite Tutoring Place has tutored K-12 students in Naperville since 2009. The center was among the first local businesses to sponsor BizBuzz and has returned every year since.",
       },
       {
         name: "Best Brains",
@@ -158,7 +158,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 100,
         date: "June 13, 2024",
         description:
-          "Best Brains is a national after-school enrichment program teaching math, English, abacus, and coding. Their sponsorship supported BizBuzz's mission of bringing business education to the same age group they serve.",
+          "Best Brains teaches math, English, abacus, and coding to students ages 3 to 14 at centers across North America. Their sponsorship brought business education to the same age group they serve.",
       },
       {
         name: "Costco",
@@ -166,7 +166,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 100,
         date: "June 18, 2024",
         description:
-          "Costco Wholesale is one of the world's largest retailers and a longtime supporter of community programs. Their sponsorship helped supply BizBuzz's first summer camp.",
+          "Costco Wholesale ranks among the largest retailers in the world. Their sponsorship supplied BizBuzz's first summer camp.",
       },
       {
         name: "Center for Future Innovators Inc.",
@@ -174,7 +174,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 100,
         date: "June 18, 2024",
         description:
-          "Center for Future Innovators is a nonprofit dedicated to preparing young people for careers in STEM and innovation. Their support helped BizBuzz reach more aspiring student entrepreneurs.",
+          "Center for Future Innovators is a 501(c)(3) nonprofit teaching robotics, coding, and engineering to kids in Chicago and Blue Island. Their support helped BizBuzz reach more student entrepreneurs.",
       },
       {
         name: "Naper Nuts & Sweets",
@@ -182,7 +182,7 @@ const SPONSOR_YEARS: YearGroup[] = [
         amount: 100,
         date: "July 10, 2024",
         description:
-          "Naper Nuts & Sweets is a beloved downtown Naperville candy shop that has served the community for decades. As a small business success story themselves, their sponsorship carried special meaning for young founders.",
+          "Naper Nuts & Sweets has sold candy in downtown Naperville since 1983, growing from 350 products to nearly 4,000. The shop shows young founders what decades of steady small business growth look like.",
       },
     ],
   },

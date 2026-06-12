@@ -341,7 +341,7 @@ const supporters = [
   "Midwest Badminton", "Nandos", "Naper Nuts & Sweets", "Naperville Children's Business Fair",
   "Naperville Park District", "Naperville Public Libraries", "Nara Rosie", "NCTV17", "Nothing Bundt Cakes", "Potbelly",
   "Potters Place", "Right Choice Dental Care", "River Run Raptors Swim Team", "Samantha Zylstra & Associates", "SteamDream Team",
-  "Steeple Run Stingrays Swim Team", "Stillwater Starz Swim Team", "Teen Philanthropy Institute",
+  "Steeple Run Stingrays Swim Team", "Stillwater Starz Swim Team", "Teen Philanthropy Initiative",
   "White Sox", "Wise Youth"
 ];
 
