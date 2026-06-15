@@ -223,7 +223,7 @@ const TIER_META: Record<
     nameSize: "text-xl",
     showDescription: true,
     descClamp: "",
-    perk: "Top placement, full feature card with story, largest logo, and recognition in all BizBuzz materials.",
+    perk: "Everything in Silver, plus a booth at the Fish Tank competition and t-shirt recognition on the following year's BizBuzz shirt.",
   },
   silver: {
     label: "Silver",
@@ -237,7 +237,7 @@ const TIER_META: Record<
     nameSize: "text-lg",
     showDescription: true,
     descClamp: "line-clamp-5",
-    perk: "Featured placement below Gold with a medium card, logo, and a short description.",
+    perk: "Everything in Bronze, plus a speaking opportunity at Fish Tank and an invitation to our picnic.",
   },
   bronze: {
     label: "Bronze",
@@ -251,7 +251,7 @@ const TIER_META: Record<
     nameSize: "text-base",
     showDescription: true,
     descClamp: "text-sm line-clamp-4",
-    perk: "Listed with your logo, name, contribution year, a short description, and our thanks.",
+    perk: "Distribution of your promotional materials at our events and a feature on the BizBuzz website.",
   },
 };
 
