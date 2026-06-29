@@ -55,6 +55,14 @@ const SPONSORS: Sponsor[] = [
     description:
       "Elite Tutoring Place has provided K-12 tutoring and SAT/ACT prep in Naperville since 2009. The center has sponsored BizBuzz every year since 2024.",
   },
+  {
+    name: "Office Furniture Solutions",
+    logo: "/sponsors/officefurnituresolutions.png",
+    amount: 100,
+    year: "2026",
+    description:
+      "Office Furniture Solutions sells new, pre-owned, and refurbished office furniture from its Naperville showroom. The dealer has served the Chicagoland area for over 20 years.",
+  },
   // ── 2025 ──
   {
     name: "Right Choice Dental Care",
@@ -154,7 +162,7 @@ const SPONSORS: Sponsor[] = [
     year: "2024",
     date: "June 10, 2024",
     description:
-      "Elite Tutoring Place has tutored K-12 students in Naperville since 2009. The center was among the first local businesses to sponsor BizBuzz and has returned every year since.",
+      "Elite Tutoring Place has tutored K-12 students in Naperville since 2009. It was among the first to sponsor BizBuzz and returns every year.",
   },
   {
     name: "Best Brains",
@@ -163,7 +171,7 @@ const SPONSORS: Sponsor[] = [
     year: "2024",
     date: "June 13, 2024",
     description:
-      "Best Brains teaches math, English, abacus, and coding to students ages 3 to 14 at centers across North America. Their sponsorship brought business education to the same age group they serve.",
+      "Best Brains teaches math, English, abacus, and coding to kids ages 3 to 14 across North America. Their gift brought business education to the same age group.",
   },
   {
     name: "Costco",
@@ -190,7 +198,7 @@ const SPONSORS: Sponsor[] = [
     year: "2024",
     date: "July 10, 2024",
     description:
-      "Naper Nuts & Sweets has sold candy in downtown Naperville since 1983, growing from 350 products to nearly 4,000. The shop shows young founders what decades of steady small business growth look like.",
+      "Naper Nuts & Sweets has sold candy in downtown Naperville since 1983, growing to nearly 4,000 products. The shop shows young founders what steady small business growth looks like.",
   },
 ];
 
@@ -250,7 +258,7 @@ const TIER_META: Record<
     logoSize: "w-12 h-12",
     nameSize: "text-base",
     showDescription: true,
-    descClamp: "text-sm line-clamp-4",
+    descClamp: "text-sm",
     perk: "Distribution of your promotional materials at our events and a feature on the BizBuzz website.",
   },
 };
