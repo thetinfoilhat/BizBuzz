@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sessions",
+  title: "Office Hours & FAQs",
   description:
-    "BizBuzz school sessions bring entrepreneurship lessons directly to classrooms across Chicagoland.",
+    "View BizBuzz office hours and find answers to frequently asked questions about our free entrepreneurship program and Fish Tank competition.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

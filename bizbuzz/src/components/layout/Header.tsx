@@ -56,7 +56,7 @@ const Header = () => {
         { href: "/fish-tank-2026", label: "2026 Fish Tank", color: "#10b981" }
       ]
     },
-    { href: "/sessions", label: "1:1 Sessions" },
+    { href: "/sessions", label: "Office Hours & FAQs" },
     { href: "/about", label: "About Us" },
     { href: "/sponsors", label: "Sponsors" },
   ];
