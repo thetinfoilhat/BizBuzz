@@ -37,15 +37,17 @@ const kidpreneurSessions = [
       role: "Entrepreneur & Finance Educator",
       topic: "Money Moves & Smart Decisions",
       bio: "Bringing finance to life through real-world scenarios, she showed students how smart money decisions fuel entrepreneurship — from startup auctions to Shark Tank-style deal analysis, she made every dollar a lesson in strategy.",
-      image: "/camp_imgs/2026/ishaelandessary"
+      image: "/camp_imgs/speakers/isha_elandassery.jpg"
     },
     speaker2: null,
     images: [
-      "/camp_imgs/2025/session2/session2a.jpg",
-      "/camp_imgs/2025/session2/session2b.jpg",
-      "/camp_imgs/2025/session2/session2c.jpg",
-      "/camp_imgs/2025/session2/session2d.jpg",
-      "/camp_imgs/2025/session2/session2e.jpg",
+      "/camp_imgs/2026/session2kp/session2kpa.jpg",
+      "/camp_imgs/2026/session2kp/session2kpb.jpg",
+      "/camp_imgs/2026/session2kp/session2kpc.jpg",
+      "/camp_imgs/2026/session2kp/session2kpd.jpg",
+      "/camp_imgs/2026/session2kp/session2kpe.jpg",
+      "/camp_imgs/2026/session2kp/session2kpf.jpg",
+      "/camp_imgs/2026/session2kp/session2kpg.jpg",
     ],
     color: "#86efac"
   },
@@ -58,11 +60,12 @@ const kidpreneurSessions = [
     speaker: null,
     speaker2: null,
     images: [
-      "/camp_imgs/2025/session3/session3a.jpg",
-      "/camp_imgs/2025/session3/session3b.jpg",
-      "/camp_imgs/2025/session3/session3c.jpg",
-      "/camp_imgs/2025/session3/session3d.jpg",
-      "/camp_imgs/2025/session3/session3e.jpg",
+      "/camp_imgs/2026/session3kp/session3kpa.jpg",
+      "/camp_imgs/2026/session3kp/session3kpb.jpg",
+      "/camp_imgs/2026/session3kp/session3kpc.jpg",
+      "/camp_imgs/2026/session3kp/session3kpd.jpg",
+      "/camp_imgs/2026/session3kp/session3kpe.jpg",
+      "/camp_imgs/2026/session3kp/session3kpf.jpg",
     ],
     color: "#10b981"
   },
@@ -75,11 +78,12 @@ const kidpreneurSessions = [
     speaker: null,
     speaker2: null,
     images: [
-      "/camp_imgs/2025/session4/session4a.jpg",
-      "/camp_imgs/2025/session4/session4b.jpg",
-      "/camp_imgs/2025/session4/session4c.jpg",
-      "/camp_imgs/2025/session4/session4d.jpg",
-      "/camp_imgs/2025/session4/session4e.jpg",
+      "/camp_imgs/2026/session4kp/session4kpa.jpg",
+      "/camp_imgs/2026/session4kp/session4kpb.jpg",
+      "/camp_imgs/2026/session4kp/session4kpc.jpg",
+      "/camp_imgs/2026/session4kp/session4kpd.jpg",
+      "/camp_imgs/2026/session4kp/session4kpe.jpg",
+      "/camp_imgs/2026/session4kp/session4kpf.jpg",
     ],
     color: "#059669"
   },
@@ -154,11 +158,13 @@ const ventureLabSessions = [
     speaker: null,
     speaker2: null,
     images: [
-      "/camp_imgs/2025/session2/session2a.jpg",
-      "/camp_imgs/2025/session2/session2b.jpg",
-      "/camp_imgs/2025/session2/session2c.jpg",
-      "/camp_imgs/2025/session2/session2d.jpg",
-      "/camp_imgs/2025/session2/session2e.jpg",
+      "/camp_imgs/2026/session2vl/session2vla.jpg",
+      "/camp_imgs/2026/session2vl/session2vlb.jpg",
+      "/camp_imgs/2026/session2vl/session2vlc.jpg",
+      "/camp_imgs/2026/session2vl/session2vld.jpg",
+      "/camp_imgs/2026/session2vl/session2vle.jpg",
+      "/camp_imgs/2026/session2vl/session2vlf.jpg",
+      "/camp_imgs/2026/session2vl/session2vlg.jpg",
     ],
     color: "#86efac"
   },
@@ -171,11 +177,12 @@ const ventureLabSessions = [
     speaker: null,
     speaker2: null,
     images: [
-      "/camp_imgs/2025/session3/session3a.jpg",
-      "/camp_imgs/2025/session3/session3b.jpg",
-      "/camp_imgs/2025/session3/session3c.jpg",
-      "/camp_imgs/2025/session3/session3d.jpg",
-      "/camp_imgs/2025/session3/session3e.jpg",
+      "/camp_imgs/2026/session3vl/session3vla.jpg",
+      "/camp_imgs/2026/session3vl/session3vlb.jpg",
+      "/camp_imgs/2026/session3vl/session3vlc.jpg",
+      "/camp_imgs/2026/session3vl/session3vld.jpg",
+      "/camp_imgs/2026/session3vl/session3vle.jpg",
+      "/camp_imgs/2026/session3vl/session3vlf.jpg",
     ],
     color: "#10b981"
   },
@@ -188,11 +195,12 @@ const ventureLabSessions = [
     speaker: null,
     speaker2: null,
     images: [
-      "/camp_imgs/2025/session4/session4a.jpg",
-      "/camp_imgs/2025/session4/session4b.jpg",
-      "/camp_imgs/2025/session4/session4c.jpg",
-      "/camp_imgs/2025/session4/session4d.jpg",
-      "/camp_imgs/2025/session4/session4e.jpg",
+      "/camp_imgs/2026/session4vl/session4vla.jpg",
+      "/camp_imgs/2026/session4vl/session4vlb.jpg",
+      "/camp_imgs/2026/session4vl/session4vlc.jpg",
+      "/camp_imgs/2026/session4vl/session4vld.jpg",
+      "/camp_imgs/2026/session4vl/session4vle.jpg",
+      "/camp_imgs/2026/session4vl/session4vlf.jpg",
     ],
     color: "#059669"
   },
@@ -235,6 +243,44 @@ const ventureLabSessions = [
 // ── Image Grid ────────────────────────────────────────────────────────────────
 
 const ImageGrid = ({ images, title }: { images: string[], title: string }) => {
+  const tileClasses = "relative rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-[1.02] duration-500";
+  const overlay = (
+    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+  );
+
+  // 7+ images: one large feature + six tiles in a clean 2-row grid
+  if (images.length >= 7) {
+    return (
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 auto-rows-[156px]">
+        <div className={`${tileClasses} col-span-2 row-span-2`}>
+          <Image src={images[0]} alt={`${title} main image`} fill className="object-cover" />
+          {overlay}
+        </div>
+        {images.slice(1, 7).map((img, i) => (
+          <div key={img} className={tileClasses}>
+            <Image src={img} alt={`${title} image ${i + 1}`} fill className="object-cover" />
+            {overlay}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // Exactly 6 images: uniform 3x2 grid
+  if (images.length === 6) {
+    return (
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 auto-rows-[156px] sm:auto-rows-[200px]">
+        {images.map((img, i) => (
+          <div key={img} className={tileClasses}>
+            <Image src={img} alt={`${title} image ${i + 1}`} fill className="object-cover" />
+            {overlay}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // 5 or fewer: large feature + 2x2 grid (repeat to fill)
   const allImages = [...images];
   while (allImages.length < 5) {
     allImages.push(images[allImages.length % images.length]);
@@ -242,24 +288,24 @@ const ImageGrid = ({ images, title }: { images: string[], title: string }) => {
 
   return (
     <div className="grid grid-cols-6 gap-3 h-full">
-      <div className="col-span-3 row-span-2 relative rounded-xl overflow-hidden h-[320px] shadow-lg transform transition-transform hover:scale-[1.02] duration-500">
+      <div className={`${tileClasses} col-span-3 row-span-2 h-[320px]`}>
         <Image src={allImages[0]} alt={`${title} main image`} fill className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+        {overlay}
       </div>
       <div className="col-span-3 grid grid-rows-2 gap-3 h-[320px]">
         <div className="grid grid-cols-2 gap-3">
           {[1, 2].map((i) => (
-            <div key={i} className="relative rounded-xl overflow-hidden h-[156px] shadow-lg transform transition-transform hover:scale-[1.02] duration-500">
+            <div key={i} className={`${tileClasses} h-[156px]`}>
               <Image src={allImages[i]} alt={`${title} image ${i}`} fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+              {overlay}
             </div>
           ))}
         </div>
         <div className="grid grid-cols-2 gap-3">
           {[3, 4].map((i) => (
-            <div key={i} className="relative rounded-xl overflow-hidden h-[156px] shadow-lg transform transition-transform hover:scale-[1.02] duration-500">
+            <div key={i} className={`${tileClasses} h-[156px]`}>
               <Image src={allImages[i]} alt={`${title} image ${i}`} fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+              {overlay}
             </div>
           ))}
         </div>
@@ -340,8 +386,6 @@ const SessionCard = ({ session, index }: { session: SessionType, index: number }
   const secondarySpeaker = session.speaker2;
   const rawLayoutType = secondarySpeaker ? "dual" : primarySpeaker ? "single" : "none";
   const layoutType = rawLayoutType === "none" ? "wide" : rawLayoutType;
-  const extraImages = session.images.slice(5);
-  const imageWrapperHeight = "relative h-[320px]";
   const descriptionClasses = "text-[#047857] mb-10 text-lg leading-relaxed";
 
   return (
@@ -425,48 +469,10 @@ const SessionCard = ({ session, index }: { session: SessionType, index: number }
                   className="absolute -inset-4 bg-gradient-to-r rounded-3xl blur-xl opacity-40"
                   style={{ backgroundImage: `linear-gradient(to right, ${session.color}10, #10b98110)` }}
                 />
-                <div className={layoutType === "wide" ? "relative" : imageWrapperHeight}>
-                  {layoutType === "wide" ? (
-                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5 auto-rows-[200px] sm:auto-rows-[240px]">
-                      {session.images.slice(0, 5).map((img, idx) => (
-                        <motion.div
-                          key={img}
-                          variants={fadeIn}
-                          className={`relative rounded-xl overflow-hidden shadow-lg transition-transform duration-500 hover:scale-[1.02] ${
-                            idx === 0 ? "sm:col-span-2 lg:col-span-3 lg:row-span-2" : ""
-                          }`}
-                        >
-                          <Image src={img} alt={`${session.title} photo ${idx + 1}`} fill className="object-cover" />
-                        </motion.div>
-                      ))}
-                    </div>
-                  ) : (
-                    <ImageGrid images={session.images.slice(0, 5)} title={session.title} />
-                  )}
+                <div className="relative">
+                  <ImageGrid images={session.images} title={session.title} />
                 </div>
               </div>
-
-              {extraImages.length > 0 && (
-                <div
-                  className={`grid gap-4 mt-6 ${
-                    extraImages.length === 1
-                      ? "grid-cols-1 sm:grid-cols-2"
-                      : extraImages.length === 2
-                        ? "grid-cols-1 sm:grid-cols-2"
-                        : "grid-cols-2 sm:grid-cols-3"
-                  }`}
-                >
-                  {extraImages.map((img, extraIdx) => (
-                    <motion.div
-                      key={img}
-                      variants={fadeIn}
-                      className="relative h-[240px] rounded-xl overflow-hidden shadow-lg"
-                    >
-                      <Image src={img} alt={`${session.title} additional photo ${extraIdx + 6}`} fill className="object-cover" />
-                    </motion.div>
-                  ))}
-                </div>
-              )}
             </motion.div>
 
             {/* Single speaker layout */}
