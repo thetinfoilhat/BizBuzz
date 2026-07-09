@@ -68,6 +68,59 @@ const faqs = [
   },
 ];
 
+const officeHoursPolicies = [
+  {
+    title: "Pre-Submission Requirement",
+    points: [
+      <>
+        All students must email{" "}
+        <a href="mailto:bizbuzznfp@gmail.com" className="text-[#003166] font-semibold hover:underline">
+          bizbuzznfp@gmail.com
+        </a>{" "}
+        at least <strong>24 hours</strong> before their scheduled session with:
+      </>,
+      "At least 3 specific and detailed questions",
+      "Any ideas, updates, or materials they want feedback on",
+      "This ensures sessions are productive and tailored to your progress.",
+    ],
+  },
+  {
+    title: "Reminder Requirement",
+    points: [
+      <>
+        Students must send a confirmation/reminder email to{" "}
+        <a href="mailto:bizbuzznfp@gmail.com" className="text-[#003166] font-semibold hover:underline">
+          bizbuzznfp@gmail.com
+        </a>{" "}
+        at least <strong>12 hours</strong> before their scheduled office hours.
+      </>,
+      "Failure to send a reminder may result in cancellation of your slot.",
+    ],
+  },
+  {
+    title: "Office Hours Format",
+    points: [
+      <>
+        <strong>Weekdays:</strong> Online (via Google Meet)
+      </>,
+      <>
+        <strong>Weekends:</strong> In-person sessions available
+      </>,
+      "Details and links/locations will be provided upon sign-up.",
+    ],
+  },
+  {
+    title: "Fish Tank Requirement",
+    points: [
+      <>
+        All Fish Tank participants are required to attend at least <strong>1 hour</strong> of office
+        hours per week leading up to the competition.
+      </>,
+      "This is mandatory to ensure consistent progress and readiness.",
+    ],
+  },
+];
+
 const OfficeHoursAndFaqs = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -215,6 +268,62 @@ const OfficeHoursAndFaqs = () => {
             </a>
             .
           </p>
+        </div>
+      </section>
+
+      {/* Office Hours Policy Section */}
+      <section id="office-hours-policy" className="py-16 bg-white relative overflow-hidden">
+        <div className="absolute -top-10 left-10 w-72 h-72 rounded-full bg-[#003166]/5 -z-10"></div>
+        <div className="absolute right-10 bottom-10 w-80 h-80 rounded-full bg-[#003166]/5 -z-10"></div>
+
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="flex flex-col items-center text-center mb-12">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#003166]/5 mb-3">
+              <span className="text-[#003166] font-semibold">Before You Attend</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">
+              Office Hours Policy
+            </h2>
+            <p className="text-lg text-[#334155] max-w-3xl">
+              To ensure that all students get the most value out of office hours and come prepared,
+              please follow the guidelines below.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {officeHoursPolicies.map((policy, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-2xl shadow-md border border-[#003166]/10 p-6"
+              >
+                <div className="flex items-center mb-4">
+                  <span className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#003166] text-white font-bold mr-3">
+                    {i + 1}
+                  </span>
+                  <h3 className="text-xl font-semibold text-[#0f172a]">{policy.title}</h3>
+                </div>
+                <ul className="space-y-2">
+                  {policy.points.map((point, j) => (
+                    <li key={j} className="flex items-start text-[#334155] leading-relaxed">
+                      <svg
+                        className="flex-shrink-0 w-5 h-5 text-[#FFD700] mt-0.5 mr-2"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
