@@ -324,6 +324,11 @@ const OfficeHoursAndFaqs = () => {
               </div>
             ))}
           </div>
+
+          <p className="mt-8 text-center text-[#334155] font-medium">
+            If any of these policies are not followed, we reserve the right to cancel your
+            request.
+          </p>
         </div>
       </section>
 
