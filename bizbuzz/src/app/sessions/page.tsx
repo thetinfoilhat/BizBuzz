@@ -10,11 +10,6 @@ const CAL_LINKS = {
   inPerson: "bizbuzz-nfp/office-hours-in-person",
 } as const;
 
-const OFFICE_HOURS_URL =
-  "https://docs.google.com/spreadsheets/d/1Yb8OgMehdX1jjKmVifRFxkD-spdUaXXHREKcxjvPWLQ/edit?usp=sharing";
-const OFFICE_HOURS_EMBED =
-  "https://docs.google.com/spreadsheets/d/1Yb8OgMehdX1jjKmVifRFxkD-spdUaXXHREKcxjvPWLQ/preview";
-
 const faqs = [
   {
     q: "What is BizBuzz?",
@@ -188,8 +183,8 @@ const OfficeHoursAndFaqs = () => {
             <div className="bg-[#003166]/40 backdrop-blur-sm rounded-xl p-7 border border-white/10 shadow-lg mb-10">
               <p className="text-xl leading-relaxed text-white">
                 Drop in during office hours for personalized 1-on-1 feedback on your business idea.
-                Check the live schedule below, then come find us at a local library—or join us virtually
-                over Google Meet.
+                Book a session below and meet us at a local library—or join us virtually over
+                Google Meet.
               </p>
             </div>
 
@@ -199,15 +194,6 @@ const OfficeHoursAndFaqs = () => {
                 className="inline-flex items-center px-8 py-4 bg-[#FFD700] text-[#004080] text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition duration-300"
               >
                 Book a Session
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </a>
-              <a
-                href="#office-hours"
-                className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-white/20 transition duration-300"
-              >
-                View Schedule
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -223,82 +209,6 @@ const OfficeHoursAndFaqs = () => {
               </a>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Office Hours Section */}
-      <section id="office-hours" className="py-16 bg-white relative overflow-hidden">
-        <div className="absolute left-20 top-20 w-64 h-64 rounded-full bg-[#003166]/5 -z-10"></div>
-        <div className="absolute right-20 bottom-20 w-80 h-80 rounded-full bg-[#003166]/5 -z-10"></div>
-
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col items-center text-center mb-12">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#003166]/5 mb-3">
-              <span className="text-[#003166] font-semibold">Live Schedule</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">Office Hours Schedule</h2>
-            <p className="text-lg text-[#334155] max-w-3xl">
-              The preview below updates automatically whenever we change the schedule. Spots are limited
-              and first-come, first-served.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-[#003166]/10">
-            {/* Header bar with locations */}
-            <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 border-b border-[#003166]/10 bg-gradient-to-r from-white to-[#f0f7ff]">
-              <div className="flex flex-wrap gap-3">
-                {[
-                  { name: "95th Street Library", color: "#10b981" },
-                  { name: "Nichols Library", color: "#f59e0b" },
-                ].map((location, index) => (
-                  <div
-                    key={index}
-                    className="inline-flex items-center px-3 py-1.5 bg-white rounded-lg border border-[#003166]/10"
-                  >
-                    <span
-                      className="inline-block w-3 h-3 rounded-full mr-2"
-                      style={{ backgroundColor: location.color }}
-                    ></span>
-                    <span className="text-sm font-medium text-[#0f172a]">{location.name}</span>
-                  </div>
-                ))}
-              </div>
-              <a
-                href={OFFICE_HOURS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-5 py-2.5 bg-[#003166] text-white text-sm font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-[#004080] transition duration-300"
-              >
-                Open Full Schedule
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
-
-            {/* Live embedded preview */}
-            <div className="relative w-full h-[600px] bg-[#f8fafc]">
-              <iframe
-                title="BizBuzz Office Hours Schedule"
-                src={OFFICE_HOURS_EMBED}
-                className="absolute inset-0 w-full h-full"
-                loading="lazy"
-              ></iframe>
-            </div>
-          </div>
-
-          <p className="text-center text-sm text-[#64748b] mt-4">
-            Can&apos;t see the preview?{" "}
-            <a
-              href={OFFICE_HOURS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#003166] font-semibold hover:underline"
-            >
-              View the office hours schedule here
-            </a>
-            .
-          </p>
         </div>
       </section>
 
