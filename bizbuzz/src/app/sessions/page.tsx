@@ -1,8 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Cal, { getCalApi } from "@calcom/embed-react";
 import Footer from "@/components/layout/Footer";
+
+const CAL_LINKS = {
+  online: "bizbuzz-nfp/office-hours-online",
+  inPerson: "bizbuzz-nfp/office-hours-in-person",
+} as const;
 
 const OFFICE_HOURS_URL =
   "https://docs.google.com/spreadsheets/d/1Yb8OgMehdX1jjKmVifRFxkD-spdUaXXHREKcxjvPWLQ/edit?usp=sharing";
@@ -123,6 +129,22 @@ const officeHoursPolicies = [
 
 const OfficeHoursAndFaqs = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [bookingType, setBookingType] = useState<keyof typeof CAL_LINKS>("online");
+
+  // Style the embedded Cal.com widget to match the site
+  useEffect(() => {
+    (async () => {
+      const cal = await getCalApi();
+      cal("ui", {
+        theme: "dark",
+        cssVarsPerTheme: {
+          light: { "cal-brand": "#003166" },
+          dark: { "cal-brand": "#FFD700" },
+        },
+        hideEventTypeDetails: false,
+      });
+    })();
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -173,8 +195,17 @@ const OfficeHoursAndFaqs = () => {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="#office-hours"
+                href="#book-a-session"
                 className="inline-flex items-center px-8 py-4 bg-[#FFD700] text-[#004080] text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition duration-300"
+              >
+                Book a Session
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+              <a
+                href="#office-hours"
+                className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-white/20 transition duration-300"
               >
                 View Schedule
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -267,6 +298,72 @@ const OfficeHoursAndFaqs = () => {
               View the office hours schedule here
             </a>
             .
+          </p>
+        </div>
+      </section>
+
+      {/* Book a Session Section */}
+      <section id="book-a-session" className="py-16 bg-gradient-to-b from-white to-[#f0f7ff] relative overflow-hidden">
+        <div className="absolute -top-16 right-16 w-72 h-72 rounded-full bg-[#003166]/5 -z-10"></div>
+        <div className="absolute left-16 bottom-16 w-80 h-80 rounded-full bg-[#003166]/5 -z-10"></div>
+
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="flex flex-col items-center text-center mb-12">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#003166]/5 mb-3">
+              <span className="text-[#003166] font-semibold">Reserve Your Spot</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">Book a Session</h2>
+            <p className="text-lg text-[#334155] max-w-3xl">
+              Pick a time that works for your family, fill in your details, and you&apos;re all
+              set—you&apos;ll get a confirmation email with the Google Meet link or library location
+              right away.
+            </p>
+          </div>
+
+          {/* Online / In-Person toggle */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex items-center bg-white rounded-xl shadow-md border border-[#003166]/10 p-1.5 gap-1">
+              {(
+                [
+                  { key: "online", label: "Online (Google Meet)" },
+                  { key: "inPerson", label: "In-Person (Library)" },
+                ] as const
+              ).map(({ key, label }) => (
+                <button
+                  key={key}
+                  onClick={() => setBookingType(key)}
+                  className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition duration-300 ${
+                    bookingType === key
+                      ? "bg-[#003166] text-white shadow"
+                      : "text-[#334155] hover:bg-slate-100"
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative bg-[#101010] rounded-3xl shadow-xl overflow-hidden border border-white/10 p-2 md:p-4">
+            <Cal
+              key={bookingType}
+              calLink={CAL_LINKS[bookingType]}
+              style={{ width: "100%", height: "100%", overflow: "hidden" }}
+              config={{ layout: "month_view" }}
+            />
+            {/* Cover the Cal.com branding strip at the bottom of the embed */}
+            <div className="absolute bottom-0 inset-x-0 h-20 bg-[#101010] z-10"></div>
+          </div>
+
+          <p className="text-center text-sm text-[#64748b] mt-4">
+            Having trouble booking?{" "}
+            <a
+              href="mailto:bizbuzznfp@gmail.com"
+              className="text-[#003166] font-semibold hover:underline"
+            >
+              Email us
+            </a>{" "}
+            and we&apos;ll find a time for you.
           </p>
         </div>
       </section>
