@@ -129,7 +129,7 @@ const prelimJudges = [
   },
   {
     name: "Paul van der Vorst",
-    title: "Co-Director @ Naperville Children&apos;s Business Fair",
+    title: "Co-Director @ Naperville Children's Business Fair",
     image: "",
     bio: "Paul is an incoming freshman at the University of South Carolina. He helped incubate 400+ kid-run businesses selling to 5,000+ visitors and now mentors students through ideation and pitching.",
   },
@@ -143,7 +143,7 @@ const prelimJudges = [
     name: "Ansh Shah",
     title: "2024 Executive Director @ BizBuzz",
     image: "",
-    bio: "Ansh is an incoming freshman at the University of Illinois Urbana-Champaign. A former BizBuzz executive director, he&apos;s back as a judge to cheer on the next generation of innovators.",
+    bio: "Ansh is an incoming freshman at the University of Illinois Urbana-Champaign. A former BizBuzz executive director, he's back as a judge to cheer on the next generation of innovators.",
   },
 ];
 

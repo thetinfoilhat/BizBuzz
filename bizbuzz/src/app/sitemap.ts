@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/years", priority: 0.7, changeFrequency: "monthly" },
     { path: "/years/2024", priority: 0.6, changeFrequency: "yearly" },
     { path: "/years/2025", priority: 0.6, changeFrequency: "yearly" },
-    { path: "/years/2026", priority: 0.7, changeFrequency: "monthly" },
     { path: "/camps-2025", priority: 0.5, changeFrequency: "yearly" },
     { path: "/camps-2024", priority: 0.5, changeFrequency: "yearly" },
     { path: "/camps-2027", priority: 0.5, changeFrequency: "monthly" },

@@ -11,3 +11,6 @@ node_modules/
 .next/
 out/
 build/
+
+# Relay run state — local tooling, not part of the site.
+.relay/

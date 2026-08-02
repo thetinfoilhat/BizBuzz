@@ -468,7 +468,7 @@ export default function YearPage() {
               Photo Gallery
             </h2>
 
-            <LightboxGallery images={data.gallery} yearColor={theme.accentColor} />
+            <LightboxGallery images={data.gallery} />
           </div>
         </section>
       )}

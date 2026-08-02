@@ -22,7 +22,7 @@ export default function PressCard({ item, accentColor, index }: PressCardProps) 
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="block bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all border-l-4 group"
+      className="relative block bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all border-l-4 group"
       style={{ borderLeftColor: accentColor }}
     >
       {/* Outlet badge */}

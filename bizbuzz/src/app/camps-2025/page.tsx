@@ -1,8 +1,5 @@
 "use client";
 
-/// <reference types="react" />
-/// <reference types="react-dom" />
-
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -157,7 +154,7 @@ const sessions = [
       "/camp_imgs/2025/session7/session7b.jpg",
       "/camp_imgs/2025/session7/session7c.jpg",
       "/camp_imgs/2025/session7/session7d.jpg",
-      "/camp_imgs/2025/session7/session7e.jpg",
+      "/camp_imgs/2025/session7/session7e.JPG",
     ],
     color: "#A67C52"
   },

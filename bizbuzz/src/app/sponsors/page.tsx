@@ -249,7 +249,7 @@ const TIER_META: Record<
   },
   bronze: {
     label: "Bronze",
-    range: "Up to $250",
+    range: "Under $250",
     accent: "from-[#c98b5e] to-[#a06636]",
     badge: "bg-[#c98b5e]/15 text-[#8a5226] border-[#c98b5e]/40",
     ring: "hover:from-[#c98b5e]/50 hover:to-[#a06636]/40",

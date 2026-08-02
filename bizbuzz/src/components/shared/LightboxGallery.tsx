@@ -6,7 +6,6 @@ import Image from 'next/image';
 
 interface LightboxGalleryProps {
   images: string[];
-  yearColor?: string;
 }
 
 export default function LightboxGallery({ images }: LightboxGalleryProps) {
