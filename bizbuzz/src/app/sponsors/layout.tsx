@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Sponsors",
+  title: "Sponsors",
   description:
-    "The businesses and individuals funding free youth entrepreneurship programs at BizBuzz NFP. See every sponsor since 2024 and learn how to join them.",
+    "Sixteen Naperville businesses, families and foundations have funded three seasons of free BizBuzz camps, workshops and Fish Tank. See the sponsor wall, the tiers, and exactly what each dollar buys.",
+  alternates: { canonical: "/sponsors" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
