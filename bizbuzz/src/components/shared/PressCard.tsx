@@ -1,75 +1,39 @@
-"use client";
-
-import { motion } from 'framer-motion';
+import { formatRecordDate } from '@/lib/dates';
 import type { PressItem } from '@/types/years';
 
 interface PressCardProps {
   item: PressItem;
-  accentColor: string;
-  index: number;
 }
 
-export default function PressCard({ item, accentColor, index }: PressCardProps) {
-  const date = item.dateISO ? new Date(item.dateISO) : null;
-
+// One press record per row — outlet · headline · date · ↗ — inside the caller's
+// ruled list. Coverage always sits on someone else's site, so the row is always
+// an external link and says so with the arrow rather than with an icon set.
+export default function PressCard({ item }: PressCardProps) {
   return (
-    <motion.a
-      href={item.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="block bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all border-l-4 group"
-      style={{ borderLeftColor: accentColor }}
-    >
-      {/* Outlet badge */}
-      <div 
-        className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3"
-        style={{ 
-          backgroundColor: `${accentColor}20`,
-          color: accentColor 
-        }}
+    <li className="border-b border-rule">
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative flex flex-wrap items-baseline gap-x-s4 gap-y-s2 bg-paper py-s3 pl-s4 pr-s2 transition-colors duration-120 ease-out hover:bg-panel focus-visible:bg-panel"
       >
-        {item.outlet}
-      </div>
-
-      {/* Headline */}
-      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
-        {item.headline}
-      </h3>
-
-      {/* Date if available */}
-      {date && (
-        <div className="text-sm text-gray-500 mb-3">
-          {date.toLocaleDateString('en-US', { 
-            month: 'long', 
-            day: 'numeric', 
-            year: 'numeric' 
-          })}
-        </div>
-      )}
-
-      {/* Read more indicator */}
-      <div 
-        className="inline-flex items-center text-sm font-semibold group-hover:translate-x-1 transition-transform"
-        style={{ color: accentColor }}
-      >
-        Read Article
-        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </div>
-
-      {/* External link icon */}
-      <div className="absolute top-4 right-4 text-gray-300 group-hover:text-gray-400 transition-colors">
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-        </svg>
-      </div>
-    </motion.a>
+        <span
+          aria-hidden="true"
+          className="absolute inset-y-0 left-0 w-[var(--rule-accent-w)] transition-colors duration-120 ease-out group-hover:bg-accent group-focus-visible:bg-accent"
+        />
+        <span className="font-mono text-12 font-medium uppercase tracking-[0.08em] text-ink-muted">
+          {item.outlet}
+        </span>
+        <span className="min-w-0 flex-1 font-display text-16 font-medium text-ink">
+          {item.headline}
+        </span>
+        <span className="flex w-full items-baseline gap-s4 font-mono text-12 font-medium tracking-[0.08em] text-ink-muted min-[900px]:w-auto">
+          {item.dateISO && <span>{formatRecordDate(item.dateISO)}</span>}
+          <span aria-hidden="true" className="ml-auto text-ink-2 min-[900px]:ml-0">
+            ↗
+          </span>
+        </span>
+      </a>
+    </li>
   );
 }
-

@@ -2,27 +2,147 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ──────────────────────────────────────────────────────────────
+   Token layer. The authority is .relay/design.md.
+   One surface, no dark mode. No #000, no #fff anywhere.
+   ────────────────────────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surface and ink */
+  --paper: #f5f4f0;
+  --panel: #fcfcfa;
+  --ink: #0c1233;
+  --ink-2: #3d4460;
+  --ink-muted: #5c6277;
+  --rule: #bebeb3;
+  --fill-soft: #e4e3dc;
+
+  /* The single accent */
+  --accent: #f0b429;
+  --accent-ink: #8a5a00;
+
+  /* On the inverted band */
+  --on-ink: #f5f4f0;
+  --on-ink-muted: #8e93a6;
+
+  /* Year markers — semantic only, never a theme fill */
+  --year-2024: #1a5fd0;
+  --year-2025: #c2410c;
+  --year-2026: #0f766e;
+  --year-2027: #5b21b6;
+
+  /* Space, 4px base */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 88px;
+  --space-11: 128px;
+
+  /* Type ramp */
+  --text-12: 12px;
+  --text-14: 14px;
+  --text-16: 16px;
+  --text-18: 18px;
+  --text-21: 21px;
+  --text-26: 26px;
+  --text-34: 34px;
+  --text-44: 44px;
+  --text-60: 60px;
+
+  /* Geometry */
+  --radius-0: 0px;
+  --radius-control: 2px;
+  --rule-w: 1px;
+  --rule-accent-w: 3px;
+
+  /* The one permitted shadow — floating UI only */
+  --shadow-float: 0 1px 2px rgba(12, 18, 51, 0.06), 0 10px 28px rgba(12, 18, 51, 0.08);
+
+  /* Motion — exactly four durations, two curves */
+  --dur-80: 80ms;
+  --dur-120: 120ms;
+  --dur-200: 200ms;
+  --dur-420: 420ms;
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-draw: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-prose), Georgia, serif;
+    font-size: var(--text-18);
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Display and UI text are never the prose face. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button,
+  input,
+  select,
+  textarea,
+  th,
+  label {
+    font-family: var(--font-display), system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  /* Facts are set in tabular numerals, always. */
+  [data-figure] {
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  /* Focus is visible on every focusable element, without exception. */
+  :focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--ink);
+  }
+
+  img {
+    background-color: var(--fill-soft);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Reduced motion is a branch written first, not a patch applied later. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Summer Camp 2025",
   description:
-    "The 2025 BizBuzz summer camp: expanded curriculum with AI and global business topics for student entrepreneurs.",
+    "Archive of the 2025 BizBuzz summer camp: seven sessions at the 95th Street Library in Naperville, five guest speakers, 120 students.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

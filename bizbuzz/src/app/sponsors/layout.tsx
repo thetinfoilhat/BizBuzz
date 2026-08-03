@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Our Sponsors",
   description:
-    "The businesses and individuals funding free youth entrepreneurship programs at BizBuzz NFP. See every sponsor since 2024 and learn how to join them.",
+    "The $15,100 BizBuzz NFP has raised since 2024, every sponsorship on the record, and what a Gold, Silver or Bronze sponsorship includes.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

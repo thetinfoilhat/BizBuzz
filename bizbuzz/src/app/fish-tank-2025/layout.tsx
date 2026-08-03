@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Fish Tank 2025",
   description:
-    "The 2025 BizBuzz Fish Tank pitch competition at Northwestern University, featuring student founders from across Chicagoland.",
+    "The 2025 BizBuzz Fish Tank pitch competition at Benedictine University Goodwin Hall of Business in Lisle, featuring student founders from across Chicagoland.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

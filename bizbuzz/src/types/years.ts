@@ -45,7 +45,7 @@ export interface Story {
 export interface PartnerLogo {
   name: string;
   href?: string;
-  logo: string; // path
+  logo?: string;            // path; partners without a mark on file render as text
 }
 
 export interface PressItem {

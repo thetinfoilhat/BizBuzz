@@ -1,179 +1,133 @@
-"use client";
-
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
+import Container from '@/components/ui/Container';
+import PageMasthead from '@/components/ui/PageMasthead';
+import Tag from '@/components/ui/Tag';
+import SplitBrief from '@/components/ui/SplitBrief';
+import Ledger from '@/components/ui/Ledger';
+import InvertedBand from '@/components/ui/InvertedBand';
+import Button from '@/components/ui/Button';
 
+const INTEREST_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSe_MouwxaWfjA6UeibsY2lrZoZky-n13jffMH7aP1UNiuDGzQ/viewform?usp=preview";
+
+// What this site has actually published about 2027, stated as publication state
+// rather than as a plan. Nothing here is a schedule, because there is no schedule.
+const campStatus = [
+  { label: "Interest form", value: "Open" },
+  { label: "2027 dates", value: "Not announced" },
+  { label: "2027 sessions", value: "Not announced" },
+  { label: "Venue", value: "Not announced" },
+  { label: "Most recent season", value: "June 5 – July 10, 2026" },
+];
+
+// The 2026 season, as recorded on /camps-2026. No student count appears there,
+// so none appears here.
+const season2026 = [
+  { label: "Sessions run", figure: "12", note: "Six per track" },
+  { label: "Tracks", figure: "2", note: "KidPreneur · VentureLab" },
+  { label: "Consecutive Fridays", figure: "6", note: "June 5 – July 10, 2026" },
+  { label: "Guest speakers", figure: "2", note: "Isha Elandassery · Scott Wehrli" },
+];
+
+// ── Section shell ─────────────────────────────────────────────────────────────
+
+interface SectionProps {
+  /** Sequential index, e.g. `02`. It is what carries the sequence — not an icon. */
+  index: string;
+  label: string;
+  children: ReactNode;
+}
+
+// The left rail: index and label in columns 1–2, content in 3–12. Under 900px the
+// rail collapses to a row above its content and the separating rule stays.
+function Section({ index, label, children }: SectionProps) {
+  return (
+    <section>
+      <Container>
+        <div className="grid grid-cols-1 gap-s5 border-t border-rule py-s9 min-[900px]:grid-cols-12 min-[900px]:py-s10">
+          <p className="font-mono text-12 font-medium uppercase tracking-[0.08em] text-ink-muted min-[900px]:col-span-2">
+            {index} — {label}
+          </p>
+          <div className="min-[900px]:col-span-10 min-[900px]:col-start-3">{children}</div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+// ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function Camps2027Page() {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-[#faf5ff]">
+    <>
+      <PageMasthead
+        kicker="Camps — 2027"
+        title="BizBuzz Camp 2027"
+        standfirst="The 2027 season is not scheduled yet. The interest form is open, and the names on it hear the dates first."
+        year={2027}
+        tags={
+          <>
+            <Tag variant="year" year={2027}>
+              2027
+            </Tag>
+            <Tag variant="status-open">Open for interest</Tag>
+          </>
+        }
+      />
 
-      {/* ── Hero Section ── */}
-      <div className="relative bg-gradient-to-br from-[#2e1065] via-[#4c1d95] to-[#5b21b6]">
-        {/* Background SVG icons */}
-        <div className="absolute top-24 right-24 w-60 h-60 opacity-15">
-          <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M464 192l-33.5-5.5c-1.4-4.9-2.9-9.6-4.7-14.3l19.8-27.8-32-32-27.8 19.8c-4.7-1.8-9.4-3.3-14.3-4.7L366 96h-44l-5.5 33.5c-4.9 1.4-9.6 2.9-14.3 4.7l-27.8-19.8-32 32 19.8 27.8c-1.8 4.7-3.3 9.4-4.7 14.3L224 192v44l33.5 5.5c1.4 4.9 2.9 9.6 4.7 14.3l-19.8 27.8 32 32 27.8-19.8c4.7 1.8 9.4 3.3 14.3 4.7L322 336h44l5.5-33.5c4.9-1.4 9.6-2.9 14.3-4.7l27.8 19.8 32-32-19.8-27.8c1.8-4.7 3.3-9.4 4.7-14.3L464 236v-44zM288 256c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z" />
-          </svg>
-        </div>
-        <div className="absolute top-48 right-48 w-40 h-40 opacity-10">
-          <svg viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M501.1 395.7L384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.6c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.7z" />
-          </svg>
-        </div>
-        <div className="absolute bottom-48 left-24 w-48 h-48 opacity-10">
-          <svg viewBox="0 0 640 512" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z" />
-          </svg>
-        </div>
-
-        <div className="absolute inset-0 overflow-hidden z-0">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#8b5cf6]/15 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#a78bfa]/20 rounded-full blur-3xl"></div>
-          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-[0.05]"></div>
-          <svg className="absolute bottom-0 w-full text-[#faf5ff]" preserveAspectRatio="none" viewBox="0 0 1440 60" fill="currentColor">
-            <path d="M0,32L48,37.3C96,43,192,53,288,48C384,43,480,27,576,21.3C672,16,768,21,864,26.7C960,32,1056,37,1152,37.3C1248,37,1344,32,1392,29.3L1440,27L1440,60L1392,60C1344,60,1248,60,1152,60C1056,60,960,60,864,60C768,60,672,60,576,60C480,60,384,60,288,60C192,60,96,60,48,60L0,60Z"></path>
-          </svg>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-32 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <motion.div
-              className="lg:col-span-6 relative z-50"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/30 border border-white/40 backdrop-blur-sm mb-10 shadow-sm">
-                <div className="w-3 h-3 rounded-full bg-white mr-2"></div>
-                <span className="text-base font-medium text-white">Summer 2027</span>
-              </div>
-
-              <h1 className="text-7xl lg:text-8xl font-bold mb-10 tracking-tight leading-tight">
-                <span className="text-white drop-shadow-md">BizBuzz</span>
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ddd6fe] via-[#8b5cf6] to-[#a78bfa] drop-shadow-sm">
-                  Camp
-                </span>
-              </h1>
-
-              <p className="text-2xl text-white/95 font-light mb-12 max-w-2xl leading-relaxed">
-                Our multi-week entrepreneurship camp helps young founders ideate, build, and pitch market-ready ventures alongside industry leaders and business experts.
-              </p>
-
-              <div className="flex flex-wrap gap-6">
-                <div className="relative">
-                  <button
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="bg-gradient-to-r from-[#8b5cf6] to-[#a78bfa] text-white font-medium py-4 px-8 rounded-lg text-xl transition-all hover:shadow-lg hover:shadow-[#8b5cf6]/30 hover:-translate-y-1 active:translate-y-0 inline-flex items-center"
-                  >
-                    Explore Other Camps
-                    <svg className={`w-5 h-5 ml-2 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  {dropdownOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-2xl border border-[#ddd6fe]/40 overflow-hidden z-[200]">
-                      {[
-                        { label: 'Camp 2024', href: '/camps-2024' },
-                        { label: 'Camp 2025', href: '/camps-2025' },
-                        { label: 'Camp 2026', href: '/camps-2026' },
-                      ].map(({ label, href }) => (
-                        <Link
-                          key={href}
-                          href={href}
-                          onClick={() => setDropdownOpen(false)}
-                          className="block px-5 py-3 text-[#2e1065] font-medium hover:bg-[#f5f3ff] transition-colors text-base"
-                        >
-                          {label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+      <Section index="01" label="What 2027 is">
+        <SplitBrief
+          facts={
+            <dl>
+              {campStatus.map((row) => (
+                <div
+                  key={row.label}
+                  className="flex flex-wrap items-baseline justify-between gap-s2 border-b border-rule py-s3 first:pt-0 last:border-b-0 last:pb-0"
+                >
+                  <dt className="font-mono text-12 font-medium uppercase tracking-[0.08em] text-ink-muted">
+                    {row.label}
+                  </dt>
+                  <dd className="font-display text-16 font-medium text-ink">{row.value}</dd>
                 </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="lg:col-span-6 relative"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-            >
-              <div className="relative h-[580px] w-full overflow-visible">
-                <motion.div
-                  className="absolute top-[160px] left-[10px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
-                  initial={{ x: -30, y: 0, rotate: -8 }}
-                  animate={{ x: 0, y: 0, rotate: -8 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  whileHover={{ scale: 1.03, rotate: -6, transition: { duration: 0.3 } }}
-                >
-                  <Image src="/camp_imgs/2025/session5/session5a.jpg" alt="Session collaboration" fill className="object-cover" priority />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2e1065]/25 to-transparent"></div>
-                </motion.div>
-
-                <motion.div
-                  className="absolute top-[-20px] left-[30%] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-[0_15px_50px_rgba(139,92,246,0.3)] z-30 border-[3px] border-white"
-                  initial={{ scale: 0.92, y: 10, rotate: 4 }}
-                  animate={{ scale: 1, y: 0, rotate: 4 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
-                >
-                  <Image src="/camp_imgs/2025/session3/session3b.jpg" alt="Marketing workshop" fill className="object-cover" priority />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2e1065]/25 to-transparent"></div>
-                </motion.div>
-
-                <motion.div
-                  className="absolute bottom-[10px] right-[60px] w-[260px] h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-[3px] border-white"
-                  initial={{ x: 30, y: 0, rotate: 8 }}
-                  animate={{ x: 0, y: 0, rotate: 8 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  whileHover={{ scale: 1.03, rotate: 6, transition: { duration: 0.3 } }}
-                >
-                  <Image src="/camp_imgs/2025/session4/session4c.jpg" alt="Prototype building" fill className="object-cover" priority />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2e1065]/25 to-transparent"></div>
-                </motion.div>
-
-                <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-[#8b5cf6]/20 to-[#a78bfa]/15 blur-3xl"></div>
-                <div className="absolute bottom-1/3 left-1/3 w-56 h-56 rounded-full bg-gradient-to-r from-[#a78bfa]/20 to-[#8b5cf6]/15 blur-2xl"></div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* ── 2027 Interest Banner ── */}
-      <section className="bg-gradient-to-r from-[#4c1d95] to-[#2e1065] py-14">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/15 border border-white/25 mb-6">
-            <div className="w-2 h-2 rounded-full bg-[#a78bfa] mr-2 animate-pulse"></div>
-            <span className="text-sm font-medium text-white/90">2026 Camp In Progress</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            BizBuzz Camp 2026 is currently underway
-          </h2>
-          <p className="text-lg text-white/85 mb-8 max-w-2xl mx-auto">
-            Missed your spot in 2026 or already looking ahead? Secure your place in the 2027 camp now before seats fill up.
+              ))}
+            </dl>
+          }
+        >
+          <p>
+            BizBuzz Camp is a free summer entrepreneurship program run by high school students
+            in Naperville for elementary and middle school students. Campers work through
+            ideation, finance, marketing, prototyping and public speaking, and finish by
+            pitching a business of their own.
           </p>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSe_MouwxaWfjA6UeibsY2lrZoZky-n13jffMH7aP1UNiuDGzQ/viewform?usp=preview"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-10 py-4 bg-white text-[#2e1065] font-bold rounded-full text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
-          >
-            Guarantee Your 2027 Spot
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-          <p className="text-sm text-white/50 mt-4">Limited seats available</p>
-        </div>
-      </section>
+          <p className="mt-s4">
+            Nothing about 2027 is set — no dates, no session list, no venue — and this page
+            would rather say so than post a placeholder schedule. What exists is the form.
+            Names on it get the 2027 dates and the registration link before either is
+            published here.
+          </p>
+        </SplitBrief>
+      </Section>
 
-    </div>
+      <Section index="02" label="What 2026 did">
+        <Ledger items={season2026} />
+        <div className="mt-s5">
+          <Link
+            href="/camps-2026"
+            className="font-display text-16 font-medium text-ink underline decoration-rule decoration-1 underline-offset-4 transition-colors duration-120 ease-out hover:decoration-accent focus-visible:decoration-accent"
+          >
+            Every 2026 session, dated and photographed{' '}
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </Section>
+
+      <InvertedBand
+        title="Add your name for Summer 2027"
+        standfirst="The form is open now. It is how we reach you with the 2027 dates, the tracks and the registration link the moment they are set."
+      >
+        <Button href={INTEREST_FORM_URL}>Open the 2027 interest form</Button>
+      </InvertedBand>
+    </>
   );
 }

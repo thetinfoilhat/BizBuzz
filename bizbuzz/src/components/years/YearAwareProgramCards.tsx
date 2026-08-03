@@ -1,213 +1,200 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import YearSwitcherChips from "./YearSwitcherChips";
+import Tag from "@/components/ui/Tag";
+import { YEARS } from "@/lib/years";
+import type { Year } from "@/lib/years";
 
-const programsByYear = {
+type SeasonYear = Exclude<Year, 2027>;
+
+interface Program {
+  title: string;
+  description: string;
+  href: string;
+  /** Mono facts line. Every figure here is published on the linked page. */
+  facts: string[];
+  /** Only where the linked page actually publishes a status. */
+  status?: { variant: "status-open" | "status-archive"; label: string };
+}
+
+const seasonOrder: readonly SeasonYear[] = [2024, 2025, 2026];
+
+// Office hours are not year-scoped — the booking page has been open throughout,
+// so the same record belongs to every season.
+const officeHours: Program = {
+  title: "1:1 Office Hours",
+  description:
+    "A one-on-one slot for feedback on a business idea: online over Google Meet on weekdays, in person at a Naperville library on weekends.",
+  href: "/sessions",
+  facts: ["Free", "Online or in person", "By appointment"],
+  status: { variant: "status-open", label: "Open" },
+};
+
+const programsByYear: Record<SeasonYear, Program[]> = {
   2024: [
     {
       title: "Summer Camp",
-      description: "Free six-week entrepreneurship camp featuring 6 sessions, 7 guest speakers, and hands-on business challenges. 110 students learned ideation, marketing, finance, and pitching.",
-      image: "/program_cards/camps.jpg",
-      link: "/camps-2024",
-      stats: "6 Sessions • 7 Speakers • 110 Students",
-      badge: undefined
+      description:
+        "Six free weekly sessions from June 12 to July 17, 2024, across two Naperville libraries. Seven guest speakers, and 110 students taking an idea from ideation through marketing, finance and public speaking to a Fish Tank pitch.",
+      href: "/camps-2024",
+      facts: ["6 sessions", "7 guest speakers", "110 students"],
+      status: { variant: "status-archive", label: "Archive" },
     },
     {
       title: "Fish Tank",
-      description: "Our inaugural pitch competition at College of DuPage where 100+ young entrepreneurs competed for $750 in prizes, mentorship, and resources to launch their businesses.",
-      image: "/program_cards/fishtank.jpg",
-      link: "/fish-tank-2024",
-      stats: "100+ Competitors • 11 Judges • $750 in Prizes",
-      badge: undefined
+      description:
+        "The first edition, over two days at College of DuPage in Glen Ellyn, where 3rd–9th grade students from across Chicagoland pitched businesses of their own to eleven judges for $750 in prizes.",
+      href: "/fish-tank-2024",
+      facts: ["July 24–25, 2024", "80+ competitors", "11 judges"],
+      status: { variant: "status-archive", label: "Archive" },
     },
     {
       title: "Workshops",
-      description: "7 workshop series across elementary schools, business fairs, and community centers, reaching 560 students with condensed entrepreneurship curriculum and hands-on activities.",
-      image: "/program_cards/workshops.jpg",
-      link: "/workshops",
-      stats: "7 Workshops • 17 Sessions • 560 Students",
-      badge: undefined
+      description:
+        "Six programmes taken into elementary and middle schools, a learning centre and the Naperville Children's Business Fair between May and December 2024.",
+      href: "/workshops",
+      facts: ["6 programmes", "13 sessions", "530 students"],
+      status: { variant: "status-archive", label: "Archive" },
     },
-    {
-      title: "1:1 Mentorship",
-      description: "Personalized one-on-one sessions providing business incubation support, curriculum reinforcement, and tailored mentorship in innovation and finance.",
-      image: "/program_cards/mentorship.jpg",
-      link: "/sessions",
-      stats: "Custom Sessions • Individual Support",
-      badge: undefined
-    }
+    officeHours,
   ],
   2025: [
     {
       title: "Summer Camp",
-      description: "Free seven-week entrepreneurship camp featuring 7 sessions, 5 guest speakers including Shark Tank alum Lindsey Fleischhauer and Mayor Scott Wehrli, and hands-on business challenges. 120 students learned ideation, marketing, finance, and pitching.",
-      image: "/program_cards/camps.jpg",
-      link: "/camps-2025",
-      stats: "7 Sessions • 5 Speakers • 120 Students",
-      badge: undefined
+      description:
+        "Seven free sessions at the 95th Street Library from June 6 to July 25, 2025, with five guest speakers including Shark Tank alum Lindsey Fleischhauer and Naperville Mayor Scott Wehrli. 120 students took part.",
+      href: "/camps-2025",
+      facts: ["7 sessions", "5 guest speakers", "120 students"],
+      status: { variant: "status-archive", label: "Archive" },
     },
     {
       title: "Fish Tank",
-      description: "Our second annual pitch competition at Benedictine University where 70 young entrepreneurs competed for funding, mentorship, and resources to launch their businesses.",
-      image: "/program_cards/fishtank.jpg",
-      link: "/fish-tank-2025",
-      stats: "70 Competitors • 10 Judges • Prizes & Funding",
-      badge: undefined
+      description:
+        "The second edition, over two days at Benedictine University Goodwin Hall of Business in Lisle: 70+ competitors, twelve finalists, eleven judges and five placed teams.",
+      href: "/fish-tank-2025",
+      facts: ["August 2–3, 2025", "70+ competitors", "11 judges"],
+      status: { variant: "status-archive", label: "Archive" },
     },
     {
       title: "Workshops",
-      description: "Workshop series across elementary schools, business fairs, and community centers, reaching students with condensed entrepreneurship curriculum and hands-on activities.",
-      image: "/program_cards/workshops.jpg",
-      link: "/workshops",
-      stats: "Multiple Workshops • Hands-On Learning",
-      badge: undefined
+      description:
+        "Two programmes in 2025: the DuPage Children's Business Fair workshop series in the spring, and the Naperville Children's Business Fair in August.",
+      href: "/workshops",
+      facts: ["2 programmes", "5 sessions", "180 students"],
+      status: { variant: "status-archive", label: "Archive" },
     },
-    {
-      title: "1:1 Mentorship",
-      description: "Personalized one-on-one sessions providing business incubation support, curriculum reinforcement, and tailored mentorship in innovation and finance.",
-      image: "/program_cards/mentorship.jpg",
-      link: "/sessions",
-      stats: "Custom Sessions • Individual Support",
-      badge: undefined
-    }
+    officeHours,
   ],
   2026: [
     {
       title: "Summer Camp",
-      description: "Coming Summer 2026 — our next entrepreneurship camp is in the works. Stay tuned for dates, sessions, guest speakers, and registration details.",
-      image: "/program_cards/camps.jpg",
-      link: "/camps-2026",
-      stats: "Details Coming Soon",
-      badge: "Coming Soon"
+      description:
+        "Two free tracks running side by side — KidPreneur Camp and VentureLab — across six consecutive Fridays from June 5 to July 10, 2026, at two Naperville libraries. Guest speakers were Isha Elandassery and Naperville Mayor Scott Wehrli.",
+      href: "/camps-2026",
+      facts: ["12 sessions", "2 tracks", "2 guest speakers"],
+      status: { variant: "status-archive", label: "Season complete" },
     },
     {
       title: "Fish Tank",
-      description: "The 2026 Fish Tank pitch competition is coming. More students, more judges, bigger prizes. Details will be announced as the event approaches.",
-      image: "/program_cards/fishtank.jpg",
-      link: "/fish-tank-2026",
-      stats: "Details Coming Soon",
-      badge: "Coming Soon"
+      description:
+        "The 2026 pitch competition, running a Kidpreneurs track and a Venture Lab track. The enrollment form is open; the dates and the venue are not announced yet.",
+      href: "/fish-tank-2026",
+      facts: ["Dates not announced", "Kidpreneurs track", "Venture Lab track"],
+      status: { variant: "status-open", label: "Enrollment open" },
     },
     {
       title: "Workshops",
-      description: "Workshop series across elementary schools, business fairs, and community centers, reaching students with condensed entrepreneurship curriculum and hands-on activities.",
-      image: "/program_cards/workshops.jpg",
-      link: "/workshops",
-      stats: "Details Coming Soon",
-      badge: undefined
+      description:
+        "No 2026 workshop is on the record yet. The archive runs from May 2024 to August 2025 — eight programmes, eighteen sessions and 710 students — and schools can still write to ask for one.",
+      href: "/workshops",
+      facts: ["8 programmes", "18 sessions", "710 students"],
     },
-    {
-      title: "1:1 Mentorship",
-      description: "Personalized one-on-one sessions providing business incubation support, curriculum reinforcement, and tailored mentorship in innovation and finance.",
-      image: "/program_cards/mentorship.jpg",
-      link: "/sessions",
-      stats: "Custom Sessions • Individual Support",
-      badge: undefined
-    }
-  ]
+    officeHours,
+  ],
 };
 
-export default function YearAwareProgramCards() {
-  const [selectedYear, setSelectedYear] = useState<2024 | 2025 | 2026>(2024);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+// ── Programme record ───────────────────────────────────────────
 
-  const currentPrograms = programsByYear[selectedYear];
-
-  return (
-    <section className="py-20 bg-white" id="programs">
-      <div className="max-w-[1500px] mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="text-center mb-8">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1e293b]">
-            Our Programs
-          </h2>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8">
-            Select a year to explore that season&apos;s programs
-          </p>
-        </div>
-
-        {/* Year Switcher */}
-        <YearSwitcherChips 
-          selectedYear={selectedYear} 
-          onYearChange={setSelectedYear}
-          className="mb-12"
-        />
-
-        {/* Program Cards with Animation */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={selectedYear}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
-            {currentPrograms.map((program, index) => (
-              <motion.div
-                key={`${selectedYear}-${program.title}`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-              >
-                <Link 
-                  href={program.link}
-                  className="block group relative"
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  <div className="relative h-[500px] rounded-xl overflow-hidden ring-2 ring-transparent hover:ring-4 hover:ring-[#38b6ff]/30 transition-all duration-300">
-                    {/* Badge */}
-                    {program.badge && (
-                      <div className="absolute top-4 right-4 z-20">
-                        <div className={`px-3 py-1 rounded-full text-xs font-bold ${
-                          selectedYear === 2024 
-                            ? 'bg-[#38b6ff] text-white'
-                            : 'bg-[#FFBF00] text-white'
-                        } shadow-lg`}>
-                          {program.badge}
-                        </div>
-                      </div>
-                    )}
-
-                    <Image
-                      src={program.image}
-                      alt={program.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    
-                    {/* Default state with title */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-transparent">
-                      <div className="p-8">
-                        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white whitespace-pre-line">
-                          {program.title}
-                        </h3>
-                      </div>
-                    </div>
-                    
-                    {/* Hover state with description */}
-                    <div className={`absolute inset-0 bg-black/90 flex flex-col justify-between transition-opacity duration-300 ${
-                      hoveredIndex === index ? 'opacity-100' : 'opacity-0'
-                    }`}>
-                      <div className="p-6 flex-1 flex flex-col justify-center">
-                        <p className="text-white text-base md:text-lg leading-relaxed">
-                          {program.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </section>
-  );
+interface ProgramRowProps {
+  program: Program;
+  index: number;
 }
 
+const ProgramRow = ({ program, index }: ProgramRowProps) => (
+  <li className="border-b border-rule">
+    <Link
+      href={program.href}
+      className="group relative flex flex-col gap-s3 bg-paper py-s5 pl-s5 pr-s2 transition-colors duration-120 ease-out hover:bg-panel focus-visible:bg-panel min-[900px]:flex-row min-[900px]:gap-s5"
+    >
+      <span
+        aria-hidden="true"
+        className="absolute inset-y-0 left-0 w-[var(--rule-accent-w)] transition-colors duration-120 ease-out group-hover:bg-accent group-focus-visible:bg-accent"
+      />
+      <span className="shrink-0 font-mono text-12 font-medium tracking-[0.08em] text-ink-muted min-[900px]:w-s9">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-center gap-s3">
+          <h3 className="text-26" style={{ fontVariationSettings: "'wdth' 105, 'wght' 600" }}>
+            {program.title}
+          </h3>
+          {program.status && <Tag variant={program.status.variant}>{program.status.label}</Tag>}
+        </div>
+        <p className="mt-s3 font-mono text-12 font-medium uppercase tracking-[0.08em] text-ink-muted">
+          {program.facts.join(" · ")}
+        </p>
+        <p className="mt-s4 max-w-measure font-prose text-18 text-ink-2">{program.description}</p>
+      </div>
+      <span aria-hidden="true" className="shrink-0 font-mono text-12 text-ink-2">
+        →
+      </span>
+    </Link>
+  </li>
+);
+
+// ── Section ────────────────────────────────────────────────────
+
+export default function YearAwareProgramCards() {
+  const [selectedYear, setSelectedYear] = useState<SeasonYear>(2026);
+
+  return (
+    <>
+      <h2
+        className="text-26 min-[900px]:text-34"
+        style={{ fontVariationSettings: "'wdth' 112, 'wght' 650" }}
+      >
+        Four programmes, one season at a time
+      </h2>
+      <p className="mt-s5 max-w-measure font-prose text-18 text-ink-2">
+        Every programme is free. Choose a season to read what ran that year and where it is
+        written up.
+      </p>
+      <div role="group" aria-label="Season" className="mt-s5 flex flex-wrap gap-s2">
+        {seasonOrder.map((year) => (
+          <button
+            key={year}
+            type="button"
+            aria-pressed={selectedYear === year}
+            onClick={() => setSelectedYear(year)}
+            className={`inline-flex items-center gap-s2 rounded-control border border-rule px-s5 py-s3 font-display text-16 font-medium transition-colors duration-120 ease-out ${
+              selectedYear === year ? "bg-ink text-on-ink" : "bg-paper text-ink hover:bg-panel"
+            }`}
+          >
+            <span
+              aria-hidden="true"
+              className="h-s2 w-s2 shrink-0 rounded-none"
+              style={{ backgroundColor: `var(${YEARS[year].cssVar})` }}
+            />
+            {year}
+          </button>
+        ))}
+      </div>
+      <ol className="mt-s7 border-t border-rule">
+        {programsByYear[selectedYear].map((program, index) => (
+          <ProgramRow key={program.title} program={program} index={index} />
+        ))}
+      </ol>
+    </>
+  );
+}

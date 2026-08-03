@@ -1,21 +1,20 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 
-// Import all logos
+// The directory name carries a space and square brackets, and one file is
+// `erasebg-transformed (23) (1).png`. Both are frozen, which is why the alt text
+// is positional rather than derived from the filename.
 const logoPath = "/school_logos/[Home] School Logos/";
 const logoFiles = [
-  "Cass.png", 
-  "Neuqua Valley.png", 
-  "Avery Coonley.png", 
-  "Granger.png", 
-  "Kennedy.png", 
-  "Twin Groves.png", 
-  "Springbrook.png", 
-  "erasebg-transformed (23) (1).png", 
-  "Jefferson.png", 
-  "Homer.png", 
+  "Cass.png",
+  "Neuqua Valley.png",
+  "Avery Coonley.png",
+  "Granger.png",
+  "Kennedy.png",
+  "Twin Groves.png",
+  "Springbrook.png",
+  "erasebg-transformed (23) (1).png",
+  "Jefferson.png",
+  "Homer.png",
   "Waubonsie Valley.png",
   "Margaret Mead.png",
   "Crone.png",
@@ -31,80 +30,31 @@ const logoFiles = [
   "Summit Hill.png",
   "Madison.png",
   "Lake Zurich North.png",
-  "Naperville North.png"
+  "Naperville North.png",
 ];
 
-const LogoScroller = () => {
-  // Create a quadruple set of logos to ensure seamless scrolling
-  const quadLogos = [...logoFiles, ...logoFiles, ...logoFiles, ...logoFiles];
-  
-  return (
-    <section className="w-full overflow-hidden py-20 bg-white">
-      {/* Top row - scrolling left */}
-      <div className="relative mb-6 overflow-hidden">
-        <motion.div
-          className="flex whitespace-nowrap"
-          animate={{
-            x: [0, -50 * (logoFiles.length * 2)]
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 60,
-              ease: "linear",
-            }
-          }}
-          style={{ width: "fit-content" }}
-        >
-          {quadLogos.map((logo, index) => (
-            <div key={`top-${index}`} className="inline-block w-40 h-20 mx-4">
-              <div className="relative w-full h-full">
-                <Image
-                  src={`${logoPath}${logo}`}
-                  alt={`School logo ${index % logoFiles.length + 1}`}
-                  fill
-                  style={{ objectFit: "contain" }}
-                />
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </div>
+// Twenty-six marks in fixed static cells. This was two 60-second infinite
+// marquees with no pause control — a WCAG 2.2.2 Level A failure — and the
+// direction has nothing on the site move without user input.
+const LogoScroller = () => (
+  <ul className="grid grid-cols-[repeat(auto-fill,minmax(var(--space-11),1fr))] gap-s2">
+    {logoFiles.map((logo, index) => (
+      <li
+        key={logo}
+        className="flex h-s10 items-center justify-center border border-rule bg-panel p-s3"
+      >
+        <div className="relative h-full w-full">
+          <Image
+            src={`${logoPath}${logo}`}
+            alt={`School logo ${index + 1}`}
+            fill
+            sizes="(min-width: 600px) 180px, 45vw"
+            className="object-contain"
+          />
+        </div>
+      </li>
+    ))}
+  </ul>
+);
 
-      {/* Bottom row - scrolling right */}
-      <div className="relative overflow-hidden">
-        <motion.div
-          className="flex whitespace-nowrap"
-          animate={{
-            x: [-50 * (logoFiles.length * 2), 0]
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 60,
-              ease: "linear",
-            }
-          }}
-          style={{ width: "fit-content" }}
-        >
-          {quadLogos.map((logo, index) => (
-            <div key={`bottom-${index}`} className="inline-block w-40 h-20 mx-4">
-              <div className="relative w-full h-full">
-                <Image
-                  src={`${logoPath}${logo}`}
-                  alt={`School logo ${index % logoFiles.length + 1}`}
-                  fill
-                  style={{ objectFit: "contain" }}
-                />
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-export default LogoScroller; 
+export default LogoScroller;

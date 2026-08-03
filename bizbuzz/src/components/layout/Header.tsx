@@ -1,219 +1,325 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import Container from "@/components/ui/Container";
+import { YEARS } from "@/lib/years";
+import type { Year } from "@/lib/years";
 
-const Header = () => {
+interface NavChild {
+  href: string;
+  label: string;
+  year: Year;
+}
+
+interface NavLink {
+  href: string;
+  label: string;
+  items?: NavChild[];
+}
+
+// Labels and grouping are carried over unchanged; only the presentation moved.
+const navLinks: NavLink[] = [
+  {
+    href: "/camps-2024",
+    label: "Camps",
+    items: [
+      { href: "/camps-2024", label: "2024 Camps", year: 2024 },
+      { href: "/camps-2025", label: "2025 Camps", year: 2025 },
+      { href: "/camps-2026", label: "2026 Camps", year: 2026 },
+      { href: "/camps-2027", label: "2027 Camps", year: 2027 },
+    ],
+  },
+  { href: "/workshops", label: "Workshops" },
+  {
+    href: "/fish-tank-2024",
+    label: "Fish Tank",
+    items: [
+      { href: "/fish-tank-2024", label: "2024 Fish Tank", year: 2024 },
+      { href: "/fish-tank-2025", label: "2025 Fish Tank", year: 2025 },
+      { href: "/fish-tank-2026", label: "2026 Fish Tank", year: 2026 },
+    ],
+  },
+  { href: "/sessions", label: "Office Hours & FAQs" },
+  { href: "/about", label: "About Us" },
+  { href: "/sponsors", label: "Sponsors" },
+];
+
+// A nav item fills the bar so its underline lands on the bar's bottom edge.
+const NAV_ITEM_CLASS =
+  "group relative flex h-16 items-center gap-s2 whitespace-nowrap font-display text-16 font-medium text-ink";
+
+// Idle nothing, hover a 1px amber rule, active a 3px one. The text colour itself
+// never shifts.
+const navUnderlineClass = (active: boolean) =>
+  active
+    ? "pointer-events-none absolute inset-x-0 bottom-0 h-[var(--rule-accent-w)] bg-accent"
+    : "pointer-events-none absolute inset-x-0 bottom-0 h-[var(--rule-w)] bg-transparent transition-colors duration-120 ease-out group-hover:bg-accent group-focus-visible:bg-accent";
+
+const isActive = (pathname: string, link: NavLink) =>
+  pathname === link.href || (link.items?.some((item) => pathname === item.href) ?? false);
+
+// ── Year chip ────────────────────────────────────────────────────────────────
+
+// The 8×8 hard square marker. It is the whole of the year identity in the nav.
+function YearChip({ year }: { year: Year }) {
+  return (
+    <span
+      aria-hidden="true"
+      className="h-s2 w-s2 shrink-0 rounded-none"
+      style={{ backgroundColor: `var(${YEARS[year].cssVar})` }}
+    />
+  );
+}
+
+// ── Desktop dropdown ─────────────────────────────────────────────────────────
+
+interface NavDropdownProps {
+  link: NavLink;
+  items: NavChild[];
+  pathname: string;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+// Opens on click and on hover, closes on Escape with focus handed back to the
+// trigger, and on tabbing out. The panel is unmounted when closed, so its links
+// are in the tab order only while they are visible.
+function NavDropdown({ link, items, pathname, open, onOpenChange }: NavDropdownProps) {
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => onOpenChange(true)}
+      onMouseLeave={() => onOpenChange(false)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          onOpenChange(false);
+        }
+      }}
+      onKeyDown={(event) => {
+        if (event.key !== "Escape" || !open) return;
+        onOpenChange(false);
+        triggerRef.current?.focus();
+      }}
+    >
+      <button
+        ref={triggerRef}
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => onOpenChange(!open)}
+        className={NAV_ITEM_CLASS}
+      >
+        {link.label}
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+          className={`h-s4 w-s4 transition-transform duration-200 ease-out ${open ? "rotate-180" : ""}`}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+        <span aria-hidden="true" className={navUnderlineClass(isActive(pathname, link))} />
+      </button>
+
+      {open && (
+        <ul className="absolute left-0 top-full z-50 w-64 border border-rule bg-panel shadow-float">
+          {items.map((item) => {
+            const current = pathname === item.href;
+            return (
+              <li key={item.href} className="border-t border-rule first:border-t-0">
+                <Link
+                  href={item.href}
+                  aria-current={current ? "page" : undefined}
+                  className={`group relative flex items-center gap-s3 py-s3 pl-s4 pr-s3 font-display text-16 font-medium text-ink transition-colors duration-120 ease-out hover:bg-paper focus-visible:bg-paper ${
+                    current ? "bg-paper" : ""
+                  }`}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={`absolute inset-y-0 left-0 w-[var(--rule-accent-w)] transition-colors duration-120 ease-out group-hover:bg-accent group-focus-visible:bg-accent ${
+                      current ? "bg-accent" : ""
+                    }`}
+                  />
+                  <YearChip year={item.year} />
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+// ── Header ───────────────────────────────────────────────────────────────────
+
+export default function Header() {
   const pathname = usePathname();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Close menu when clicking outside
+  // A pointer press anywhere outside the bar dismisses whatever is open.
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (isMenuOpen && !target.closest('.mobile-menu') && !target.closest('.hamburger-menu')) {
-        setIsMenuOpen(false);
-      }
+    if (!openDropdown && !isMenuOpen) return;
+
+    const handlePointerDown = (event: MouseEvent) => {
+      if (headerRef.current?.contains(event.target as Node)) return;
+      setOpenDropdown(null);
+      setIsMenuOpen(false);
     };
 
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener('mousedown', handlePointerDown);
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('mousedown', handlePointerDown);
     };
-  }, [isMenuOpen]);
+  }, [openDropdown, isMenuOpen]);
 
-  // Close menu when route changes
+  // Close everything when the route changes.
   useEffect(() => {
+    setOpenDropdown(null);
     setIsMenuOpen(false);
   }, [pathname]);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const navLinks = [
-    {
-      href: "/camps-2024",
-      label: "Camps",
-      hasDropdown: true,
-      dropdownItems: [
-        { href: "/camps-2024", label: "2024 Camps", color: "#38b6ff" },
-        { href: "/camps-2025", label: "2025 Camps", color: "#FFBF00" },
-        { href: "/camps-2026", label: "2026 Camps", color: "#10b981" },
-        { href: "/camps-2027", label: "2027 Camps", color: "#8b5cf6" }
-      ]
-    },
-    { href: "/workshops", label: "Workshops" },
-    {
-      href: "/fish-tank-2024",
-      label: "Fish Tank",
-      hasDropdown: true,
-      dropdownItems: [
-        { href: "/fish-tank-2024", label: "2024 Fish Tank", color: "#38b6ff" },
-        { href: "/fish-tank-2025", label: "2025 Fish Tank", color: "#FFBF00" },
-        { href: "/fish-tank-2026", label: "2026 Fish Tank", color: "#10b981" }
-      ]
-    },
-    { href: "/sessions", label: "Office Hours & FAQs" },
-    { href: "/about", label: "About Us" },
-    { href: "/sponsors", label: "Sponsors" },
-  ];
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-0 sm:px-2 lg:px-4">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center pl-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="relative w-6 h-6">
-                <Image 
-                  src="/logo.png" 
-                  alt="BizBuzz Logo" 
-                  fill 
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex items-center">
-                <span className="text-xl font-semibold text-[#3AB6FF]">BizBuzz</span>
-                <span className="text-xl font-semibold text-[#FFD700] ml-1">NFP</span>
-              </div>
-            </Link>
-          </div>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 pr-4">
-            {navLinks.map((link) => (
-              link.hasDropdown ? (
-                <div key={link.href} className="relative group">
-                  <button 
-                    className={`text-sm transition-colors flex items-center ${
-                      pathname === link.href || link.dropdownItems?.some(item => pathname === item.href || (item.href.includes('#') && pathname.startsWith(item.href.split('#')[0])))
-                        ? "text-[#3AB6FF] font-medium" 
-                        : "text-[#000000] hover:text-[#3AB6FF]"
-                    }`}
-                  >
-                    {link.label}
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
-                    <div className="py-2">
-                      {link.dropdownItems?.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className={`block px-4 py-3 text-sm transition-colors hover:bg-gray-50 ${
-                            pathname === item.href
-                              ? "bg-blue-50 font-medium"
-                              : ""
-                          }`}
-                        >
-                          <div className="flex items-center">
-                            {item.color && (
-                              <div 
-                                className="w-3 h-3 rounded-full mr-2"
-                                style={{ backgroundColor: item.color }}
-                              ></div>
-                            )}
-                            <span style={{ color: item.color || '#000000' }}>
-                              {item.label}
-                            </span>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <Link 
+    <header
+      ref={headerRef}
+      onKeyDown={(event) => {
+        if (event.key !== "Escape" || !isMenuOpen) return;
+        setIsMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }}
+      className="fixed inset-x-0 top-0 z-50 border-b border-rule bg-paper"
+    >
+      <Container>
+        <div className="flex h-16 items-center justify-between gap-s5">
+          <Link href="/" className="flex items-center gap-s2">
+            <span className="relative block h-s5 w-s5">
+              <Image
+                src="/logo.png"
+                alt=""
+                fill
+                sizes="24px"
+                className="bg-transparent object-contain"
+              />
+            </span>
+            <span
+              className="font-display text-21 text-ink"
+              style={{ fontVariationSettings: "'wdth' 112, 'wght' 650" }}
+            >
+              BizBuzz
+            </span>
+            <span className="font-mono text-12 font-medium uppercase tracking-[0.08em] text-ink-2">
+              NFP
+            </span>
+          </Link>
+
+          <nav aria-label="Primary" className="hidden items-center gap-s5 lg:flex">
+            {navLinks.map((link) =>
+              link.items ? (
+                <NavDropdown
                   key={link.href}
-                  href={link.href} 
-                  className={`text-sm transition-colors ${
-                    pathname === link.href 
-                      ? "text-[#3AB6FF] font-medium" 
-                      : "text-[#000000] hover:text-[#3AB6FF]"
-                  }`}
+                  link={link}
+                  items={link.items}
+                  pathname={pathname}
+                  open={openDropdown === link.href}
+                  onOpenChange={(open) => setOpenDropdown(open ? link.href : null)}
+                />
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={pathname === link.href ? "page" : undefined}
+                  className={NAV_ITEM_CLASS}
                 >
                   {link.label}
+                  <span aria-hidden="true" className={navUnderlineClass(isActive(pathname, link))} />
                 </Link>
               )
-            ))}
+            )}
           </nav>
-          
-          {/* Mobile Hamburger Button */}
-          <button 
-            className="md:hidden flex items-center pr-4 hamburger-menu"
-            onClick={toggleMenu}
+
+          <button
+            ref={menuButtonRef}
+            type="button"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-nav"
             aria-label="Toggle menu"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="flex h-16 items-center text-ink lg:hidden"
           >
-            <div className="space-y-1.5">
-              <span className={`block w-6 h-0.5 bg-[#3AB6FF] transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-              <span className={`block w-6 h-0.5 bg-[#3AB6FF] transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-              <span className={`block w-6 h-0.5 bg-[#3AB6FF] transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-            </div>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              className="h-s5 w-s5"
+            >
+              {isMenuOpen ? (
+                <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
+              ) : (
+                <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
           </button>
         </div>
-      </div>
-      
-      {/* Mobile Navigation Menu */}
-      <div 
-        className={`mobile-menu md:hidden absolute w-full bg-white shadow-md transition-all duration-300 overflow-hidden ${
-          isMenuOpen ? 'max-h-screen border-t border-gray-100' : 'max-h-0'
-        }`}
-      >
-        <div className="px-4 py-3">
-          {navLinks.map((link) => (
-            <div key={link.href}>
-              {link.hasDropdown ? (
-                <div className="mb-2">
-                  <div className="text-[#000000] font-semibold py-2 text-base border-b border-gray-100">
-                    {link.label}
-                  </div>
-                  {link.dropdownItems?.map((item) => (
+      </Container>
+
+      {isMenuOpen && (
+        <nav
+          id="mobile-nav"
+          aria-label="Primary"
+          className="absolute inset-x-0 top-16 max-h-[calc(100dvh-64px)] overflow-y-auto border-t border-rule bg-paper shadow-float lg:hidden"
+        >
+          <Container>
+            <ul className="py-s2">
+              {navLinks.map((link) => (
+                <li key={link.href} className="border-t border-rule first:border-t-0">
+                  {link.items ? (
+                    <div className="py-s3">
+                      <p className="font-mono text-12 font-medium uppercase tracking-[0.08em] text-ink-muted">
+                        {link.label}
+                      </p>
+                      <ul className="mt-s2">
+                        {link.items.map((item) => (
+                          <li key={item.href}>
+                            <Link
+                              href={item.href}
+                              aria-current={pathname === item.href ? "page" : undefined}
+                              className="-mx-s3 flex items-center gap-s3 px-s3 py-s3 font-display text-16 font-medium text-ink transition-colors duration-120 ease-out hover:bg-panel focus-visible:bg-panel"
+                            >
+                              <YearChip year={item.year} />
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : (
                     <Link
-                      key={item.href}
-                      href={item.href}
-                      className={`block py-2 pl-4 text-sm transition-colors ${
-                        pathname === item.href
-                          ? "font-medium"
-                          : "hover:bg-gray-50"
-                      }`}
+                      href={link.href}
+                      aria-current={pathname === link.href ? "page" : undefined}
+                      className="-mx-s3 flex items-center px-s3 py-s4 font-display text-16 font-medium text-ink transition-colors duration-120 ease-out hover:bg-panel focus-visible:bg-panel"
                     >
-                      <div className="flex items-center">
-                        {item.color && (
-                          <div 
-                            className="w-3 h-3 rounded-full mr-2"
-                            style={{ backgroundColor: item.color }}
-                          ></div>
-                        )}
-                        <span style={{ color: item.color || '#000000' }}>
-                          {item.label}
-                        </span>
-                      </div>
+                      {link.label}
                     </Link>
-                  ))}
-                </div>
-              ) : (
-                <Link 
-                  href={link.href} 
-                  className={`block py-3 text-base transition-colors ${
-                    pathname === link.href 
-                      ? "text-[#3AB6FF] font-medium" 
-                      : "text-[#000000] hover:text-[#3AB6FF]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </nav>
+      )}
     </header>
   );
-};
-
-export default Header; 
+}

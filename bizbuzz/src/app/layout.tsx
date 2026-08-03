@@ -1,11 +1,30 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Archivo, Newsreader, Spline_Sans_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
-const poppins = Poppins({
+// Display. The wdth axis is the identity — see .relay/design.md "Type".
+const display = Archivo({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  axes: ["wdth"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+// Prose only: paragraphs, standfirsts, pull quotes. Never inside a control.
+const prose = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-prose",
+  display: "swap",
+});
+
+// Labels, tags, captions, dates, index numerals.
+const mono = Spline_Sans_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -15,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | BizBuzz NFP",
   },
   description:
-    "BizBuzz NFP is a student-run 501(c)(3) nonprofit in Naperville, Illinois teaching entrepreneurship to elementary and middle school students through free summer camps, workshops, and the Fish Tank pitch competition.",
+    "BizBuzz NFP is a student-run nonprofit in Naperville, Illinois, currently seeking 501(c)(3) status, teaching entrepreneurship to elementary and middle school students through free summer camps, workshops, and the Fish Tank pitch competition.",
   keywords: [
     "BizBuzz",
     "youth entrepreneurship",
@@ -62,10 +81,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>
+    <html
+      lang="en"
+      className={`${display.variable} ${prose.variable} ${mono.variable}`}
+    >
+      <body className="flex min-h-[100dvh] flex-col">
         <Header />
-        <main className="pt-16">{children}</main>
+        <main className="flex-1 pt-16">{children}</main>
+        <Footer />
       </body>
     </html>
   );
