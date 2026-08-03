@@ -1,15 +1,34 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Figtree, JetBrains_Mono, Newsreader } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
+import { SITE_URL } from "@/lib/site";
 
-const poppins = Poppins({
+/* Two voices: Newsreader (editorial serif) says what we believe, Figtree
+   (geometric sans) says how it works. JetBrains Mono labels data. */
+const newsreader = Newsreader({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-figtree",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.bizbuzz.it"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "BizBuzz NFP | Youth Entrepreneurship Camps & Fish Tank in Naperville",
     template: "%s | BizBuzz NFP",
@@ -29,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "BizBuzz NFP",
-    url: "https://www.bizbuzz.it",
+    url: SITE_URL,
     title: "BizBuzz NFP | Youth Entrepreneurship Camps & Fish Tank",
     description:
       "Free entrepreneurship camps, workshops, and pitch competitions for elementary and middle school students across Chicagoland.",
@@ -48,11 +67,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/logo.png', type: 'image/png' },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.png", type: "image/png" },
     ],
-    shortcut: '/logo.png',
-    apple: '/logo.png',
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 
@@ -62,11 +81,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>
-        <Header />
-        <main className="pt-16">{children}</main>
-      </body>
+    <html
+      lang="en"
+      className={`${newsreader.variable} ${figtree.variable} ${jetbrainsMono.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }
