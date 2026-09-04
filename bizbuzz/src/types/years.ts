@@ -4,10 +4,11 @@ export type ProgramKind = 'camp' | 'workshop' | 'fish-tank';
 
 export interface YearKPI {
   students: number;
-  schools: number;
   sessions: number;         // total sessions delivered
   programsRun: number;      // total programs run
   attendance: number;       // cumulative attendance
+  schools?: number;         // only when tracked for that season alone
+  officeHours?: number;     // one-on-one mentoring hours logged
   dollarsRaised?: number;   // if available
   pressMentions?: number;
   volunteers?: number;
@@ -56,7 +57,7 @@ export interface PressItem {
 }
 
 export interface YearData {
-  year: 2024 | 2025;
+  year: number;
   summary: string;
   kpis: YearKPI;
   programs: ProgramEvent[];

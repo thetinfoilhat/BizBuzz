@@ -1,15 +1,12 @@
 {
   "year": 2024,
-  "summary": "Our inaugural year: BizBuzz delivered comprehensive entrepreneurship programs including summer camps, year-round workshops, and the Fish Tank pitch competition across DuPage County, reaching nearly 1,000 students.",
+  "summary": "Our inaugural season: BizBuzz delivered school talks, a six-week summer entrepreneurship camp, the Fish Tank pitch competition, and year-round workshops across DuPage County, reaching 720 students.",
   "kpis": {
-    "students": 936,
-    "schools": 79,
-    "sessions": 410,
-    "programsRun": 14,
-    "attendance": 1100,
-    "dollarsRaised": 10242,
-    "pressMentions": 5,
-    "volunteers": 60
+    "students": 720,
+    "sessions": 18,
+    "programsRun": 13,
+    "attendance": 720,
+    "officeHours": 381
   },
   "programs": [
     {
@@ -278,13 +275,7 @@
       "logo": "/school_logos/[Home] School Logos/Madison.png"
     }
   ],
-  "press": [
-    {
-      "outlet": "Local Naperville News",
-      "headline": "Young Entrepreneurs Pitch Big Ideas at Fish Tank 2024",
-      "href": "https://example.com/fish-tank-2024"
-    }
-  ],
+  "press": [],
   "gallery": [
     "/fish_tank/1.jpg",
     "/fish_tank/2.jpg",
@@ -300,4 +291,3 @@
     "/image_gallery/2.jpg"
   ]
 }
-

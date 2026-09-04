@@ -273,10 +273,14 @@ const PEOPLE = {
 // ============================================================================
 
 const impactStats = [
-  { label: "Students Taught", value: "1,172", description: "across camps, competitions, and workshops since 2024" },
-  { label: "Schools Engaged", value: "79", description: "elementary, middle, and high schools represented across Illinois" },
-  { label: "Funding Raised", value: "$15,000+", description: "from 50+ community partners, organizations, and sponsors" },
-  { label: "Student Staff", value: "112", description: "high school volunteer staff and instructors" }
+  { label: "Students Taught", value: "1,584+", description: "across camps, competitions, and workshops since 2024" },
+  { label: "Schools Engaged", value: "81", description: "elementary, middle, and high schools represented across Illinois" },
+  { label: "Funding Raised", value: "$15,000+", description: "from 51 community partners, organizations, and sponsors" },
+  { label: "Student Staff", value: "129", description: "high school instructors, volunteers, and judges" },
+  { label: "Sessions Delivered", value: "35", description: "camp and workshop sessions run since 2024" },
+  { label: "Office Hours", value: "830", description: "hours of one-on-one mentoring logged with students" },
+  { label: "School Districts", value: "29", description: "public and private districts served across Chicagoland" },
+  { label: "Community Partners", value: "51", description: "organizations, sponsors, and in-kind supporters" }
 ];
 
 const programParticipation = [
@@ -292,14 +296,18 @@ const programParticipation = [
   { total: 30, label: "2025 DuPage Children's Business Fair workshops" },
   { total: 120, label: "2025 Entrepreneurship Camp" },
   { total: 70, label: "2025 Fish Tank competition" },
-  { total: 150, label: "2025 Naperville Children's Business Fair" }
+  { total: 150, label: "2025 Naperville Children's Business Fair" },
+  { total: 165, label: "2026 Entrepreneurship Camp" },
+  { total: 100, label: "2026 Fish Tank competition" },
+  { total: "100+", label: "2026 Naperville Children's Business Fair" }
 ];
 
 const schoolDirectory = [
   {
-    title: "High Schools (6)",
+    title: "High Schools (8)",
     items: [
-      "Naperville North", "Naperville Central", "Neuqua Valley", "Waubonsie Valley", "Benet", "Metea"
+      "Naperville North", "Naperville Central", "Neuqua Valley", "Waubonsie Valley", "Benet", "Metea",
+      "Glenbrook North", "Illinois Mathematics & Science Academy"
     ]
   },
   {
@@ -322,13 +330,22 @@ const schoolDirectory = [
       "River Woods", "Scott", "Southbury", "Springbrook", "Steeple Run", "Sts. Peter and Paul Catholic School",
       "Swift", "Wallin Oaks", "Walkers Grove", "Welch", "Wheatlands", "Wolf's Crossing", "Western Trails"
     ]
+  },
+  {
+    title: "School Districts (29)",
+    items: [
+      "203", "204", "Benet (Priv)", "299", "308", "Calvary (Priv)", "63", "202", "181", "33C", "95",
+      "54", "161", "96", "140", "125", "DuPage Montessori (Priv)", "13", "72", "15", "100", "58", "97",
+      "Kindi (Priv)", "60", "302", "National Christian Academy (Priv)",
+      "Sts. Peter and Paul Catholic School (Priv)", "93"
+    ]
   }
 ];
 
 const fundingSummary = [
-  { label: "Total Raised", value: "$15,000+", helper: "50+ organizations" },
-  { label: "Monetary Funding", value: "$12,062" },
-  { label: "In-kind Donations", value: "$3,038" }
+  { label: "Total Raised", value: "$15,000+", helper: "51 organizations" },
+  { label: "Monetary Funding", value: "$12,487" },
+  { label: "In-kind Donations", value: "$2,959" }
 ];
 
 const supporters = [
@@ -581,7 +598,7 @@ export default function AboutPage() {
             >
               <div className="px-8 py-6 border-b border-slate-100 flex flex-col gap-2">
                 <h3 className="text-2xl font-semibold text-black">Schools We Serve</h3>
-                <p className="text-black/60">Representation from elementary, middle, and high schools across the region</p>
+                <p className="text-black/60">Representation from elementary, middle, and high schools across 29 districts in the region</p>
               </div>
               <SchoolGallery schoolDirectory={schoolDirectory} />
             </motion.div>
@@ -899,7 +916,7 @@ function ImpactCard({ value, label, description, index }: { value: string; label
   );
 }
 
-function ProgramStat({ total, label }: { total: number; label: string }) {
+function ProgramStat({ total, label }: { total: number | string; label: string }) {
   return (
     <div className="flex items-start gap-4">
       <div className="w-12 h-12 rounded-xl bg-[#3AB6FF]/10 text-[#3AB6FF] font-bold text-lg flex items-center justify-center">{total}</div>

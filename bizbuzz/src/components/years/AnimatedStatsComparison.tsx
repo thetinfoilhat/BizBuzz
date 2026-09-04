@@ -115,16 +115,15 @@ export default function AnimatedStatsComparison() {
             delay={0}
           />
           <StatItem
-            label="Schools Reached"
-            value2024={data2024.kpis.schools}
-            value2025={data2025.kpis.schools}
+            label="Programs Run"
+            value2024={data2024.kpis.programsRun}
+            value2025={data2025.kpis.programsRun}
             delay={0.1}
           />
           <StatItem
-            label="Dollars Raised"
-            value2024={data2024.kpis.dollarsRaised || 0}
-            value2025={data2025.kpis.dollarsRaised || 0}
-            prefix="$"
+            label="Office Hours"
+            value2024={data2024.kpis.officeHours ?? 0}
+            value2025={data2025.kpis.officeHours ?? 0}
             delay={0.2}
           />
           <StatItem

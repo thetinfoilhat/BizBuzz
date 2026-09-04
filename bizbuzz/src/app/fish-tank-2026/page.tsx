@@ -127,6 +127,22 @@ export default function FishTank2026Page() {
         </div>
       </div>
 
+      {/* ── Stats Strip ── */}
+      <section className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16">
+        <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-[#a7f3d0]/50">
+          <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-[#a7f3d0]/40">
+            <div className="px-8 py-10 text-center">
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#064e3b] to-[#10b981] mb-3">100</div>
+              <div className="text-[#064e3b] font-medium text-lg">Competitors</div>
+            </div>
+            <div className="px-8 py-10 text-center">
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#064e3b] to-[#10b981] mb-3">2</div>
+              <div className="text-[#064e3b] font-medium text-lg">Competition Tracks</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Two Tracks Section ── */}
       <section className="py-20 px-4">
         <div className="max-w-5xl mx-auto">
@@ -142,7 +158,7 @@ export default function FishTank2026Page() {
               <span className="text-sm font-medium text-[#065f46]">2026 Season</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-[#064e3b] mb-4">Two Competitions. One Stage.</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Fish Tank 2026 will feature two separate tracks so every young entrepreneur competes against peers at their level.</p>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Fish Tank 2026 featured two separate tracks so every young entrepreneur competed against peers at their level.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -158,12 +174,12 @@ export default function FishTank2026Page() {
               <h3 className="text-2xl font-bold text-[#064e3b] mb-2">Kidpreneurs Track</h3>
               <p className="text-[#10b981] font-medium text-sm mb-4">For Kidpreneurs Camp students</p>
               <p className="text-gray-600 leading-relaxed flex-grow">
-                Built for our youngest entrepreneurs. Kidpreneurs camp students will pitch their business ideas in a supportive, beginner-friendly environment designed to build confidence and creativity.
+                Built for our youngest entrepreneurs. Kidpreneurs camp students pitched their business ideas in a supportive, beginner-friendly environment designed to build confidence and creativity.
               </p>
               <div className="mt-6 pt-6 border-t border-[#d1fae5]">
                 <span className="inline-flex items-center text-sm text-[#065f46] font-medium">
                   <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  More details coming soon
+                  Held Summer 2026
                 </span>
               </div>
             </motion.div>
@@ -180,12 +196,12 @@ export default function FishTank2026Page() {
               <h3 className="text-2xl font-bold text-[#064e3b] mb-2">Venture Lab Track</h3>
               <p className="text-[#10b981] font-medium text-sm mb-4">For Venture Lab students</p>
               <p className="text-gray-600 leading-relaxed flex-grow">
-                For students who have been through the full Venture Lab experience. Expect a more rigorous pitch format, deeper feedback from judges, and higher stakes as competitors go head-to-head.
+                For students who went through the full Venture Lab experience. A more rigorous pitch format, deeper feedback from judges, and higher stakes as competitors went head-to-head.
               </p>
               <div className="mt-6 pt-6 border-t border-[#d1fae5]">
                 <span className="inline-flex items-center text-sm text-[#065f46] font-medium">
                   <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  More details coming soon
+                  Held Summer 2026
                 </span>
               </div>
             </motion.div>
