@@ -275,7 +275,7 @@ const PEOPLE = {
 const impactStats = [
   { label: "Students Taught", value: "1,584+", description: "across camps, competitions, and workshops since 2024" },
   { label: "Schools Engaged", value: "81", description: "elementary, middle, and high schools represented across Illinois" },
-  { label: "Funding Raised", value: "$15,446", description: "from 51 community partners, organizations, and sponsors" },
+  { label: "Funding Raised", value: "$15,000+", description: "from 51 community partners, organizations, and sponsors" },
   { label: "Student Staff", value: "129", description: "high school instructors, volunteers, and judges" },
   { label: "Sessions Delivered", value: "35", description: "camp and workshop sessions run since 2024" },
   { label: "Office Hours", value: "830", description: "hours of one-on-one mentoring logged with students" },
@@ -343,7 +343,7 @@ const schoolDirectory = [
 ];
 
 const fundingSummary = [
-  { label: "Total Raised", value: "$15,446", helper: "51 organizations" },
+  { label: "Total Raised", value: "$15,000+", helper: "51 organizations" },
   { label: "Monetary Funding", value: "$12,487" },
   { label: "In-kind Donations", value: "$2,959" }
 ];
