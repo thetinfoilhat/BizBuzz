@@ -114,9 +114,9 @@ export default function DualYearBand() {
                     </div>
                     <div className="text-center">
                       <div className="text-4xl font-bold text-[#38b6ff]">
-                        {years[2024].data.kpis.schools}
+                        {years[2024].data.kpis.programsRun}
                       </div>
-                      <div className="text-sm text-gray-600 font-medium">Schools</div>
+                      <div className="text-sm text-gray-600 font-medium">Programs</div>
                     </div>
                     <div className="text-center">
                       <div className="text-4xl font-bold text-[#38b6ff]">
@@ -182,9 +182,9 @@ export default function DualYearBand() {
                     </div>
                     <div className="text-center">
                       <div className="text-4xl font-bold text-[#FFBF00]">
-                        {years[2025].data.kpis.schools}
+                        {years[2025].data.kpis.programsRun}
                       </div>
-                      <div className="text-sm text-gray-600 font-medium">Schools</div>
+                      <div className="text-sm text-gray-600 font-medium">Programs</div>
                     </div>
                     <div className="text-center">
                       <div className="text-4xl font-bold text-[#FFBF00]">
@@ -247,9 +247,9 @@ export default function DualYearBand() {
                   <tbody className="divide-y divide-gray-100">
                     {[
                       { label: 'Students', key: 'students' },
-                      { label: 'Schools', key: 'schools' },
-                      { label: 'Sessions', key: 'sessions' },
                       { label: 'Programs Run', key: 'programsRun' },
+                      { label: 'Sessions', key: 'sessions' },
+                      { label: 'Office Hours', key: 'officeHours' },
                       { label: 'Attendance', key: 'attendance' }
                     ].map((row, idx) => {
                       const kpis2024 = years[2024].data.kpis as Record<string, number>;

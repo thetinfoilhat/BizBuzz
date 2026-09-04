@@ -9,6 +9,7 @@ This guide explains how to update year-specific data for the BizBuzz website. Al
 /data/years/
   ├── 2024.json
   ├── 2025.json
+  ├── 2026.json
   └── [future years].json
 ```
 
@@ -20,7 +21,7 @@ Each year file follows this structure:
 
 ```json
 {
-  "year": 2024,                    // The year (2024 or 2025)
+  "year": 2024,                    // The season year
   "summary": "string",             // 1-2 sentence summary of the year
   "kpis": { ... },                 // Key performance indicators
   "programs": [ ... ],             // Array of programs/events
@@ -36,15 +37,20 @@ Each year file follows this structure:
 
 ```json
 "kpis": {
-  "students": 936,                 // Total students taught
-  "schools": 79,                   // Number of schools reached
-  "sessions": 410,                 // Total sessions delivered
-  "programsRun": 14,               // Number of distinct programs
-  "attendance": 1100,              // Cumulative attendance across all events
+  "students": 720,                 // Total students taught that season
+  "sessions": 18,                  // Total sessions delivered
+  "programsRun": 13,               // Number of distinct programs
+  "attendance": 720,               // Cumulative attendance across all events
+  "officeHours": 381,              // Optional: one-on-one mentoring hours
+  "schools": 79,                   // Optional: only when tracked per season
   "dollarsRaised": 10242,          // Optional: Total funds raised
   "pressMentions": 5,              // Optional: Press coverage count
   "volunteers": 60                 // Optional: Number of volunteers
 }
+
+Only `students`, `sessions`, `programsRun`, and `attendance` are required. Leave the
+optional fields out rather than guessing — `schools` and `dollarsRaised` are tracked
+cumulatively across all seasons on `/about`, not per year.
 ```
 
 ### Program Events Array
@@ -153,8 +159,8 @@ Simply edit the numbers in the `kpis` object:
 
 ```json
 "kpis": {
-  "students": 1250,     // Updated from 1200
-  "schools": 100,       // Updated from 95
+  "students": 365,      // Updated from 340
+  "sessions": 6,        // Updated from 5
   ...
 }
 ```
@@ -223,7 +229,8 @@ After updating a year file:
 3. Update the `year` field to `2026`
 4. Update all data fields
 5. Clear out `programs`, `timeline`, `stories`, etc. if starting fresh
-6. Update the website code to recognize the new year (TypeScript types may need updating)
+6. Register the year in `/src/lib/yearConfig.ts`, `/src/app/years/page.tsx`,
+   `/src/app/years/[year]/page.tsx`, `/src/app/years/[year]/metadata.ts`, and `/src/app/sitemap.ts`
 
 ## Common Mistakes to Avoid
 
@@ -244,9 +251,9 @@ After updating a year file:
 For questions about data structure or technical issues, contact the development team or refer to:
 - `/src/types/years.ts` for TypeScript type definitions
 - `/src/app/years/[year]/page.tsx` for how data is rendered
-- `/src/app/compare/2024-vs-2025/page.tsx` for comparison logic
+- `/src/app/about/page.tsx` for the cumulative, all-season impact numbers
 
 ---
 
-*Last updated: October 2025*
+*Last updated: September 2026*
 

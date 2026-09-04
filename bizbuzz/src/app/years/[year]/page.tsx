@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import data2024 from '@/../data/years/2024.json';
 import data2025 from '@/../data/years/2025.json';
+import data2026 from '@/../data/years/2026.json';
 import InteractiveTimeline from '@/components/years/InteractiveTimeline';
 import LightboxGallery from '@/components/shared/LightboxGallery';
 import PressCard from '@/components/shared/PressCard';
@@ -15,7 +16,8 @@ import type { YearData, ProgramKind } from '@/types/years';
 
 const datasets: Record<string, YearData> = {
   '2024': data2024 as YearData,
-  '2025': data2025 as YearData
+  '2025': data2025 as YearData,
+  '2026': data2026 as YearData
 };
 
 const yearThemes = {
@@ -36,13 +38,22 @@ const yearThemes = {
     lightBg: "bg-amber-50",
     lightText: "text-amber-900",
     darkText: "text-[#CD8F20]"
+  },
+  2026: {
+    accentColor: "#10b981",
+    gradient: "from-[#064e3b] via-[#065f46] to-[#10b981]",
+    bgGradient: "from-emerald-50 to-white",
+    watermark: "'26",
+    lightBg: "bg-emerald-50",
+    lightText: "text-emerald-900",
+    darkText: "text-[#064e3b]"
   }
 };
 
 export default function YearPage() {
   const params = useParams();
   const yearParam = params?.year as string;
-  const year = yearParam === '2024' ? 2024 : 2025;
+  const year = yearParam === '2024' ? 2024 : yearParam === '2026' ? 2026 : 2025;
   const data = datasets[yearParam];
   const theme = yearThemes[year];
 
@@ -179,9 +190,9 @@ export default function YearPage() {
                   className="text-5xl font-bold mb-2"
                   style={{ color: theme.accentColor }}
                 >
-                  {data.kpis.schools}
+                  {data.kpis.sessions}
                 </div>
-                <div className="text-gray-700 font-medium">Schools</div>
+                <div className="text-gray-700 font-medium">Sessions</div>
               </div>
 
               <div className="text-center">
@@ -199,53 +210,12 @@ export default function YearPage() {
                   className="text-5xl font-bold mb-2"
                   style={{ color: theme.accentColor }}
                 >
-                  ${data.kpis.dollarsRaised?.toLocaleString() || 0}
+                  {data.kpis.officeHours?.toLocaleString() ?? 0}
                 </div>
-                <div className="text-gray-700 font-medium">Raised</div>
+                <div className="text-gray-700 font-medium">Office Hours</div>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
-              <div className="text-center">
-                <div 
-                  className="text-4xl font-bold mb-2"
-                  style={{ color: theme.accentColor }}
-                >
-                  {data.kpis.sessions}
-                </div>
-                <div className="text-gray-700 font-medium text-sm">Total Sessions</div>
-              </div>
-
-              <div className="text-center">
-                <div 
-                  className="text-4xl font-bold mb-2"
-                  style={{ color: theme.accentColor }}
-                >
-                  {data.kpis.attendance?.toLocaleString() || 0}
-                </div>
-                <div className="text-gray-700 font-medium text-sm">Attendance</div>
-              </div>
-
-              <div className="text-center">
-                <div 
-                  className="text-4xl font-bold mb-2"
-                  style={{ color: theme.accentColor }}
-                >
-                  {data.kpis.volunteers || 0}
-                </div>
-                <div className="text-gray-700 font-medium text-sm">Volunteers</div>
-              </div>
-
-              <div className="text-center">
-                <div 
-                  className="text-4xl font-bold mb-2"
-                  style={{ color: theme.accentColor }}
-                >
-                  {data.kpis.pressMentions || 0}
-                </div>
-                <div className="text-gray-700 font-medium text-sm">Press Mentions</div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import data2024 from '@/../data/years/2024.json';
 import data2025 from '@/../data/years/2025.json';
+import data2026 from '@/../data/years/2026.json';
 
 const years = [
   {
@@ -20,6 +21,13 @@ const years = [
     gradient: "from-[#CD8F20] via-[#E69F16] to-[#FFBF00]",
     bgGradient: "from-amber-50 to-white",
     watermark: "'25"
+  },
+  {
+    ...data2026,
+    accentColor: "#10b981",
+    gradient: "from-[#064e3b] via-[#065f46] to-[#10b981]",
+    bgGradient: "from-emerald-50 to-white",
+    watermark: "'26"
   }
 ];
 
@@ -98,9 +106,9 @@ export default function YearsIndexPage() {
                             className="text-5xl font-bold mb-2"
                             style={{ color: yearData.accentColor }}
                           >
-                            {yearData.kpis.schools}
+                            {yearData.kpis.programsRun}
                           </div>
-                          <div className="text-gray-700 font-medium">Schools</div>
+                          <div className="text-gray-700 font-medium">Programs</div>
                         </div>
 
                         <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
@@ -108,9 +116,9 @@ export default function YearsIndexPage() {
                             className="text-5xl font-bold mb-2"
                             style={{ color: yearData.accentColor }}
                           >
-                            ${yearData.kpis.dollarsRaised?.toLocaleString() || 0}
+                            {yearData.kpis.officeHours?.toLocaleString() ?? 0}
                           </div>
-                          <div className="text-gray-700 font-medium">Raised</div>
+                          <div className="text-gray-700 font-medium">Office Hours</div>
                         </div>
 
                         <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
