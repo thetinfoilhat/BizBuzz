@@ -85,7 +85,7 @@ const ImageGallery = () => {
             </h2>
             <div className="text-base md:text-lg text-gray-600 space-y-4">
               <p>
-                BizBuzz NFP is currently seeking 501(c)(3) nonprofit status in Naperville, Illinois. Built on the belief that every student deserves access to entrepreneurial education that helps them find their ideas—and the confidence to share them—we offer a completely free platform designed by students, for students. In a city where 90% of K-8 schools offer no business education, we set out in April 2024 to change that.
+                Built on the belief that every student deserves access to entrepreneurial education that helps them find their ideas—and the confidence to share them—we offer a completely free platform designed by students, for students. In a city where 90% of K-8 schools offer no business education, we set out in April 2024 to change that.
               </p>
       
               <p className="font-bold">

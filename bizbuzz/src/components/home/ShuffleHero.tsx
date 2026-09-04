@@ -88,11 +88,8 @@ const ShuffleHero = () => {
     <section className="w-full px-4 md:px-8 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 items-center gap-12 max-w-7xl mx-auto">
       <div>
         <span className="inline-block mb-2 px-4 py-2 bg-indigo-100 text-[#040037] font-medium rounded-full text-sm md:text-base">
-          501(c)(3) Non-Profit Organization*
+          501(c)(3) Non-Profit Organization
         </span>
-        <p className="mb-6 text-sm md:text-base text-black">
-          *BizBuzz is currently seeking 501(c)(3) status.
-        </p>
         <h1 className="text-6xl md:text-8xl font-bold text-[#040037] tracking-tight leading-[1] mb-6">
           BizBuzz <span className="text-[#38b6ff]">NFP</span>
         </h1>
