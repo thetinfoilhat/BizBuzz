@@ -11,7 +11,7 @@ const nextConfig = {
       ...years("/fish-tank", ["2024", "2025", "2026"]),
       { source: "/sessions", destination: "/office-hours", permanent: true },
       { source: "/years", destination: "/seasons", permanent: true },
-      { source: "/years/:year", destination: "/seasons", permanent: true },
+      { source: "/years/:year", destination: "/seasons#:year", permanent: true },
     ];
   },
 };

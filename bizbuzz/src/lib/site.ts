@@ -63,9 +63,9 @@ export const FOOTER_COLUMNS = [
     title: "By season",
     links: [
       { label: "2027", href: "/camps#2027" },
-      { label: "2026", href: "/seasons" },
-      { label: "2025", href: "/seasons" },
-      { label: "2024", href: "/seasons" },
+      { label: "2026", href: "/seasons#2026" },
+      { label: "2025", href: "/seasons#2025" },
+      { label: "2024", href: "/seasons#2024" },
     ],
   },
   {
